@@ -6,6 +6,7 @@ export class User {
     password: string; //
     firstName: string; // Name of the person
     lastName: string;  // surname of person
+    // Company Information
     tradingName: string; // Trading Name of company
     registeredCompanyName: string;
     registrationNumber: string;
@@ -15,6 +16,7 @@ export class User {
     faxNo: string;
     website: string;
     vatNumber: string;
+    // Correspondecne
     accPersonName: string;
     accPersonNo: string;
     accPersonFaxNo: string;
@@ -23,9 +25,5 @@ export class User {
     salesPersonNo: string;
     salesPersonEmail: string;
     salesPersonFaxNo: string;
-    termsOfSupply: File;
-
-
-
-
+    documents: File;
 }

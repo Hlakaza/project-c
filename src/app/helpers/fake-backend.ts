@@ -29,12 +29,29 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
                 if (filteredUsers.length) {
                     // if login details are valid return 200 OK with user details and fake jwt token
-                    let user = filteredUsers[0];
-                    let body = {
+                    const user = filteredUsers[0];
+                    const body = {
                         id: user.id,
                         username: user.username,
                         firstName: user.firstName,
                         lastName: user.lastName,
+                        tradingName: user.tradingName,
+                        registeredCompanyName: user.registeredCompanyName,
+                        registrationNumber: user.registrationNumber,
+                        physicalAddress: user.physicalAddress,
+                        postalAddress: user.postalAddress,
+                        tel: user.tel,
+                        faxNo: user.faxNo,
+                        website: user.website,
+                        vatNumber: user.vatNumber,
+                        accPersonName: user.accPersonName,
+                        accPersonNo: user.accPersonNo,
+                        accPersonFaxNo: user.accPersonFaxNo,
+                        accPersonEmail: user.accPersonEmail,
+                        salesPersonName: user.salesPersonName,
+                        salesPersonNo: user.salesPersonNo,
+                        salesPersonEmail: user.salesPersonEmail,
+                        salesPersonFaxNo: user.salesPersonFaxNo,
                         token: 'fake-jwt-token'
                     };
 
