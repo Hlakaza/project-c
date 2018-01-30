@@ -2,4 +2,7 @@
 
 // <!-- Latest compiled and minified CSS -->
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+@import 'styles/core/variables';
+@import 'styles/core/mixins';
 @import 'styles/modules/tabs';
+@import 'styles/modules/login';
