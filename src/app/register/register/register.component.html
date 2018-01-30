@@ -1,0 +1,36 @@
+<app-tabs #t [stepper]=true>
+    <app-tab title="1">
+        <app-reg-step-1 (switchStep)="stepChange($event)" (regValues)="regValues($event)"></app-reg-step-1>
+        <div class="row">
+            <div class="col-twelve grid text-center">
+                <button class="btn btn-primary btn-reg" (click)="t.selectTab(1)" [disabled]="!(currentStep >= 2)">{{resourceStrings?.Next || 'Next'}}</button>
+            </div>
+        </div>
+    </app-tab>
+    <app-tab title="2" [disabled]="!(currentStep >= 2)">
+        <app-reg-step-2 (switchStep)="stepChange($event)" (regValues)="regValues($event)"></app-reg-step-2>
+        <div class="row">
+            <div class="col-twelve grid text-center">
+                <!-- <button class="btn btn-primary" (click)="t.selectTab(0)">Back</button> -->
+                <button class="btn btn-primary btn-reg" (click)="t.selectTab(2)" [disabled]="!(currentStep >= 3)">{{resourceStrings?.Next || 'Next'}}</button>
+            </div>
+        </div>
+    </app-tab>
+    <app-tab title="3" [disabled]="!(currentStep >= 3)" >
+        <app-reg-step-3 (switchStep)="stepChange($event)" (regValues)="regValues($event)"></app-reg-step-3>
+        <div class="row">
+            <div class="col-twelve grid text-center">
+                <!-- <button class="btn btn-primary" (click)="t.selectTab(1)">Back</button> -->
+                <button class="btn btn-primary btn-reg" (click)="t.selectTab(3)" [disabled]="!(currentStep >= 4)">{{resourceStrings?.Next || 'Next'}}</button>
+            </div>
+        </div>
+    </app-tab>
+    <app-tab title="4" [disabled]="!(currentStep >= 4)">
+        <app-reg-step-4 (regValues)="regValues($event)" (switchStep)="stepChange($event)"></app-reg-step-4>
+        <div class="row">
+            <div class="col-twelve grid text-center">
+                <button type="button" class="btn btn-primary btn-reg" (click)="submit()" [disabled]="!(currentStep !== 5)">{{resourceStrings?.Submit || 'Submit'}}</button>
+            </div>
+        </div>
+    </app-tab>
+</app-tabs>

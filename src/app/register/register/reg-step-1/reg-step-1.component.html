@@ -1,0 +1,121 @@
+<form [formGroup]="regStep">
+  <div class="row ">
+    <div class="col-twelve grid">
+      <div class="reg-header-width">
+        <p class="display-block spacing-bottom">
+          {{resourceStrings?.AlreadyHave || 'Already have an account?'}}
+          <button class="btn-link" (click)="openLogin()">{{resourceStrings?.Login || 'login'}}</button>
+        </p>
+        <h3>{{resourceStrings?.PersonalData || 'Personal Data'}}</h3>
+      </div>
+    </div>
+    <div class="col-six grid">
+      <div class="row reg-input-width">
+        <div class="col-twelve grid">
+          <label for="FirstName">{{resourceStrings?.Name || 'Name'}}:</label>
+          <input formControlName="FirstName" name="FirstName" type="text" />
+          <p class="form-text-danger" *ngIf="regStep.get('FirstName').hasError('required') && regStep.get('FirstName').touched">
+            {{resourceStrings?.PleaseEnterFirstName || 'Please enter your first name.'}}
+          </p>
+          <label for="LastName">{{resourceStrings?.Surname || 'Surname'}}:</label>
+          <input formControlName="LastName" name="LastName" type="text" />
+          <p class="form-text-danger" *ngIf="regStep.get('LastName').hasError('required') && regStep.get('LastName').touched">
+            {{resourceStrings?.PleaseEnterSurname || 'Please enter your surname.'}}
+          </p>
+        </div>
+      </div>
+      <div class="row reg-input-width">
+        <p class="col-twelve grid">{{resourceStrings?.DateOfBirth|| 'Date of Birth:'}}</p>
+        <label for="DOBDay" class="col-four grid xs">
+         <span class="input-group">
+            <select class="option-padding" formControlName="DOBDay" name="DOBDay">
+                <option *ngFor="let day of dobDayArr" [value]="day">{{day}}</option>
+              </select>
+              <span class="btn-input-dropdown"></span>
+              <span class="select-label">{{resourceStrings?.Day|| 'Day' | slice:0:1 }}</span>
+         </span>
+        </label>
+
+        <label for="DOBMonth" class="col-four grid xs">
+        <span class="input-group">
+            <select  class="option-padding" formControlName="DOBMonth" name="DOBMonth">
+                <option *ngFor="let month of dobMonthArr" [value]="month">{{month}}</option>
+              </select>
+              <span class="btn-input-dropdown"></span>
+              <span class="select-label">{{resourceStrings?.Month|| 'Month' | slice:0:1 }}</span>
+        </span>
+        </label>
+        <label for="DOBYear" class="col-four grid xs">
+         <span class="input-group">
+            <select  class="option-padding" formControlName="DOBYear" name="DOBYear">
+                <option *ngFor="let year of dobYearArr" [value]="year">{{year}}</option>
+              </select>
+              <span class="btn-input-dropdown"></span>
+              <span class="select-label">{{resourceStrings?.Year|| 'Year' | slice:0:1 }}</span>
+         </span>
+        </label>
+        <p class="col-twelve grid form-text-danger" *ngIf="(regStep.get('DOBDay').hasError('required') && regStep.get('DOBDay').touched) || (regStep.get('DOBMonth').hasError('required') && regStep.get('DOBMonth').touched) || (regStep.get('DOBYear').hasError('required') && regStep.get('DOBYear').touched)">
+          {{resourceStrings?.PleaseEnterDOB|| 'Please enter your date of birth.' }}
+        </p>
+        <label class="col-twelve grid" for="CountryOfBirth">{{resourceStrings?.CountryOfBirth|| 'Country of Birth' }}</label>
+        <span class="col-twelve grid">
+          <ng-container *ngIf="!countriesLoad; else emptyBar">
+           <span class="input-group">
+              <select formControlName="CountryOfBirth" name="CountryOfBirth">
+                  <option *ngFor="let country of countryList" [value]="country.CC3">{{country.CN}}</option>
+                </select>
+                <span class="btn-input-dropdown"></span>
+           </span>
+          </ng-container>
+        </span>
+        <ng-template #emptyBar>
+         <span class="input-group">
+            <select>
+                <option>
+                    <!-- <app-loader *ngIf="loading" class="icon-loader-wrapper">{{resourceStrings?.Login}}</app-loader> -->
+                </option>
+              </select>
+              <span class="btn-input-dropdown"></span>
+         </span>
+        </ng-template>
+
+      </div>
+    </div>
+    <div class="col-six grid">
+      <div class="row reg-input-width">
+        <div class="col-twelve grid">
+          <label for="ProvinceOfBirth">{{resourceStrings?.ProvinceOfBirth|| 'Province Of Birth' }}</label>
+          <ng-container *ngIf="!provincesLoad; else emptyBar">
+          <span class="input-group">
+              <select formControlName="ProvinceOfBirth" name="ProvinceOfBirth">
+                  <option *ngFor="let province of provinceList" [value]="province.PC">{{province.PN}}</option>
+                </select>
+                <span class="btn-input-dropdown"></span>
+          </span>
+          </ng-container>
+          <span class="form-text-danger" *ngIf="regStep.get('ProvinceOfBirth').hasError('required') && regStep.get('ProvinceOfBirth').touched">
+            {{resourceStrings?.PleaseEnterPOB|| 'Select a province of birth if your country of birth is Italy' }}
+          </span>
+          <label for="CityOfBirth">{{resourceStrings?.CityOfBirth|| 'City Of Birth' }}</label>
+          <ng-container *ngIf="!cityLoad; else emptyBar">
+        <span class="input-group">
+            <select formControlName="CityOfBirth" name="CityOfBirth">
+                <option *ngFor="let city of cityList" [value]="city.Code">{{city.Name}}</option>
+              </select>
+              <span class="btn-input-dropdown"></span>
+        </span>
+          </ng-container>
+          <label for="CodiceFiscale">Codice Fiscale</label>
+          <span class="input-group">
+            <input formControlName="CodiceFiscale" name="CodiceFiscale" type="text" />
+            <button class="btn btn-input disabled">EDIT</button>
+          </span>
+          <span class="form-text-danger" *ngIf="regStep.get('CodiceFiscale').hasError('required') && regStep.get('CodiceFiscale').touched">
+            {{resourceStrings?.PleaseEnterCodice|| 'Enter the 16 digit code assigned to you by the Italian Authorities' }}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</form>
