@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
+    selector: 'app-login',
     moduleId: module.id.toString(),
     templateUrl: 'login.component.html'
 })
