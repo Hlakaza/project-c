@@ -18,6 +18,7 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
+import { MasterComponent } from './components/master/master.component';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { TabComponent } from './components/tabs/tab.component';
         LoginComponent,
         RegisterComponent,
         TabsComponent,
-        TabComponent
+        TabComponent,
+        MasterComponent
     ],
     providers: [
         AuthGuard,

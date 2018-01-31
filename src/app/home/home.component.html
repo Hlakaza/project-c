@@ -1,27 +1,36 @@
-﻿<div class="col-md-6 col-md-offset-3">
-    <h1>Hi {{currentUser.tradingName}}!</h1>
-
-    <ul>
-        <li *ngFor="let user of users">
-            Your details below;
-            <h2>{{user.registeredCompanyName}}</h2>
-            <h2>{{user.registrationNumber}}</h2>
-            <h2>{{user.physicalAddress}}</h2>
-            <h2>{{user.postalAddress}}</h2>
-            <h2>{{user.tel}}</h2>
-            <h2>{{user.faxNo}}</h2>
-            <h2>{{user.website}}</h2>
-            <h2>{{user.vatNumber}}</h2>
-            <h2>{{user.accPersonName}}</h2>
-            <h2>{{user.accPersonNo}}</h2>
-            <h2>{{user.accPersonFaxNo}}</h2>
-            <h2>{{user.accPersonEmail}}</h2>
-            <h2>{{user.salesPersonName}}</h2>
-            <h2>{{user.salesPersonEmail}}</h2>
-            <h2>{{user.salesPersonFaxNo}}</h2>
-            <h2>{{user.documents}}</h2>
-            <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
-        </li>
-    </ul>
-    <p><a [routerLink]="['/login']">Logout</a></p>
+﻿<div class="row">
+    <div class="col-md-8">
+        <div class="col-6 card">
+            <p>Hi {{currentUser.username}}</p>
+            <p>{{currentUser.registeredCompanyName}}</p>
+            <p>{{currentUser.registrationNumber}}</p>
+            <p>{{currentUser.physicalAddress}}</p>
+            <p>{{currentUser.postalAddress}}</p>
+            <p>{{currentUser.tel}}</p>
+            <p>{{currentUser.faxNo}}</p>
+            <p>{{currentUser.website}}</p>
+            <p>{{currentUser.vatNumber}}</p>
+            <p>{{currentUser.accPersonName}}</p>
+            <p>{{currentUser.accPersonNo}}</p>
+            <p>{{currentUser.accPersonFaxNo}}</p>
+            <p>{{currentUser.accPersonEmail}}</p>
+            <p>{{currentUser.salesPersonName}}</p>
+            <p>{{currentUser.salesPersonEmail}}</p>
+            <p>{{currentUser.salesPersonFaxNo}}</p>
+            <p>{{currentUser.documents}}</p>
+            <ul>
+                <li *ngFor="let user of users">
+                    {{user.username}}
+                    <!-- <button class="btn btn-danger" ></button> -->
+                    <button type="button" (click)="deleteUser(user.id)" class="btn btn-primary">Delete</button>
+                </li>
+            </ul>
+            <p><a [routerLink]="['/login']">Logout</a></p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">.col-md-6</div>
+            <div class="col-md-6">.col-md-6</div>
+        </div>
+    </div>
+    <div class="col-md-4">.col-md-4</div>
 </div>

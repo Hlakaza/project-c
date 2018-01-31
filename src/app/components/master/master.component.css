@@ -1,0 +1,54 @@
+.top-nav-collapse {
+    background-color: #82b1ff !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+    background: #fff !important;
+}
+
+.navbar-brand {
+    padding: 0;
+    max-width: 160px;
+}
+
+.navbar.scrolling-navbar {
+    padding-top: 0;
+    padding-bottom: 5px
+}
+
+.logo {
+    width: 100%
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        padding: 0;
+        max-width: 120px;
+    }
+}
+
+h5 {
+    letter-spacing: 3px;
+}
+
+.jarallax {
+    height: 1000px;
+}
+
+@media (max-width: 740px) {
+    .jarallax {
+        height: 300px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1025px) {
+    .jarallax {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        max-width: 85px;
+    }
+}

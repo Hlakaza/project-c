@@ -1,9 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 // <!-- Latest compiled and minified CSS -->
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+@import 'styles/mdb/bootstrap';
+@import 'styles/mdb/mdb';
 @import 'styles/core/variables';
 @import 'styles/core/mixins';
 @import 'styles/modules/tabs';
 @import 'styles/modules/login';
 @import 'styles/modules/helpers';
+.btn {
+    font-size: .8rem;
+    padding: .85rem 2.13rem;
+    margin: 6px;
+    border-radius: 2px;
+    border: 0;
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    text-transform: uppercase;
+    white-space: normal!important;
+    word-wrap: break-word;
+    cursor: pointer;
+}
