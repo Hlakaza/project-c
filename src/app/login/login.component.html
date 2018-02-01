@@ -9,7 +9,52 @@
         </div>
     </nav>
     <div class="container pad-top-header">
-        <div class="row flex-center">
+
+        <section class="flex-center">
+
+
+            <div class="card" style="width: 28rem;">
+                <div class="card-body">
+                    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+                        <!--Header-->
+                        <div class="form-header default-color">
+                            <h3><i class="fa fa-lock"></i> Login:</h3>
+                        </div>
+                        <alert></alert>
+                        <!--Body-->
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="text" id="defaultForm-email" class="form-control">
+                            <label for="defaultForm-email">Your email</label>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input type="password" id="defaultForm-pass" class="form-control">
+                            <label for="defaultForm-pass">Your password</label>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-default waves-effect waves-light">Login</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer">
+                    <div class="options">
+                        <p>Not a member? <a href="#">Sign Up</a></p>
+                        <p>Forgot <a href="#">Password?</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- <div class="row flex-center">
             <div class="col-6 card flex-center">
                 <alert></alert>
                 <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
@@ -29,8 +74,8 @@
                         />
                         <a [routerLink]="['/register']" class="btn btn-link">Register</a>
                     </div>
-                </form>
+                </form> 
             </div>
-        </div>
+        </div> -->
     </div>
 </header>

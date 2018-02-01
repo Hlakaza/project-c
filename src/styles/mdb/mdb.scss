@@ -1,1 +1,19 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css);
+@media (min-width: 768px) {
+    .col-md-12 {
+        -ms-flex: auto;
+        -webkit-box-flex: auto;
+        -webkit-flex: auto;
+        flex: auto;
+        max-width: 100%;
+    }
+}
+
+.form-header {
+    color: #fff;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border-radius: 2px;
+}
