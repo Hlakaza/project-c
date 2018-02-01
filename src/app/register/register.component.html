@@ -9,165 +9,76 @@
         </div>
     </nav>
     <div class="container pad-top-header">
-        <div class="row flex-center">
-            <div class="col-8">
+        <div class="flex-center">
+            <div class="card">
+                <div class="card-body">
+                    <!--Header-->
+                    <div class="form-header bg-deep-orange ">
+                        <h3><i class="fa fa-user"></i> RGISTER:</h3>
+                    </div>
+                    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                        <app-tabs [vertical]="true">
+                            <app-tab title="Company Information">
+                                <!-- Reg step 1 -->
+                                <app-reg-step-one></app-reg-step-one>
+                            </app-tab>
+                            <app-tab title="Correspondence">
 
-                <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-                    <app-tabs [vertical]="true">
-                        <app-tab title="Company Information">
+                                <h2 class="marg-top-none">Correspondence</h2>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonName.valid }">
+                                    <label for="accPersonName">Accounts Person</label>
+                                    <input type="text" class="form-control" name="accPersonName" [(ngModel)]="model.accPersonName" #accPersonName="ngModel" required />
+                                    <div *ngIf="f.submitted && !accPersonName.valid" class="help-block">Accounts Person Name is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonNo.valid }">
+                                    <label for="accPersonNo">Accounts Person No</label>
+                                    <input type="text" class="form-control" name="accPersonNo" [(ngModel)]="model.accPersonNo" #accPersonNo="ngModel" required />
+                                    <div *ngIf="f.submitted && !accPersonNo.valid" class="help-block">Accounts Person No is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonFaxNo.valid }">
+                                    <label for="accPersonFaxNo">Fax No</label>
+                                    <input type="text" class="form-control" name="accPersonFaxNo" [(ngModel)]="model.accPersonFaxNo" #accPersonFaxNo="ngModel" required />
+                                    <div *ngIf="f.submitted && !accPersonFaxNo.valid" class="help-block">Accounts Person`s Fax is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonEmail.valid }">
+                                    <label for="accPersonEmail">Email</label>
+                                    <input type="text" class="form-control" name="accPersonEmail" [(ngModel)]="model.accPersonEmail" #accPersonEmail="ngModel" required />
+                                    <div *ngIf="f.submitted && !accPersonEmail.valid" class="help-block">Accounts Person Email is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonName.valid }">
+                                    <label for="salesPersonName">Sales Person Name</label>
+                                    <input type="text" class="form-control" name="salesPersonName" [(ngModel)]="model.salesPersonName" #salesPersonName="ngModel" required />
+                                    <div *ngIf="f.submitted && !salesPersonName.valid" class="help-block">Sales Person Name is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonNo.valid }">
+                                    <label for="salesPersonNo">Sales Person No</label>
+                                    <input type="text" class="form-control" name="salesPersonNo" [(ngModel)]="model.salesPersonNo" #salesPersonNo="ngModel" required />
+                                    <div *ngIf="f.submitted && !salesPersonNo.valid" class="help-block">Sales Person No is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonFaxNo.valid }">
+                                    <label for="salesPersonFaxNo">Fax No</label>
+                                    <input type="text" class="form-control" name="salesPersonFaxNo" [(ngModel)]="model.salesPersonFaxNo" #salesPersonFaxNo="ngModel" required />
+                                    <div *ngIf="f.submitted && !salesPersonFaxNo.valid" class="help-block">Sales Person Fax is required</div>
+                                </div>
+                                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonEmail.valid }">
+                                    <label for="salesPersonEmail">Email</label>
+                                    <input type="text" class="form-control" name="salesPersonEmail" [(ngModel)]="model.salesPersonEmail" #salesPersonEmail="ngModel" required />
+                                    <div *ngIf="f.submitted && !salesPersonEmail.valid" class="help-block">Sales Person Email is required</div>
+                                </div>
 
-                            <h2 class="marg-top-none">Company Information</h2>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tradingName.valid }">
-                                <label for="tradingName">Trading Name</label>
-                                <input type="text" class="form-control" name="tradingName" [(ngModel)]="model.tradingName" #tradingName="ngModel" required />
-                                <div *ngIf="f.submitted && !tradingName.valid" class="help-block">Trading Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !registeredCompanyName.valid }">
-                                <label for="registeredCompanyName">Company Name</label>
-                                <input type="text" class="form-control" name="registeredCompanyName" [(ngModel)]="model.registeredCompanyName" #registeredCompanyName="ngModel" required />
-                                <div *ngIf="f.submitted && !registeredCompanyName.valid" class="help-block">Company Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !registrationNumber.valid }">
-                                <label for="registrationNumber">Registration Number</label>
-                                <input type="text" class="form-control" name="registrationNumber" [(ngModel)]="model.registrationNumber" #registrationNumber="ngModel" required />
-                                <div *ngIf="f.submitted && !registrationNumber.valid" class="help-block">Registration Number is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !physicalAddress.valid }">
-                                <label for="physicalAddress">Physical Address</label>
-                                <textarea type="text" class="form-control" name="physicalAddress" [(ngModel)]="model.physicalAddress" #physicalAddress="ngModel" required></textarea>
-                                <div *ngIf="f.submitted && !physicalAddress.valid" class="help-block">Physical Address is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !postalAddress.valid }">
-                                <label for="postalAddress">Postal Address</label>
-                                <textarea type="text" class="form-control" name="postalAddress" [(ngModel)]="model.postalAddress" #postalAddress="ngModel" required> </textarea>
-                                <div *ngIf="f.submitted && !postalAddress.valid" class="help-block">Postal Address is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tel.valid }">
-                                <label for="tel">Business Tel</label>
-                                <input type="tel" class="form-control" name="tel" [(ngModel)]="model.tel" #tel="ngModel" required />
-                                <div *ngIf="f.submitted && !tel.valid" class="help-block">Tel Number is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !faxNo.valid }">
-                                <label for="faxNo">Fax No</label>
-                                <input type="text" class="form-control" name="faxNo" [(ngModel)]="model.faxNo" #faxNo="ngModel" required />
-                                <div *ngIf="f.submitted && !faxNo.valid" class="help-block">Fax is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !website.valid }">
-                                <label for="website">Website</label>
-                                <input type="text" class="form-control" name="website" [(ngModel)]="model.website" #website="ngModel" required />
-                                <div *ngIf="f.submitted && !website.valid" class="help-block">Website is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !vatNumber.valid }">
-                                <label for="vatNumber">Vat Number</label>
-                                <input type="text" class="form-control" name="vatNumber" [(ngModel)]="model.vatNumber" #vatNumber="ngModel" required />
-                                <div *ngIf="f.submitted && !vatNumber.valid" class="help-block">Vat Number is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                                <label for="username">Company Email</label>
-                                <input type="mail" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-                                <div *ngIf="f.submitted && !username.valid" class="help-block">Email is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-                                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-                            </div>
-                        </app-tab>
-                        <app-tab title="Correspondence">
+                            </app-tab>
+                            <app-tab title="Rquired Documents">
 
-                            <h2 class="marg-top-none">Correspondence</h2>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonName.valid }">
-                                <label for="accPersonName">Accounts Person</label>
-                                <input type="text" class="form-control" name="accPersonName" [(ngModel)]="model.accPersonName" #accPersonName="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonName.valid" class="help-block">Accounts Person Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonNo.valid }">
-                                <label for="accPersonNo">Accounts Person No</label>
-                                <input type="text" class="form-control" name="accPersonNo" [(ngModel)]="model.accPersonNo" #accPersonNo="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonNo.valid" class="help-block">Accounts Person No is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonFaxNo.valid }">
-                                <label for="accPersonFaxNo">Fax No</label>
-                                <input type="text" class="form-control" name="accPersonFaxNo" [(ngModel)]="model.accPersonFaxNo" #accPersonFaxNo="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonFaxNo.valid" class="help-block">Accounts Person`s Fax is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonEmail.valid }">
-                                <label for="accPersonEmail">Email</label>
-                                <input type="text" class="form-control" name="accPersonEmail" [(ngModel)]="model.accPersonEmail" #accPersonEmail="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonEmail.valid" class="help-block">Accounts Person Email is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonName.valid }">
-                                <label for="salesPersonName">Sales Person Name</label>
-                                <input type="text" class="form-control" name="salesPersonName" [(ngModel)]="model.salesPersonName" #salesPersonName="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonName.valid" class="help-block">Sales Person Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonNo.valid }">
-                                <label for="salesPersonNo">Sales Person No</label>
-                                <input type="text" class="form-control" name="salesPersonNo" [(ngModel)]="model.salesPersonNo" #salesPersonNo="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonNo.valid" class="help-block">Sales Person No is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonFaxNo.valid }">
-                                <label for="salesPersonFaxNo">Fax No</label>
-                                <input type="text" class="form-control" name="salesPersonFaxNo" [(ngModel)]="model.salesPersonFaxNo" #salesPersonFaxNo="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonFaxNo.valid" class="help-block">Sales Person Fax is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonEmail.valid }">
-                                <label for="salesPersonEmail">Email</label>
-                                <input type="text" class="form-control" name="salesPersonEmail" [(ngModel)]="model.salesPersonEmail" #salesPersonEmail="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonEmail.valid" class="help-block">Sales Person Email is required</div>
-                            </div>
-                            <!-- <div class="form-group">
-                    <button [disabled]="loading" class="btn btn-primary">Register</button>
-                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                    />
-                    <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
-                </div> -->
-
-                        </app-tab>
-                        <app-tab title="Rquired Documents">
-                            <!-- <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tradingName.valid }">
-                    <label for="tradingName">Docs</label>
-                    <input type="file" class="form-control" name="documents" [(ngModel)]="model.documents" #documents="ngModel" required />
-                    <div *ngIf="f.submitted && !documents.valid" class="help-block">documents are required</div>
-                </div> -->
-                            <!-- <h2>Required Documents</h2>
-                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tradingName.valid }">
-                    <label for="tradingName">Trading Name</label>
-                    <input type="text" class="form-control" name="tradingName" [(ngModel)]="model.tradingName" #tradingName="ngModel" required />
-                    <div *ngIf="f.submitted && !tradingName.valid" class="help-block">Trading Name is required</div>
+                                <div class="form-group">
+                                    <button [disabled]="loading" class="btn btn-primary">Register</button>
+                                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                                    />
+                                    <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                                </div>
+                            </app-tab>
+                        </app-tabs>
+                    </form>
                 </div>
-                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-                    <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
-                </div>
-                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-                </div>
-                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-                    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-                </div>
-                <div class="form-group">
-                    <button [disabled]="loading" class="btn btn-primary">Register</button>
-                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                    />
-                    <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
-                </div> -->
-
-
-                            <div class="form-group">
-                                <button [disabled]="loading" class="btn btn-primary">Register</button>
-                                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                                />
-                                <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
-                            </div>
-                        </app-tab>
-                    </app-tabs>
-                </form>
             </div>
         </div>
     </div>

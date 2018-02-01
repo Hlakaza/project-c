@@ -1,0 +1,142 @@
+<!-- <h2 class="marg-top-none">Company Information</h2>
+
+
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !physicalAddress.valid }">
+    <label for="physicalAddress">Physical Address</label>
+    <textarea type="text" class="form-control" name="physicalAddress" [(ngModel)]="model.physicalAddress" #physicalAddress="ngModel" required></textarea>
+    <div *ngIf="f.submitted && !physicalAddress.valid" class="help-block">Physical Address is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !postalAddress.valid }">
+    <label for="postalAddress">Postal Address</label>
+    <textarea type="text" class="form-control" name="postalAddress" [(ngModel)]="model.postalAddress" #postalAddress="ngModel" required> </textarea>
+    <div *ngIf="f.submitted && !postalAddress.valid" class="help-block">Postal Address is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tel.valid }">
+    <label for="tel">Business Tel</label>
+    <input type="tel" class="form-control" name="tel" [(ngModel)]="model.tel" #tel="ngModel" required />
+    <div *ngIf="f.submitted && !tel.valid" class="help-block">Tel Number is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !faxNo.valid }">
+    <label for="faxNo">Fax No</label>
+    <input type="text" class="form-control" name="faxNo" [(ngModel)]="model.faxNo" #faxNo="ngModel" required />
+    <div *ngIf="f.submitted && !faxNo.valid" class="help-block">Fax is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !website.valid }">
+    <label for="website">Website</label>
+    <input type="text" class="form-control" name="website" [(ngModel)]="model.website" #website="ngModel" required />
+    <div *ngIf="f.submitted && !website.valid" class="help-block">Website is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !vatNumber.valid }">
+    <label for="vatNumber">Vat Number</label>
+    <input type="text" class="form-control" name="vatNumber" [(ngModel)]="model.vatNumber" #vatNumber="ngModel" required />
+    <div *ngIf="f.submitted && !vatNumber.valid" class="help-block">Vat Number is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+    <label for="username">Company Email</label>
+    <input type="mail" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+    <div *ngIf="f.submitted && !username.valid" class="help-block">Email is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+</div> -->
+<!--First row-->
+<div class="row">
+    <!--Trading Name-->
+    <div class="col-md-6">
+        <div class="clearfix pad-top-10">
+            <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !tradingName.valid }">
+                <i class="far fa-building prefix grey-text"></i>
+                <input type="text" class="form-control" name="tradingName" [(ngModel)]="model.tradingName" #tradingName="ngModel" required />
+                <label for="tradingName">Trading Name</label>
+                <label *ngIf="f.submitted && !tradingName.valid" class="help-block">Trading Name is required</label>
+            </div>
+        </div>
+    </div>
+
+    <!--Company Name-->
+    <div class="col-md-6">
+        <div class="clearfix pad-top-10">
+            <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !registeredCompanyName.valid }">
+                <i class="far fa-building prefix grey-text"></i>
+                <input type="text" class="form-control" name="registeredCompanyName" [(ngModel)]="model.registeredCompanyName" #registeredCompanyName="ngModel" required />
+                <label for="registeredCompanyName">Company Name</label>
+                <div *ngIf="f.submitted && !registeredCompanyName.valid" class="help-block">Company Name is required</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!--Registration Number-->
+    <div class="col-md-6">
+        <div class="clearfix pad-top-10">
+            <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !registrationNumber.valid }">
+                <i class="far fa-building prefix grey-text"></i>
+                <label for="registrationNumber">Registration Number</label>
+                <input type="text" class="form-control" name="registrationNumber" [(ngModel)]="model.registrationNumber" #registrationNumber="ngModel" required />
+                <div *ngIf="f.submitted && !registrationNumber.valid" class="help-block">Registration Number is required</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Confirm Registration Number-->
+    <div class="col-md-6">
+        <div class="clearfix pad-top-10">
+            <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !registrationNumber.valid }">
+                <i class="far fa-building prefix grey-text"></i>
+                <label for="registrationNumber">Registration Number</label>
+                <input type="text" class="form-control" name="registrationNumber" [(ngModel)]="model.registrationNumber" #registrationNumber="ngModel" required />
+                <!-- <input formControlName="confirmPassword" name="confirmPassword" [type]="confSwitch? 'password': 'text'" /> -->
+                <div *ngIf="f.submitted && !registrationNumber.valid" class="help-block">Registration Number is required</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.First row-->
+
+<!--Second row-->
+<div class="row">
+    <!--First column-->
+    <div class="col-md-12">
+
+        <div class="md-form">
+            <textarea type="text" id="form76" class="md-textarea"></textarea>
+            <label for="form76">Basic textarea</label>
+        </div>
+
+    </div>
+</div>
+<!--/.Second row-->
+
+<!--Third row-->
+<div class="row">
+
+    <!--First column-->
+    <div class="col-md-4">
+        <div class="md-form">
+            <input type="text" id="form41" class="form-control">
+            <label for="form41" class="">Example label</label>
+        </div>
+    </div>
+
+    <!--Second column-->
+    <div class="col-md-4">
+        <div class="md-form">
+            <input type="text" id="form51" class="form-control">
+            <label for="form51" class="">Example label</label>
+        </div>
+    </div>
+
+    <!--Third column-->
+    <div class="col-md-4">
+        <div class="md-form">
+            <input type="text" id="form61" class="form-control">
+            <label for="form61" class="">Example label</label>
+        </div>
+    </div>
+
+</div>
+<!--/.Third row-->

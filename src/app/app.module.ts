@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/index';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
 import { MasterComponent } from './components/master/master.component';
+import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
 
 @NgModule({
     imports: [
@@ -35,7 +36,8 @@ import { MasterComponent } from './components/master/master.component';
         RegisterComponent,
         TabsComponent,
         TabComponent,
-        MasterComponent
+        MasterComponent,
+        RegStepOneComponent
     ],
     providers: [
         AuthGuard,
