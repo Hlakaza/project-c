@@ -24,11 +24,42 @@
 
 .help-block {
     display: block;
-    margin-top: -15px;
     margin-left: 3rem;
     font-size: 0.8rem;
+    color: red;
 }
 
 .btn-white {
     color: #ff5722 !important;
+}
+
+.btn.focus,
+.btn:focus,
+button:focus {
+    outline: none;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important
+}
+
+textarea.md-textarea {
+    min-height: 2rem;
+    padding-top: 0.3rem;
+}
+
+.reg-card-width {
+    width: 55rem
+}
+
+.btn {
+    font-size: .8rem;
+    padding: .85rem 2.13rem;
+    margin: 6px;
+    border-radius: 2px;
+    border: 0;
+    -webkit-transition: .2s ease-out;
+    transition: .2s ease-out;
+    text-transform: uppercase;
+    white-space: normal!important;
+    word-wrap: break-word;
+    cursor: pointer;
 }

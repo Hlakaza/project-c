@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService, AlertService } from '../../services/index';
+import { vatNumberMatch, regNumberMatch } from '../../validators/input-match';
 
 @Component({
   selector: 'app-reg-step-one',
@@ -6,10 +9,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reg-step-one.component.css']
 })
 export class RegStepOneComponent implements OnInit {
+  model: any = {};
+  loading = false;
+  tradingName: '';
+  registeredCompanyName: '';
+  registrationNumber: '';
+  physicalAddress: '';
+  postalAddress: '';
+  tel: '';
+  faxNo: '';
+  website: '';
+  vatNumber: '';
+  @Output() switchStep = new EventEmitter();
+  @Output() regValues = new EventEmitter();
 
-  constructor() { }
+  regStep: FormGroup;
+  constructor(
+    private userService: UserService,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
+    this.regStep = new FormGroup({
+      tradingName: new FormControl(null, Validators.required),
+      registeredCompanyName: new FormControl(null, Validators.required),
+      registrationNumber: new FormControl(null, Validators.required),
+      comfirmRegNumber: new FormControl({ value: null, disabled: false }, [Validators.required, regNumberMatch]),
+      physicalAddress: new FormControl(null, Validators.required),
+      postalAddress: new FormControl(null, Validators.required),
+      tel: new FormControl(null, Validators.required),
+      faxNo: new FormControl(null, Validators.required),
+      vatNumber: new FormControl(null, Validators.required),
+      website: new FormControl(null, null),
+      comfirmVatNumber: new FormControl({ value: null, disabled: false }, [Validators.required, vatNumberMatch]),
+    });
+
+    this.regStep.valueChanges.subscribe(value => {
+      if (this.regStep.valid) {
+        this.switchStep.emit(2);
+        this.regValues.emit(this.regStep.value);
+      }
+    });
   }
 
 }

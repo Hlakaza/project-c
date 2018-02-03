@@ -48,3 +48,11 @@ select:-webkit-autofill:focus {
     -webkit-box-shadow: 0;
     box-shadow: 0;
 }
+
+.btn.disabled,
+.btn:disabled {
+    opacity: 0.35;
+    background-color: rgba(128, 128, 128, 0.7803921568627451) !important;
+    cursor: not-allowed !important;
+    pointer-events: auto;
+}
