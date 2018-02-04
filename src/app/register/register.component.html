@@ -4,71 +4,270 @@
             <div class="card-body">
                 <!--Header-->
                 <div class="form-header bg-deep-orange ">
-                    <h3><i class="fa fa-user"></i> RGISTER:</h3>
+                    <h3><i class="fa fa-user"></i> REGISTER:</h3>
                 </div>
-                <section>
-                    <!-- name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidat -->
-                    <app-tabs #t [vertical]="true">
+                <alert></alert>
+                <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+                    <app-tabs #t>
                         <app-tab title="Company Information">
                             <!-- Reg step 1 -->
-                            <app-reg-step-one></app-reg-step-one>
-                            <button class="btn btn-primary" (click)="t.selectTab(1)" [disabled]="!(currentStep >= 2)">{{resourceStrings?.Next || 'Next'}}</button>
+                            <div class="row">
+                                <!--Trading Name-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !tradingName.valid }">
+                                            <i class="fa fa-building prefix grey-text"></i>
+                                            <input placeholder="Trading Name" name="tradingName" type="text" [(ngModel)]="model.tradingName" #tradingName="ngModel" required/>
+                                            <!-- <label  for="tradingName">Trading Name</label> -->
+                                            <span *ngIf="f.submitted && !tradingName.valid" class="help-block">Trading Name is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Company Name-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !registeredCompanyName.valid }">
+                                            <i class="fa fa-building prefix grey-text"></i>
+                                            <input placeholder="Registered Company Name" name="registeredCompanyName" type="text" [(ngModel)]="model.registeredCompanyName" #registeredCompanyName="ngModel" />
+                                            <!-- <label for="registeredCompanyName">Registered Company Name</label> -->
+                                            <span *ngIf="f.submitted && !registeredCompanyName.valid" class="help-block">Company Name is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Registration Number-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !registrationNumber.valid }">
+                                            <i class="fa fa-edit prefix grey-text"></i>
+                                            <input placeholder="Registration Number" name="registrationNumber" type="text" [(ngModel)]="model.registrationNumber" #registrationNumber="ngModel" required />
+                                            <!-- <label for="registrationNumber">Registration Number</label> -->
+                                            <span *ngIf="f.submitted && !registrationNumber.valid" class="help-block">Registration Number is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Comfirm Registration Number-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !comfirmRegNumber.valid }">
+                                            <i class="fa fa-edit prefix grey-text"></i>
+                                            <input placeholder="Comfirm Registration Number" type="text" name="comfirmRegNumber" [(ngModel)]="model.comfirmRegNumber" #comfirmRegNumber="ngModel" />
+                                            <!-- <label for="comfirmRegNumber">Comfirm Registration Number</label> -->
+                                            <span *ngIf="f.submitted && !comfirmRegNumber.valid" class="help-block">Registration Numbers do not match</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Address-->
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        <i class="far fa-address-card prefix grey-text"></i>
+                                        <textarea placeholder="Physical Address" type="text" name="physicalAddress" class="md-textarea" [(ngModel)]="model.physicalAddress" #physicalAddress="ngModel" required></textarea>
+                                        <!-- <label for="physicalAddress">Physical Address</label> -->
+                                        <span *ngIf="f.submitted && !physicalAddress.valid" class="help-block">Physical Address is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Postal Address-->
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        <i class="far fa-address-card prefix grey-text"></i>
+                                        <textarea type="text" placeholder="Postal Address" name="postalAddress" class="md-textarea" [(ngModel)]="model.postalAddress" #postalAddress="ngModel" required></textarea>
+                                        <!-- <label for="postalAddress">Postal Address</label> -->
+                                        <span *ngIf="f.submitted && !postalAddress.valid" class="help-block">Postal Address is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Phone Number-->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <i class="fa fa-phone prefix grey-text"></i>
+                                        <input placeholder="Telephone Number" type="text" name="tel" [(ngModel)]="model.tel" #tel="ngModel" required/>
+                                        <!-- <label for="tel">Telephone Number</label> -->
+                                        <span *ngIf="f.submitted && !tel.valid" class="help-block">Phone Number is required</span>
+                                    </div>
+                                </div>
+
+                                <!--Fax Number-->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <i class="fa fa-fax prefix grey-text"></i>
+                                        <input placeholder="Fax Number" type="text" name="faxNo" [(ngModel)]="model.faxNo" #faxNo="ngModel" required/>
+                                        <!-- <label for="faxNo">Fax Number</label> -->
+                                        <span *ngIf="f.submitted && !faxNo.valid" class="help-block">Fax number is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Website-->
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        <i class="fa fa-globe prefix grey-text"></i>
+                                        <textarea placeholder="Website" type="text" name="website" class="md-textarea" [(ngModel)]="model.website" #website="ngModel"></textarea>
+                                        <!-- <label for="website">Website</label> -->
+                                        <span *ngIf="f.submitted && !website.valid" class="help-block">Website is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Vat Number-->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <i class="fa fa-tag prefix grey-text"></i>
+                                        <input placeholder="Vat Number" type="text" name="vatNumber" [(ngModel)]="model.vatNumber" #vatNumber="ngModel" required/>
+                                        <!-- <label for="vatNumber">Vat Number</label> -->
+                                        <span *ngIf="f.submitted && !vatNumber.valid" class="help-block">VatNumber is required</span>
+                                    </div>
+                                </div>
+
+                                <!--Confirm Vat Number-->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <i class="fa fa-tag prefix grey-text"></i>
+                                        <input placeholder="Comfirm Vat Number" type="text" name="comfirmVatNumber" [(ngModel)]="model.comfirmVatNumber" #comfirmVatNumber="ngModel" required/>
+                                        <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
+                                        <span *ngIf="f.submitted && !comfirmVatNumber.valid" class="help-block">Vat Numbers do not match</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--username-->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <input placeholder="Email" type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required/>
+                                        <!-- <label for="vatNumber">Vat Number</label> -->
+                                        <span *ngIf="f.submitted && !username.valid" class="help-block">User email is required</span>
+                                    </div>
+                                </div>
+
+                                <!--Password-->
+                                <div class="col-md-6">
+                                    <div class="md-form">
+                                        <i class="fa fa-key prefix grey-text"></i>
+                                        <input placeholder="Password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
+                                        <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
+                                        <span *ngIf="f.submitted && !password.valid" class="help-block">Password required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
                         </app-tab>
                         <app-tab title="Correspondence">
-                            Correspondence
-                            <!-- <h2 class="marg-top-none">Correspondence</h2>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonName.valid }">
-                                <label for="accPersonName">Accounts Person</label>
-                                <input type="text" class="form-control" name="accPersonName" [(ngModel)]="model.accPersonName" #accPersonName="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonName.valid" class="help-block">Accounts Person Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonNo.valid }">
-                                <label for="accPersonNo">Accounts Person No</label>
-                                <input type="text" class="form-control" name="accPersonNo" [(ngModel)]="model.accPersonNo" #accPersonNo="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonNo.valid" class="help-block">Accounts Person No is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonFaxNo.valid }">
-                                <label for="accPersonFaxNo">Fax No</label>
-                                <input type="text" class="form-control" name="accPersonFaxNo" [(ngModel)]="model.accPersonFaxNo" #accPersonFaxNo="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonFaxNo.valid" class="help-block">Accounts Person`s Fax is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !accPersonEmail.valid }">
-                                <label for="accPersonEmail">Email</label>
-                                <input type="text" class="form-control" name="accPersonEmail" [(ngModel)]="model.accPersonEmail" #accPersonEmail="ngModel" required />
-                                <div *ngIf="f.submitted && !accPersonEmail.valid" class="help-block">Accounts Person Email is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonName.valid }">
-                                <label for="salesPersonName">Sales Person Name</label>
-                                <input type="text" class="form-control" name="salesPersonName" [(ngModel)]="model.salesPersonName" #salesPersonName="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonName.valid" class="help-block">Sales Person Name is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonNo.valid }">
-                                <label for="salesPersonNo">Sales Person No</label>
-                                <input type="text" class="form-control" name="salesPersonNo" [(ngModel)]="model.salesPersonNo" #salesPersonNo="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonNo.valid" class="help-block">Sales Person No is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonFaxNo.valid }">
-                                <label for="salesPersonFaxNo">Fax No</label>
-                                <input type="text" class="form-control" name="salesPersonFaxNo" [(ngModel)]="model.salesPersonFaxNo" #salesPersonFaxNo="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonFaxNo.valid" class="help-block">Sales Person Fax is required</div>
-                            </div>
-                            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !salesPersonEmail.valid }">
-                                <label for="salesPersonEmail">Email</label>
-                                <input type="text" class="form-control" name="salesPersonEmail" [(ngModel)]="model.salesPersonEmail" #salesPersonEmail="ngModel" required />
-                                <div *ngIf="f.submitted && !salesPersonEmail.valid" class="help-block">Sales Person Email is required</div>
-                            </div> -->
+                            <!-- Reg step 2 -->
 
+                            <div class="row">
+                                <!--Acc Person  Name-->
+                                <div class="col-md-12">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !accPersonName.valid }">
+                                            <i class="fa fa-user prefix grey-text"></i>
+                                            <input placeholder="Accounts Person Name" name="accPersonName" type="text" [(ngModel)]="model.accPersonName" #accPersonName="ngModel" required />
+                                            <span *ngIf="f.submitted && !accPersonName.valid" class="help-block">Accounts Person Name is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Acc Person Number-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !accPersonNo.valid }">
+                                            <i class="fa fa-phone prefix grey-text"></i>
+                                            <input placeholder="Phone Number" name="accPersonNo" type="text" [(ngModel)]="model.accPersonNo" #accPersonNo="ngModel" required/>
+                                            <span *ngIf="f.submitted && !accPersonNo.valid" class="help-block">Phone Number is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Acc Person Fax Number-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !accPersonFaxNo.valid }">
+                                            <i class="fa fa-fax prefix grey-text"></i>
+                                            <input placeholder="Fax Number" type="text" name="accPersonFaxNo" [(ngModel)]="model.accPersonFaxNo" #accPersonFaxNo="ngModel" required/>
+                                            <span *ngIf="f.submitted && !accPersonFaxNo.valid" class="help-block">Fax Number is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Email-->
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        <i class="far fa-envelope prefix grey-text"></i>
+                                        <input placeholder="Email" type="email" name="accPersonEmail" [(ngModel)]="model.accPersonEmail" #accPersonEmail="ngModel" required/>
+                                        <span *ngIf="f.submitted && !accPersonEmail.valid" class="help-block">Email is required</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!--Sales Person  Name-->
+                                <div class="col-md-12">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !salesPersonName.valid }">
+                                            <i class="fa fa-user prefix grey-text"></i>
+                                            <input placeholder="Sales Person Name" name="salesPersonName" type="text" [(ngModel)]="model.salesPersonName" #salesPersonName="ngModel" required/>
+                                            <span *ngIf="f.submitted && !salesPersonName.valid" class="help-block">Sales Person Name is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Sales Person Number-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !salesPersonNo.valid }">
+                                            <i class="fa fa-phone prefix grey-text"></i>
+                                            <input placeholder="Phone Number" name="salesPersonNo" type="text" [(ngModel)]="model.salesPersonNo" #salesPersonNo="ngModel" required/>
+                                            <span *ngIf="f.submitted && !salesPersonNo.valid" class="help-block">Phone Number is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Sales Person Fax Number-->
+                                <div class="col-md-6">
+                                    <div class="clearfix pad-top-10">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !salesPersonFaxNo.valid }">
+                                            <i class="fa fa-fax prefix grey-text"></i>
+                                            <input placeholder="Fax Number" type="text" name="salesPersonFaxNo" [(ngModel)]="model.salesPersonFaxNo" #salesPersonFaxNo="ngModel" required/>
+                                            <span *ngIf="f.submitted && !salesPersonFaxNo.valid" class="help-block">Fax Number is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!--Email-->
+                                <div class="col-md-12">
+                                    <div class="md-form">
+                                        <i class="far fa-envelope prefix grey-text"></i>
+                                        <input placeholder="Email" type="email" name="salesPersonEmail" [(ngModel)]="model.salesPersonEmail" #salesPersonEmail="ngModel" required/>
+                                        <span *ngIf="f.submitted && !salesPersonEmail.valid" class="help-block">Email is required</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-success" (click)="t.selectTab(2)">Next</button>
+
+                            <a [routerLink]="['/login']" class="btn btn-link gray-text">Cancel</a>
                         </app-tab>
                         <app-tab title="Rquired Documents">
                             <div class="form-group">
-                                <button [disabled]="loading" class="btn btn-primary">Register</button>
-                                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                                />
-                                <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                                <!-- Reg step 3 -->
+                                <button [disabled]="loading" class="btn btn-deep-orange btn-block">
+                                        <span *ngIf="!loading">Register</span>
+                                         <span *ngIf="loading">
+                                                <i class="fa fa-spinner"></i>
+                                         </span>
+                                 </button>
                             </div>
                         </app-tab>
                     </app-tabs>
-                </section>
+                </form>
+
             </div>
         </div>
     </div>

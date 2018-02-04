@@ -2,7 +2,7 @@ import {  Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService, AlertService } from '../../services/index';
 import { vatNumberMatch, regNumberMatch } from '../../validators/input-match';
-
+import { Data } from '@angular/router/src/config';
 @Component({
   selector: 'app-reg-step-one',
   templateUrl: './reg-step-one.component.html',
@@ -11,6 +11,8 @@ import { vatNumberMatch, regNumberMatch } from '../../validators/input-match';
 export class RegStepOneComponent implements OnInit {
   model: any = {};
   loading = false;
+  username: '';
+  password: '';
   tradingName: '';
   registeredCompanyName: '';
   registrationNumber: '';
@@ -31,6 +33,8 @@ export class RegStepOneComponent implements OnInit {
 
   ngOnInit() {
     this.regStep = new FormGroup({
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
       tradingName: new FormControl(null, Validators.required),
       registeredCompanyName: new FormControl(null, Validators.required),
       registrationNumber: new FormControl(null, Validators.required),
@@ -40,7 +44,7 @@ export class RegStepOneComponent implements OnInit {
       tel: new FormControl(null, Validators.required),
       faxNo: new FormControl(null, Validators.required),
       vatNumber: new FormControl(null, Validators.required),
-      website: new FormControl(null, null),
+      website: new FormControl(null, Validators.required),
       comfirmVatNumber: new FormControl({ value: null, disabled: false }, [Validators.required, vatNumberMatch]),
     });
 
@@ -48,6 +52,7 @@ export class RegStepOneComponent implements OnInit {
       if (this.regStep.valid) {
         this.switchStep.emit(2);
         this.regValues.emit(this.regStep.value);
+        // console.log(this.regStep.value);
       }
     });
   }

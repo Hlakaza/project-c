@@ -1,11 +1,11 @@
-﻿import { EmailValidator } from "@angular/forms/src/directives/validators";
+﻿import { EmailValidator } from '@angular/forms/src/directives/validators';
 
 export class User {
     id: number;
     username: string; // Email
     password: string; //
-    firstName: string; // Name of the person
-    lastName: string;  // surname of person
+    // firstName: string; // Name of the person
+    // lastName: string;  // surname of person
     // Company Information
     tradingName: string; // Trading Name of company
     registeredCompanyName: string;
@@ -25,6 +25,6 @@ export class User {
     salesPersonNo: string;
     salesPersonEmail: string;
     salesPersonFaxNo: string;
-    documents: File;
+    // documents: File;
 }
 

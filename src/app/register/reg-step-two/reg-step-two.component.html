@@ -1,0 +1,104 @@
+<!-- <h2 class="marg-top-none">Company Information</h2>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+    <label for="username">Company Email</label>
+    <input type="mail" class="form-control" formControlName="username" [(ngModel)]="model.username" #userformControlName="ngModel" required />
+    <div *ngIf="f.submitted && !username.valid" class="help-block">Email is required</div>
+</div>
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" formControlName="password" [(ngModel)]="model.password" #password="ngModel" required />
+    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+</div> -->
+<!--First row-->
+<form [formGroup]="regStep">
+    <div class="row">
+        <!--Acc Person  Name-->
+        <div class="col-md-12">
+            <div class="clearfix pad-top-10">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('accPersonName').hasError('required') && regStep.get('accPersonName').touched }">
+                    <i class="fa fa-person prefix grey-text"></i>
+                    <input placeholder="Accounts Person Name" formControlName="accPersonName" name="accPersonName" type="text" />
+                    <span *ngIf="regStep.get('accPersonName').hasError('required') && regStep.get('accPersonName').touched" class="help-block">Accounts Person Name is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--Acc Person Number-->
+        <div class="col-md-6">
+            <div class="clearfix pad-top-10">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('accPersonNo').hasError('required') && regStep.get('accPersonNo').touched }">
+                    <i class="fa fa-phone prefix grey-text"></i>
+                    <input placeholder="Phone Number" formControlName="accPersonNo" name="accPersonNo" type="text" />
+                    <span *ngIf="regStep.get('accPersonNo').hasError('required') && regStep.get('accPersonNo').touched" class="help-block">Phone Number is required</span>
+                </div>
+            </div>
+        </div>
+        <!--Acc Person Fax Number-->
+        <div class="col-md-6">
+            <div class="clearfix pad-top-10">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('accPersonFaxNo').hasError('required') && regStep.get('accPersonFaxNo').touched }">
+                    <i class="fa fa-fax prefix grey-text"></i>
+                    <input placeholder="Fax Number" type="text" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
+                    <span *ngIf="regStep.get('accPersonFaxNo').hasError('accPersonFaxNo') && regStep.get('accPersonFaxNo').touched" class="help-block">Fax Number is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--Email-->
+        <div class="col-md-12">
+            <div class="md-form">
+                <i class="far fa-email prefix grey-text"></i>
+                <input placeholder="Email" type="email" formControlName="accPersonEmail" name="accPersonEmail" />
+                <span *ngIf="regStep.get('accPersonEmail').hasError('required') && regStep.get('accPersonEmail').touched" class="help-block">Email is required</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!--Sales Person  Name-->
+        <div class="col-md-12">
+            <div class="clearfix pad-top-10">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('salesPersonName').hasError('required') && regStep.get('salesPersonName').touched }">
+                    <i class="fa fa-person prefix grey-text"></i>
+                    <input placeholder="Sales Person Name" formControlName="salesPersonName" name="salesPersonName" type="text" />
+                    <span *ngIf="regStep.get('salesPersonName').hasError('required') && regStep.get('salesPersonName').touched" class="help-block">Sales Person Name is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--Sales Person Number-->
+        <div class="col-md-6">
+            <div class="clearfix pad-top-10">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('salesPersonNo').hasError('required') && regStep.get('salesPersonNo').touched }">
+                    <i class="fa fa-phone prefix grey-text"></i>
+                    <input placeholder="Phone Number" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
+                    <span *ngIf="regStep.get('salesPersonNo').hasError('required') && regStep.get('salesPersonNo').touched" class="help-block">Phone Number is required</span>
+                </div>
+            </div>
+        </div>
+        <!--Sales Person Fax Number-->
+        <div class="col-md-6">
+            <div class="clearfix pad-top-10">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('salesPersonFaxNo').hasError('required') && regStep.get('salesPersonFaxNo').touched }">
+                    <i class="fa fa-fax prefix grey-text"></i>
+                    <input placeholder="Fax Number" type="text" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
+                    <span *ngIf="regStep.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && regStep.get('salesPersonFaxNo').touched" class="help-block">Fax Number is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--Email-->
+        <div class="col-md-12">
+            <div class="md-form">
+                <i class="far fa-email prefix grey-text"></i>
+                <input placeholder="Email" type="email" formControlName="salesPersonEmail" name="salesPersonEmail" />
+                <span *ngIf="regStep.get('salesPersonEmail').hasError('required') && regStep.get('salesPersonEmail').touched" class="help-block">Email is required</span>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,6 +1,7 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
@@ -19,7 +20,8 @@ import { RegisterComponent } from './register/index';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
 import { MasterComponent } from './components/master/master.component';
-import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
+// import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
+// import { RegStepTwoComponent } from './register/reg-step-two/reg-step-two.component';
 
 @NgModule({
     imports: [
@@ -38,7 +40,8 @@ import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.compon
         TabsComponent,
         TabComponent,
         MasterComponent,
-        RegStepOneComponent
+        // RegStepOneComponent,
+        // RegStepTwoComponent
     ],
     providers: [
         AuthGuard,

@@ -53,7 +53,7 @@ textarea.md-textarea {
 .btn {
     font-size: .8rem;
     padding: .85rem 2.13rem;
-    margin: 6px;
+    margin: 6px 0;
     border-radius: 2px;
     border: 0;
     -webkit-transition: .2s ease-out;
@@ -62,4 +62,19 @@ textarea.md-textarea {
     white-space: normal!important;
     word-wrap: break-word;
     cursor: pointer;
+}
+
+@media (max-width: 425px) {
+    .card-body {
+        padding: 0;
+    }
+    .flex-center {
+        margin: 0 -15px;
+    }
+    .reg-card-width {
+        width: 100%
+    }
+    .section {
+        padding: 5px
+    }
 }

@@ -1,36 +1,4 @@
 <!-- <h2 class="marg-top-none">Company Information</h2>
-
-
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !physicalAddress.valid }">
-    <label for="physicalAddress">Physical Address</label>
-    <textarea type="text" class="form-control" formControlName="physicalAddress" [(ngModel)]="model.physicalAddress" #physicalAddress="ngModel" required></textarea>
-    <div *ngIf="f.submitted && !physicalAddress.valid" class="help-block">Physical Address is required</div>
-</div>
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !postalAddress.valid }">
-    <label for="postalAddress">Postal Address</label>
-    <textarea type="text" class="form-control" formControlName="postalAddress" [(ngModel)]="model.postalAddress" #postalAddress="ngModel" required> </textarea>
-    <div *ngIf="f.submitted && !postalAddress.valid" class="help-block">Postal Address is required</div>
-</div>
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !tel.valid }">
-    <label for="tel">Business Tel</label>
-    <input type="tel" class="form-control" formControlName="tel" [(ngModel)]="model.tel" #tel="ngModel" required />
-    <div *ngIf="f.submitted && !tel.valid" class="help-block">Tel Number is required</div>
-</div>
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !faxNo.valid }">
-    <label for="faxNo">Fax No</label>
-    <input type="text" class="form-control" formControlName="faxNo" [(ngModel)]="model.faxNo" #faxNo="ngModel" required />
-    <div *ngIf="f.submitted && !faxNo.valid" class="help-block">Fax is required</div>
-</div>
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !website.valid }">
-    <label for="website">Website</label>
-    <input type="text" class="form-control" formControlName="website" [(ngModel)]="model.website" #website="ngModel" required />
-    <div *ngIf="f.submitted && !website.valid" class="help-block">Website is required</div>
-</div>
-<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !vatNumber.valid }">
-    <label for="vatNumber">Vat Number</label>
-    <input type="text" class="form-control" formControlName="vatNumber" [(ngModel)]="model.vatNumber" #vatNumber="ngModel" required />
-    <div *ngIf="f.submitted && !vatNumber.valid" class="help-block">Vat Number is required</div>
-</div>
 <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
     <label for="username">Company Email</label>
     <input type="mail" class="form-control" formControlName="username" [(ngModel)]="model.username" #userformControlName="ngModel" required />
@@ -49,61 +17,55 @@
             <div class="clearfix pad-top-10">
                 <div class="md-form" [ngClass]="{ 'has-error': regStep.get('tradingName').hasError('required') && regStep.get('tradingName').touched }">
                     <i class="fa fa-building prefix grey-text"></i>
-                    <input formControlName="tradingName" name="tradingName" type="text" />
-                    <label for="tradingName">Trading Name</label>
+                    <input placeholder="Trading Name" formControlName="tradingName" name="tradingName" type="text" required/>
+                    <!-- <label for="tradingName">Trading Name</label> -->
                     <span *ngIf="regStep.get('tradingName').hasError('required') && regStep.get('tradingName').touched" class="help-block">Trading Name is required</span>
                 </div>
             </div>
         </div>
-
         <!--Company Name-->
         <div class="col-md-6">
             <div class="clearfix pad-top-10">
                 <div class="md-form" [ngClass]="{ 'has-error': regStep.get('registeredCompanyName').hasError('required') && regStep.get('registeredCompanyName').touched }">
                     <i class="fa fa-building prefix grey-text"></i>
-                    <input formControlName="registeredCompanyName" name="registeredCompanyName" type="text" />
-                    <label for="registeredCompanyName">Registered Company Name</label>
+                    <input placeholder="Registered Company Name" formControlName="registeredCompanyName" name="registeredCompanyName" type="text" />
+                    <!-- <label for="registeredCompanyName">Registered Company Name</label> -->
                     <span *ngIf="regStep.get('registeredCompanyName').hasError('required') && regStep.get('registeredCompanyName').touched" class="help-block">Company Name is required</span>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row">
         <!--Registration Number-->
         <div class="col-md-6">
             <div class="clearfix pad-top-10">
                 <div class="md-form" [ngClass]="{ 'has-error': regStep.get('registrationNumber').hasError('required') && regStep.get('registrationNumber').touched }">
                     <i class="fa fa-edit prefix grey-text"></i>
-                    <input formControlName="registrationNumber" name="registrationNumber" type="text" />
-                    <label for="registrationNumber">Registration Number</label>
+                    <input placeholder="Registration Number" formControlName="registrationNumber" name="registrationNumber" type="text" />
+                    <!-- <label for="registrationNumber">Registration Number</label> -->
                     <span *ngIf="regStep.get('registrationNumber').hasError('required') && regStep.get('registrationNumber').touched" class="help-block">Registration Number is required</span>
                 </div>
             </div>
         </div>
-
-
         <!--Comfirm Registration Number-->
         <div class="col-md-6">
             <div class="clearfix pad-top-10">
                 <div class="md-form" [ngClass]="{ 'has-error': regStep.get('comfirmRegNumber').hasError('required') && regStep.get('comfirmRegNumber').touched }">
                     <i class="fa fa-edit prefix grey-text"></i>
-                    <input type="text" formControlName="comfirmRegNumber" name="comfirmRegNumber" />
-                    <label for="comfirmRegNumber">Comfirm Registration Number</label>
+                    <input placeholder="Comfirm Registration Number" type="text" formControlName="comfirmRegNumber" name="comfirmRegNumber" />
+                    <!-- <label for="comfirmRegNumber">Comfirm Registration Number</label> -->
                     <span *ngIf="regStep.get('comfirmRegNumber').hasError('regNumberMatch') && regStep.get('comfirmRegNumber').touched" class="help-block">Registration Numbers do not match</span>
                 </div>
             </div>
         </div>
     </div>
-
-
     <div class="row">
         <!--Address-->
         <div class="col-md-12">
             <div class="md-form">
                 <i class="far fa-address-card prefix grey-text"></i>
-                <textarea type="text" formControlName="physicalAddress" name="physicalAddress" class="md-textarea"></textarea>
-                <label for="physicalAddress">Physical Address</label>
+                <textarea placeholder="Physical Address" type="text" formControlName="physicalAddress" name="physicalAddress" class="md-textarea"></textarea>
+                <!-- <label for="physicalAddress">Physical Address</label> -->
                 <span *ngIf="regStep.get('physicalAddress').hasError('required') && regStep.get('physicalAddress').touched" class="help-block">Physical Address is required</span>
             </div>
         </div>
@@ -114,19 +76,18 @@
             <div class="md-form">
                 <i class="far fa-address-card prefix grey-text"></i>
                 <textarea type="text" formControlName="postalAddress" name="postalAddress" class="md-textarea"></textarea>
-                <label for="postalAddress">Postal Address</label>
+                <!-- <label for="postalAddress">Postal Address</label> -->
                 <span *ngIf="regStep.get('postalAddress').hasError('required') && regStep.get('postalAddress').touched" class="help-block">Postal Address is required</span>
             </div>
         </div>
     </div>
-
     <div class="row">
         <!--Phone Number-->
         <div class="col-md-6">
             <div class="md-form">
                 <i class="fa fa-phone prefix grey-text"></i>
-                <input type="text" formControlName="tel" name="tel" />
-                <label for="tel">Telephone Number</label>
+                <input placeholder="Telephone Number" type="text" formControlName="tel" name="tel" />
+                <!-- <label for="tel">Telephone Number</label> -->
                 <span *ngIf="regStep.get('tel').hasError('required') && regStep.get('tel').touched" class="help-block">Phone Number is required</span>
             </div>
         </div>
@@ -135,8 +96,8 @@
         <div class="col-md-6">
             <div class="md-form">
                 <i class="fa fa-fax prefix grey-text"></i>
-                <input type="text" formControlName="faxNo" name="faxNo" />
-                <label for="faxNo">Fax Number</label>
+                <input placeholder="Fax Number" type="text" formControlName="faxNo" name="faxNo" />
+                <!-- <label for="faxNo">Fax Number</label> -->
                 <span *ngIf="regStep.get('faxNo').hasError('required') && regStep.get('faxNo').touched" class="help-block">Fax number is required</span>
             </div>
         </div>
@@ -146,8 +107,8 @@
         <div class="col-md-12">
             <div class="md-form">
                 <i class="fa fa-globe prefix grey-text"></i>
-                <textarea type="text" formControlName="website" name="website" class="md-textarea"></textarea>
-                <label for="website">Website</label>
+                <textarea placeholder="Website" type="text" formControlName="website" name="website" class="md-textarea"></textarea>
+                <!-- <label for="website">Website</label> -->
                 <span *ngIf="regStep.get('website').hasError('required') && regStep.get('website').touched" class="help-block">Website is required</span>
             </div>
         </div>
@@ -157,8 +118,8 @@
         <div class="col-md-6">
             <div class="md-form">
                 <i class="fa fa-archive prefix grey-text"></i>
-                <input type="text" formControlName="vatNumber" name="vatNumber" />
-                <label for="vatNumber">Vat Number</label>
+                <input placeholder="Vat Number" type="text" formControlName="vatNumber" name="vatNumber" />
+                <!-- <label for="vatNumber">Vat Number</label> -->
                 <span *ngIf="regStep.get('vatNumber').hasError('required') && regStep.get('vatNumber').touched" class="help-block">VatNumber is required</span>
             </div>
         </div>
@@ -167,9 +128,30 @@
         <div class="col-md-6">
             <div class="md-form">
                 <i class="fa fa-archive prefix grey-text"></i>
-                <input type="text" formControlName="comfirmVatNumber" name="comfirmVatNumber" />
-                <label for="comfirmVatNumber">Comfirm Vat Number</label>
+                <input placeholder="Comfirm Vat Number" type="text" formControlName="comfirmVatNumber" name="comfirmVatNumber" />
+                <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
                 <span *ngIf="regStep.get('comfirmVatNumber').hasError('vatNumberMatch') && regStep.get('comfirmVatNumber').touched" class="help-block">Vat Numbers do not match</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--username-->
+        <div class="col-md-6">
+            <div class="md-form">
+                <i class="fa fa-archive prefix grey-text"></i>
+                <input placeholder="Email" type="text" formControlName="username" name="username" />
+                <!-- <label for="vatNumber">Vat Number</label> -->
+                <span *ngIf="regStep.get('username').hasError('required') && regStep.get('username').touched" class="help-block">User email is required</span>
+            </div>
+        </div>
+
+        <!--Password-->
+        <div class="col-md-6">
+            <div class="md-form">
+                <i class="fa fa-archive prefix grey-text"></i>
+                <input placeholder="Password" type="text" formControlName="password" name="password" />
+                <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
+                <span *ngIf="regStep.get('password').hasError('password') && regStep.get('password').touched" class="help-block">Password required</span>
             </div>
         </div>
     </div>
