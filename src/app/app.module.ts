@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/index';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
 import { MasterComponent } from './components/master/master.component';
+import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
 // import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
 // import { RegStepTwoComponent } from './register/reg-step-two/reg-step-two.component';
 
@@ -40,6 +41,7 @@ import { MasterComponent } from './components/master/master.component';
         TabsComponent,
         TabComponent,
         MasterComponent,
+        HomeDashBoardComponent,
         // RegStepOneComponent,
         // RegStepTwoComponent
     ],

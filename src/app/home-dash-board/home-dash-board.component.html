@@ -1,0 +1,79 @@
+<div class="pad-top-header">
+    <div class="main-content">
+
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Welcome {{currentUser.username}}</h4>
+                        <p class="category">View and Edit Details Below</p>
+
+                    </div>
+                    <div class="card-content table-responsive table-full-width">
+                        <table class="table">
+                            <thead class="text-danger">
+                                <th>Company Information</th>
+                                <th>Correspondecne</th>
+                                <th>Documents</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Trading Name: {{currentUser.tradingName}}</td>
+                                    <td>Acc PersonName: {{currentUser.accPersonName}}</td>
+                                    <td>Doc: 0</td>
+                                </tr>
+                                <tr>
+                                    <td>Registered Name: {{currentUser.tradingName}}</td>
+                                    <td>Acc Person No: {{currentUser.accPersonNo}}</td>
+                                    <td>Doc: 0</td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>Physical Address: {{currentUser.physicalAddress}}</td>
+                                    <td>Acc Person Fax No: {{currentUser.accPersonFaxNo}}</td>
+                                    <td>Doc: 0</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Postal Address: {{currentUser.postalAddress}}</td>
+                                    <td>Acc Person Email: {{currentUser.accPersonEmail}}</td>
+                                    <td>Doc: 0</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Tel: {{currentUser.tel}}</td>
+                                    <td>Sales Person Name: {{currentUser.salesPersonName}}</td>
+                                    <td>Doc: 0</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Fax: {{currentUser.faxNo}}</td>
+                                    <td>Sales Person No: {{currentUser.salesPersonNo}}</td>
+
+                                    <td>Doc: 0</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Website: {{currentUser.website}}</td>
+                                    <td>Sales Person FaxNo: {{currentUser.salesPersonFaxNo}}</td>
+                                    <td>Doc: 0</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Vat Number: {{currentUser.vatNumber}}</td>
+                                    <td>Sales Person Email: {{currentUser.salesPersonEmail}}</td>
+                                    <td>Doc: 0</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a [routerLink]="['/login']" class="btn btn-default">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
