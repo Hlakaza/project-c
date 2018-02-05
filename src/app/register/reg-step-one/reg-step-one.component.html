@@ -47,14 +47,14 @@
                 </div>
             </div>
         </div>
-        <!--Comfirm Registration Number-->
+        <!--confirm Registration Number-->
         <div class="col-md-6">
             <div class="clearfix pad-top-10">
-                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('comfirmRegNumber').hasError('required') && regStep.get('comfirmRegNumber').touched }">
+                <div class="md-form" [ngClass]="{ 'has-error': regStep.get('confirmRegNumber').hasError('required') && regStep.get('confirmRegNumber').touched }">
                     <i class="fa fa-edit prefix grey-text"></i>
-                    <input placeholder="Comfirm Registration Number" type="text" formControlName="comfirmRegNumber" name="comfirmRegNumber" />
-                    <!-- <label for="comfirmRegNumber">Comfirm Registration Number</label> -->
-                    <span *ngIf="regStep.get('comfirmRegNumber').hasError('regNumberMatch') && regStep.get('comfirmRegNumber').touched" class="help-block">Registration Numbers do not match</span>
+                    <input placeholder="confirm Registration Number" type="text" formControlName="confirmRegNumber" name="confirmRegNumber" />
+                    <!-- <label for="confirmRegNumber">confirm Registration Number</label> -->
+                    <span *ngIf="regStep.get('confirmRegNumber').hasError('regNumberMatch') && regStep.get('confirmRegNumber').touched" class="help-block">Registration Numbers do not match</span>
                 </div>
             </div>
         </div>
@@ -128,9 +128,9 @@
         <div class="col-md-6">
             <div class="md-form">
                 <i class="fa fa-archive prefix grey-text"></i>
-                <input placeholder="Comfirm Vat Number" type="text" formControlName="comfirmVatNumber" name="comfirmVatNumber" />
-                <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
-                <span *ngIf="regStep.get('comfirmVatNumber').hasError('vatNumberMatch') && regStep.get('comfirmVatNumber').touched" class="help-block">Vat Numbers do not match</span>
+                <input placeholder="confirm Vat Number" type="text" formControlName="confirmVatNumber" name="confirmVatNumber" />
+                <!-- <label for="confirmVatNumber">confirm Vat Number</label> -->
+                <span *ngIf="regStep.get('confirmVatNumber').hasError('vatNumberMatch') && regStep.get('confirmVatNumber').touched" class="help-block">Vat Numbers do not match</span>
             </div>
         </div>
     </div>
@@ -150,7 +150,7 @@
             <div class="md-form">
                 <i class="fa fa-archive prefix grey-text"></i>
                 <input placeholder="Password" type="text" formControlName="password" name="password" />
-                <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
+                <!-- <label for="confirmVatNumber">confirm Vat Number</label> -->
                 <span *ngIf="regStep.get('password').hasError('password') && regStep.get('password').touched" class="help-block">Password required</span>
             </div>
         </div>

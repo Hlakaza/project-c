@@ -6,7 +6,7 @@ export class User {
     password: string; //
     // firstName: string; // Name of the person
     // lastName: string;  // surname of person
-    // Company Information
+    // Company Information //
     tradingName: string; // Trading Name of company
     registeredCompanyName: string;
     registrationNumber: string;

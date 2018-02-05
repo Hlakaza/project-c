@@ -21,8 +21,9 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
 import { MasterComponent } from './components/master/master.component';
 import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
-// import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
-// import { RegStepTwoComponent } from './register/reg-step-two/reg-step-two.component';
+import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
+import { RegStepTwoComponent } from './register/reg-step-two/reg-step-two.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
     imports: [
@@ -42,8 +43,9 @@ import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.compon
         TabComponent,
         MasterComponent,
         HomeDashBoardComponent,
-        // RegStepOneComponent,
-        // RegStepTwoComponent
+        RegStepOneComponent,
+        RegStepTwoComponent,
+        UserProfileComponent
     ],
     providers: [
         AuthGuard,

@@ -12,12 +12,13 @@ import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
 export class RegisterComponent {
     model: any = {};
     loading = false;
-    comfirmVatNumber = '';
-    comfirmRegNumber = '';
+    confirmVatNumber = '';
+    confirmRegNumber = '';
     constructor(
         private router: Router,
         private userService: UserService,
         private alertService: AlertService) {
+        this.confirmRegNumber: new FormControl(null, Validators.required);
 
         //     this.form = new FormGroup({
         //         username: new FormControl(null, Validators.required),
@@ -25,14 +26,14 @@ export class RegisterComponent {
         //         tradingName: new FormControl(null, Validators.required),
         //         registeredCompanyName: new FormControl(null, Validators.required),
         //         registrationNumber: new FormControl(null, Validators.required),
-        //         comfirmRegNumber: new FormControl({ value: null, disabled: false }, [Validators.required, regNumberMatch]),
+        //         confirmRegNumber: new FormControl({ value: null, disabled: false }, [Validators.required, regNumberMatch]),
         //         physicalAddress: new FormControl(null, Validators.required),
         //         postalAddress: new FormControl(null, Validators.required),
         //         tel: new FormControl(null, Validators.required),
         //         faxNo: new FormControl(null, Validators.required),
         //         vatNumber: new FormControl(null, Validators.required),
         //         website: new FormControl(null, Validators.required),
-        //         comfirmVatNumber: new FormControl({ value: null, disabled: false }, [Validators.required, vatNumberMatch]),
+        //         confirmVatNumber: new FormControl({ value: null, disabled: false }, [Validators.required, vatNumberMatch]),
         //  });
         }
 

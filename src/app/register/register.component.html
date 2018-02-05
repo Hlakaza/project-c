@@ -47,14 +47,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--Comfirm Registration Number-->
+                                <!--confirm Registration Number-->
                                 <div class="col-md-6">
                                     <div class="clearfix pad-top-10">
-                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !comfirmRegNumber.valid }">
+                                        <div class="md-form" [ngClass]="{ 'has-error': f.submitted && !confirmRegNumber.valid }">
                                             <i class="fa fa-edit prefix grey-text"></i>
-                                            <input placeholder="Comfirm Registration Number" type="text" name="comfirmRegNumber" [(ngModel)]="model.comfirmRegNumber" #comfirmRegNumber="ngModel" />
-                                            <!-- <label for="comfirmRegNumber">Comfirm Registration Number</label> -->
-                                            <span *ngIf="f.submitted && !comfirmRegNumber.valid" class="help-block">Registration Numbers do not match</span>
+                                            <input placeholder="confirm Registration Number" type="text" name="confirmRegNumber" [(ngModel)]="model.confirmRegNumber" #confirmRegNumber="ngModel" />
+                                            <!-- <label for="confirmRegNumber">confirm Registration Number</label> -->
+                                            <span *ngIf="f.submitted && !confirmRegNumber.valid" class="help-block">Registration Numbers do not match</span>
                                         </div>
                                     </div>
                                 </div>
@@ -128,9 +128,9 @@
                                 <div class="col-md-6">
                                     <div class="md-form">
                                         <i class="fa fa-tag prefix grey-text"></i>
-                                        <input placeholder="Comfirm Vat Number" type="text" name="comfirmVatNumber" [(ngModel)]="model.comfirmVatNumber" #comfirmVatNumber="ngModel" required/>
-                                        <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
-                                        <span *ngIf="f.submitted && !comfirmVatNumber.valid" class="help-block">Vat Numbers do not match</span>
+                                        <input placeholder="confirm Vat Number" type="text" name="confirmVatNumber" [(ngModel)]="model.confirmVatNumber" #confirmVatNumber="ngModel" required/>
+                                        <!-- <label for="confirmVatNumber">confirm Vat Number</label> -->
+                                        <span *ngIf="f.submitted && !confirmVatNumber.valid" class="help-block">Vat Numbers do not match</span>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                                     <div class="md-form">
                                         <i class="fa fa-key prefix grey-text"></i>
                                         <input placeholder="Password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
-                                        <!-- <label for="comfirmVatNumber">Comfirm Vat Number</label> -->
+                                        <!-- <label for="confirmVatNumber">confirm Vat Number</label> -->
                                         <span *ngIf="f.submitted && !password.valid" class="help-block">Password required</span>
                                     </div>
                                 </div>
@@ -249,22 +249,22 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <button class="btn btn-success" (click)="t.selectTab(2)">Next</button>
+                            <button [disabled]="loading" class="btn btn-deep-orange btn-block">
+                                <span *ngIf="!loading">Register</span>
+                                 <span *ngIf="loading">
+                                        <i class="fa fa-spinner"></i>
+                                 </span>
+                         </button>
+                            <!-- <button class="btn btn-success" (click)="t.selectTab(2)">Next</button> -->
 
                             <a [routerLink]="['/login']" class="btn btn-link gray-text">Cancel</a>
                         </app-tab>
-                        <app-tab title="Rquired Documents">
+                        <!-- <app-tab title="Rquired Documents">
                             <div class="form-group">
-                                <!-- Reg step 3 -->
-                                <button [disabled]="loading" class="btn btn-deep-orange btn-block">
-                                        <span *ngIf="!loading">Register</span>
-                                         <span *ngIf="loading">
-                                                <i class="fa fa-spinner"></i>
-                                         </span>
-                                 </button>
+                              
+    
                             </div>
-                        </app-tab>
+                        </app-tab> -->
                     </app-tabs>
                 </form>
 

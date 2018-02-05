@@ -38,14 +38,14 @@ export class RegStepOneComponent implements OnInit {
       tradingName: new FormControl(null, Validators.required),
       registeredCompanyName: new FormControl(null, Validators.required),
       registrationNumber: new FormControl(null, Validators.required),
-      comfirmRegNumber: new FormControl({ value: null, disabled: false }, [Validators.required, regNumberMatch]),
+      confirmRegNumber: new FormControl({ value: null, disabled: false }, [Validators.required, regNumberMatch]),
       physicalAddress: new FormControl(null, Validators.required),
       postalAddress: new FormControl(null, Validators.required),
       tel: new FormControl(null, Validators.required),
       faxNo: new FormControl(null, Validators.required),
       vatNumber: new FormControl(null, Validators.required),
       website: new FormControl(null, Validators.required),
-      comfirmVatNumber: new FormControl({ value: null, disabled: false }, [Validators.required, vatNumberMatch]),
+      confirmVatNumber: new FormControl({ value: null, disabled: false }, [Validators.required, vatNumberMatch]),
     });
 
     this.regStep.valueChanges.subscribe(value => {
