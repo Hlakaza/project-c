@@ -19,14 +19,15 @@
 }
 
 .form-header {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
 }
 
 .help-block {
     display: block;
     margin-left: 3rem;
+    margin-top: -15px;
     font-size: 0.8rem;
-    color: red;
 }
 
 .btn-white {
@@ -64,6 +65,63 @@ textarea.md-textarea {
     cursor: pointer;
 }
 
+.jumbotron {
+    background-color: rgba(233, 236, 239, 0.25882352941176473);
+}
+
+.nav-link {
+    color: #333 !important;
+}
+
+.card .card-body h3 {
+    margin: 0.6rem;
+    font-size: 1.3rem;
+}
+
+.md-form .prefix {
+    width: 2rem;
+}
+
+.md-form .prefix~input {
+    margin-left: 3rem;
+    width: 82% !important;
+}
+
+.file-field input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.file-field .file-path-wrapper {
+    overflow: hidden;
+    padding-left: 10px;
+    height: 2.5rem;
+}
+
+.file-field .btn {
+    float: left;
+}
+
+@media screen and (min-width: 568px) and (max-width: 736px) and (orientation: landscape) {
+    .view .full-bg-img,
+    .view .mask {
+        overflow: auto !important;
+        padding-top: 100px;
+    }
+    .jumbotron {
+        padding: 1rem;
+    }
+}
+
 @media (max-width: 425px) {
     .card-body {
         padding: 0;
@@ -73,5 +131,9 @@ textarea.md-textarea {
     }
     .section {
         padding: 5px
+    }
+    .jumbotron {
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
     }
 }

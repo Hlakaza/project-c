@@ -1,67 +1,107 @@
-﻿import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-// used to create fake backend
-import { fakeBackendProvider } from './helpers/index';
-
-import { AppComponent } from './app.component';
-import { routing } from './app.routing';
-
-import { AlertComponent } from './directives/index';
-import { AuthGuard } from './guards/index';
-import { JwtInterceptor } from './helpers/index';
-import { AlertService, AuthenticationService, UserService } from './services/index';
-import { HomeComponent } from './home/index';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Http, HttpModule} from '@angular/http';
+import {AppComponent} from './app.component';
+import {NavbarComponent} from './navbar/navbar.component';
+import {FormComponent} from './form/form.component';
+import {RegisterComponent} from './user/register/register.component';
+import {UserComponent} from './user/user.component';
+import {RouterModule} from '@angular/router';
+import {routing} from './routes.component';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {AuthGuardService} from './auth/authguard.service';
+import {AuthService} from './auth/auth.service';
+import {ErrorService} from './errorHandler/error.service';
+import {ToastModule, ToastOptions} from 'ng2-toastr';
+import {LoginComponent} from './user/login/login.component';
+import {ErrorComponent} from './errorHandler/error.component';
+import {MainPageComponent} from './mainPage/mainPage.component';
+import {ResetPasswordComponent} from './user/accountRecover/resetPassword.component';
+import {ForgetPasswordComponent} from './user/accountRecover/forgetPassword.component';
+import {FormService} from './form/form.service';
+import {UserFormsComponent} from './userForms/formsTable/userForms.component';
+import {EditUserFormComponent} from './userForms/editForm/editUserForm.component';
+import {ErrorPageComponent} from './errorPage/errorPage.component';
+import {AdminPageComponent} from './admin/adminPage/adminPage.component';
+import {AdminService} from './admin/services/admin.service';
+import {EditUsersFormsComponent} from './admin/editUsersForms/editUsersForms.component';
+import {AdminGuardService} from './admin/services/adminGuard';
+import {AdminComponent} from './admin/admin.component';
+import {UserProfileComponent} from './user/profile/userProfile.component';
+import {ProfileService} from './user/profile/profile.service';
+import {ChangePasswordComponent} from './user/profile/changePassword/changePassword.component';
+import {AuthConfig, AuthHttp} from 'angular2-jwt';
+import {CustomOption} from './config/toastr.config';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Ng2Bs3ModalModule} from 'ng2-bs3-modal/ng2-bs3-modal';
+import { LoaderComponent } from './components/loader/loader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
-import { MasterComponent } from './components/master/master.component';
-import { HomeDashBoardComponent } from './home-dash-board/home-dash-board.component';
-import { RegStepOneComponent } from './register/reg-step-one/reg-step-one.component';
-import { RegStepTwoComponent } from './register/reg-step-two/reg-step-two.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
+
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    noJwtError   : true,
+    headerPrefix : 'JWT',
+    globalHeaders: [{'Content': 'application/json'}],
+  }), http);
+}
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule,
-        routing,
-    ],
-    declarations: [
-        AppComponent,
-        AlertComponent,
-        HomeComponent,
-        LoginComponent,
-        RegisterComponent,
-        TabsComponent,
-        TabComponent,
-        MasterComponent,
-        HomeDashBoardComponent,
-        RegStepOneComponent,
-        RegStepTwoComponent,
-        UserProfileComponent
-    ],
-    providers: [
-        AuthGuard,
-        AlertService,
-        AuthenticationService,
-        UserService,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: JwtInterceptor,
-            multi: true
-        },
-
-        // provider used to create fake backend
-        fakeBackendProvider
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FormComponent,
+    UserComponent,
+    RegisterComponent,
+    LoginComponent,
+    NavbarComponent,
+    ErrorComponent,
+    MainPageComponent,
+    ResetPasswordComponent,
+    ForgetPasswordComponent,
+    UserFormsComponent,
+    EditUserFormComponent,
+    ErrorPageComponent,
+    AdminPageComponent,
+    EditUsersFormsComponent,
+    AdminComponent,
+    UserProfileComponent,
+    ChangePasswordComponent,
+    LoaderComponent,
+    TabsComponent,
+    TabComponent
+  ],
+  imports     : [
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpModule,
+    RouterModule,
+    ReactiveFormsModule,
+    routing,
+    BrowserAnimationsModule,
+    ToastModule.forRoot(),
+    Ng2Bs3ModalModule,
+  ],
+  providers   : [
+    AuthGuardService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    AuthService,
+    ErrorService,
+    FormService,
+    AdminService,
+    AdminGuardService,
+    ProfileService,
+    {provide: ToastOptions, useClass: CustomOption},
+    {
+      provide   : AuthHttp,
+      useFactory: getAuthHttp,
+      deps      : [Http]
+    },
+  ],
+  bootstrap   : [AppComponent]
 })
-
-export class AppModule { }
+export class AppModule {
+}
