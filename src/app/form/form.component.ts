@@ -246,7 +246,7 @@ export class FormComponent implements OnInit, AfterViewInit {
       this.imagePath
     );
     /**
-     * disabling the submiting ofform if files aree null
+     * disabling the submiting of form if files are null
      */
     // if (this.imageReady) {
     //   this.formService.submitNewForm(newForm)
