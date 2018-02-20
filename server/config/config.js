@@ -1,9 +1,9 @@
 module.exports = {
-    'database': 'mongodb://luckyH:Tempest16**@ds237868.mlab.com:37868/clinix',
+    'database': 'mongodb://test:testpass@012345.doglab.com:4568/databasename',
     'secret': 'SUPERsecret', // change this to a hard to guess random string. it's for jwt encryption and decryption
-    'api_user': 'luckyH',
-    'api_key': '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',
-    'jwtExpire': '72h', //set the jwtExpire in smaller period in production
+    'api_user': 'yourname',
+    'api_key': 'thequickbrownfox',
+    'jwtExpire': '5h', //set the jwtExpire in smaller period in production
     'paths': {
         // path for pets images
         serverPath: '../server/app',

@@ -19,7 +19,7 @@
                         <input type="password" formControlName="password" placeholder="Password" class="form-control">
                         <span [hidden]="password.valid || password.pristine" class="help-block text-danger">Password must contain 6 or more characters</span>
                     </div>
-                    <div class="md-form">
+                    <div class="md-form" [hidden]="!password.valid">
                         <i class="fa fa-key prefix grey-text"></i>
                         <input class="form-control" placeholder="Confirm Password" type="password" formControlName="confirmPassword" name="confirmPassword" />
                         <span *ngIf="myForm.get('confirmPassword').hasError('passwordMatch') && myForm.get('confirmPassword').touched" class="help-block text-danger">Passwords do not match</span>
