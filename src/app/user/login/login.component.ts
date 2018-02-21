@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {User} from '../../auth/user.model';
 import { emailValidator } from '../../validators/input-match';
+import {AdminService} from '../../admin/services/admin.service';
 @Component({
   selector   : 'app-login',
   templateUrl: './login.component.html'
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('userEmail') userEmail: ElementRef;
 
   constructor(private fb: FormBuilder, private authService: AuthService,
-              private router: Router, private toastr: ToastsManager, private renderer: Renderer) {
+              private router: Router, private toastr: ToastsManager, private adminService: AdminService, private renderer: Renderer) {
   }
 
   ngOnInit() {
@@ -58,7 +59,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
           localStorage.setItem('email', data.user.email);
           localStorage.setItem('role', data.user.role[0]);
           // navigate user to index page of our app
-          this.router.navigate(['/form']);
+          if (this.adminService.isAdmin()) {
+            this.router.navigate(['admin']);
+          } else {
+            this.router.navigate(['/form']);
+          }
           // display toastr success message pop up to inform the user that he logged in successfully
           this.toastr.success('You have been logged in!');
         },

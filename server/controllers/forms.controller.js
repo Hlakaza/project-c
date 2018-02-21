@@ -110,19 +110,18 @@ let functions = {
                 console.log(err);
             }
             if (req.file !== undefined) {
-                // gm(req.file.path)
-                //resize(445, null)
-                // noProfile()
-                // .write
-                (req.file.path, (err) => {
-                    if (err) {
-                        console.log(err);
-                        res.status(500).json({
-                            message: 'The file you selected is not an image 500'
-                        });
-                    }
-                    res.status(201).json(req.file.filename);
-                });
+                gm(req.file.path)
+                resize(445, null)
+                noProfile()
+                    .write(req.file.path, (err) => {
+                        if (err) {
+                            console.log(err);
+                            res.status(500).json({
+                                message: 'The file you selected is not an image 500'
+                            });
+                        }
+                        res.status(201).json(req.file.filename);
+                    });
             }
         });
     },
@@ -147,8 +146,26 @@ let functions = {
             }
 
             let form = new Form({
-                textInputOne: req.body.textInputOne,
-                textInputTwo: req.body.textInputTwo,
+                // textInputOne: req.body.textInputOne,
+                // textInputTwo: req.body.textInputTwo,
+                tradingName: req.body.tradingName,
+                registeredCompanyName: req.body.registeredCompanyName,
+                registrationNumber: req.body.registrationNumber,
+                physicalAddress: req.body.physicalAddress,
+                postalAddress: req.body.postalAddress,
+                tel: req.body.tel,
+                faxNo: req.body.faxNo,
+                website: req.body.website,
+                vatNumber: req.body.vatNumber,
+                accPersonName: req.body.accPersonName,
+                accPersonNo: req.body.accPersonNo,
+                accPersonFaxNo: req.body.accPersonFaxNo,
+                accPersonEmail: req.body.accPersonEmail,
+                salesPersonName: req.body.salesPersonName,
+                salesPersonNo: req.body.salesPersonNo,
+                salesPersonEmail: req.body.salesPersonEmail,
+                salesPersonFaxNo: req.body.salesPersonFaxNo,
+                salesPersonFaxNo: req.body.salesPersonFaxNo,
                 imagePath: req.body.fileUp,
                 owner: user._id
             });

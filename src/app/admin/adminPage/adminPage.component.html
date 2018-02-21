@@ -1,127 +1,127 @@
 <div class="container topPadTable">
- <!-- <h2 class="text-center">Administrator Page</h2>
-  <hr>
-  <table class="table table-hover table-responsive table-condensed">
-    <thead>
-    <tr>
-      <th>Image</th>
-      <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
-      <th>Owner</th>
-      <th>Date Submitted</th>
-      <th>Date Edited</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let form of fetchedForms">
-      <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image.jpg';"></td>
-      <td>{{form._id }}</td>
-      <td>{{form.textInputOne}}</td>
-      <td>{{form.textInputTwo}}</td>
-      <td>{{form.owner}}</td>
-      <td>{{form.dateSubmitted | date: 'medium'}}</td>
-      <td>
-        <span *ngIf="form.dateSubmitted != form.updatedAt">{{form.updatedAt | date: 'medium'}}</span>
-      </td>
-      <td>
-        <button class="btn-default" [routerLink]="['edit', form._id]"><i class="fa fa-pencil"></i></button>
-      </td>
-      <td>
-        <button class="btn-danger" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
-      </td>
-    </tr>
-    </tbody>
-  </table> -->
+    <h2 class="text-center">Administrator Page</h2>
+    <hr>
+    <table class="table table-hover table-responsive table-condensed">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Form ID</th>
+                <th>Text Input One</th>
+                <th>Text Input Two</th>
+                <th>Owner</th>
+                <th>Date Submitted</th>
+                <th>Date Edited</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let form of fetchedForms">
+                <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image.jpg';"></td>
+                <td>{{form._id }}</td>
+                <td>{{form.textInputOne}}</td>
+                <td>{{form.textInputTwo}}</td>
+                <td>{{form.owner}}</td>
+                <td>{{form.dateSubmitted | date: 'medium'}}</td>
+                <td>
+                    <span *ngIf="form.dateSubmitted != form.updatedAt">{{form.updatedAt | date: 'medium'}}</span>
+                </td>
+                <td>
+                    <button class="btn-default" [routerLink]="['edit', form._id]"><i class="fa fa-pencil"></i></button>
+                </td>
+                <td>
+                    <button class="btn-danger" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-  <div class="pad-top-header">
-    <div class="main-content">
-        <div class="container-fluid">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header" data-background-color="red">
-                        <h4 class="title">Welcome Admin</h4>
-                        <p class="category">List of Registered Users And Their Details</p>
+    <!-- <div class="pad-top-header">
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header" data-background-color="red">
+                            <h4 class="title">Welcome Admin</h4>
+                            <p class="category">List of Registered Users And Their Details</p>
 
-                    </div>
-                    <div class="card-content table-responsive table-full-width" *ngFor="let form of fetchedForms">
-                      User: {{form.owner}}
-                        <table class="table">
-                            <thead class="text-danger">
-                                <th>Company Information</th>
-                                <th>Correspondecne</th>
-                                <th>Documents</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Trading Name: {{form.tradingName}}</td>
-                                    <td>Acc PersonName: {{form.accPersonName}}</td>
-                                    <td>Doc: Missing</td>
-                                </tr>
-                                <tr>
-                                    <td>Registered Name: {{form.tradingName}}</td>
-                                    <td>Acc Person No: {{form.accPersonNo}}</td>
-                                    <td>Doc: Missing</td>
+                        </div>
+                        <div class="card-content table-responsive table-full-width" *ngFor="let form of fetchedForms">
+                            User: {{form.owner}}
+                            <table class="table">
+                                <thead class="text-danger">
+                                    <th>Company Information</th>
+                                    <th>Correspondecne</th>
+                                    <th>Documents</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Trading Name: {{form.tradingName}}</td>
+                                        <td>Acc PersonName: {{form.accPersonName}}</td>
+                                        <td>Doc: Missing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registered Name: {{form.tradingName}}</td>
+                                        <td>Acc Person No: {{form.accPersonNo}}</td>
+                                        <td>Doc: Missing</td>
 
 
-                                </tr>
-                                <tr>
-                                    <td>Physical Address: {{form.physicalAddress}}</td>
-                                    <td>Acc Person Fax No: {{form.accPersonFaxNo}}</td>
-                                    <td>Doc: Missing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Physical Address: {{form.physicalAddress}}</td>
+                                        <td>Acc Person Fax No: {{form.accPersonFaxNo}}</td>
+                                        <td>Doc: Missing</td>
 
-                                </tr>
-                                <tr>
-                                    <td>Postal Address: {{form.postalAddress}}</td>
-                                    <td>Acc Person Email: {{form.accPersonEmail}}</td>
-                                    <td>Doc: Missing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Postal Address: {{form.postalAddress}}</td>
+                                        <td>Acc Person Email: {{form.accPersonEmail}}</td>
+                                        <td>Doc: Missing</td>
 
-                                </tr>
-                                <tr>
-                                    <td>Tel: {{form.tel}}</td>
-                                    <td>Sales Person Name: {{form.salesPersonName}}</td>
-                                    <td>Doc: Missing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tel: {{form.tel}}</td>
+                                        <td>Sales Person Name: {{form.salesPersonName}}</td>
+                                        <td>Doc: Missing</td>
 
-                                </tr>
-                                <tr>
-                                    <td>Fax: {{form.faxNo}}</td>
-                                    <td>Sales Person No: {{form.salesPersonNo}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fax: {{form.faxNo}}</td>
+                                        <td>Sales Person No: {{form.salesPersonNo}}</td>
 
-                                    <td>Doc: Missing</td>
+                                        <td>Doc: Missing</td>
 
-                                </tr>
-                                <tr>
-                                    <td>Website: {{form.website}}</td>
-                                    <td>Sales Person FaxNo: {{form.salesPersonFaxNo}}</td>
-                                    <td>Doc: Missing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Website: {{form.website}}</td>
+                                        <td>Sales Person FaxNo: {{form.salesPersonFaxNo}}</td>
+                                        <td>Doc: Missing</td>
 
-                                </tr>
-                                <tr>
-                                    <td>Vat Number: {{form.vatNumber}}</td>
-                                    <td>Sales Person Email: {{form.salesPersonEmail}}</td>
-                                    <td>Doc: Missing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vat Number: {{form.vatNumber}}</td>
+                                        <td>Sales Person Email: {{form.salesPersonEmail}}</td>
+                                        <td>Doc: Missing</td>
 
-                                </tr>
-                                <tr>
-                                  <td>
-                                    <button class="btn-default btn-primary" disabled [routerLink]="['edit', form._id]"><i class="fa fa-pencil"></i>Aprove</button>
-                                  </td>
-                                  <td>
-                                    <button class="btn-danger btn-primary" disabled (click)="onDelete(form._id)"><i class="fa fa-trash"></i>Disaprove</button>
-                                  </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!-- <a [routerLink]="['/login']" class="btn btn-default">Logout</a> -->
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="btn-default btn-primary" [routerLink]="['edit', form._id]"><i class="fa fa-pencil"></i>Aprove</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn-danger btn-primary" (click)="onDelete(form._id)"><i class="fa fa-trash"></i>Disaprove</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+
     </div>
 
-</div>
-
+-->
 </div>
