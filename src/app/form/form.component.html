@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
                                 </div>
-                 
+
                                 <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
                             </app-tab>
                             <app-tab title="Correspondence">
@@ -245,21 +245,23 @@
                                             <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
                                         </div>
                                     </div>
+                                    <label class="label-text">Business Sector:
+                                            <select class="form-control" id="exampleSelect1">
+                                                    <option>Pharmaceutical</option>
+                                                    <option>None Pharmaceutical</option>
+                                                    <option>Service and Product</option>
+                                          </select>
+                                    </label>
                                 </div>
                                 <div class="row">
-                                        <!--Type of business-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-                                                <label>Business Sector:</label>
-                                                    <select class="form-control" id="exampleSelect1">
-                                                            <option>Pharmaceutical</option>
-                                                            <option>None Pharmaceutical</option>
-                                                            <option>Servivce and Product</option>
-                                                  </select>
-                                            </div>
+                                    <!--Type of business-->
+                                    <div class="col-md-12">
+                                        <div class="md-form">
+
                                         </div>
                                     </div>
-                                <button class="btn btn-success" (click)="t.selectTab(2)">Next</button>
+                                </div>
+                                <button class="btn btn-success clearfix" (click)="t.selectTab(2)">Next</button>
                             </app-tab>
                             <app-tab title="Rquired Documents">
                                 <!-- /**

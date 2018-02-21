@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
           localStorage.setItem('role', data.user.role[0]);
           // navigate user to index page of our app
           if (this.adminService.isAdmin()) {
-            this.router.navigate(['admin']);
+              this.router.navigate(['admin']);
           } else {
             this.router.navigate(['/form']);
           }
