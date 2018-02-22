@@ -7,6 +7,9 @@ let express = require('express'),
     config = require('./config/config');
 
 let app = express();
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
+
 
 process.on('uncaughtException', function(err) {
     console.log(err);
@@ -78,8 +81,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-let server = app.listen(process.env.PORT || 300, function() {
-    console.log("Listening on port %s...", server.address().port);
+app.listen(port, host, function() {
+    console.log("Server started.......");
 });
 
 module.exports = app;

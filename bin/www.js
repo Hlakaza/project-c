@@ -15,9 +15,10 @@ let http = require('http');
  */
 
 // let port = normalizePort(process.env.PORT || '3000');
-let port = listen(process.env.PORT || 300);
-app.set('port', port);
-
+// let port = listen(process.env.PORT || 300);
+// app.set('port', port);
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
 /**
  * Create HTTP server.
  */
@@ -28,10 +29,12 @@ let server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(process.env.PORT || 3000);
-server.on('error', onError);
-server.on('listening', onListening);
-
+// server.listen(process.env.PORT || 3000);
+// server.on('error', onError);
+// server.on('listening', onListening);
+app.listen(port, host, function() {
+    console.log("Server started.......");
+});
 /**
  * Normalize a port into a number, string, or false.
  */
