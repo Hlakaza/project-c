@@ -14,7 +14,7 @@ import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
   styleUrls  : ['./form.component.css']
 })
 export class FormComponent implements OnInit, AfterViewInit {
-
+  filesToUpload: Array<File>;
   // setting up the form
   myForm: FormGroup;
   // textInputOne: FormControl;
@@ -74,7 +74,9 @@ export class FormComponent implements OnInit, AfterViewInit {
               private router: Router,
               private renderer: Renderer,
               private authService: AuthService,
-              private formService: FormService) {
+              private formService: FormService,
+            ) {
+              this.filesToUpload = [];
   }
 
   // event fired when the user selects an imageng
@@ -90,6 +92,7 @@ export class FormComponent implements OnInit, AfterViewInit {
           let xhr      = new XMLHttpRequest();
           let formData = new FormData();
 
+          // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
           }
@@ -218,6 +221,58 @@ export class FormComponent implements OnInit, AfterViewInit {
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
+
+
+/**
+ * New File upload
+ * This method uploads all file types
+ */
+
+upload() {
+  // this.makeFileRequest('/upload', [], this.filesToUpload).then((result) => {
+  this.makeFileRequest('', [], this.filesToUpload).then((result) => {
+      console.log(result);
+  }, (error) => {
+      console.error(error);
+  });
+}
+
+fileChangeEvent(fileInput: any) {
+  this.filesToUpload = <Array<File>> fileInput.target.files;
+}
+
+makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+  return new Promise((resolve, reject) => {
+      let formData: any = new FormData();
+      let xhr = new XMLHttpRequest();
+      for (let i = 0; i < files.length; i++) {
+          // formData.append('uploads[]', files[i], files[i].name);
+          formData.append('fileUp', this.files[i], this.files[i].name);
+      }
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  resolve(JSON.parse(xhr.response));
+              } else {
+                  reject(xhr.response);
+              }
+          }
+      }
+      xhr.open('POST', url, true);
+      xhr.send(formData);
+  });
+}
+
+
+
+
+
+ /**
+  * End New file upload method
+  */
+
+
+
 
   // submit the form to back end
 
