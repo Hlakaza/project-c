@@ -78,7 +78,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-let server = app.listen(3000, function() {
+let server = app.listen(process.env.PORT || 300, function() {
     console.log("Listening on port %s...", server.address().port);
 });
 
