@@ -3,10 +3,10 @@
 # compiled output
 /dist
 /tmp
-
 # dependencies
 /node_modules
 /bower_components
+/server/config/config.js
 
 # IDEs and editors
 /.idea

@@ -13,6 +13,6 @@ module.exports = {
         dist: '../dist',
         expressUploads: '/uploads',
         emailPath: 'server/views/email_templates/',
-        source: './sendgrid.env'
+        source: './sendgrid.env',
     }
 };
