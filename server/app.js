@@ -7,10 +7,6 @@ let express = require('express'),
     config = require('./config/config');
 
 let app = express();
-const host = '0.0.0.0';
-const port = process.env.PORT || 3000;
-
-
 process.on('uncaughtException', function(err) {
     console.log(err);
 });
@@ -79,10 +75,5 @@ app.use(function(err, req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
-app.listen(port, host, function() {
-    console.log("Server started.......");
-});
 
 module.exports = app;

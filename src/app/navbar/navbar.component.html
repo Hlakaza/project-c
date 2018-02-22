@@ -25,7 +25,7 @@
                 </li>
                 <li><a href="#" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></li>
             </ul>
-            <span *ngIf="!isLoggedIn()" class="phone inline"><i class="mukam-mobile icon-3x pull-left"></i> HELPLINE (+27) 11 429 1000</span>
+            <span *ngIf="!isLoggedIn()" class="phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange" [routerLink]="['/user/login']">Admin</a></span>
         </div>
     </div>
 </nav>
