@@ -44,9 +44,9 @@ app.use(function(req, res, next) {
 // setting up route
 require('./routes/routes')(app);
 
-app.post("/upload", multer({ dest: "./uploads/" }).array("uploads", 12), function(req, res) {
-    res.send(req.files);
-});
+// app.post("/upload", multer({ dest: "./uploads/" }).array("uploads", 12), function(req, res) {
+//     res.send(req.files);
+// });
 
 // catch 404 and rsforward to error handler
 app.use(function(req, res, next) {
