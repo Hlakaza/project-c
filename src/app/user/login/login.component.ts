@@ -8,7 +8,8 @@ import { emailValidator } from '../../validators/input-match';
 import {AdminService} from '../../admin/services/admin.service';
 @Component({
   selector   : 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls  : ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   loading: boolean;

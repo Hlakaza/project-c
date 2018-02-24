@@ -58,3 +58,27 @@ select:-webkit-autofill:focus {
     cursor: not-allowed !important;
     pointer-events: auto;
 }
+
+.spacing-left {
+    margin-left: 1em;
+}
+
+.spacing-right {
+    margin-right: 1em;
+}
+
+.spacing-top {
+    margin-top: 1em;
+}
+
+.spacing-bottom {
+    margin-bottom: 1em;
+}
+
+.mb-29 {
+    margin-bottom: 29px;
+}
+
+label.active {
+    color: #ff5722!important
+}

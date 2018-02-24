@@ -1,43 +1,36 @@
-<div class="container pad-top-header">
-    <section class="flex-center">
-        <div class="card" style="width: 28rem;">
-            <div class="card-body">
-                <!--Header-->
-                <div class="form-header bg-deep-orange ">
-                    <h3><i class="fa fa-lock"></i> Login:</h3>
-                </div>
-                <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="clearfix pad-top-10" novalidate>
-                    <!--Body-->
-                    <div class="md-form ">
-                        <i class="fa fa-envelope prefix grey-text"></i>
-                        <input #userEmail type="text" formControlName="email" placeholder="Email" class="form-control">
-                        <span [hidden]="email.valid || email.pristine" class="help-block text-danger">Please enter a valid email format</span>
-                    </div>
-
-                    <div class="md-form">
-                        <i class="fa fa-key prefix grey-text"></i>
-                        <input type="password" formControlName="password" placeholder="Password" class="form-control">
-                        <span [hidden]="password.valid || password.pristine" class="help-block text-danger">Password must contain 6 or more characters</span>
-                    </div>
-
-                    <div class="text-center">
-                        <button [disabled]="!myForm.valid" class="btn btn-deep-orange btn-block waves-effect waves-light" type="submit">
-                            <span *ngIf="!loading">Login <i class="fa fa-sign-in-alt"></i></span>
-                             <span *ngIf="loading">
-                                    <app-loader></app-loader>
-                             </span>
-                    </button>
-
-                    </div>
-                </form>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer">
-                <div class="options">
-                    <p>Not a member? <a class="deep-orange-text" routerLink="/user/register">Sign Up</a></p>
-                    <!-- <p>Lost password? <a class="deep-orange-text" [routerLink]="'/user/reset'">Reset here</a></p> -->
-                </div>
-            </div>
+<div class="card-body">
+    <!--Header-->
+    <div class="text-header">
+        <h4 class="white-text"><i class="fa fa-user white-text"></i> Login:</h4>
+    </div>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="clearfix pad-top-10" novalidate autocomplete="off">
+        <!--Body-->
+        <div class="md-form ">
+            <i class="fa fa-envelope prefix white-text"></i>
+            <input #userEmail type="text" formControlName="email" class="form-control" autocomplete="off">
+            <label for="userEmail">Email</label>
+            <span [hidden]="email.valid || email.pristine" class="help-block text-danger">Please enter a valid email format</span>
         </div>
-    </section>
+        <div class="md-form">
+            <i class="fa fa-key prefix white-text"></i>
+            <input type="password" formControlName="password" class="form-control" autocomplete="off">
+            <label for="password">Password</label>
+            <span [hidden]="password.valid || password.pristine" class="help-block text-danger">Password must contain 6 or more characters</span>
+        </div>
+        <div class="text-center">
+            <button [disabled]="!myForm.valid" class="btn btn-deep-orange btn-block waves-effect waves-light" type="submit">
+            <span *ngIf="!loading">Login <i class="fa fa-sign-in-alt"></i></span>
+            <span *ngIf="loading">
+            <app-loader></app-loader>
+            </span>
+          </button>
+        </div>
+    </form>
+</div>
+<!--Footer-->
+<div class="modal-footer">
+    <div class="options">
+        <p class="white-text">Not a member? <a class="deep-orange-text" (click)="register.open()">Sign Up</a></p>
+        <!-- <p>Lost password? <a class="deep-orange-text" [routerLink]="'/user/reset'">Reset here</a></p> -->
+    </div>
 </div>

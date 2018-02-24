@@ -70,7 +70,14 @@ textarea.md-textarea {
 }
 
 .nav-link {
-    color: #333 !important;
+    color: #fff;
+    &:hover {
+        color: #ff5722 !important;
+    }
+}
+
+a:hover {
+    color: #ff5722;
 }
 
 .card .card-body h3 {
@@ -339,6 +346,45 @@ table.table th {
     z-index: 0
 }
 
+.btn-outline-white {
+    border: 2px solid #fff!important;
+    background-color: transparent!important;
+    color: #fff!important
+}
+
+.btn-outline-white.active,
+.btn-outline-white:active,
+.btn-outline-white:active:focus,
+.btn-outline-white:focus,
+.btn-outline-white:hover {
+    border-color: #fff!important;
+    background-color: transparent!important;
+    color: #fff!important
+}
+
+.btn-outline-white:not([disabled]):not(.disabled).active,
+.btn-outline-white:not([disabled]):not(.disabled):active,
+.show>.btn-outline-white.dropdown-toggle {
+    background-color: transparent!important;
+    border-color: #fff!important;
+}
+
+.btn-black {
+    background-color: #000!important;
+    color: #fff!important
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.575rem 0.15rem;
+}
+
+.btn-outline-white:hover {
+    color: #ff5722 !important;
+    border: 2px solid #ff5722 !important;
+}
+
 @media screen and (min-width: 568px) and (max-width: 736px) and (orientation: landscape) {
     .view .full-bg-img,
     .view .mask {
@@ -364,4 +410,117 @@ table.table th {
         padding: 1rem 1rem;
         margin-bottom: 1rem;
     }
+}
+
+.navbar.navbar-expand-lg.navbar-dark.fixed-top.scrolling-navbar {
+    box-shadow: none !important;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+// modals
+.modal-content {
+    background: transparent;
+    padding: 0;
+    margin: 0
+}
+
+.modal-body {
+    padding: 0;
+    margin: 0
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.modal-header {
+    background: rgba(0, 0, 0, .8) !important;
+    position: relative;
+    text-align: right;
+    border-bottom: 1px solid rgba(233, 236, 239, 0.4);
+}
+
+.modal {
+    background: rgba(0, 0, 0, .8);
+}
+
+.text-header {
+    position: absolute;
+    top: -43px;
+}
+
+.modal-dialogue {
+    background: rgba(0, 0, 0, .8);
+}
+
+.close span {
+    visibility: hidden;
+}
+
+.close-text {
+    pointer-events: none;
+    position: absolute;
+    right: 15px;
+}
+
+.button {
+    z-index: 999;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(233, 236, 239, 0.36);
+}
+
+.md-form input[type=date],
+.md-form input[type=datetime-local],
+.md-form input[type=email],
+.md-form input[type=number],
+.md-form input[type=password],
+.md-form input[type=search-md],
+.md-form input[type=search],
+.md-form input[type=tel],
+.md-form input[type=text],
+.md-form input[type=time],
+.md-form input[type=url],
+.md-form textarea.md-textarea {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    outline: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    box-sizing: content-box;
+    background-color: transparent;
+}
+
+.form-control {
+    color: #fff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+    transition-delay: 9999s;
+}
+
+input[type=date]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=search-md]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+textarea.md-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ff5722;
+    box-shadow: 0 1px 0 0 #ff5722
 }

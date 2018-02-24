@@ -294,14 +294,31 @@
                                 </div> -->
                                 <div class="row">
                                     <div class="col-sm-12">
+                                        <p class="clearfix text-center">
+                                            <label class="btn-bs-file btn btn-secondary spacing-bottom btn-expanded">
+                                              <input type="file" name="docs" (change)="onFileChange($event)" #fileInput accept="PDF, JPG, DOCX,
+                                              PNG" multiple />Add files
+                                            </label>
+                                        </p>
+                                        <p class="spacing-bottom text-small" *ngFor="let item of files; let i = index" [hidden]="item.remove">
+                                            {{item.name}}
+                                            <span *ngIf="item.success" class="pull-right success">Success</span>
+                                            <span *ngIf="item.error" class="pull-right form-text-danger">error message</span>
+                                            <span class="clearfix">
+                                                <a class="pull-right" *ngIf="!item.success" (click)="removeFile(i)">Remove</a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-12">
                                         <div class="file-field">
                                             <div class="btn btn-primary btn-sm">
                                                 <span>Upload</span>
-                                                <input type="file">
+                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput accept="PDF, JPG, DOCX,
+                                                PNG" multiple>
                                             </div>
 
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Customer General Terms and Conditions">
+                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                <input class="file-path validate" type="text" value="{{item.name}}" placeholder="Customer General Terms and Conditions">
                                             </div>
                                         </div>
                                     </div>

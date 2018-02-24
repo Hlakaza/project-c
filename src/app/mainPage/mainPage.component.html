@@ -1,5 +1,5 @@
 <!-- Intro Section -->
-<div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(../../assets/banner.jpg);">
+<!-- <div class="view hm-white-light jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url(../../assets/banner.jpg);">
     <div class="full-bg-img">
         <div class="container flex-center">
             <div class="row pt-5 mt-3">
@@ -11,9 +11,9 @@
                         </h1>
                         <h4 class="white-text mt-2 mb-5 font-bold wow fadeInDown">Vendor Application Site</h4>
                         <h4 class="mt-2 deep-orange-text">Please first register an account and then login so you can submit your information</h4>
-                        <!-- <div class="jumbotron">
+                         <div class="jumbotron">
                             <button type="button" [routerLink]="['/form']" class="btn" *ngIf="isLoggedIn()">Go to submit a new Form</button>
-                        </div> -->
+                        </div> 
                         <a *ngIf="!isLoggedIn()" routerLink="/user/login" class="btn btn-deep-orange btn-lg wow fadeInDown" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></a>
                         <a *ngIf="!isLoggedIn()" routerLink="/user/register" class="btn btn-white btn-lg deep-orange-text wow fadeInDown" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></a>
                     </div>
@@ -21,4 +21,57 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+
+<!--Intro Section-->
+<!-- <section class="view intro-2 custom-gradient rgba-gradient"> -->
+<section class="view intro-2 custom-gradient rgba-gradient">
+    <div class="full-bg-img">
+        <div class="container flex-center">
+            <div class="d-flex align-items-center content-height">
+                <div class="row flex-center pt-5 mt-3">
+                    <div class="col-md-10 text-center text-md-left mb-5">
+                        <div class="white-text">
+                            <h1 class="h1-responsive font-weight-bold wow fadeInLeft  mb-29" data-wow-delay="0.3s">Welcome to the Clinix Vendor Application Site</h1>
+                            <h4 class="wow fadeInLeft spacing-bottom" data-wow-delay="0.3s">We want to ensure that we have sufficient appropriately qualified vendors to provide goods and services when required</h4>
+                            <br>
+                            <!-- <a appModal modal-open="login" *ngIf="!isLoggedIn()" routerLink="/user/login" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></a>
+                            <a appModal modal-open="register" *ngIf="!isLoggedIn()" routerLink="/user/register" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></a> -->
+                            <button *ngIf="!isLoggedIn()" (click)="login.open()" class="btn btn-outline-white wow fadeInLeft spacing-right" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></button>
+                            <button *ngIf="!isLoggedIn()" (click)="register.open()" class="btn btn-outline-white wow fadeInLeft spacing-left" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <modal #login>
+        <div clas="modal-dialogue">
+            <modal-header [show-close]="true" class="text-white">
+                <span class="close-text">Close</span>
+            </modal-header>
+            <modal-body>
+                <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                    <app-login></app-login>
+                </div>
+            </modal-body>
+        </div>
+    </modal>
+    <modal #register>
+        <div clas="modal-dialogue">
+            <modal-header [show-close]="true" class="text-white">
+                <span class="close-text">Close</span>
+            </modal-header>
+            <modal-body>
+                <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                    <app-register></app-register>
+                </div>
+            </modal-body>
+        </div>
+    </modal>
+</section>
