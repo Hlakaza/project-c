@@ -7,6 +7,17 @@
         flex: auto;
         max-width: 100%;
     }
+    .col-md-10 {
+        -ms-flex: auto;
+        -webkit-box-flex: auto;
+        -webkit-flex: auto;
+        flex: auto;
+        max-width: 83%;
+    }
+}
+
+body {
+    background-color: rgba(233, 236, 239, 0.4);
 }
 
 .form-header {
