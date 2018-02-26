@@ -342,7 +342,7 @@ removeFile(index) {
     // } else {
     //   this.submitStarted = false;
     //   this.toastr.info('Please select an image', 'Attention', {toastLife: 5000});
-    // }
+    // 
 
     this.formService.submitNewForm(newForm)
         .subscribe(

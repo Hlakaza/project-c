@@ -429,17 +429,12 @@ table.table th {
     margin: 0
 }
 
-.modal.fade .modal-dialog {
-    -webkit-transform: translate(-50%);
-    transform: translateY(-50%);
-    top: 50%;
-}
-
 .modal-header {
     background: rgba(0, 0, 0, .8) !important;
     position: relative;
     text-align: right;
     border-bottom: 1px solid rgba(233, 236, 239, 0.4);
+    height: 55px;
 }
 
 .modal {
@@ -460,7 +455,7 @@ table.table th {
 }
 
 .close-text {
-    pointer-events: none;
+    color: #ff5722;
     position: absolute;
     right: 15px;
 }
@@ -471,6 +466,10 @@ table.table th {
 
 .modal-footer {
     border-top: 1px solid rgba(233, 236, 239, 0.36);
+}
+
+.modal-dialog {
+    margin-top: 10%;
 }
 
 .md-form input[type=date],

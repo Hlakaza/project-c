@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // check if the user is logged in while trying to access the login page, if the user is logged in, we redirect him to the form page
     if (this.authService.isLoggedIn()) {
       this.toastr.info('You are already logged in');
-      this.router.navigate(['/']);
+      this.router.navigate(['/user/forms']);
     }
   }
 
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
           if (this.adminService.isAdmin()) {
               this.router.navigate(['admin']);
           } else {
-            this.router.navigate(['/form']);
+            this.router.navigate(['/user/forms']);
           }
           // display toastr success message pop up to inform the user that he logged in successfully
           this.toastr.success('You have been logged in!');

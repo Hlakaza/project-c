@@ -1,43 +1,79 @@
-<div class="card-body">
-    <!--Header-->
-    <div class="text-header">
-        <h4 class="white-text"><i class="fa fa-user-plus white-text"></i> Register:</h4>
+<section class="view intro-2 custom-gradient rgba-gradient">
+    <div class="full-bg-img">
+        <div class="container flex-center">
+            <div class="d-flex align-items-center content-height">
+                <div class="row flex-center pt-5 mt-3">
+                    <div class="col-md-10 text-center text-md-left mb-5">
+                        <div class="white-text">
+                            <h1 class="h1-responsive font-weight-bold wow fadeInLeft  mb-29" data-wow-delay="0.3s">Welcome to the Clinix Vendor Application Site</h1>
+                            <h4 class="wow fadeInLeft spacing-bottom" data-wow-delay="0.3s">We want to ensure that we have sufficient appropriately qualified vendors to provide goods and services when required</h4>
+                            <br>
+                            <!-- <a appModal modal-open="login" *ngIf="!isLoggedIn()" routerLink="/user/login" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></a>
+                                <a appModal modal-open="register" *ngIf="!isLoggedIn()" routerLink="/user/register" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></a> -->
+                            <button class="btn btn-outline-white wow fadeInLeft spacing-right" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></button>
+                            <button class="btn btn-outline-white wow fadeInLeft spacing-left" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--Body-->
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
-        <div class="md-form ">
-            <i class="fa fa-envelope prefix white-text"></i>
-            <input #userEmail type="text" formControlName="email" class="form-control">
-            <label for="email">Email</label>
-            <span [hidden]="email.valid || email.pristine" class="help-block text-danger">Please enter a valid email format</span>
-        </div>
-        <div class="md-form">
-            <i class="fa fa-key prefix white-text"></i>
-            <input type="password" formControlName="password" class="form-control">
-            <label for="password">Password</label>
-            <span [hidden]="password.valid || password.pristine" class="help-block text-danger">Password must contain 6 or more characters</span>
-        </div>
-        <div class="md-form" [hidden]="!password.valid">
-            <i class="fa fa-key prefix white-text"></i>
-            <input class="form-control" type="password" formControlName="confirmPassword" name="confirmPassword" />
-            <label for="confirmPassword">Confirm Password</label>
-            <span *ngIf="myForm.get('confirmPassword').hasError('passwordMatch') && myForm.get('confirmPassword').touched" class="help-block text-danger">Passwords do not match</span>
-        </div>
-        <div class="text-center">
-            <button [disabled]="!myForm.valid" class="btn btn-deep-orange btn-block waves-effect waves-light" type="submit">
-            <span *ngIf="!loading">Register <i class="fa fa-user-plus"></i></span>
-                <span *ngIf="loading">
-                    <app-loader></app-loader>
-                </span>
-            </button>
-        </div>
-    </form>
-</div>
+</section>
 
-<!--Footer-->
-<div class="modal-footer">
-    <div class="options">
-        <p class="white-text">Already have an account <a class="deep-orange-text">Login</a></p>
-        <!-- <p>Lost password? <a class="deep-orange-text" [routerLink]="'/user/reset'">Reset here</a></p> -->
+<section class="modal display-block">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a routerLink="/" class="close-text text-right">Close</a>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body">
+                        <!--Header-->
+                        <div class="text-header">
+                            <h4 class="white-text"><i class="fa fa-user-plus white-text"></i> Register:</h4>
+                        </div>
+                        <!--Body-->
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+                            <div class="md-form ">
+                                <i class="fa fa-envelope prefix white-text"></i>
+                                <input #userEmail type="text" formControlName="email" class="form-control">
+                                <label for="email">Email</label>
+                                <span [hidden]="email.valid || email.pristine" class="help-block text-danger">Please enter a valid email format</span>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-key prefix white-text"></i>
+                                <input type="password" formControlName="password" class="form-control">
+                                <label for="password">Password</label>
+                                <span [hidden]="password.valid || password.pristine" class="help-block text-danger">Password must contain 6 or more characters</span>
+                            </div>
+                            <div class="md-form" [hidden]="!password.valid">
+                                <i class="fa fa-key prefix white-text"></i>
+                                <input class="form-control" type="password" formControlName="confirmPassword" name="confirmPassword" />
+                                <label for="confirmPassword">Confirm Password</label>
+                                <span *ngIf="myForm.get('confirmPassword').hasError('passwordMatch') && myForm.get('confirmPassword').touched" class="help-block text-danger">Passwords do not match</span>
+                            </div>
+                            <div class="text-center">
+                                <button [disabled]="!myForm.valid" class="btn btn-deep-orange btn-block waves-effect waves-light" type="submit">
+                                        <span *ngIf="!loading">Register <i class="fa fa-user-plus"></i></span>
+                                            <span *ngIf="loading">
+                                                <app-loader></app-loader>
+                                            </span>
+                                        </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer">
+                        <div class="options">
+                            <p class="white-text">Already have an account <a routerLink="/user/login" class="deep-orange-text">Login</a></p>
+                            <!-- <p>Lost password? <a class="deep-orange-text" [routerLink]="'/user/reset'">Reset here</a></p> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
+</section>
