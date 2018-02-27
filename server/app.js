@@ -75,5 +75,6 @@ app.use(function(err, req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 module.exports = app;
