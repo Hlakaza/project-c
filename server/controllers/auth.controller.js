@@ -73,6 +73,7 @@ let functions = {
             let mailer = nodemailer.createTransport(sgTransport(send_grid));
             mailer.use('compile', hbs(options));
             mailer.sendMail(mailOptions, (err) => {
+                console.log('Email sent to', req.body.email)
                 if (err) {
                     console.log(err);
                 }
@@ -176,7 +177,7 @@ let functions = {
                 let mailOptions = {
                     to: user.email,
                     from: 'no-reply@gmail.com',
-                    subject: 'ngx-Form | Password Reset Requested  ',
+                    subject: 'Clinix Helath Group | Password Reset Requested  ',
                     template: 'email-password',
                     context: {
                         token: token,
@@ -262,7 +263,7 @@ let functions = {
                 let mailOptions = {
                     to: user.email,
                     from: 'no-reply@pgmail.com',
-                    subject: 'ngx-Form | Your password has changed',
+                    subject: 'Clinix Helath Group | Your password has changed',
                     template: 'email-notify-password-reset',
                     context: {
                         email: user.email,

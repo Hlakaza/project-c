@@ -13,7 +13,6 @@ export class AdminGuardService implements CanActivate {
   // we check if the user is an Administrator or not
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     if (this.adminService.isAdmin()) {
-      this.router.navigate(['/admin']);
       return true;
     } else {
       this.router.navigate(['/']);

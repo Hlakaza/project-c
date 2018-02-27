@@ -19,6 +19,7 @@ export class ProfileService {
   getUserDetails(userId) {
     if (this.authService.isLoggedIn()) {
       let token   = localStorage.getItem('id_token');
+      // tslint:disable-next-line:no-shadowed-variable
       let userId  = localStorage.getItem('userId');
       let headers = new Headers({'Content-Type': 'application/json'});
       headers.append('Authorization', token);

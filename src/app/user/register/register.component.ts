@@ -11,6 +11,7 @@ import { passwordMatch, emailValidator } from '../../validators/input-match';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
+  loginR: any;
   loading: boolean;
   myForm: FormGroup;
   email: FormControl;
@@ -53,7 +54,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           // after successfull registration, the user is redirected to the login page
-          this._router.navigate(['/user/login']);
+          this._router.navigate(['/']);
+
           // toastr message pops up to inform user that the registration was successfull
           this.toastr.success('Please Login', 'Registration Successfull');
         }

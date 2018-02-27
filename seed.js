@@ -94,7 +94,7 @@ async.series([
             var user = new User({
                 email: 'nhlalucky9@gmail.com',
                 // Password will be hashed in the userSchema.pre middleware
-                password: 'T3mpest16**',
+                password: 'pass12345',
                 forms: [],
                 role: 'admin'
             });

@@ -14,7 +14,8 @@ import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
   styleUrls  : ['./form.component.css']
 })
 export class FormComponent implements OnInit, AfterViewInit {
-
+  account: any;
+  filesToUpload: Array<File>;
   // setting up the form
   myForm: FormGroup;
   // textInputOne: FormControl;
@@ -41,17 +42,25 @@ export class FormComponent implements OnInit, AfterViewInit {
   token: string  = localStorage.getItem('id_token');
   url  = `${FORMS_API_URL}/image`;
   imageUrl = `${BASE_URL}/uploads/tmp/`;
-  maxSize  = 5000000;
+  // maxSize  = 5000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
-  public files: File[];
+  // public files: File[];
   public progress  = 0;
   public submitStarted: boolean;
   public imageReady   = false;
   public imagePath: string;
   name: string;
   onClear: EventEmitter<any>   = new EventEmitter();
-
+  /**
+   * Upload File
+   */
+  loading = false;
+  maxSize = 10;
+  usedSize = 0;
+  files: any;
+  filesCount: number;
+  validExtension: any[];
   // @ViewChild('textOne') textOne: ElementRef;
   @ViewChild('fileInput') fileInput: ElementRef;
   @ViewChild('imageDeleteModal') imageDeleteModal: ModalComponent;
@@ -68,15 +77,77 @@ export class FormComponent implements OnInit, AfterViewInit {
   dismissImageDelete() {
     this.imageDeleteModal.close();
   }
+  // createForm() {
+  //   this.form = this.fb.group({
+  //     name: [''],
+  //     docs: null
+  //   });
 
+  //   this.files = [];
+  // }
   constructor(private fb: FormBuilder,
               private toastr: ToastsManager,
               private router: Router,
               private renderer: Renderer,
               private authService: AuthService,
-              private formService: FormService) {
+              private formService: FormService,
+            ) {
+              this.filesToUpload = [];
   }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+onFileChange(event) {
+  this.usedSize = 0;
+
+  if (event.target.files && event.target.files.length > 0) {
+
+    for (let i = 0; i < event.target.files.length; i++) {
+
+      if (event.target.files[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files.push(event.target.files[i]);
+        this.usedSize += event.target.files[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+
+// onSubmit(object) {
+//   const formData = new FormData();
+//   formData.append('DocumentId', object.DocumentId);
+//   formData.append('DocumentTypeId', object.DocumentTypeId);
+
+//   for (let i = 0; i < this.files.length; i++) {
+
+//     if (!this.files[i].remove) {
+//       formData.append('FileDataByteArrayList_', this.files[i]);
+//       formData.append('ItemName', this.files[i].name);
+//       this.files[i].loading = true;
+//       this.loadFile(formData, i);
+//     }
+//   }
+// }
+
+loadFile(object, index) {
+  if (this.usedSize < (1000 * 1000) * this.maxSize) {
+    this.account.documentUploader(object)
+      .subscribe(
+      data => { this.files[index].success = true; },
+      err => { console.log(err); }
+      );
+  }
+}
+
+removeFile(index) {
+  this.filesCount -= 1;
+  this.files[index].remove = true;
+  this.usedSize -= this.files[index].size;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
   // event fired when the user selects an imageng
   onFileSelect(event) {
     this.clear();
@@ -90,6 +161,7 @@ export class FormComponent implements OnInit, AfterViewInit {
           let xhr      = new XMLHttpRequest();
           let formData = new FormData();
 
+          // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
           }
@@ -124,6 +196,9 @@ export class FormComponent implements OnInit, AfterViewInit {
       }
     }
   }
+
+
+
 
   // check if the image is actually an image by checking the mime type
   isFile(file: File): boolean {
@@ -177,6 +252,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.filesCount = 0;
     this.files        = [];
     // this.textInputOne = new FormControl('', Validators.required);
     // this.textInputTwo = new FormControl('', Validators.required);
@@ -205,7 +281,10 @@ export class FormComponent implements OnInit, AfterViewInit {
       salesPersonNo: new FormControl(null, Validators.required),
       salesPersonEmail: new FormControl(null, Validators.required),
       salesPersonFaxNo: new FormControl(null, Validators.required),
-    });
+        name: [''],
+        docs: null
+      });
+      this.files = [];
   }
 
   // focus on first input box after the view is initialized
@@ -245,6 +324,7 @@ export class FormComponent implements OnInit, AfterViewInit {
       this.myForm.value.salesPersonEmail,
       this.imagePath
     );
+
     /**
      * disabling the submiting of form if files are null
      */
@@ -262,7 +342,8 @@ export class FormComponent implements OnInit, AfterViewInit {
     // } else {
     //   this.submitStarted = false;
     //   this.toastr.info('Please select an image', 'Attention', {toastLife: 5000});
-    // }
+    // 
+
     this.formService.submitNewForm(newForm)
         .subscribe(
           data => {

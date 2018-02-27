@@ -13,7 +13,7 @@ export class AdminService {
   private token: string        = localStorage.getItem('id_token');
   private forms                = [];
   private singleForm           = Object;
-          jwtHelper: JwtHelper = new JwtHelper();
+  jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private authHttp: AuthHttp,
               private errorService: ErrorService,

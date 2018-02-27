@@ -100,7 +100,6 @@ let deleteImage = (image) => {
 };
 
 let functions = {
-
     // Get User Info
     getUserInfo: (req, res) => {
         User.findOne({ _id: req.user._id }, function(err, user) {

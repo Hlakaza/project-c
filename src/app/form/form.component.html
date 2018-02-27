@@ -151,7 +151,7 @@
                                         </div>
                                     </div>
                                 </div>
-                 
+
                                 <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
                             </app-tab>
                             <app-tab title="Correspondence">
@@ -245,21 +245,23 @@
                                             <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
                                         </div>
                                     </div>
+                                    <label class="label-text">Business Sector:
+                                            <select class="form-control" id="exampleSelect1">
+                                                    <option>Pharmaceutical</option>
+                                                    <option>None Pharmaceutical</option>
+                                                    <option>Service and Product</option>
+                                          </select>
+                                    </label>
                                 </div>
                                 <div class="row">
-                                        <!--Type of business-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-                                                <label>Business Sector:</label>
-                                                    <select class="form-control" id="exampleSelect1">
-                                                            <option>Pharmaceutical</option>
-                                                            <option>None Pharmaceutical</option>
-                                                            <option>Servivce and Product</option>
-                                                  </select>
-                                            </div>
+                                    <!--Type of business-->
+                                    <div class="col-md-12">
+                                        <div class="md-form">
+
                                         </div>
                                     </div>
-                                <button class="btn btn-success" (click)="t.selectTab(2)">Next</button>
+                                </div>
+                                <button class="btn btn-success clearfix" (click)="t.selectTab(2)">Next</button>
                             </app-tab>
                             <app-tab title="Rquired Documents">
                                 <!-- /**
@@ -292,13 +294,31 @@
                                 </div> -->
                                 <div class="row">
                                     <div class="col-sm-12">
+                                        <p class="clearfix text-center">
+                                            <label class="btn-bs-file btn btn-secondary spacing-bottom btn-expanded">
+                                              <input type="file" name="docs" (change)="onFileChange($event)" #fileInput accept="PDF, JPG, DOCX,
+                                              PNG" multiple />Add files
+                                            </label>
+                                        </p>
+                                        <p class="spacing-bottom text-small" *ngFor="let item of files; let i = index" [hidden]="item.remove">
+                                            {{item.name}}
+                                            <span *ngIf="item.success" class="pull-right success">Success</span>
+                                            <span *ngIf="item.error" class="pull-right form-text-danger">error message</span>
+                                            <span class="clearfix">
+                                                <a class="pull-right" *ngIf="!item.success" (click)="removeFile(i)">Remove</a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-12">
                                         <div class="file-field">
                                             <div class="btn btn-primary btn-sm">
                                                 <span>Upload</span>
-                                                <input type="file">
+                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput accept="PDF, JPG, DOCX,
+                                                PNG" multiple>
                                             </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Customer General Terms and Conditions">
+
+                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                <input class="file-path validate" type="text" value="{{item.name}}" placeholder="Customer General Terms and Conditions">
                                             </div>
                                         </div>
                                     </div>
@@ -320,7 +340,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="Letter of Good Standing">
                                             </div>
                                         </div>
                                     </div>
@@ -331,7 +351,18 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="Audited latest Financial Statements">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="file-field">
+                                            <input type="file">
+                                            <div class="btn btn-primary btn-sm">
+                                                <span>Upload</span>
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text" placeholder="Proof of Banking Details">
                                             </div>
                                         </div>
                                     </div>
@@ -342,7 +373,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="Company Letterhead">
                                             </div>
                                         </div>
                                     </div>
@@ -353,7 +384,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="Tax Certificate">
                                             </div>
                                         </div>
                                     </div>
@@ -364,7 +395,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="MCC Certificate">
                                             </div>
                                         </div>
                                     </div>
@@ -375,7 +406,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="Declaration of possible conflict of Interest with Clinix Health Group (CHG)">
                                             </div>
                                         </div>
                                     </div>
@@ -386,7 +417,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" multiple placeholder="Copies of Identification Document (ID) of Directors">
                                             </div>
                                         </div>
                                     </div>
@@ -397,7 +428,7 @@
                                                 <input type="file">
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload your file">
+                                                <input class="file-path validate" type="text" placeholder="Product price list">
                                             </div>
                                         </div>
                                     </div>

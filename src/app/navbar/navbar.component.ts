@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
         .subscribe(
           (data => {
             const userArray = [];
+            // tslint:disable-next-line:forin
             for (let key in data) {
               userArray.push(data[key]);
             }

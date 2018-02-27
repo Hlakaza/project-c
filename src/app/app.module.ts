@@ -38,6 +38,8 @@ import {Ng2Bs3ModalModule} from 'ng2-bs3-modal/ng2-bs3-modal';
 import { LoaderComponent } from './components/loader/loader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 
 export function getAuthHttp(http) {
@@ -71,7 +73,8 @@ export function getAuthHttp(http) {
     ChangePasswordComponent,
     LoaderComponent,
     TabsComponent,
-    TabComponent
+    TabComponent,
+    ModalComponent,
   ],
   imports     : [
     BrowserModule,
