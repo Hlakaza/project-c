@@ -23,8 +23,6 @@ export class Form {
               public userId?: string,
               public formId?: string) {
 
-    // this.textInputOne = textInputOne;
-    // this.textInputTwo = textInputTwo;
     this.tradingName = tradingName;
     this.registeredCompanyName = registeredCompanyName;
     this.registrationNumber = registrationNumber;

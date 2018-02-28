@@ -75,16 +75,7 @@ export class EditUsersFormsComponent implements OnInit, AfterViewInit {
           this.fetchedForm = formArray;
         })
       );
-/**
- * Previous Validation Method
-  // this.textInputOne = new FormControl('', Validators.required);
-  // this.textInputTwo = new FormControl('', Validators.required);
-    // textInputTwo: this.textInputTwo,
- */
-
     this.myForm = this.fb.group({
-      // textInputOne: new FormControl(null, Validators.required),
-      // textInputTwo: new FormControl(null, Validators.required),
       tradingName: new FormControl(null, Validators.required),
       registeredCompanyName: new FormControl(null, Validators.required),
       registrationNumber: new FormControl(null, Validators.required),
