@@ -1,480 +1,443 @@
-<section id="sidebar"> 
-    <div class="white-label">
-    </div> 
-    <div id="sidebar-nav">   
-      <ul>
-        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fa fa-desktop"></i> My Website</a></li>
-        <li><a href="#"><i class="fa fa-usd"></i> Ecommerce</a></li>
-        <li><a href="#"><i class="fa fa-pencil-square-o"></i> My Blog</a></li>
-        <li><a href="#"><i class="fa fa-sitemap"></i> SEO Tools</a></li>
-        <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a></li>
-        <li><a href="#"><i class="fa fa-comments-o"></i>Social Marketing</a></li>
-        <li><a href="#"><i class="fa fa-map-marker"></i> Get Traffic</a></li>     
-        <li><a href="#"><i class="fa fa-users"></i> Employees</a></li>
-        <li><a href="#"><i class="fa fa-calendar-o"></i> Reservations</a></li>
-        <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
-      </ul>
-    </div>
-  </section>
-  <section id="content">
-    <div id="header">
-      <div class="header-nav">
-        <div class="menu-button">
-          <!--<i class="fa fa-navicon"></i>-->
+<section class="dash-wraper">
+    <section id="sidebar">
+        <div class="white-label">
+            <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix">
         </div>
-        <div class="widget-nav">
-          <ul>
-            <li class="widget-nav-item nav-settings">
-              <div class="font-icon"><i class="fa fa-tasks"></i></div>
-            </li>
-            <li class="widget-nav-item nav-mail">
-              <div class="font-icon"><i class="fa fa-envelope-o"></i></div>
-            </li>
-            <li class="widget-nav-item nav-calendar">
-              <div class="font-icon"><i class="fa fa-calendar"></i></div>
-            </li>
-            <li class="widget-nav-item nav-chat">
-              <div class="font-icon"><i class="fa fa-comments-o"></i></div>
-            </li>
-            <li class="widget-nav-item nav-profile">
-              <div class="nav-profile-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="profile image">
-                <div class="nav-profile-name">Jane Smith<i class="fa fa-caret-down"></i></div>
-              </div>
-            </li>
-          </ul>
+        <div id="sidebar-nav">
+            <ul>
+                <li class="active"><a class="marg-6 btn btn-deep-orange "><i class="fa fa-dashboard"></i> Add Details</a></li>
+                <li><a class="marg-6 spacing-top btn btn-blue-grey" routerLink="/user/forms"><i class="fa fa-desktop"></i> Profile</a></li>
+
+            </ul>
         </div>
-      </div>
-    </div>
-    <div class="content">
-      <div class="content-header">
-        <h1>Dashboard</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-      <!-- <div class="widget-box sample-widget">
-        <div class="widget-header">
-          <h2>Widget Header</h2>
-          <i class="fa fa-cog"></i>
-        </div>
-        <div class="widget-content">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png">
-        </div>
-      </div> -->
-      <div class="flex-center">
-            <div class="card reg-card-width">
-                <div class="card-body">
-                    <!--Header-->
-                    <div class="form-header bg-deep-orange ">
-                        <h3><i class="fa fa-user"></i> Fill in the Form:</h3>
-                    </div>
-                    <form [formGroup]="myForm" (ngSubmit)="submitForm()" class="form-horizontal register-form clearfix" novalidate>
-                        <fieldset>
-                            <app-tabs #t>
-                                <app-tab title="Company Information">
-                                    <div class="row">
-                                        <!--Trading Name-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }">
-                                                    <i class="fa fa-building prefix grey-text"></i>
-                                                    <input placeholder="Trading Name" class="form-control" formControlName="tradingName" name="tradingName" type="text" required/>
-                                                    <!-- <label for="tradingName">Trading Name</label> -->
-                                                    <span *ngIf="myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched" class="help-block text-danger">Trading Name is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--Company Name-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }">
-                                                    <i class="fa fa-building prefix grey-text"></i>
-                                                    <input placeholder="Registered Company Name" class="form-control" formControlName="registeredCompanyName" name="registeredCompanyName" type="text" />
-                                                    <!-- <label for="registeredCompanyName">Registered Company Name</label> -->
-                                                    <span *ngIf="myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched" class="help-block text-danger">Company Name is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Registration Number-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }">
-                                                    <i class="fa fa-edit prefix grey-text"></i>
-                                                    <input placeholder="Registration Number" class="form-control" formControlName="registrationNumber" name="registrationNumber" type="text" />
-                                                    <!-- <label for="registrationNumber">Registration Number</label> -->
-                                                    <span *ngIf="myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched" class="help-block text-danger">Registration Number is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--confirm Registration Number-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }">
-                                                    <i class="fa fa-edit prefix grey-text"></i>
-                                                    <input placeholder="confirm Registration Number" type="text" class="form-control" formControlName="confirmRegNumber" name="confirmRegNumber" />
-                                                    <!-- <label for="confirmRegNumber">confirm Registration Number</label> -->
-                                                    <span *ngIf="myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched" class="help-block text-danger">Registration Numbers do not match</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Vat Number-->
-                                        <div class="col-md-6">
-                                            <div class="md-form">
-                                                <i class="fa fa-archive prefix grey-text"></i>
-                                                <input placeholder="Vat Number" type="text" class="form-control" formControlName="vatNumber" name="vatNumber" />
-                                                <!-- <label for="vatNumber">Vat Number</label> -->
-                                                <span *ngIf="myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched" class="help-block text-danger">VatNumber is required</span>
-                                            </div>
-                                        </div>
-    
-                                        <!--Confirm Vat Number-->
-                                        <div class="col-md-6">
-                                            <div class="md-form">
-                                                <i class="fa fa-archive prefix grey-text"></i>
-                                                <input placeholder="confirm Vat Number" type="text" class="form-control" formControlName="confirmVatNumber" name="confirmVatNumber" />
-                                                <!-- <label for="confirmVatNumber">confirm Vat Number</label> -->
-                                                <span *ngIf="myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched" class="help-block text-danger">Vat Numbers do not match</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Address-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-                                                <i class="far fa-address-card prefix grey-text"></i>
-                                                <textarea placeholder="Physical Address" type="text" formControlName="physicalAddress" name="physicalAddress" class="form-control md-textarea"></textarea>
-                                                <!-- <label for="physicalAddress">Physical Address</label> -->
-                                                <span *ngIf="myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched" class="help-block text-danger">Physical Address is required</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Postal Address-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-                                                <i class="far fa-address-card prefix grey-text"></i>
-                                                <textarea type="text" placeholder="Postal Address" formControlName="postalAddress" name="postalAddress" class="form-control md-textarea"></textarea>
-                                                <!-- <label for="postalAddress">Postal Address</label> -->
-                                                <span *ngIf="myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched" class="help-block text-danger">Postal Address is required</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Phone Number-->
-                                        <div class="col-md-6">
-                                            <div class="md-form ">
-                                                <i class="fa fa-phone prefix grey-text"></i>
-                                                <input placeholder="Work Tel Number" type="text" class="form-control" formControlName="tel" name="tel" />
-                                                <!-- <label for="tel">Telephone Number</label> -->
-                                                <span *ngIf="myForm.get('tel').hasError('required') && myForm.get('tel').touched" class="help-block text-danger">Your work Telephone Number is required</span>
-                                            </div>
-                                        </div>
-    
-                                        <!--Fax Number-->
-                                        <div class="col-md-6">
-                                            <div class="md-form">
-                                                <i class="fa fa-fax prefix grey-text"></i>
-                                                <input placeholder="Fax Number" type="text" class="form-control" formControlName="faxNo" name="faxNo" />
-                                                <!-- <label for="faxNo">Fax Number</label> -->
-                                                <span *ngIf="myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched" class="help-block text-danger">Fax number is required</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Website-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-                                                <i class="fa fa-globe prefix grey-text"></i>
-                                                <textarea placeholder="Website" type="text" formControlName="website" name="website" class="form-control md-textarea"></textarea>
-                                                <!-- <label for="website">Website</label> -->
-                                                <span *ngIf="myForm.get('website').hasError('required') && myForm.get('website').touched" class="help-block text-danger">Website is required</span>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                    <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
-                                </app-tab>
-                                <app-tab title="Correspondence">
-                                    <div class="row">
-                                        <!--Acc Person  Name-->
-                                        <div class="col-md-12">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }">
-                                                    <i class="fa fa-user prefix grey-text"></i>
-                                                    <input placeholder="Accounts Person Name" class="form-control" formControlName="accPersonName" name="accPersonName" type="text" />
-                                                    <span *ngIf="myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched" class="help-block text-danger">Accounts Person Name is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Acc Person Number-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }">
-                                                    <i class="fa fa-phone prefix grey-text"></i>
-                                                    <input placeholder="Work Tel Number" class="form-control" formControlName="accPersonNo" name="accPersonNo" type="text" />
-                                                    <span *ngIf="myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--Acc Person Fax Number-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }">
-                                                    <i class="fa fa-fax prefix grey-text"></i>
-                                                    <input placeholder="Fax Number" type="text" class="form-control" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
-                                                    <span *ngIf="myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Email-->
-                                        <div class="col-md-12">
-                                            <div class="clearfix">
-                                                <div class="md-form">
-                                                    <i class="far fa-envelope prefix grey-text"></i>
-                                                    <input placeholder="Email" type="email" class="form-control" formControlName="accPersonEmail" name="accPersonEmail" />
-                                                    <span *ngIf="myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched" class="help-block text-danger">Email is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-    
-                                    <div class="row">
-                                        <!--Sales Person  Name-->
-                                        <div class="col-md-12">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }">
-                                                    <i class="fa fa-user prefix grey-text"></i>
-                                                    <input placeholder="Sales Person Name" class="form-control" formControlName="salesPersonName" name="salesPersonName" type="text" />
-                                                    <span *ngIf="myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched" class="help-block text-danger">Sales Person Name is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Sales Person Number-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }">
-                                                    <i class="fa fa-phone prefix grey-text"></i>
-                                                    <input placeholder="Work Tel Number" class="form-control" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
-                                                    <span *ngIf="myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--Sales Person Fax Number-->
-                                        <div class="col-md-6">
-                                            <div class="clearfix pad-top-10">
-                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }">
-                                                    <i class="fa fa-fax prefix grey-text"></i>
-                                                    <input placeholder="Fax Number" type="text" class="form-control" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
-                                                    <span *ngIf="myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <!--Email-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-                                                <i class="far fa-envelope prefix grey-text"></i>
-                                                <input placeholder="Email" type="email" class="form-control" formControlName="salesPersonEmail" name="salesPersonEmail" />
-                                                <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
-                                            </div>
-                                        </div>
-                                        <label class="label-text">Business Sector:
-                                                <select class="form-control" id="exampleSelect1">
-                                                        <option>Pharmaceutical</option>
-                                                        <option>None Pharmaceutical</option>
-                                                        <option>Service and Product</option>
-                                              </select>
-                                        </label>
-                                    </div>
-                                    <div class="row">
-                                        <!--Type of business-->
-                                        <div class="col-md-12">
-                                            <div class="md-form">
-    
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-success clearfix" (click)="t.selectTab(2)">Next</button>
-                                </app-tab>
-                                <app-tab title="Rquired Documents">
-                                    <div class="row">                  
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-    
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                    <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                    <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Customer General Terms and Conditions">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput1 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                    <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                    <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="BEE Certificate">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput2 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                    <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                    <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Letter of Good Standing">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput3 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                    <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                    <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Audited latest Financial Statements">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">                                       
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput4 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Proof of Banking Details">
-                                                </div>
-                    
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput5 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Company Letterhead">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput6 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Tax Certificate">
-                                                </div>    
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput7 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="MCC Certificate">
-                                                </div> 
-                                               
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput8 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Declaration of possible conflict of Interest with Clinix Health Group (CHG)">
-                                                </div> 
-                                        
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput9 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Copies of Identification Document (ID) of Directors">
-                                                </div> 
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="file-field">
-                                                <div class="btn btn-primary btn-sm">
-                                                    <span>Upload</span>
-                                                    <input type="file" name="docs" (change)="onFileChange($event)" #fileInput10 accept="PDF, JPG, DOCX,
-                                                    PNG" multiple>
-                                                </div>
-                                                <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Product price list">
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </app-tab>
-                            </app-tabs>
-    
-                            <!-- Button -->
-                            <div class="form-group">
-                                <div class="col-md-12 flex-center">
-                                    <button type="submit" [disabled]="!myForm.valid" id="submitForm" name="sumbitForm" class="btn btn-primary btn-lg text-center bottomMargin">Submit</button>
-                                </div>
+    </section>
+    <section id="content">
+        <div id="header">
+            <div class="header-nav">
+                <div class="menu-button">
+                    <!--<i class="fa fa-navicon"></i>-->
+                </div>
+                <div class="widget-nav">
+                    <ul>
+                        <li class="widget-nav-item nav-chat">
+                            <div (click)="logout()" class="cursor-pointer font-icon"><i class="fa fa-sign-out-alt"></i> Logout</div>
+                        </li>
+                        <li class="widget-nav-item nav-profile">
+                            <div class="nav-profile-image" *ngFor="let user of fetchedUser">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="profile image">
+                                <div class="nav-profile-name">{{user.email}} <i class="fa fa-caret-down"></i></div>
                             </div>
-                        </fieldset>
-                    </form>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-  </section>
+        <div class="content">
+            <div class="pad-top-header">
+                <div class="marg-auto card reg-card-width spacing-bottom">
+                    <div class="card-body">
+                        <!--Header-->
+                        <div class="form-header bg-deep-orange ">
+                            <h3><i class="fa fa-user"></i> Fill in the Form:</h3>
+                        </div>
+                        <form [formGroup]="myForm" (ngSubmit)="submitForm()" class="form-horizontal register-form clearfix" novalidate>
+                            <fieldset>
+                                <app-tabs #t>
+                                    <app-tab title="Company Information">
+                                        <div class="row">
+                                            <!--Trading Name-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix pad-top-10">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }">
+                                                        <i class="fa fa-building prefix grey-text"></i>
+                                                        <input placeholder="Trading Name" class="form-control" formControlName="tradingName" name="tradingName" type="text" required/>
+                                                        <!-- <label for="tradingName">Trading Name</label> -->
+                                                        <span *ngIf="myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched" class="help-block text-danger">Trading Name is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Company Name-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix pad-top-10">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }">
+                                                        <i class="fa fa-building prefix grey-text"></i>
+                                                        <input placeholder="Registered Company Name" class="form-control" formControlName="registeredCompanyName" name="registeredCompanyName" type="text" />
+                                                        <!-- <label for="registeredCompanyName">Registered Company Name</label> -->
+                                                        <span *ngIf="myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched" class="help-block text-danger">Company Name is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Registration Number-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix pad-top-10">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }">
+                                                        <i class="fa fa-edit prefix grey-text"></i>
+                                                        <input placeholder="Registration Number" class="form-control" formControlName="registrationNumber" name="registrationNumber" type="text" />
+                                                        <!-- <label for="registrationNumber">Registration Number</label> -->
+                                                        <span *ngIf="myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched" class="help-block text-danger">Registration Number is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--confirm Registration Number-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix pad-top-10">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }">
+                                                        <i class="fa fa-edit prefix grey-text"></i>
+                                                        <input placeholder="Confirm Registration Number" type="text" class="form-control" formControlName="confirmRegNumber" name="confirmRegNumber" />
+                                                        <!-- <label for="confirmRegNumber">confirm Registration Number</label> -->
+                                                        <span *ngIf="myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched" class="help-block text-danger">Registration Numbers do not match</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Vat Number-->
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <i class="fa fa-archive prefix grey-text"></i>
+                                                    <input placeholder="Vat Number" type="text" class="form-control" formControlName="vatNumber" name="vatNumber" />
+                                                    <!-- <label for="vatNumber">Vat Number</label> -->
+                                                    <span *ngIf="myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched" class="help-block text-danger">VatNumber is required</span>
+                                                </div>
+                                            </div>
 
+                                            <!--Confirm Vat Number-->
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <i class="fa fa-archive prefix grey-text"></i>
+                                                    <input placeholder="Confirm Vat Number" type="text" class="form-control" formControlName="confirmVatNumber" name="confirmVatNumber" />
+                                                    <!-- <label for="confirmVatNumber">confirm Vat Number</label> -->
+                                                    <span *ngIf="myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched" class="help-block text-danger">Vat Numbers do not match</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Address-->
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <i class="far fa-address-card prefix grey-text"></i>
+                                                    <textarea placeholder="Physical Address" type="text" formControlName="physicalAddress" name="physicalAddress" class="form-control md-textarea"></textarea>
+                                                    <!-- <label for="physicalAddress">Physical Address</label> -->
+                                                    <span *ngIf="myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched" class="help-block text-danger">Physical Address is required</span>
+                                                </div>
+                                            </div>
+                                            <!--Postal Address-->
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <i class="far fa-address-card prefix grey-text"></i>
+                                                    <textarea type="text" placeholder="Postal Address" formControlName="postalAddress" name="postalAddress" class="form-control md-textarea"></textarea>
+                                                    <!-- <label for="postalAddress">Postal Address</label> -->
+                                                    <span *ngIf="myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched" class="help-block text-danger">Postal Address is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
 
-<div class="container topPad">
-   
-</div>
+                                        <div class="row">
+                                            <!--Phone Number-->
+                                            <div class="col-md-6">
+                                                <div class="md-form ">
+                                                    <i class="fa fa-phone prefix grey-text"></i>
+                                                    <input placeholder="Work Tel Number" type="text" class="form-control" formControlName="tel" name="tel" />
+                                                    <!-- <label for="tel">Telephone Number</label> -->
+                                                    <span *ngIf="myForm.get('tel').hasError('required') && myForm.get('tel').touched" class="help-block text-danger">Your work Telephone Number is required</span>
+                                                </div>
+                                            </div>
+
+                                            <!--Fax Number-->
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <i class="fa fa-fax prefix grey-text"></i>
+                                                    <input placeholder="Fax Number" type="text" class="form-control" formControlName="faxNo" name="faxNo" />
+                                                    <!-- <label for="faxNo">Fax Number</label> -->
+                                                    <span *ngIf="myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched" class="help-block text-danger">Fax number is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Website-->
+                                            <div class="col-md-6">
+                                                <div class="md-form">
+                                                    <i class="fa fa-globe prefix grey-text"></i>
+                                                    <textarea placeholder="Website" type="text" formControlName="website" name="website" class="form-control md-textarea"></textarea>
+                                                    <!-- <label for="website">Website</label> -->
+                                                    <span *ngIf="myForm.get('website').hasError('required') && myForm.get('website').touched" class="help-block text-danger">Website is required</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
+                                    </app-tab>
+                                    <app-tab title="Correspondence">
+                                        <div class="row">
+                                            <!--Acc Person  Name-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix pad-top-10">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }">
+                                                        <i class="fa fa-user prefix grey-text"></i>
+                                                        <input placeholder="Accounts Person Name" class="form-control" formControlName="accPersonName" name="accPersonName" type="text" />
+                                                        <span *ngIf="myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched" class="help-block text-danger">Accounts Person Name is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Email-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix pad-top-10">
+                                                    <div class="md-form">
+                                                        <i class="far fa-envelope prefix grey-text"></i>
+                                                        <input placeholder="Email" type="email" class="form-control" formControlName="accPersonEmail" name="accPersonEmail" />
+                                                        <span *ngIf="myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched" class="help-block text-danger">Email is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Acc Person Number-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix ">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }">
+                                                        <i class="fa fa-phone prefix grey-text"></i>
+                                                        <input placeholder="Work Tel Number" class="form-control" formControlName="accPersonNo" name="accPersonNo" type="text" />
+                                                        <span *ngIf="myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Acc Person Fax Number-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix ">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }">
+                                                        <i class="fa fa-fax prefix grey-text"></i>
+                                                        <input placeholder="Fax Number" type="text" class="form-control" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
+                                                        <span *ngIf="myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <!--Sales Person  Name-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix ">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }">
+                                                        <i class="fa fa-user prefix grey-text"></i>
+                                                        <input placeholder="Sales Person Name" class="form-control" formControlName="salesPersonName" name="salesPersonName" type="text" />
+                                                        <span *ngIf="myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched" class="help-block text-danger">Sales Person Name is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Email-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix ">
+                                                    <div class="md-form">
+                                                        <i class="far fa-envelope prefix grey-text"></i>
+                                                        <input placeholder="Email" type="email" class="form-control" formControlName="salesPersonEmail" name="salesPersonEmail" />
+                                                        <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Sales Person Number-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix ">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }">
+                                                        <i class="fa fa-phone prefix grey-text"></i>
+                                                        <input placeholder="Work Tel Number" class="form-control" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
+                                                        <span *ngIf="myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Sales Person Fax Number-->
+                                            <div class="col-md-6">
+                                                <div class="clearfix ">
+                                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }">
+                                                        <i class="fa fa-fax prefix grey-text"></i>
+                                                        <input placeholder="Fax Number" type="text" class="form-control" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
+                                                        <span *ngIf="myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <!--Type of business-->
+                                            <div class="col-md-6 pad-top-10">
+                                                <label class="label-text ">Business Sector:
+                                                            <select class="form-control" id="exampleSelect1">
+                                                                    <option>Pharmaceutical</option>
+                                                                    <option>None Pharmaceutical</option>
+                                                                    <option>Service and Product</option>
+                                                          </select>
+                                            </label>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-success clearfix" (click)="t.selectTab(2)">Next</button>
+                                    </app-tab>
+                                    <app-tab title="Rquired Documents">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Customer General Terms and Conditions">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange1($event)" #fileInput1 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files1; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="item < 1" placeholder="BEE Certificate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput2 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Letter of Good Standing">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput3 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Audited latest Financial Statements">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput4 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Proof of Banking Details">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput5 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Company Letterhead">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput6 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Tax Certificate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput7 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="MCC Certificate">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput8 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Declaration of possible conflict of Interest with Clinix Health Group (CHG)">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput9 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Copies of Identification Document (ID) of Directors">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="file-field">
+                                                    <div class="btn btn-primary btn-sm">
+                                                        <span>Upload</span>
+                                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput10 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple>
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Product price list">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </app-tab>
+                                </app-tabs>
+
+                                <!-- Button -->
+                                <div class="row">
+                                    <div class="col-md-12 flex-center">
+                                        <button type="submit" [disabled]="!myForm.valid" id="submitForm" name="sumbitForm" class="btn btn-primary btn-lg text-center">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

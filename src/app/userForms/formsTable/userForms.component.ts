@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormService} from '../../form/form.service';
+import { AuthService } from '../../auth/auth.service';
+import { ProfileService } from '../../user/profile/profile.service';
 
 
 @Component({
@@ -9,17 +11,36 @@ import {FormService} from '../../form/form.service';
 })
 export class UserFormsComponent implements OnInit {
   fetchedForms = [];
+  fetchedUser = [];
 
-  constructor(private formService: FormService) {
+  constructor(private authService: AuthService, private profileService: ProfileService, private formService: FormService) {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      if (this.authService.isLoggedIn()) {
+        let userId = localStorage.getItem('userId');
+        this.profileService.getUserDetails(userId)
+          .subscribe(
+            (data => {
+              const userArray = [];
+              // tslint:disable-next-line:forin
+              for (let key in data) {
+                userArray.push(data[key]);
+              }
+              this.fetchedUser = userArray;
+            })
+          );
+      }
+    }, 50);
     this.formService.getUserForms()
       .subscribe(
         forms => this.fetchedForms = forms,
         error => console.log(error));
   }
-
+  logout() {
+    return this.authService.logout();
+  }
   onDelete(formId) {
     this.formService.deleteForm(formId)
       .subscribe();

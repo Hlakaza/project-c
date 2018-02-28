@@ -101,10 +101,12 @@ a:hover {
 }
 
 .label-text {
-    margin-left: 1rem;
+    margin-left: 3rem;
+    width: 83%;
 }
 
-.md-form .prefix~input {
+.md-form .prefix~input,
+.md-form .prefix~textarea {
     margin-left: 3rem;
     width: 82% !important;
 }
@@ -533,4 +535,29 @@ input[type=url]:focus:not([readonly]),
 textarea.md-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #ff5722;
     box-shadow: 0 1px 0 0 #ff5722
+}
+
+.md-form,
+.md-form .btn {
+    margin-bottom: 0;
+}
+
+.marg-auto {
+    margin: auto;
+}
+
+.btn-blue-grey:hover {
+    background-color: #ff5722 !important;
+}
+
+.form-wrapper .section {
+    padding-bottom: 0;
+}
+
+.form-wrapper .form-control {
+    color: #333333
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

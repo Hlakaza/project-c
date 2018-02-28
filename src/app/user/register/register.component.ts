@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           // after successfull registration, the user is redirected to the login page
-          this._router.navigate(['/']);
+          this._router.navigate(['/user/login']);
 
           // toastr message pops up to inform user that the registration was successfull
           this.toastr.success('Please Login', 'Registration Successfull');

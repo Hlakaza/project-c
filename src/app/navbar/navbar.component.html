@@ -15,7 +15,7 @@
             </ul>
             <ul class="navbar-right navbar-nav">
 
-                <li *ngFor="let user of fetchedUser text-orange" class="nav-item text-right">
+                <li *ngFor="let user of fetchedUser" class="nav-item text-right">
                     <a class="nav-link text-orange" [routerLink]="['/user/profile']" *ngIf="isLoggedIn()">{{user.email}}
                 <img *ngIf="user.profilePic; else noImage" src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" onerror="this.src ='assets/images/profile-placeholder.jpg';" class="img-resized" alt="avatar">
                 <ng-template #noImage><img src="./assets/images/profile-placeholder.png" class="img-resized"></ng-template>

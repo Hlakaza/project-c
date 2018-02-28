@@ -8,6 +8,7 @@ import {ModalComponent} from 'ng2-bs3-modal/components/modal';
 import {FormService} from './form.service';
 import {Form} from './form.model';
 import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
+import { ProfileService } from '../user/profile/profile.service';
 @Component({
   selector   : 'app-form',
   templateUrl: './form.component.html',
@@ -15,6 +16,7 @@ import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
 })
 export class FormComponent implements OnInit, AfterViewInit {
   account: any;
+  fetchedUser: any[] = [];
   filesToUpload: Array<File>;
   // setting up the form
   myForm: FormGroup;
@@ -59,6 +61,17 @@ export class FormComponent implements OnInit, AfterViewInit {
   maxSize = 10;
   usedSize = 0;
   files: any;
+  files1: any;
+  files2: any;
+  files3: any;
+  files4: any;
+  files5: any;
+  files6: any;
+  files7: any;
+  files8: any;
+  files9: any;
+  files10: any;
+  // files10: any;
   filesCount: number;
   validExtension: any[];
   // @ViewChild('textOne') textOne: ElementRef;
@@ -101,6 +114,8 @@ export class FormComponent implements OnInit, AfterViewInit {
               private renderer: Renderer,
               private authService: AuthService,
               private formService: FormService,
+              private profileService: ProfileService
+
             ) {
               this.filesToUpload = [];
   }
@@ -110,14 +125,142 @@ export class FormComponent implements OnInit, AfterViewInit {
 
 onFileChange(event) {
   this.usedSize = 0;
-
   if (event.target.files && event.target.files.length > 0) {
-
     for (let i = 0; i < event.target.files.length; i++) {
 
       if (event.target.files[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
         this.files.push(event.target.files[i]);
         this.usedSize += event.target.files[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange1(event) {
+  this.usedSize = 0;
+  if (event.target.files1 && event.target.files1.length > 0) {
+    for (let i = 0; i < event.target.files1.length; i++) {
+
+      if (event.target.files1[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files1.push(event.target.files1[i]);
+        this.usedSize += event.target.files1[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange2(event) {
+  this.usedSize = 0;
+  if (event.target.files2 && event.target.files2.length > 0) {
+    for (let i = 0; i < event.target.files2.length; i++) {
+
+      if (event.target.files2[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files2.push(event.target.files2[i]);
+        this.usedSize += event.target.files2[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange3(event) {
+  this.usedSize = 0;
+  if (event.target.files3 && event.target.files3.length > 0) {
+    for (let i = 0; i < event.target.files3.length; i++) {
+
+      if (event.target.files3[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files3.push(event.target.files3[i]);
+        this.usedSize += event.target.files3[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange4(event) {
+  this.usedSize = 0;
+  if (event.target.files4 && event.target.files4.length > 0) {
+    for (let i = 0; i < event.target.files4.length; i++) {
+
+      if (event.target.files4[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files4.push(event.target.files4[i]);
+        this.usedSize += event.target.files4[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange5(event) {
+  this.usedSize = 0;
+  if (event.target.files5 && event.target.files5.length > 0) {
+    for (let i = 0; i < event.target.files5.length; i++) {
+
+      if (event.target.files5[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files5.push(event.target.files5[i]);
+        this.usedSize += event.target.files5[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange6(event) {
+  this.usedSize = 0;
+  if (event.target.files6 && event.target.files6.length > 0) {
+    for (let i = 0; i < event.target.files6.length; i++) {
+
+      if (event.target.files6[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files6.push(event.target.files6[i]);
+        this.usedSize += event.target.files6[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange7(event) {
+  this.usedSize = 0;
+  if (event.target.files7 && event.target.files7.length > 0) {
+    for (let i = 0; i < event.target.files7.length; i++) {
+
+      if (event.target.files7[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files7.push(event.target.files7[i]);
+        this.usedSize += event.target.files7[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange8(event) {
+  this.usedSize = 0;
+  if (event.target.files8 && event.target.files8.length > 0) {
+    for (let i = 0; i < event.target.files8.length; i++) {
+
+      if (event.target.files8[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files8.push(event.target.files8[i]);
+        this.usedSize += event.target.files8[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange9(event) {
+  this.usedSize = 0;
+  if (event.target.files9 && event.target.files9.length > 0) {
+    for (let i = 0; i < event.target.files9.length; i++) {
+
+      if (event.target.files9[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files9.push(event.target.files9[i]);
+        this.usedSize += event.target.files9[i].size;
+        this.filesCount += 1;
+      }
+    }
+  }
+}
+onFileChange10(event) {
+  this.usedSize = 0;
+  if (event.target.files10 && event.target.files10.length > 0) {
+    for (let i = 0; i < event.target.files9.length; i++) {
+
+      if (event.target.files10[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+        this.files10.push(event.target.files10[i]);
+        this.usedSize += event.target.files10[i].size;
         this.filesCount += 1;
       }
     }
@@ -264,14 +407,7 @@ removeFile(index) {
   ngOnInit() {
     this.filesCount = 0;
     this.files        = [];
-    // this.textInputOne = new FormControl('', Validators.required);
-    // this.textInputTwo = new FormControl('', Validators.required);
-    // textInputOne: this.textInputOne,
-    // textInputTwo: this.textInputTwo
-
     this.myForm = this.fb.group({
-      // textInputOne: new FormControl(null, Validators.required),
-      // textInputTwo: new FormControl(null, Validators.required),
       tradingName: new FormControl(null, Validators.required),
       registeredCompanyName: new FormControl(null, Validators.required),
       registrationNumber: new FormControl(null, Validators.required),
@@ -299,22 +435,36 @@ removeFile(index) {
 
   // focus on first input box after the view is initialized
   ngAfterViewInit() {
-    // setTimeout(() => {
-    //   this.renderer.invokeElementMethod(this.textOne.nativeElement, 'focus', []);
-    // }, 50);
+    setTimeout(() => {
+      if (this.authService.isLoggedIn()) {
+        let userId = localStorage.getItem('userId');
+        this.profileService.getUserDetails(userId)
+          .subscribe(
+            (data => {
+              const userArray = [];
+              // tslint:disable-next-line:forin
+              for (let key in data) {
+                userArray.push(data[key]);
+              }
+              this.fetchedUser = userArray;
+            })
+          );
+      }
+    }, 50);
   }
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
 
+  logout() {
+    return this.authService.logout();
+  }
   // submit the form to back end
 
   submitForm() {
     this.submitStarted = true;
     const newForm      = new Form(
-      // this.myForm.value.textInputOne,
-      // this.myForm.value.textInputTwo,
       this.myForm.value.tradingName,
       this.myForm.value.registeredCompanyName,
       this.myForm.value.registrationNumber,

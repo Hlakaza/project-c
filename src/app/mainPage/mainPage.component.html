@@ -9,8 +9,8 @@
                             <h1 class="h1-responsive font-weight-bold wow fadeInLeft  mb-29" data-wow-delay="0.3s">Welcome to the Clinix Vendor Application Site</h1>
                             <h4 class="wow fadeInLeft spacing-bottom" data-wow-delay="0.3s">We want to ensure that we have sufficient appropriately qualified vendors to provide goods and services when required</h4>
                             <br>
-                            <a appModal modal-open="login" *ngIf="!isLoggedIn()" routerLink="/user/login" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></a>
-                            <a appModal modal-open="register" *ngIf="!isLoggedIn()" routerLink="/user/register" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></a>
+                            <a *ngIf="!isLoggedIn()" routerLink="/user/login" class="spacing-right btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Login to account <i class="fa fa-sign-in-alt"></i></a>
+                            <a *ngIf="!isLoggedIn()" routerLink="/user/register" class="spacing-left btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Register as a vendor <i class="fa fa-user-plus"></i></a>
                         </div>
                     </div>
                 </div>

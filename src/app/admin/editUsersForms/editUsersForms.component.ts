@@ -17,8 +17,6 @@ export class EditUsersFormsComponent implements OnInit, AfterViewInit {
 
   fetchedForm: any[] = [];
   myForm: FormGroup;
-  // textInputOne: FormControl;
-  // textInputTwo: FormControl;
   tradingName: FormControl;
   registeredCompanyName: FormControl;
   registrationNumber: FormControl;

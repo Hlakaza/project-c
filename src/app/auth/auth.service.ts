@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 import {Headers, Response} from '@angular/http';
 import {User} from './user.model';
 import {Observable} from 'rxjs';
@@ -13,7 +14,7 @@ import {AUTH_API_URL} from '../config/config';
 @Injectable()
 
 export class AuthService {
-  constructor(private authHttp: AuthHttp, private errorService: ErrorService, private toastr: ToastsManager) {
+  constructor(private authHttp: AuthHttp,  private router: Router, private errorService: ErrorService, private toastr: ToastsManager) {
   }
 
   // sending request to back end to register our user
@@ -66,6 +67,7 @@ export class AuthService {
 
   // logout function to be used in html file of both pages (login/register) in order to clear the localStorage from token and user id.
   logout() {
+    this.router.navigateByUrl('/');
     localStorage.clear();
     this.toastr.info('You have been logged out');
   }
