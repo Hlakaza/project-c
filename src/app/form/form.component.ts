@@ -11,7 +11,7 @@ import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
 @Component({
   selector   : 'app-form',
   templateUrl: './form.component.html',
-  styleUrls  : ['./form.component.css']
+  styleUrls  : ['./form.component.scss']
 })
 export class FormComponent implements OnInit, AfterViewInit {
   account: any;
@@ -63,6 +63,16 @@ export class FormComponent implements OnInit, AfterViewInit {
   validExtension: any[];
   // @ViewChild('textOne') textOne: ElementRef;
   @ViewChild('fileInput') fileInput: ElementRef;
+  @ViewChild('fileInput1') fileInput1: ElementRef;
+  @ViewChild('fileInput2') fileInput2: ElementRef;
+  @ViewChild('fileInput3') fileInput3: ElementRef;
+  @ViewChild('fileInput4') fileInput4: ElementRef;
+  @ViewChild('fileInput5') fileInput5: ElementRef;
+  @ViewChild('fileInput6') fileInput6: ElementRef;
+  @ViewChild('fileInput7') fileInput7: ElementRef;
+  @ViewChild('fileInput8') fileInput8: ElementRef;
+  @ViewChild('fileInput9') fileInput9: ElementRef;
+  @ViewChild('fileInput10') fileInput10: ElementRef;
   @ViewChild('imageDeleteModal') imageDeleteModal: ModalComponent;
 
   deleteImage() {
@@ -342,7 +352,7 @@ removeFile(index) {
     // } else {
     //   this.submitStarted = false;
     //   this.toastr.info('Please select an image', 'Attention', {toastLife: 5000});
-    // 
+    //
 
     this.formService.submitNewForm(newForm)
         .subscribe(
