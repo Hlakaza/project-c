@@ -1,60 +1,36 @@
-<section id="sidebar"> 
+<section id="sidebar">
     <div class="white-label">
-    </div> 
-    <div id="sidebar-nav">   
-      <ul>
-        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fa fa-desktop"></i> My Website</a></li>
-        <li><a href="#"><i class="fa fa-usd"></i> Ecommerce</a></li>
-        <li><a href="#"><i class="fa fa-pencil-square-o"></i> My Blog</a></li>
-        <li><a href="#"><i class="fa fa-sitemap"></i> SEO Tools</a></li>
-        <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a></li>
-        <li><a href="#"><i class="fa fa-comments-o"></i>Social Marketing</a></li>
-        <li><a href="#"><i class="fa fa-map-marker"></i> Get Traffic</a></li>     
-        <li><a href="#"><i class="fa fa-users"></i> Employees</a></li>
-        <li><a href="#"><i class="fa fa-calendar-o"></i> Reservations</a></li>
-        <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
-      </ul>
+        <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix">
     </div>
-  </section>
-  <section id="content">
+    <div id="sidebar-nav">
+        <ul>
+            <li class="active"><a class="marg-6 btn btn-deep-orange " routerLink="/admin">All Vendors</a></li>
+            <!-- <li><a class="marg-6 spacing-top btn btn-blue-grey" routerLink="/user/forms"> Profile</a></li> -->
+        </ul>
+    </div>
+</section>
+<section id="content">
     <div id="header">
-      <div class="header-nav">
-        <div class="menu-button">
-          <!--<i class="fa fa-navicon"></i>-->
+        <div class="header-nav">
+            <div class="menu-button">
+                <!--<i class="fa fa-navicon"></i>-->
+            </div>
+            <div class="widget-nav">
+                <ul>
+                    <li class="widget-nav-item nav-chat">
+                        <div (click)="logout()" class="cursor-pointer font-icon"><i class="fa fa-sign-out-alt"></i> Logout</div>
+                    </li>
+                    <li class="widget-nav-item nav-profile">
+                        <div class="nav-profile-image">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="profile image">
+                            <div class="nav-profile-name">Admin <i class="fa fa-caret-down"></i></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="widget-nav">
-          <ul>
-            <li class="widget-nav-item nav-settings">
-              <div class="font-icon"><i class="fa fa-tasks"></i></div>
-            </li>
-            <li class="widget-nav-item nav-mail">
-              <div class="font-icon"><i class="fa fa-envelope-o"></i></div>
-            </li>
-            <li class="widget-nav-item nav-calendar">
-              <div class="font-icon"><i class="fa fa-calendar"></i></div>
-            </li>
-            <li class="widget-nav-item nav-chat">
-              <div class="font-icon"><i class="fa fa-comments-o"></i></div>
-            </li>
-            <li class="widget-nav-item nav-profile">
-              <div class="nav-profile-image">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="profile image">
-                <div class="nav-profile-name">Jane Smith<i class="fa fa-caret-down"></i></div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
     <div class="content">
-      <div class="content-header">
-        <h1>Admin Dashboard</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-       <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </div>
-  </section>
-
-
-
+</section>

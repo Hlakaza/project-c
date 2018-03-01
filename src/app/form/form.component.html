@@ -5,8 +5,8 @@
         </div>
         <div id="sidebar-nav">
             <ul>
-                <li class="active"><a class="marg-6 btn btn-deep-orange "><i class="fa fa-dashboard"></i> Add Details</a></li>
-                <li><a class="marg-6 spacing-top btn btn-blue-grey" routerLink="/user/forms"><i class="fa fa-desktop"></i> Profile</a></li>
+                <li class="active"><a class="marg-6 btn btn-deep-orange ">Add Details</a></li>
+                <li><a class="marg-6 spacing-top btn btn-blue-grey" routerLink="/user/forms"> Profile</a></li>
 
             </ul>
         </div>
@@ -276,6 +276,14 @@
                                     </app-tab>
                                     <app-tab title="Rquired Documents">
                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card red lighten-1 text-center z-depth-2 spacing-bottom spacing-top">
+                                                    <div class="card-body">
+                                                        <p class="white-text mb-0 font-8">Please upload these documents, Customer General Terms and Conditions, BEE Certificate, Tax Certificate, Letter of Good Standing, Audited latest Financial Statements, Proof of Banking Details, Company
+                                                            Letterhead, Declaration of possible conflict of Interest with Clinix Health Group (CHG), Product Price list, Identity documents of directors.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-sm-12">
                                                 <div class="file-field">
                                                     <div class="btn btn-primary btn-sm">
@@ -286,11 +294,14 @@
 
                                                     <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
                                                         <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Customer General Terms and Conditions">
+                                                        <!-- <input class="file-path validate" type="text" *ngIf="item.name < 1" placeholder="Please select all your documents"> -->
+                                                    </div>
+                                                    <div class="file-path-wrapper" *ngIf="filesCount < 1">
+                                                        <input class="file-path validate" type="text" placeholder="Please Select all your documents">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
+                                            <!-- <div class="col-sm-12">
                                                 <div class="file-field">
                                                     <div class="btn btn-primary btn-sm">
                                                         <span>Upload</span>
@@ -422,7 +433,7 @@
                                                         <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Product price list">
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </app-tab>
                                 </app-tabs>

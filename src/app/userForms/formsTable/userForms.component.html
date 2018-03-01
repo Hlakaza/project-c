@@ -40,8 +40,8 @@
         </div>
         <div id="sidebar-nav">
             <ul>
-                <li class="active"><a class="marg-6 btn  btn-blue-grey" routerLink="/form"><i class="fa fa-dashboard"></i> Add Details</a></li>
-                <li><a class="marg-6 spacing-top btn btn-deep-orange" routerLink="/user/forms"><i class="fa fa-desktop"></i> Profile</a></li>
+                <li class="active"><a class="marg-6 btn  btn-blue-grey" routerLink="/form"> Add Details</a></li>
+                <li><a class="marg-6 spacing-top btn btn-deep-orange" routerLink="/user/forms">Profile</a></li>
 
             </ul>
         </div>
@@ -72,13 +72,13 @@
                 <div class="main-content marg-auto">
                     <div class="container-fluid">
                         <div class="col-sm-12">
-                            <div class="card" *ngFor="let form of fetchedForms">
+                            <div class="card spacing-bottom" *ngFor="let form of fetchedForms">
                                 <div class="card-header" data-background-color="red">
                                     <h4 class="title">Welcome {{form.tradingName}}</h4>
                                     <p class="category">These are your details</p>
 
                                 </div>
-                                <div class="card-content table-responsive table-full-width">
+                                <div class="card-content table-responsive">
                                     <table class="table">
                                         <thead class="text-danger">
                                             <th>Company Information</th>
