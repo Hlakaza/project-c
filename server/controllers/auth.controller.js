@@ -62,7 +62,7 @@ let functions = {
             };
             let mailOptions = {
                 to: req.body.email,
-                from: 'nhlalucky9@gmail.com',
+                from: 'no-reply@clinix.co.za',
                 subject: 'Welcome to Clinix Reg',
                 template: 'email-welcome',
                 context: {
@@ -75,7 +75,7 @@ let functions = {
             mailer.sendMail(mailOptions, (err) => {
                 console.log('Email sent to', req.body.email)
                 if (err) {
-                    console.log(err);
+                    console.log('Registration email was not sent', err);
                 }
             });
 
@@ -176,7 +176,7 @@ let functions = {
                 mailer.use('compile', hbs(options));
                 let mailOptions = {
                     to: user.email,
-                    from: 'no-reply@gmail.com',
+                    from: 'no-reply@clinix.co.za',
                     subject: 'Clinix Helath Group | Password Reset Requested  ',
                     template: 'email-password',
                     context: {
@@ -262,7 +262,7 @@ let functions = {
                 mailer.use('compile', hbs(options));
                 let mailOptions = {
                     to: user.email,
-                    from: 'no-reply@pgmail.com',
+                    from: 'no-reply@clinix.co.za',
                     subject: 'Clinix Helath Group | Your password has changed',
                     template: 'email-notify-password-reset',
                     context: {
@@ -272,7 +272,7 @@ let functions = {
                 };
                 mailer.sendMail(mailOptions, (err) => {
                     if (err) {
-                        console.log(err);
+                        console.log('Message was not sent', err);
                     }
                     return res.status(200).json({
                         message: 'Success'
@@ -281,7 +281,7 @@ let functions = {
             }
         ], (err) => {
             if (err) {
-                console.log(err);
+                console.log('Message Failed', err);
             }
         });
     }
