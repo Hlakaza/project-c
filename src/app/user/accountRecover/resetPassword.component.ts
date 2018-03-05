@@ -8,7 +8,7 @@ import {ToastsManager} from 'ng2-toastr';
 @Component({
   selector   : 'app-reset-password',
   templateUrl: './resetPassword.component.html',
-  styleUrls  : ['./resetPagesStyle.css']
+  styleUrls  : ['./resetPagesStyle.scss']
 })
 
 export class ResetPasswordComponent implements OnInit, AfterViewInit {

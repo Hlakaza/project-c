@@ -74,10 +74,29 @@ let functions = {
             mailer.use('compile', hbs(options));
             mailer.sendMail(mailOptions, (err) => {
                 console.log('Email sent to', req.body.email)
+                if (!err) {
+                    let mailOptionsAdmin = {
+                        to: 'nhlalucky9@gmail.com',
+                        from: 'no-reply@clinix.co.za',
+                        subject: 'Vendor Registration Alert',
+                        template: 'email-notify-admin',
+                        context: {
+                            // set this uuid because gmail truncates email message and adds 3 dots (how stupid) when footer or main content of the email is the same across all emails sent to the user. For example, if you send out emails very often to the user, footer, header and sometimes body is always the same. This unique id is injected into the email 3 times so gmail thinks footer, header and body are not the same like previous emails.
+                            uid: uuidV1()
+                        }
+                    };
+                    mailer.sendMail(mailOptionsAdmin, (err) => {
+                        console.log('Email sent to', 'admin')
+                        if (err) {
+                            console.log('Admin alert email was not sent', err);
+                        }
+                    });
+                }
                 if (err) {
                     console.log('Registration email was not sent', err);
                 }
             });
+
 
             let userInfo = setUserInfo(user);
             res.status(200).json({

@@ -4,25 +4,8 @@
         <a class="navbar-brand" routerLink="/">
             <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix" class="logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
-            <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item"><a class="nav-link" routerLink="/user/forms" *ngIf="isLoggedIn() && !isAdmin()" routerLinkActive="active">Application details</a></li> -->
-
-                <!-- <li class="nav-item white-text"><a class="nav-link" [routerLink]="['admin']" *ngIf="isAdmin()" routerLinkActive="active">Admin Panel</a></li> -->
-            </ul>
-            <ul class="navbar-right navbar-nav">
-                <!-- 
-                <li *ngFor="let user of fetchedUser" class="nav-item text-right">
-                    <a class="nav-link text-orange" [routerLink]="['/user/profile']" *ngIf="isLoggedIn()">{{user.email}}
-                <img *ngIf="user.profilePic; else noImage" src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" onerror="this.src ='assets/images/profile-placeholder.jpg';" class="img-resized" alt="avatar">
-                <ng-template #noImage><img src="./assets/images/profile-placeholder.png" class="img-resized"></ng-template>
-              </a>
-                </li> -->
-                <li><a class="white-text" href="#" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></li>
-            </ul>
+        <div class="flex-right">
+            <span><a class="white-text" href="#" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></span>
             <span *ngIf="!isLoggedIn()" class="white-text phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="/user/login">Admin</a></span>
             <span *ngIf="isLoggedIn() && !isAdmin()" class="white-text phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="user/forms">Profile</a></span>
             <span *ngIf="isLoggedIn() && isAdmin()" class="white-text phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="/admin">Profile</a></span>
