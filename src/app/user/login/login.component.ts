@@ -38,6 +38,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.toastr.info('You are already logged in');
       this.router.navigate(['/user/forms']);
     }
+    // check if the user has a form and redirect him to the form
+    /**
+     * ToDo
+     * Add method to redirect to edit form if it exits
+     */
   }
 
   ngAfterViewInit() {

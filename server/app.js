@@ -5,8 +5,11 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     config = require('./config/config');
-
 let app = express();
+
+let DIR = './uploads/';
+
+let upload = multer({ dest: DIR });
 process.on('uncaughtException', function(err) {
     console.log(err);
 });
@@ -41,12 +44,23 @@ app.use(function(req, res, next) {
     next();
 });
 
+// upload files
+app.use(multer({
+    dest: DIR,
+    rename: function(fieldname, filename) {
+        return filename + Date.now();
+    },
+    onFileUploadStart: function(file) {
+        console.log(file.originalname + ' is starting ...');
+    },
+    onFileUploadComplete: function(file) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path);
+    }
+}));
+
+
 // setting up route
 require('./routes/routes')(app);
-
-// app.post("/upload", multer({ dest: "./uploads/" }).array("uploads", 12), function(req, res) {
-//     res.send(req.files);
-// });
 
 // catch 404 and rsforward to error handler
 app.use(function(req, res, next) {
@@ -64,6 +78,16 @@ if (app.get('env') === 'development') {
         });
     });
 }
+//Post file upload
+app.post('/api', function(req, res) {
+    upload(req, res, function(err) {
+        if (err) {
+            return res.end(err.toString());
+        }
+
+        res.end('File is uploaded');
+    });
+});
 
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -72,6 +96,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
