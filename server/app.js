@@ -5,14 +5,6 @@ let express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     config = require('./config/config');
-let app = express();
-
-let DIR = './uploads/';
-
-let upload = multer({ dest: DIR });
-process.on('uncaughtException', function(err) {
-    console.log(err);
-});
 
 mongoose.Promise = global.Promise; // gets rid of the mongoose promise deprecated warning
 mongoose.connect(config.database);
@@ -44,20 +36,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-// upload files
-app.use(multer({
-    dest: DIR,
-    rename: function(fieldname, filename) {
-        return filename + Date.now();
-    },
-    onFileUploadStart: function(file) {
-        console.log(file.originalname + ' is starting ...');
-    },
-    onFileUploadComplete: function(file) {
-        console.log(file.fieldname + ' uploaded to  ' + file.path);
-    }
-}));
-
 
 // setting up route
 require('./routes/routes')(app);
@@ -78,16 +56,6 @@ if (app.get('env') === 'development') {
         });
     });
 }
-//Post file upload
-app.post('/api', function(req, res) {
-    upload(req, res, function(err) {
-        if (err) {
-            return res.end(err.toString());
-        }
-
-        res.end('File is uploaded');
-    });
-});
 
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
