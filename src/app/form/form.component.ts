@@ -435,6 +435,9 @@ removeFile(index) {
 
   // focus on first input box after the view is initialized
   ngAfterViewInit() {
+    /**
+     * Check if the user has details then redirect him to his details else make him add details
+     */
     this.formService.getUserForms()
     .subscribe(
       forms => this.fetchedForms = forms,
@@ -442,7 +445,7 @@ removeFile(index) {
       if (this.fetchedForms === null) {
           this.router.navigate(['user/forms']);
     } else {
-      this.router.navigate(['/form']);
+      this.router.navigate(['edit', form._id]);
     }
     setTimeout(() => {
       if (this.authService.isLoggedIn()) {
