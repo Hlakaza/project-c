@@ -9,6 +9,7 @@ import {FormService} from './form.service';
 import {Form} from './form.model';
 import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
 import { ProfileService } from '../user/profile/profile.service';
+import { empty } from 'rxjs/observable/empty';
 @Component({
   selector   : 'app-form',
   templateUrl: './form.component.html',
@@ -17,11 +18,10 @@ import { ProfileService } from '../user/profile/profile.service';
 export class FormComponent implements OnInit, AfterViewInit {
   account: any;
   fetchedUser: any[] = [];
+  fetchedForms = [];
   filesToUpload: Array<File>;
   // setting up the form
   myForm: FormGroup;
-  // textInputOne: FormControl;
-  // textInputTwo: FormControl;
   tradingName: FormControl;
   registeredCompanyName: FormControl;
   registrationNumber: FormControl;
@@ -435,6 +435,15 @@ removeFile(index) {
 
   // focus on first input box after the view is initialized
   ngAfterViewInit() {
+    this.formService.getUserForms()
+    .subscribe(
+      forms => this.fetchedForms = forms,
+      error => console.log(error));
+      if (this.fetchedForms === null) {
+          this.router.navigate(['user/forms']);
+    } else {
+      this.router.navigate(['/form']);
+    }
     setTimeout(() => {
       if (this.authService.isLoggedIn()) {
         let userId = localStorage.getItem('userId');
