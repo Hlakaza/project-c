@@ -267,7 +267,7 @@
                                                                     <option>Pharmaceutical</option>
                                                                     <option>None Pharmaceutical</option>
                                                                     <option>Service and Product</option>
-                                                          </select>
+                                                </select>
                                             </label>
                                             </div>
                                         </div>
@@ -301,12 +301,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- <div class="col-sm-12">
+                                            <div class="col-sm-12">
                                                 <div class="file-field">
                                                     <div class="btn btn-primary btn-sm">
                                                         <span>Upload</span>
-                                                        <input type="file" name="docs" (change)="onFileChange1($event)" #fileInput1 accept="PDF, JPG, DOCX,
-                                                                PNG" multiple>
+                                                        <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" #fileInput name="fileUp" (change)="onFileSelect($event)" multiple/>
+                                                        <!-- <input type="file" name="docs" (change)="onFileChange1($event)" #fileInput1 accept="PDF, JPG, DOCX,
+                                                                PNG" multiple> -->
                                                     </div>
                                                     <div class="file-path-wrapper" *ngFor="let item of files1; let i = index">
                                                         <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
@@ -314,7 +315,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
+                                           <!--  <div class="col-sm-12">
                                                 <div class="file-field">
                                                     <div class="btn btn-primary btn-sm">
                                                         <span>Upload</span>

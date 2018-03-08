@@ -18,7 +18,6 @@ import { empty } from 'rxjs/observable/empty';
 export class FormComponent implements OnInit, AfterViewInit {
   account: any;
   fetchedUser: any[] = [];
-  fetchedForms = [];
   filesToUpload: Array<File>;
   // setting up the form
   myForm: FormGroup;
@@ -44,10 +43,10 @@ export class FormComponent implements OnInit, AfterViewInit {
   token: string  = localStorage.getItem('id_token');
   url  = `${FORMS_API_URL}/image`;
   imageUrl = `${BASE_URL}/uploads/tmp/`;
-  // maxSize  = 5000000;
+  maxSize  = 5000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
-  // public files: File[];
+  public files: File[];
   public progress  = 0;
   public submitStarted: boolean;
   public imageReady   = false;
@@ -58,34 +57,11 @@ export class FormComponent implements OnInit, AfterViewInit {
    * Upload File
    */
   loading = false;
-  maxSize = 10;
+  // maxSize = 10;
   usedSize = 0;
-  files: any;
-  files1: any;
-  files2: any;
-  files3: any;
-  files4: any;
-  files5: any;
-  files6: any;
-  files7: any;
-  files8: any;
-  files9: any;
-  files10: any;
-  // files10: any;
   filesCount: number;
   validExtension: any[];
-  // @ViewChild('textOne') textOne: ElementRef;
   @ViewChild('fileInput') fileInput: ElementRef;
-  @ViewChild('fileInput1') fileInput1: ElementRef;
-  @ViewChild('fileInput2') fileInput2: ElementRef;
-  @ViewChild('fileInput3') fileInput3: ElementRef;
-  @ViewChild('fileInput4') fileInput4: ElementRef;
-  @ViewChild('fileInput5') fileInput5: ElementRef;
-  @ViewChild('fileInput6') fileInput6: ElementRef;
-  @ViewChild('fileInput7') fileInput7: ElementRef;
-  @ViewChild('fileInput8') fileInput8: ElementRef;
-  @ViewChild('fileInput9') fileInput9: ElementRef;
-  @ViewChild('fileInput10') fileInput10: ElementRef;
   @ViewChild('imageDeleteModal') imageDeleteModal: ModalComponent;
 
   deleteImage() {
@@ -100,14 +76,6 @@ export class FormComponent implements OnInit, AfterViewInit {
   dismissImageDelete() {
     this.imageDeleteModal.close();
   }
-  // createForm() {
-  //   this.form = this.fb.group({
-  //     name: [''],
-  //     docs: null
-  //   });
-
-  //   this.files = [];
-  // }
   constructor(private fb: FormBuilder,
               private toastr: ToastsManager,
               private router: Router,
@@ -120,15 +88,12 @@ export class FormComponent implements OnInit, AfterViewInit {
               this.filesToUpload = [];
   }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 onFileChange(event) {
   this.usedSize = 0;
   if (event.target.files && event.target.files.length > 0) {
     for (let i = 0; i < event.target.files.length; i++) {
 
-      if (event.target.files[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
+      if (event.target.files[i].name.match(/.jpeg|.jpg|.png|.doc|.pdf|.docx|.gif/gi)) {
         this.files.push(event.target.files[i]);
         this.usedSize += event.target.files[i].size;
         this.filesCount += 1;
@@ -136,172 +101,6 @@ onFileChange(event) {
     }
   }
 }
-onFileChange1(event) {
-  this.usedSize = 0;
-  if (event.target.files1 && event.target.files1.length > 0) {
-    for (let i = 0; i < event.target.files1.length; i++) {
-
-      if (event.target.files1[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files1.push(event.target.files1[i]);
-        this.usedSize += event.target.files1[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange2(event) {
-  this.usedSize = 0;
-  if (event.target.files2 && event.target.files2.length > 0) {
-    for (let i = 0; i < event.target.files2.length; i++) {
-
-      if (event.target.files2[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files2.push(event.target.files2[i]);
-        this.usedSize += event.target.files2[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange3(event) {
-  this.usedSize = 0;
-  if (event.target.files3 && event.target.files3.length > 0) {
-    for (let i = 0; i < event.target.files3.length; i++) {
-
-      if (event.target.files3[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files3.push(event.target.files3[i]);
-        this.usedSize += event.target.files3[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange4(event) {
-  this.usedSize = 0;
-  if (event.target.files4 && event.target.files4.length > 0) {
-    for (let i = 0; i < event.target.files4.length; i++) {
-
-      if (event.target.files4[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files4.push(event.target.files4[i]);
-        this.usedSize += event.target.files4[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange5(event) {
-  this.usedSize = 0;
-  if (event.target.files5 && event.target.files5.length > 0) {
-    for (let i = 0; i < event.target.files5.length; i++) {
-
-      if (event.target.files5[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files5.push(event.target.files5[i]);
-        this.usedSize += event.target.files5[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange6(event) {
-  this.usedSize = 0;
-  if (event.target.files6 && event.target.files6.length > 0) {
-    for (let i = 0; i < event.target.files6.length; i++) {
-
-      if (event.target.files6[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files6.push(event.target.files6[i]);
-        this.usedSize += event.target.files6[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange7(event) {
-  this.usedSize = 0;
-  if (event.target.files7 && event.target.files7.length > 0) {
-    for (let i = 0; i < event.target.files7.length; i++) {
-
-      if (event.target.files7[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files7.push(event.target.files7[i]);
-        this.usedSize += event.target.files7[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange8(event) {
-  this.usedSize = 0;
-  if (event.target.files8 && event.target.files8.length > 0) {
-    for (let i = 0; i < event.target.files8.length; i++) {
-
-      if (event.target.files8[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files8.push(event.target.files8[i]);
-        this.usedSize += event.target.files8[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange9(event) {
-  this.usedSize = 0;
-  if (event.target.files9 && event.target.files9.length > 0) {
-    for (let i = 0; i < event.target.files9.length; i++) {
-
-      if (event.target.files9[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files9.push(event.target.files9[i]);
-        this.usedSize += event.target.files9[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-onFileChange10(event) {
-  this.usedSize = 0;
-  if (event.target.files10 && event.target.files10.length > 0) {
-    for (let i = 0; i < event.target.files9.length; i++) {
-
-      if (event.target.files10[i].name.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-        this.files10.push(event.target.files10[i]);
-        this.usedSize += event.target.files10[i].size;
-        this.filesCount += 1;
-      }
-    }
-  }
-}
-
-// onSubmit(object) {
-//   const formData = new FormData();
-//   formData.append('DocumentId', object.DocumentId);
-//   formData.append('DocumentTypeId', object.DocumentTypeId);
-
-//   for (let i = 0; i < this.files.length; i++) {
-
-//     if (!this.files[i].remove) {
-//       formData.append('FileDataByteArrayList_', this.files[i]);
-//       formData.append('ItemName', this.files[i].name);
-//       this.files[i].loading = true;
-//       this.loadFile(formData, i);
-//     }
-//   }
-// }
-
-loadFile(object, index) {
-  if (this.usedSize < (1000 * 1000) * this.maxSize) {
-    this.account.documentUploader(object)
-      .subscribe(
-      data => { this.files[index].success = true; },
-      err => { console.log(err); }
-      );
-  }
-}
-
-removeFile(index) {
-  this.filesCount -= 1;
-  this.files[index].remove = true;
-  this.usedSize -= this.files[index].size;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-  // event fired when the user selects an imageng
   onFileSelect(event) {
     this.clear();
     this.submitStarted = true;
@@ -345,7 +144,7 @@ removeFile(index) {
 
         }
       } else if (!this.isFile(file)) {
-        this.toastr.error('Only pdf, doc, jpep and png are allowed');
+        this.toastr.error('Only pdf, doc, jpep and png`s are allowed');
       }
     }
   }
@@ -355,8 +154,8 @@ removeFile(index) {
 
   // check if the image is actually an image by checking the mime type
   isFile(file: File): boolean {
-    if (!file.type.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-      this.toastr.error('Only pdf, doc, jpep and png are allowed');
+    if (!file.type.match(/.jpeg|.jpg|.png|.pdf|.doc|.docx|.gif/gi)) {
+      this.toastr.error('Only pdf, doc, jpep and png`s are allowed');
       return false;
     }
     return true;
@@ -405,7 +204,6 @@ removeFile(index) {
   }
 
   ngOnInit() {
-    this.filesCount = 0;
     this.files        = [];
     this.myForm = this.fb.group({
       tradingName: new FormControl(null, Validators.required),
@@ -427,26 +225,11 @@ removeFile(index) {
       salesPersonNo: new FormControl(null, Validators.required),
       salesPersonEmail: new FormControl(null, Validators.required),
       salesPersonFaxNo: new FormControl(null, Validators.required),
-        name: [''],
-        docs: null
       });
-      this.files = [];
   }
 
   // focus on first input box after the view is initialized
   ngAfterViewInit() {
-    /**
-     * Check if the user has details then redirect him to his details else make him add details
-     */
-    this.formService.getUserForms()
-    .subscribe(
-      forms => this.fetchedForms = forms,
-      error => console.log(error));
-      if (this.fetchedForms === null) {
-          this.router.navigate(['user/forms']);
-    } else {
-      this.router.navigate(['edit', form._id]);
-    }
     setTimeout(() => {
       if (this.authService.isLoggedIn()) {
         let userId = localStorage.getItem('userId');
@@ -496,7 +279,7 @@ removeFile(index) {
       this.myForm.value.salesPersonEmail,
       this.imagePath
     );
-
+    console.log(this.imagePath);
     /**
      * disabling the submiting of form if files are null
      */
