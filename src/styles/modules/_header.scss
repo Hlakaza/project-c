@@ -1,17 +1,21 @@
-// .top-nav-collapse {
-//     background-color: #fff !important;
-// }
-// .navbar:not(.top-nav-collapse) {
-//     background: #fff !important;
-// }
-// .navbar-brand {
-//     padding: 0;
-//     max-width: 120px;
-// }
-// .navbar.scrolling-navbar {
-//     padding-top: 0;
-//     padding-bottom: 5px
-// }
+.top-nav-collapse {
+    background-color: #fff !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+    background: #fff !important;
+}
+
+.navbar-brand {
+    padding: 0;
+    max-width: 120px;
+}
+
+.navbar.scrolling-navbar {
+    padding-top: 0;
+    padding-bottom: 5px
+}
+
 .logo {
     width: 100%
 }
@@ -87,23 +91,18 @@ h6 {
     line-height: 1.7;
 }
 
-@media (max-width: 740px) {
-    .full-height,
-    .full-height body,
-    .full-height header,
-    .full-height header .view {
-        height: 1040px;
-    }
-}
-
+// @media (max-width: 740px) {
+//     .full-height,
+//     .full-height body,
+//     .full-height header,
+//     .full-height header .view {
+//         height: 1040px;
+//     }
+// }
 .navbar-dark .navbar-brand {
     color: #fff;
     position: absolute;
     top: 0;
-}
-
-.logo {
-    width: 65%;
 }
 
 .view {

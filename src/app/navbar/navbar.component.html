@@ -1,12 +1,14 @@
-<!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
         <a class="navbar-brand" routerLink="/">
             <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix" class="logo">
         </a>
-        <div class="flex-right">
-            <span><a class="white-text" href="#" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></span>
-            <span *ngIf="!isLoggedIn()" class="white-text phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="/user/login">Admin</a></span>
+        <div id="navbar" class="navbar-collapse">
+            <ul class="navbar-nav mr-auto"> &nbsp; </ul>
+            <ul class="navbar-right navbar-nav">
+                <li class="nav-item text-right"><a class="nav-link text-orange font-bold" href="#" (click)="logout()" *ngIf="isLoggedIn()">Logout</a></li>
+                <li class="nav-item text-right"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="/user/login">Admin</a></li>
+            </ul>
             <span *ngIf="isLoggedIn() && !isAdmin()" class="white-text phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="user/forms">Profile</a></span>
             <span *ngIf="isLoggedIn() && isAdmin()" class="white-text phone inline"><i class="mukam-mobile icon-3x pull-left"></i><a class="nav-link text-orange font-bold" routerLink="/admin">Profile</a></span>
         </div>
