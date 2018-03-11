@@ -82,15 +82,23 @@
             <img class="img" src="../assets/images/vendor_profile.png" alt="image">
         </a>
     </div>
-    <div class="content" *ngFor="let user of fetchedUser">
+    <div class="content">
         <h6 class="category text-gray"></h6>
-        <h4 class="card-title">Tempest Hodings</h4>
+        <h4 *ngFor="let form of fetchedForms" class="card-title">
+            {{form.tradingName}}
+        </h4>
         <h4 class="card-title"></h4>
-        <p class="card-content">
-            <b class="">Email </b> <br/>{{user.email}} <br/>
-            <b class="text-bold spacing-top display-block">Telephone</b> 073 408 4441<br/>
-            <b class="text-bold spacing-top display-block">Status</b> Waiting approval
-        </p>
+        <div class="card-content">
+            <div *ngFor="let user of fetchedUser">
+                <b class="">Email </b> <br/>{{user.email}}
+            </div>
+            <div *ngFor="let form of fetchedForms">
+                <b class="text-bold spacing-top display-block">Telephone</b> {{form.tel}}
+            </div>
+            <div *ngFor="let user of fetchedUser">
+                <span *ngIf="user.forms.length > 0"><b class="text-bold spacing-top display-block">Status</b> Waiting approval</span>
+            </div>
+        </div>
 
         <a routerLink (click)="logout()" class="btn btn-orange btn-round btn-sm spacing-bottom">Logout</a>
     </div>

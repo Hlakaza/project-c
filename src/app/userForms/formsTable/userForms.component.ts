@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {FormService} from '../../form/form.service';
 import { AuthService } from '../../auth/auth.service';
 import { ProfileService } from '../../user/profile/profile.service';
@@ -9,7 +9,7 @@ import {BASE_URL, FORMS_API_URL} from '../../config/config';
   templateUrl: './userForms.component.html',
   styleUrls  : ['./userForms.component.css']
 })
-export class UserFormsComponent implements OnInit {
+export class UserFormsComponent implements OnInit, AfterViewInit {
   baseUrl   = `${BASE_URL}`;
   fetchedForms = [];
   fetchedUser = [];
@@ -20,7 +20,8 @@ export class UserFormsComponent implements OnInit {
      private formService: FormService) {
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  ngAfterViewInit() {
     setTimeout(() => {
       if (this.authService.isLoggedIn()) {
         let userId = localStorage.getItem('userId');

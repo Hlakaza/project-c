@@ -1,23 +1,25 @@
-import {Component, ElementRef, EventEmitter, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {ProfileService} from './profile.service';
 import {UserProfile} from './userProfile.model';
 import {Router} from '@angular/router';
 import {ToastsManager} from 'ng2-toastr';
 import {BASE_URL, USER_API_URL} from '../../config/config';
 import { AuthService } from '../../auth/auth.service';
+import { FormService } from '../../form/form.service';
 
 @Component({
   selector   : 'app-userprofile',
   templateUrl: './userProfile.component.html',
   styleUrls  : ['./userProfile.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit, AfterViewInit {
   private userId: string = localStorage.getItem('userId');
   private token: string = localStorage.getItem('id_token');
   url   = `${USER_API_URL}/image`;
   imageUrl   = `${BASE_URL}/uploads/tmp/`;
   user: UserProfile;
   fetchedUser: any[]   = [];
+  fetchedForms = [];
   maxSize  = 5000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
@@ -34,7 +36,8 @@ export class UserProfileComponent implements OnInit {
   constructor(private profileService: ProfileService,
               private router: Router,
               private toastr: ToastsManager,
-              private authService: AuthService) {
+              private authService: AuthService,
+             private formService: FormService) {
   }
 
   ngOnInit() {
@@ -51,7 +54,14 @@ export class UserProfileComponent implements OnInit {
         })
       );
   }
-
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.formService.getUserForms()
+      .subscribe(
+        forms => this.fetchedForms = forms,
+        error => console.log(error));
+    }, 50);
+  }
   onFileSelect(event) {
     this.clear();
     this.submitStarted = true;
