@@ -603,3 +603,13 @@ select.form-control:not([size]):not([multiple]) {
     padding-left: 3.2rem;
     margin-top: -18px;
 }
+
+.md-form label {
+    z-index: 1;
+}
+
+.md-form .form-control {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 5px;
+}

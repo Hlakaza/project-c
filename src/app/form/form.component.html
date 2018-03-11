@@ -74,7 +74,7 @@
                                 <div class="md-form">
                                     <i class="fa fa-archive prefix grey-text"></i>
                                     <input type="text" class="form-control" formControlName="confirmVatNumber" name="confirmVatNumber" />
-                                    <label class="grey-text" for="confirmVatNumber">confirm Vat Number</label>
+                                    <label class="grey-text" for="confirmVatNumber">Confirm Vat Number</label>
                                     <span *ngIf="myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched" class="help-block text-danger">Vat Numbers do not match</span>
                                 </div>
                             </div>
@@ -142,116 +142,124 @@
                         <div class="row">
                             <!--Acc Person  Name-->
                             <div class="col-md-6">
-                                <div class="clearfix pad-top-10">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }">
-                                        <i class="fa fa-user prefix grey-text"></i>
-                                        <input class="form-control" formControlName="accPersonName" name="accPersonName" type="text" />
-                                        <span *ngIf="myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched" class="help-block text-danger">Accounts Person Name is required</span>
-                                    </div>
+
+                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <label class="grey-text">Accounts Person Name</label>
+                                    <input class="form-control" formControlName="accPersonName" name="accPersonName" type="text" />
+                                    <span *ngIf="myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched" class="help-block text-danger">Accounts Person Name is required</span>
                                 </div>
+
                             </div>
                             <!--Email-->
                             <div class="col-md-6">
-                                <div class="clearfix pad-top-10">
-                                    <div class="md-form">
-                                        <i class="far fa-envelope prefix grey-text"></i>
-                                        <input type="email" class="form-control" formControlName="accPersonEmail" name="accPersonEmail" />
-                                        <span *ngIf="myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched" class="help-block text-danger">Email is required</span>
-                                    </div>
+
+                                <div class="md-form">
+                                    <i class="far fa-envelope prefix grey-text"></i>
+                                    <label class="grey-text">Accounts Person Email</label>
+                                    <input type="email" class="form-control" formControlName="accPersonEmail" name="accPersonEmail" />
+                                    <span *ngIf="myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched" class="help-block text-danger">Email is required</span>
                                 </div>
+
                             </div>
                         </div>
                         <div class="row">
                             <!--Acc Person Number-->
                             <div class="col-md-6">
-                                <div class="clearfix ">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }">
-                                        <i class="fa fa-phone prefix grey-text"></i>
-                                        <input class="form-control" formControlName="accPersonNo" name="accPersonNo" type="text" />
-                                        <span *ngIf="myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
-                                    </div>
+
+                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }">
+                                    <i class="fa fa-phone prefix grey-text"></i>
+                                    <label class="grey-text">Accounts Person Number</label>
+                                    <input class="form-control" formControlName="accPersonNo" name="accPersonNo" type="text" />
+                                    <span *ngIf="myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
                                 </div>
+
                             </div>
                             <!--Acc Person Fax Number-->
                             <div class="col-md-6">
-                                <div class="clearfix ">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }">
-                                        <i class="fa fa-fax prefix grey-text"></i>
-                                        <input type="text" class="form-control" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
-                                        <span *ngIf="myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
-                                    </div>
+
+                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }">
+                                    <i class="fa fa-fax prefix grey-text"></i>
+                                    <label class="grey-text">Accounts Person Fax Number</label>
+                                    <input type="text" class="form-control" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
+                                    <span *ngIf="myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
                                 </div>
+
                             </div>
                         </div>
 
                         <div class="row">
                             <!--Sales Person  Name-->
                             <div class="col-md-6">
-                                <div class="clearfix ">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }">
-                                        <i class="fa fa-user prefix grey-text"></i>
-                                        <input class="form-control" formControlName="salesPersonName" name="salesPersonName" type="text" />
-                                        <span *ngIf="myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched" class="help-block text-danger">Sales Person Name is required</span>
-                                    </div>
+
+                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <label class="grey-text">Sales Person Name</label>
+                                    <input class="form-control" formControlName="salesPersonName" name="salesPersonName" type="text" />
+                                    <span *ngIf="myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched" class="help-block text-danger">Sales Person Name is required</span>
                                 </div>
+
                             </div>
                             <!--Email-->
                             <div class="col-md-6">
-                                <div class="clearfix ">
-                                    <div class="md-form">
-                                        <i class="far fa-envelope prefix grey-text"></i>
-                                        <input placeholder="Email" type="email" class="form-control" formControlName="salesPersonEmail" name="salesPersonEmail" />
-                                        <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
-                                    </div>
+
+                                <div class="md-form">
+                                    <i class="far fa-envelope prefix grey-text"></i>
+                                    <label class="grey-text">Sales Person Email</label>
+                                    <input type="email" class="form-control" formControlName="salesPersonEmail" name="salesPersonEmail" />
+                                    <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
                                 </div>
+
                             </div>
                         </div>
                         <div class="row">
                             <!--Sales Person Number-->
                             <div class="col-md-6">
-                                <div class="clearfix ">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }">
-                                        <i class="fa fa-phone prefix grey-text"></i>
-                                        <input class="form-control" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
-                                        <span *ngIf="myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
-                                    </div>
+
+                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }">
+                                    <i class="fa fa-phone prefix grey-text"></i>
+                                    <label class="grey-text">Sales Person Number</label>
+                                    <input class="form-control" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
+                                    <span *ngIf="myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
                                 </div>
+
                             </div>
                             <!--Sales Person Fax Number-->
                             <div class="col-md-6">
-                                <div class="clearfix ">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }">
-                                        <i class="fa fa-fax prefix grey-text"></i>
-                                        <input type="text" class="form-control" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
-                                        <span *ngIf="myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
-                                    </div>
+
+                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }">
+                                    <i class="fa fa-fax prefix grey-text"></i>
+                                    <label class="grey-text">Sales Person Fax Number</label>
+                                    <input type="text" class="form-control" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
+                                    <span *ngIf="myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
                                 </div>
+
                             </div>
                         </div>
                         <div class="row">
                             <!--Type of business-->
-                            <div class="col-md-6 pad-top-10">
-                                <div class="clearfix">
-                                    <div class="md-form">
-                                        <label class="text-left select-label grey-text">Business Sector:</label>
-                                        <i class="fa fa-fax prefix grey-text"></i>
-                                        <select type="text" formControlName="serviceProduct" class="form-control label-text grey-text" id="exampleSelect1">
+                            <div class="col-md-6">
+
+                                <div class="md-form">
+                                    <label class="text-left select-label grey-text">Business Sector:</label>
+                                    <i class="fa fa-fax prefix grey-text"></i>
+                                    <select type="text" formControlName="serviceProduct" class="form-control label-text grey-text" id="exampleSelect1">
                                                     <option>Pharmaceutical</option>
                                                     <option>None Pharmaceutical</option>
                                                     <option name="service">Service and Product</option>
                                         </select>
-                                    </div>
+
                                 </div>
                             </div>
-                            <div class="col-md-6 pad-top-10">
-                                <div class="clearfix">
-                                    <div class="md-form">
-                                        <i class="fa fa-fax prefix grey-text"></i>
-                                        <label class="grey-text" for="tel">Please Specify the Service &amp; Product </label>
-                                        <input type="text" class="form-control" formControlName="serviceProductInfo" name="service" />
-                                        <span *ngIf="myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched" class="help-block text-danger">Service &amp; product type required</span>
-                                    </div>
+                            <div class="col-md-6">
+
+                                <div class="md-form">
+                                    <i class="fa fa-fax prefix grey-text"></i>
+                                    <label class="grey-text" for="tel">Please Specify the Service &amp; Product </label>
+                                    <input type="text" class="form-control" formControlName="serviceProductInfo" name="service" />
+                                    <span *ngIf="myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched" class="help-block text-danger">Service &amp; product type required</span>
                                 </div>
+
                             </div>
                         </div>
 
