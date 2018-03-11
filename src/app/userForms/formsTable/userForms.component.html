@@ -10,13 +10,13 @@
                 <app-tabs #t>
                     <app-tab title="Company Information">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Trading Name</label>
                                     <input type="text" class="form-control" value="{{form.tradingName}}" disabled="">
                                     <span class="material-input"></span></div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Registered Company Name</label>
                                     <input type="text" class="form-control" disabled="disabled" value="{{form.registeredCompanyName}}">
@@ -30,13 +30,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Vat Number</label>
                                     <input type="text" value="{{form.vatNumber}}" class="form-control" disabled="">
                                     <span class="material-input"></span></div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Physical Address</label>
                                     <input type="text" value="{{form.physicalAddress}}" class="form-control" disabled>
@@ -46,17 +46,19 @@
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Postal Address</label>
                                     <input type="email" value="{{form.postalAddress}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
+                                    <span class="material-input"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Work Telephone Number</label>
                                     <input type="text" value="{{form.tel}}" class="form-control" disabled="">
-                                    <span class="material-input"></span></div>
+                                    <span class="material-input"></span>
+                                </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group label-floating is-focused">
                                     <label class="control-label">Fax Number</label>
                                     <input type="text" value="{{form.faxNo}}" class="form-control" disabled>
@@ -69,8 +71,11 @@
                                     <span class="material-input"></span></div>
                             </div>
                         </div>
-
-                        <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
+                            </div>
+                        </div>
                     </app-tab>
                     <app-tab title="Correspondence">
                         <div class="row">
@@ -127,120 +132,26 @@
                             </div>
                         </div>
 
-                        <button class="btn btn-success" (click)="t.selectTab(2)">Next</button>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
+                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                            </div>
+                        </div>
                     </app-tab>
                     <app-tab title="Rquired Documents">
+                        <div class="display-block spacing-top border-bttom pad-lr">
+                            <span class="file-name display-inline">BEE Certificate</span>
+                            <a class="float-right btn btn-orange btn-xs" target="_blank" href="http://localhost:3000/assets/images/vendor_profile.png">View</a>
+                        </div>
+                        <div class="display-block spacing-top border-bttom pad-lr">
+                            <span class="file-name display-inline">Possible Conflict with Clinix Health Group</span>
+                            <a class="float-right btn btn-orange btn-xs" target="_blank" href="http://localhost:3000/assets/images/vendor_profile.png">View</a>
+                        </div>
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Custom General Terms and Conditions">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="BEE Certificate">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="file-field">
-                                    <div class="btn btn-primary btn-sm">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload your file">
-                                    </div>
-                                </div>
+                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
                             </div>
                         </div>
                     </app-tab>
