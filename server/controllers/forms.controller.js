@@ -54,7 +54,7 @@ let tempStorage = multer.diskStorage({
     filename: (req, file, cb) => {
         // if you want even more random characters prefixing the filename then change the value '2' below as you wish, right now, 4 charaters are being prefixed
         crypto.pseudoRandomBytes(4, (err, raw) => {
-            let filename = file.originalname.replace(/_/gi, '');
+            let filename = file.originalname;
             cb(null, raw.toString('hex') + '.' + filename.toLowerCase());
         });
     }
@@ -68,7 +68,7 @@ let uploadTemp = multer({
         parts: 1
     },
     fileFilter: (req, file, ) => {
-        let filetypes = /.jpeg|.jpg|.png|.doc|.docx|.gif/;
+        let filetypes = /.jpeg|.jpg|.png|.pdf|.doc|.docx|.gif/;
         let mimetype = filetypes.test(file.mimetype);
         let extname = filetypes.test(path.extname(file.originalname).toLowerCase());
         if (mimetype && extname) {
@@ -109,20 +109,20 @@ let functions = {
             if (err) {
                 console.log(err);
             }
-            if (req.file !== undefined) {
-                gm(req.file.path)
-                resize(445, null)
-                noProfile()
-                    .write(req.file.path, (err) => {
-                        if (err) {
-                            console.log(err);
-                            res.status(500).json({
-                                message: 'The file you selected is not an image 500'
-                            });
-                        }
-                        res.status(201).json(req.file.filename);
-                    });
-            }
+            // if (req.file !== undefined) {
+            //     gm(req.file.path)
+            //     resize(445, null)
+            //     noProfile()
+            //         .write(req.file.path, (err) => {
+            //             if (err) {
+            //                 console.log(err);
+            //                 res.status(500).json({
+            //                     message: 'The file you selected is not an image 500'
+            //                 });
+            //             }
+            //             res.status(201).json(req.file.filename);
+            //         });
+            // }
         });
     },
 
@@ -207,8 +207,24 @@ let functions = {
             }
             Form.findOneAndUpdate({ '_id': formId }, {
                 $set: {
-                    textInputOne: req.body.textInputOne,
-                    textInputTwo: req.body.textInputTwo,
+                    tradingName: req.body.tradingName,
+                    registeredCompanyName: req.body.registeredCompanyName,
+                    registrationNumber: req.body.registrationNumber,
+                    physicalAddress: req.body.physicalAddress,
+                    postalAddress: req.body.postalAddress,
+                    tel: req.body.tel,
+                    faxNo: req.body.faxNo,
+                    website: req.body.website,
+                    vatNumber: req.body.vatNumber,
+                    accPersonName: req.body.accPersonName,
+                    accPersonNo: req.body.accPersonNo,
+                    accPersonFaxNo: req.body.accPersonFaxNo,
+                    accPersonEmail: req.body.accPersonEmail,
+                    salesPersonName: req.body.salesPersonName,
+                    salesPersonNo: req.body.salesPersonNo,
+                    salesPersonEmail: req.body.salesPersonEmail,
+                    salesPersonFaxNo: req.body.salesPersonFaxNo,
+                    salesPersonFaxNo: req.body.salesPersonFaxNo,
                     imagePath: image
                 }
             }, { new: true }, (err, form) => {
@@ -240,7 +256,7 @@ let functions = {
                     copyImage(req, req.body.fileUp);
                 }
                 res.status(201).json({
-                    message: 'Form Edited Successfully',
+                    message: 'Form updated successfully',
                     obj: form
                 });
             });
