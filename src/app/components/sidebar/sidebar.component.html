@@ -1,0 +1,9 @@
+<div class="white-label" data-background-color="charcoal">
+    <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix">
+</div>
+<div id="sidebar-nav">
+    <ul class="nav">
+        <li><a class="marg-6 spacing-top" routerLink="/user/forms"><i class="fa fa-user "></i> User Profile</a></li>
+        <li *ngFor="let form of fetchedForms"><a class="marg-6" [routerLink]="['user/forms/edit', form._id]"><i class="fas fa-edit"> </i> Edit Profile</a></li>
+    </ul>
+</div>

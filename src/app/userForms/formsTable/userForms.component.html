@@ -1,171 +1,251 @@
-<!-- <table class="table table-hover table-responsive table-condensed">
-    <thead>
-    <tr>
-      <th>Image</th>
-      <th>Form ID</th>
-      <th>Text Input One</th>
-      <th>Text Input Two</th>
-      <th>Owner</th>
-      <th>Date Submitted</th>
-      <th>Date Edited</th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let form of fetchedForms">
-      <td class="img-resized"><img class="img-thumbnail img-responsive" src="./uploads/forms/{{form.owner}}/{{form.imagePath}}" onerror="this.src ='assets/images/no-image.jpg';"></td>
-      <td>{{form._id }}</td>
-      <td>{{form.textInputOne}}</td>
-      <td>{{form.textInputTwo}}</td>
-      <td>{{form.owner}}</td>
-      <td>{{form.dateSubmitted | date: 'medium'}}</td>
-      <td>
-        <span *ngIf="form.dateSubmitted != form.updatedAt">{{form.updatedAt | date: 'medium'}}</span>
-      </td>
-      <td>
-        <button class="btn-default" [routerLink]="['edit', form._id]"><i class="fa fa-pencil"></i></button>
-      </td>
-      <td>
-        <button class="btn-danger" (click)="onDelete(form._id)"><i class="fa fa-trash"></i></button>
-    </td>
-</tr>
-</tbody>
-</table> -->
-
-<section class="dash-wraper">
-    <section id="sidebar">
-        <div class="white-label">
-            <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix">
-        </div>
-        <div id="sidebar-nav">
-            <ul>
-                <li class="active"><a class="marg-6 btn  btn-blue-grey" routerLink="/form"> Add Details</a></li>
-                <li><a class="marg-6 spacing-top btn btn-deep-orange" routerLink="/user/forms">Profile</a></li>
-
-            </ul>
-        </div>
-    </section>
-    <section id="content">
-        <div id="header">
-            <div class="header-nav">
-                <div class="menu-button">
-                    <!--<i class="fa fa-navicon"></i>-->
-                </div>
-                <div class="widget-nav">
-                    <ul>
-                        <li class="widget-nav-item nav-chat">
-                            <div (click)="logout()" class="cursor-pointer font-icon"><i class="fa fa-sign-out-alt"></i> Logout</div>
-                        </li>
-                        <li class="widget-nav-item nav-profile">
-                            <div class="nav-profile-image" *ngFor="let user of fetchedUser">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png" alt="profile image">
-                                <div class="nav-profile-name">{{user.email}} <i class="fa fa-caret-down"></i></div>
+<div class="card reg-card-width">
+    <!--Header-->
+    <div class="card-header" data-background-color="charcoal">
+        <h4 class="title">Profile</h4>
+        <p class="category">These are your details</p>
+    </div>
+    <div class="card-content">
+        <form *ngFor="let form of fetchedForms">
+            <fieldset>
+                <app-tabs #t>
+                    <app-tab title="Company Information">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Trading Name</label>
+                                    <input type="text" class="form-control" value="{{form.tradingName}}" disabled="">
+                                    <span class="material-input"></span></div>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="content">
-            <div class="pad-top-header">
-                <div class="main-content marg-auto">
-                    <div class="container-fluid">
-                        <div class="col-sm-12">
-                            <div class="card spacing-bottom" *ngFor="let form of fetchedForms">
-                                <div class="card-header" data-background-color="red">
-                                    <h4 class="title">Welcome {{form.tradingName}}</h4>
-                                    <p class="category">These are your details</p>
-
-                                </div>
-                                <div class="card-content table-responsive">
-                                    <table class="table">
-                                        <thead class="text-danger">
-                                            <th>Company Information</th>
-                                            <th>Correspondecne</th>
-                                            <th>Documents</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Trading Name: {{form.tradingName}}</td>
-                                                <td>Acc PersonName: {{form.accPersonName}}</td>
-                                                <td>Doc: Customer General Terms and Conditions of Supply</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Registered Name: {{form.tradingName}}</td>
-                                                <td>Acc Person No: {{form.accPersonNo}}</td>
-                                                <td>Doc: BEE Certificate</td>
-
-
-                                            </tr>
-                                            <tr>
-                                                <td>Physical Address: {{form.physicalAddress}}</td>
-                                                <td>Acc Person Fax No: {{form.accPersonFaxNo}}</td>
-                                                <td>Doc: Letter of Good Standing</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Postal Address: {{form.postalAddress}}</td>
-                                                <td>Acc Person Email: {{form.accPersonEmail}}</td>
-                                                <td>Doc: Audited latest Financial Statements</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Tel: {{form.tel}}</td>
-                                                <td>Sales Person Name: {{form.salesPersonName}}</td>
-                                                <td>Doc: Proof of Banking Details</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Fax: {{form.faxNo}}</td>
-                                                <td>Sales Person No: {{form.salesPersonNo}}</td>
-
-                                                <td>Doc: Company Letterhead</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Website: {{form.website}}</td>
-                                                <td>Sales Person FaxNo: {{form.salesPersonFaxNo}}</td>
-                                                <td>Doc: Tax Certificate</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Vat Number: {{form.vatNumber}}</td>
-                                                <td>Sales Person Email: {{form.salesPersonEmail}}</td>
-                                                <td>Doc: MCC Certificate</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;&nbsp;&nbsp;</td>
-                                                <td>&nbsp;&nbsp;&nbsp;</td>
-                                                <td>Doc: Declaration of possible conflict of Interest with Clinix Health Group (CHG)</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;&nbsp;&nbsp;</td>
-                                                <td>&nbsp;&nbsp;&nbsp;</td>
-                                                <td>Doc: identity Documents</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp;&nbsp;&nbsp;</td>
-                                                <td>&nbsp;&nbsp;&nbsp;</td>
-                                                <td>Doc: Product price lists </td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <!-- <a [routerLink]="['/login']" class="btn btn-default">Logout</a> -->
-                                </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Registered Company Name</label>
+                                    <input type="text" class="form-control" disabled="disabled" value="{{form.registeredCompanyName}}">
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Registration Number</label>
+                                    <input type="email" class="form-control" value="{{form.registrationNumber}}" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Vat Number</label>
+                                    <input type="text" value="{{form.vatNumber}}" class="form-control" disabled="">
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Physical Address</label>
+                                    <input type="text" value="{{form.physicalAddress}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Postal Address</label>
+                                    <input type="email" value="{{form.postalAddress}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Work Telephone Number</label>
+                                    <input type="text" value="{{form.tel}}" class="form-control" disabled="">
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Fax Number</label>
+                                    <input type="text" value="{{form.faxNo}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Website</label>
+                                    <input type="email" value="{{form.website}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
                             </div>
                         </div>
 
-                    </div>
-                </div>
+                        <button class="btn btn-success" (click)="t.selectTab(1)">Next</button>
+                    </app-tab>
+                    <app-tab title="Correspondence">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Accounts Person Name</label>
+                                    <input type="text" value="{{form.accPersonName}}" class="form-control" disabled="">
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Accounts Person No</label>
+                                    <input type="text" value="{{form.accPersonNo}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Accounts Person Fax No</label>
+                                    <input type="email" value="{{form.accPersonFaxNo}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Accounts Person Email</label>
+                                    <input type="email" value="{{form.accPersonEmail}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Sales Person Name</label>
+                                    <input value="{{form.salesPersonName}}" type="text" class="form-control" disabled="">
+                                    <span class="material-input"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Sales Person No</label>
+                                    <input type="text" value="{{form.salesPersonNo}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Sales Person Email</label>
+                                    <input type="email" value="{{form.salesPersonEmail}}" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group label-floating is-focused">
+                                    <label class="control-label">Sales Person Fax No</label>
+                                    <input value="{{form.salesPersonFaxNo}}" type="email" class="form-control" disabled>
+                                    <span class="material-input"></span></div>
+                            </div>
+                        </div>
 
-            </div>
+                        <button class="btn btn-success" (click)="t.selectTab(2)">Next</button>
+                    </app-tab>
+                    <app-tab title="Rquired Documents">
 
-        </div>
-    </section>
-</section>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Custom General Terms and Conditions">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="BEE Certificate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Choose file</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload your file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </app-tab>
+                </app-tabs>
+            </fieldset>
+        </form>
+    </div>
+</div>

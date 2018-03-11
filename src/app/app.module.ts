@@ -39,6 +39,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TabComponent } from './components/tabs/tab.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -75,6 +77,8 @@ export function getAuthHttp(http) {
     TabsComponent,
     TabComponent,
     ModalComponent,
+    UserDashboardComponent,
+    SidebarComponent,
   ],
   imports     : [
     BrowserModule,

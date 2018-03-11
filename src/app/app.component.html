@@ -1,4 +1,31 @@
-<header>
+<header *ngIf="!isLoggedIn() || isAdmin()">
     <router-outlet></router-outlet>
     <app-error></app-error>
 </header>
+<section class="dash-wraper" *ngIf="isLoggedIn() && !isAdmin()">
+    <section id="sidebar" class="sidebar">
+        <app-sidebar></app-sidebar>
+    </section>
+    <section id="content">
+        <div class="content">
+            <div class="pad-top-header">
+                <div class="main-content marg-auto">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- Content -->
+                                <router-outlet></router-outlet>
+                                <app-error></app-error>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- User profile -->
+                                <app-userprofile></app-userprofile>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</section>

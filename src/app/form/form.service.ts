@@ -16,6 +16,7 @@ export class FormService {
   private userId: string = localStorage.getItem('userId');
   private forms          = [];
   private singleForm     = Object;
+  private fetchedForms     = Object;
 
   constructor(private authHttp: AuthHttp, private errorService: ErrorService, private toastr: ToastsManager) {
   }

@@ -13,7 +13,10 @@ export class UserFormsComponent implements OnInit {
   fetchedForms = [];
   fetchedUser = [];
 
-  constructor(private authService: AuthService, private profileService: ProfileService, private formService: FormService) {
+  constructor(
+     private authService: AuthService,
+     private profileService: ProfileService,
+     private formService: FormService) {
   }
 
   ngOnInit() {
@@ -32,11 +35,11 @@ export class UserFormsComponent implements OnInit {
             })
           );
       }
-    }, 50);
-    this.formService.getUserForms()
+      this.formService.getUserForms()
       .subscribe(
         forms => this.fetchedForms = forms,
         error => console.log(error));
+    }, 50);
   }
   logout() {
     return this.authService.logout();
@@ -45,4 +48,5 @@ export class UserFormsComponent implements OnInit {
     this.formService.deleteForm(formId)
       .subscribe();
   }
+
 }

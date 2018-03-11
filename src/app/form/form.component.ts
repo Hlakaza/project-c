@@ -16,7 +16,6 @@ import { empty } from 'rxjs/observable/empty';
   styleUrls  : ['./form.component.scss']
 })
 export class FormComponent implements OnInit, AfterViewInit {
-  account: any;
   fetchedUser: any[] = [];
   filesToUpload: Array<File>;
   // setting up the form
@@ -42,6 +41,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
   token: string  = localStorage.getItem('id_token');
   url  = `${FORMS_API_URL}/image`;
+  fileUrl  = `${FORMS_API_URL}/files`;
   imageUrl = `${BASE_URL}/uploads/tmp/`;
   maxSize  = 5000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
@@ -88,6 +88,41 @@ export class FormComponent implements OnInit, AfterViewInit {
               this.filesToUpload = [];
   }
 
+// New File Upload
+upload() {
+  this.makeFileRequest(this.fileUrl, [], this.filesToUpload).then((result) => {
+      console.log(result);
+  }, (error) => {
+      console.error(error);
+  });
+}
+
+fileChangeEvent(fileInput: any) {
+  this.filesToUpload = <Array<File>> fileInput.target.files;
+}
+
+makeFileRequest(fileUrl: string, params: Array<string>, files: Array<File>) {
+  return new Promise((resolve, reject) => {
+      let formData: any = new FormData();
+      let xhr = new XMLHttpRequest();
+      for (let i = 0; i < files.length; i++) {
+          formData.append('uploads[]', files[i], files[i].name);
+      }
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  resolve(JSON.parse(xhr.response));
+              } else {
+                  reject(xhr.response);
+              }
+          }
+      }
+      xhr.open('POST', fileUrl, true);
+      xhr.setRequestHeader('Authorization', 'JWT ' + this.token)
+      xhr.send(formData);
+  });
+}
+// New File Upload
 onFileChange(event) {
   this.usedSize = 0;
   if (event.target.files && event.target.files.length > 0) {
@@ -204,7 +239,7 @@ onFileChange(event) {
   }
 
   ngOnInit() {
-    this.files        = [];
+    this.files = [];
     this.myForm = this.fb.group({
       tradingName: new FormControl(null, Validators.required),
       registeredCompanyName: new FormControl(null, Validators.required),
