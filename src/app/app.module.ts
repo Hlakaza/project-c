@@ -41,6 +41,7 @@ import { TabComponent } from './components/tabs/tab.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
@@ -84,6 +85,7 @@ export function getAuthHttp(http) {
     BrowserModule,
     CommonModule,
     FormsModule,
+    FileUploadModule,
     HttpModule,
     RouterModule,
     ReactiveFormsModule,

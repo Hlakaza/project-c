@@ -109,20 +109,20 @@ let functions = {
             if (err) {
                 console.log(err);
             }
-            // if (req.file !== undefined) {
-            //     gm(req.file.path)
-            //     resize(445, null)
-            //     noProfile()
-            //         .write(req.file.path, (err) => {
-            //             if (err) {
-            //                 console.log(err);
-            //                 res.status(500).json({
-            //                     message: 'The file you selected is not an image 500'
-            //                 });
-            //             }
-            //             res.status(201).json(req.file.filename);
-            //         });
-            // }
+            if (req.file !== undefined) {
+                gm(req.file.path)
+                    // resize(445, null)
+                    // noProfile()
+                    //     .write(req.file.path, (err) => {
+                    //         if (err) {
+                    //             console.log(err);
+                    //             res.status(500).json({
+                    //                 message: 'The file you selected is not an image 500'
+                    //             });
+                    //         }
+                    //         res.status(201).json(req.file.filename);
+                    //     });
+            }
         });
     },
 

@@ -10,6 +10,7 @@ import {Form} from './form.model';
 import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
 import { ProfileService } from '../user/profile/profile.service';
 import { empty } from 'rxjs/observable/empty';
+import { FileUploader } from 'ng2-file-upload';
 @Component({
   selector   : 'app-form',
   templateUrl: './form.component.html',
@@ -17,6 +18,7 @@ import { empty } from 'rxjs/observable/empty';
 })
 export class FormComponent implements OnInit, AfterViewInit {
   fetchedUser: any[] = [];
+
   filesToUpload: Array<File>;
   // setting up the form
   myForm: FormGroup;
@@ -53,6 +55,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   public submitStarted: boolean;
   public imageReady   = false;
   public imagePath: string;
+
   name: string;
   onClear: EventEmitter<any>   = new EventEmitter();
   /**
@@ -75,9 +78,22 @@ export class FormComponent implements OnInit, AfterViewInit {
     this.clear();
   }
 
-  dismissImageDelete() {
-    this.imageDeleteModal.close();
-  }
+   // My new way
+   // tslint:disable-next-line:member-ordering
+   public uploader: FileUploader = new FileUploader({url: this.url});
+   // tslint:disable-next-line:member-ordering
+   public hasBaseDropZoneOver: false;
+   // tslint:disable-next-line:member-ordering
+   public hasAnotherDropZoneOver:  false;
+
+   public fileOverBase(e: any): void {
+     this.hasBaseDropZoneOver = e;
+   }
+
+   public fileOverAnother(e: any): void {
+     this.hasAnotherDropZoneOver = e;
+   }
+   // My new way end here
   constructor(private fb: FormBuilder,
               private toastr: ToastsManager,
               private router: Router,
