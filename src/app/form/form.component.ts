@@ -37,6 +37,8 @@ export class FormComponent implements OnInit, AfterViewInit {
   salesPersonNo: FormControl;
   salesPersonEmail: FormControl;
   salesPersonFaxNo: FormControl;
+  serviceProduct: FormControl;
+  serviceProductInfo: FormControl;
 
   // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
   token: string  = localStorage.getItem('id_token');
@@ -260,6 +262,8 @@ onFileChange(event) {
       salesPersonNo: new FormControl(null, Validators.required),
       salesPersonEmail: new FormControl(null, Validators.required),
       salesPersonFaxNo: new FormControl(null, Validators.required),
+      serviceProduct: new FormControl(null, Validators.required),
+      serviceProductInfo: new FormControl(null, Validators.required),
       });
   }
 

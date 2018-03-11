@@ -2,7 +2,7 @@
     <!--Header-->
     <div class="card-header" data-background-color="charcoal">
         <h4 class="title">Add Details</h4>
-        <p class="category">Provide yur details in the form below</p>
+        <p class="category">Provide your details in the form below</p>
     </div>
     <div class="card-content">
 
@@ -132,8 +132,11 @@
                                 </div>
                             </div>
                         </div>
-
-                        <button class="btn btn-orange" (click)="t.selectTab(1)">Next</button>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
+                            </div>
+                        </div>
                     </app-tab>
                     <app-tab title="Correspondence">
                         <div class="row">
@@ -228,17 +231,36 @@
                         <div class="row">
                             <!--Type of business-->
                             <div class="col-md-6 pad-top-10">
-                                <label class="label-text ">Business Sector:
-                                                    <select class="form-control" id="exampleSelect1">
-                                                            <option>Pharmaceutical</option>
-                                                            <option>None Pharmaceutical</option>
-                                                            <option>Service and Product</option>
+                                <div class="clearfix">
+                                    <div class="md-form">
+                                        <label class="text-left select-label grey-text">Business Sector:</label>
+                                        <i class="fa fa-fax prefix grey-text"></i>
+                                        <select type="text" formControlName="serviceProduct" class="form-control label-text grey-text" id="exampleSelect1">
+                                                    <option>Pharmaceutical</option>
+                                                    <option>None Pharmaceutical</option>
+                                                    <option name="service">Service and Product</option>
                                         </select>
-                                    </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pad-top-10">
+                                <div class="clearfix">
+                                    <div class="md-form">
+                                        <i class="fa fa-fax prefix grey-text"></i>
+                                        <label class="grey-text" for="tel">Please Specify the Service &amp; Product </label>
+                                        <input type="text" class="form-control" formControlName="serviceProductInfo" name="service" />
+                                        <span *ngIf="myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched" class="help-block text-danger">Service &amp; product type required</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <button class="btn btn-success clearfix" (click)="t.selectTab(2)">Next</button>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
+                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                            </div>
+                        </div>
                     </app-tab>
                     <app-tab title="Rquired Documents">
                         <div class="row">
@@ -285,134 +307,139 @@
                                 <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
                                 <button type="button" (click)="upload()">Upload</button>
                             </div>
-                            <!--   <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput2 accept="PDF, JPG, DOCX,
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput2 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Letter of Good Standing">
-                                            </div>
-                                        </div>
                                     </div>
-                                  <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput3 accept="PDF, JPG, DOCX,
-                                                        PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Audited latest Financial Statements">
-                                            </div>
-                                        </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Letter of Good Standing">
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput4 accept="PDF, JPG, DOCX,
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput3 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Proof of Banking Details">
-                                            </div>
+                                    </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Audited latest Financial Statements">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput4 accept="PDF, JPG, DOCX,
+                                                        PNG" multiple>
+                                    </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Proof of Banking Details">
+                                    </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput5 accept="PDF, JPG, DOCX,
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput5 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Company Letterhead">
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput6 accept="PDF, JPG, DOCX,
-                                                        PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Tax Certificate">
-                                            </div>
-                                        </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Company Letterhead">
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput7 accept="PDF, JPG, DOCX,
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput6 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="MCC Certificate">
-                                            </div>
+                                    </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Tax Certificate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput7 accept="PDF, JPG, DOCX,
+                                                        PNG" multiple>
+                                    </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="MCC Certificate">
+                                    </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput8 accept="PDF, JPG, DOCX,
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput8 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Declaration of possible conflict of Interest with Clinix Health Group (CHG)">
-                                            </div>
+                                    </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Declaration of possible conflict of Interest with Clinix Health Group (CHG)">
+                                    </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput9 accept="PDF, JPG, DOCX,
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput9 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Copies of Identification Document (ID) of Directors">
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="file-field">
-                                            <div class="btn btn-primary btn-sm">
-                                                <span>Upload</span>
-                                                <input type="file" name="docs" (change)="onFileChange($event)" #fileInput10 accept="PDF, JPG, DOCX,
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Copies of Identification Document (ID) of Directors">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm">
+                                        <span>Upload</span>
+                                        <input type="file" name="docs" (change)="onFileChange($event)" #fileInput10 accept="PDF, JPG, DOCX,
                                                         PNG" multiple>
-                                            </div>
-                                            <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
-                                                <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
-                                                <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Product price list">
-                                            </div>
-                                        </div>
-                                    </div> -->
+                                    </div>
+                                    <div class="file-path-wrapper" *ngFor="let item of files; let i = index">
+                                        <input class="file-path validate" type="text" *ngIf="item.name" value="{{item.name}}">
+                                        <input class="file-path validate" type="text" *ngIf="!item.name" placeholder="Product price list">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                            </div>
                         </div>
                     </app-tab>
                 </app-tabs>
 
                 <!-- Button -->
                 <div class="row">
-                    <div class="col-md-12 flex-center">
-                        <button type="submit" [disabled]="!myForm.valid" id="submitForm" name="sumbitForm" class="btn btn-primary btn-lg text-center">Submit</button>
+                    <div class="col-md-12">
+                        <button type="submit" [disabled]="!myForm.valid" id="submitForm" name="sumbitForm" class="btn btn-primary btn-sm text-center">Submit</button>
                     </div>
                 </div>
             </fieldset>
