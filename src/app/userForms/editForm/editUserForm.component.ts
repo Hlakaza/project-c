@@ -209,7 +209,7 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
       .subscribe(
         data => {
           this.router.navigateByUrl('/user/forms');
-          this.toastr.success('Form edited successfully');
+          this.toastr.success('Form updated successfully');
         }, error => {
           this.submitStarted = false;
           this.toastr.error('There was an error, please try again later');

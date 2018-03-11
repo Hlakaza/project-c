@@ -485,6 +485,7 @@ table.table th {
     margin-top: 10%;
 }
 
+.form-control,
 .md-form input[type=date],
 .md-form input[type=datetime-local],
 .md-form input[type=email],
@@ -502,7 +503,7 @@ table.table th {
     outline: 0;
     box-shadow: none;
     border: none;
-    border-bottom: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da !important;
     border-radius: 0;
     box-sizing: content-box;
     background-color: transparent;

@@ -4,6 +4,7 @@ import {UserProfile} from './userProfile.model';
 import {Router} from '@angular/router';
 import {ToastsManager} from 'ng2-toastr';
 import {BASE_URL, USER_API_URL} from '../../config/config';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector   : 'app-userprofile',
@@ -32,7 +33,8 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private profileService: ProfileService,
               private router: Router,
-              private toastr: ToastsManager) {
+              private toastr: ToastsManager,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -149,6 +151,9 @@ export class UserProfileComponent implements OnInit {
         i     = Math.floor(Math.log(bytes) / Math.log(k));
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  }
+  logout() {
+    return this.authService.logout();
   }
 }
 
