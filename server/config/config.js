@@ -8,6 +8,7 @@ module.exports = {
         // path for pets images
         serverPath: '../server/app',
         imagePath: 'server/uploads/forms/',
+        docsPath: 'server/uploads/forms/',
         profileImagePath: 'server/uploads/profiles/',
         tmpImagePath: 'server/uploads/tmp/',
         dist: '../dist',

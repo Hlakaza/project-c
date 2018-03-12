@@ -3,9 +3,13 @@ let express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
+    mkdirP = require('mkdirp'),
     mongoose = require('mongoose'),
     config = require('./config/config');
-
+// New way
+let multer = require('multer');
+let fs = require('fs');
+// New way  end
 let app = express();
 process.on('uncaughtException', function(err) {
     console.log(err);
@@ -33,6 +37,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, config.paths.dist)));
 app.use('/uploads', express.static(__dirname + config.paths.expressUploads));
 
+
+
+// let upload = multer({ dest: DIR });
+// console.error(upload);
+// app.use(multer({ dest: this.DIR }).any());
+
 // CORS setup
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -47,6 +57,81 @@ require('./routes/routes')(app);
 // app.post("/upload", multer({ dest: "./uploads/" }).array("uploads", 12), function(req, res) {
 //     res.send(req.files);
 // });
+
+/**
+ * Upload new method
+ */
+//upload file
+// app.use(multer({
+//     dest: DIR,
+//     rename: function(fieldname, filename) {
+//         return filename + Date.now();
+//     },
+//     onFileUploadStart: function(file) {
+//         console.log(file.originalname + ' is starting ...');
+//     },
+//     onFileUploadComplete: function(file) {
+//         console.log(file.fieldname + ' uploaded to  ' + file.path);
+//     }
+// }).any());
+// post file
+app.get('/api', function(req, res) {
+    res.end('file catcher example');
+});
+
+app.get('/hello', function(req, res) {
+    res.end('Hello World');
+});
+
+
+let DIR = '.' + config.paths.docsPath;
+
+app.post('/api/forms/upload', function(req, res) {
+    console.log('hello world')
+    var storage = multer.diskStorage({
+        filename: function(req, file, callback) {
+            console.log(file);
+            callback(null, file.originalname)
+        },
+        destination: function(req, file, callback) {
+            callback(null, DIR + req.user._id + '/')
+        }
+    })
+    console.log(storage)
+
+    var upload = multer({
+        storage: storage
+    }).array('file')
+    upload(req, res, function(error) {
+        console.log(error);
+        res.end('File Uploaded.');
+    })
+
+
+
+
+    // mkdirP(config.paths.docsPath + req.user._id, (err) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+
+    //     }
+
+    // });
+});
+
+
+
+
+var upload = multer({ dest: DIR });
+
+app.post('/api/forms/upload', upload.array('file'), function(req, res) {
+    res.end('done');
+});
+
+/**
+ * Upload new method ends
+ */
 
 // catch 404 and rsforward to error handler
 app.use(function(req, res, next) {
