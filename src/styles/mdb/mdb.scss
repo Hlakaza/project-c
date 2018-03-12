@@ -611,5 +611,8 @@ select.form-control:not([size]):not([multiple]) {
 .md-form .form-control {
     position: relative;
     z-index: 2;
+}
+
+.register-form .md-form .form-control {
     margin-bottom: 5px;
 }
