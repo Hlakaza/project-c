@@ -10,7 +10,7 @@ module.exports = {
         imagePath: 'server/uploads/forms/',
         docsPath: 'server/uploads/forms/',
         profileImagePath: 'server/uploads/profiles/',
-        tmpImagePath: 'server/uploads/tmp/',
+        tmpImagePath: 'server/uploads/forms/',
         dist: '../dist',
         expressUploads: '/uploads',
         emailPath: 'server/views/email_templates/',

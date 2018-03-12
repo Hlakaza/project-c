@@ -1,139 +1,165 @@
 let express = require('express'),
-    fs = require('fs'),
-    fse = require('fs-extra'),
-    mkdirP = require('mkdirp'),
-    multer = require('multer'),
-    crypto = require('crypto'),
-    mime = require('mime'),
-    path = require('path'),
-    config = require('../config/config'),
-    User = require('../models/user.model'),
-    Form = require('../models/form.model');
-// gm = require('gm').subClass({ imageMagick: false });
+    fs      = require('fs'),
+    fse     = require('fs-extra'),
+    mkdirP  = require('mkdirp'),
+    multer  = require('multer'),
+    crypto  = require('crypto'),
+    mime    = require('mime'),
+    path    = require('path'),
+    config  = require('../config/config'),
+    User    = require('../models/user.model'),
+    Form    = require('../models/form.model');
+    // gm      = require('gm').subClass({imageMagick: true});
 
 process.on('uncaughtException', (err) => {
-    console.log(err);
+  console.log(err);
 });
 
 // this function deletes the image
 let rmDir = (dirPath, removeSelf) => {
-    if (removeSelf === undefined)
-        removeSelf = true;
-    try {
-        var files = fs.readdirSync(dirPath);
-    } catch (e) {
-        return;
+  if (removeSelf === undefined)
+    removeSelf = true;
+  try {
+    var files = fs.readdirSync(dirPath);
+  }
+  catch (e) {
+    return;
+  }
+  if (files.length > 0)
+    for (let i = 0; i < files.length; i++) {
+      let filePath = dirPath + '/' + files[i];
+      if (fs.statSync(filePath).isFile())
+        fs.unlinkSync(filePath);
+      else
+        rmDir(filePath);
     }
-    if (files.length > 0)
-        for (let i = 0; i < files.length; i++) {
-            let filePath = dirPath + '/' + files[i];
-            if (fs.statSync(filePath).isFile())
-                fs.unlinkSync(filePath);
-            else
-                rmDir(filePath);
-        }
-    if (removeSelf)
-        fs.rmdirSync(dirPath);
+  if (removeSelf)
+    fs.rmdirSync(dirPath);
 };
 
 // create a Temp storage for images, when the user submits the form, the temp image will be moved to the appropriate folder inside /uploads/forms/user_id/photo.jpg
 let tempStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        let dest = config.paths.tmpImagePath;
-        let stat = null;
-        try {
-            stat = fs.statSync(dest);
-        } catch (err) {
-            fs.mkdirSync(dest);
-        }
-        if (stat && !stat.isDirectory()) {
-            throw new Error('Directory cannot be created because an inode of a different type exists at "' + dest + '"');
-        }
-        cb(null, dest);
-    },
-    filename: (req, file, cb) => {
-        // if you want even more random characters prefixing the filename then change the value '2' below as you wish, right now, 4 charaters are being prefixed
-        crypto.pseudoRandomBytes(4, (err, raw) => {
-            let filename = file.originalname;
-            cb(null, raw.toString('hex') + '.' + filename.toLowerCase());
-        });
+  destination: (req, file, cb) => {
+    let dest = config.paths.tmpImagePath + req.user._id + '/';
+    let stat = null;
+    try {
+      stat = fs.statSync(dest);
     }
+    catch (err) {
+        mkdirP(config.paths.imagePath + req.user._id, (err) => {
+            console.log(dest);
+            if (err) {
+              console.log(err);
+            }
+          });
+    //   fs.mkdirSync(dest);
+    }
+    if (stat && !stat.isDirectory()) {
+      throw new Error('Directory cannot be created because an inode of a different type exists at "' + dest + '"');
+    }
+    cb(null, dest);
+  },
+  filename   : (req, file, cb) => {
+    // if you want even more random characters prefixing the filename then change the value '2' below as you wish, right now, 4 charaters are being prefixed
+    crypto.pseudoRandomBytes(4, (err, raw) => {
+      let filename = file.originalname.replace(/_/gi, '');
+      cb(null, raw.toString('hex') + '.' + filename.toLowerCase());
+    });
+  }
 });
 
 //  multer configuration
 let uploadTemp = multer({
-    storage: tempStorage,
-    limits: {
-        fileSize: 5000000, // 5MB filesize limit
-        parts: 1
-    },
-    fileFilter: (req, file, ) => {
-        let filetypes = /.jpeg|.jpg|.png|.pdf|.doc|.docx|.gif/;
-        let mimetype = filetypes.test(file.mimetype);
-        let extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-        if (mimetype && extname) {
-            return cb(null, true);
-        }
-        cb('Error: File upload only supports the following filetypes - ' + filetypes);
+  storage   : tempStorage,
+  limits    : {
+    fileSize: 5000000, // 5MB filesize limit
+    parts   : 1
+  },
+  fileFilter: (req, file, cb) => {
+    let filetypes = /.jpeg|.jpg|.png|.pdf|.doc|.docx|.gif/;
+    let mimetype = filetypes.test(file.mimetype);
+    let extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    if (mimetype && extname) {
+      return cb(null, true);
     }
-}).single('fileUp');
+    cb('Error: File upload only supports the following filetypes - ' + filetypes);
+  }
+}).array('fileUp');
 
 // When user submits the form, the temp image is copied to /uploads/forms/user_id/photo.jpg
 let copyImage = (req, source) => {
-    mkdirP(config.paths.imagePath + req.user._id, (err) => {
-        if (err) {
-            console.log(err);
-        }
-        fse.copy(config.paths.tmpImagePath + source, config.paths.imagePath + req.user._id + '/' + source)
-            .then(() => {})
-            .catch((error) => console.log(error));
-    });
+  mkdirP(config.paths.imagePath + req.user._id, (err) => {
+    if (err) {
+      console.log(err);
+    }
+    fse.copy(config.paths.tmpImagePath + source, config.paths.imagePath + req.user._id + '/' + source)
+      .then(() => {
+      })
+      .catch((error) => console.log(error));
+  });
 };
 
 // delete the temp image from front-end
 let deleteImage = (image) => {
-    fse.remove(config.paths.tmpImagePath + image)
-        .then(() => {
-            console.log('success!');
-        })
-        .catch(err => {
-            console.error(err);
-        });
+  fse.remove(config.paths.tmpImagePath + image)
+    .then(() => {
+      console.log('success!');
+    })
+    .catch(err => {
+      console.error(err);
+    });
 };
+
+// let DIR = './uploads/forms/';
+
+// app.post('/api/forms/upload', function(req, res) {
+//     var storage = multer.diskStorage({
+//         filename: function(req, file, callback) {
+//             var identifier = new Date().getTime() + path.extname(file.originalname)
+//             callback(null, identifier)
+//         },
+//         destination: function(req, file, callback) {
+//             callback(null, DIR)
+//         }
+//     })
+
+//     var upload = multer({
+//         storage: storage
+//     }).array('file')
+//     upload(req, res, function(error) {
+//         if (error){
+//             console.error(error)
+//             return res.status(422).send("An Error occured")
+//         }        
+//         console.log(req.body);
+//         console.log(req.file);
+//         res.end('Upload Complete');
+//     })
+// });
 
 let functions = {
 
-    // Upload Image to Server Temp Folder
-    uploadImage: (req, res) => {
-        uploadTemp(req, res, (err) => {
-            if (err) {
-                console.log(err);
-            }
-            if (req.file !== undefined) {
-                gm(req.file.path)
-                    // resize(445, null)
-                    // noProfile()
-                    //     .write(req.file.path, (err) => {
-                    //         if (err) {
-                    //             console.log(err);
-                    //             res.status(500).json({
-                    //                 message: 'The file you selected is not an image 500'
-                    //             });
-                    //         }
-                    //         res.status(201).json(req.file.filename);
-                    //     });
-            }
-        });
-    },
+  // Upload Image to Server Temp Folder
+  uploadImage: (req, res) => {
+    uploadTemp(req, res, (err) => {
+      if (err) {
+        console.log(err);
+      }
+     
+     res.status(201);
+     res.end();
+    
+    });
+  },
 
-    // Delete Temporary Image From Temp Folder
-    deleteImage: (req, res) => {
-        let params = req.params.id;
-        deleteImage(params);
-        res.status(200).json({
-            message: 'Image deleted successfully!'
-        });
-    },
+  // Delete Temporary Image From Temp Folder
+  deleteImage: (req, res) => {
+    let params = req.params.id;
+    deleteImage(params);
+    res.status(200).json({
+      message: 'Image deleted successfully!'
+    });
+  },
 
     // Add New Form
     newForm: (req, res) => {

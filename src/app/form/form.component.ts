@@ -10,7 +10,7 @@ import {Form} from './form.model';
 import { vatNumberMatch, regNumberMatch } from '../validators/input-match';
 import { ProfileService } from '../user/profile/profile.service';
 import { empty } from 'rxjs/observable/empty';
-import { FileUploader } from 'ng2-file-upload';
+// import { FileUploader } from 'ng2-file-upload';
 @Component({
   selector   : 'app-form',
   templateUrl: './form.component.html',
@@ -68,23 +68,6 @@ export class FormComponent implements OnInit, AfterViewInit {
   @ViewChild('fileInput') fileInput: ElementRef;
   @ViewChild('imageDeleteModal') imageDeleteModal: ModalComponent;
 
-
-   // My new way
-   // tslint:disable-next-line:member-ordering
-   public uploader: FileUploader = new FileUploader({url: this.url});
-   // tslint:disable-next-line:member-ordering
-   public hasBaseDropZoneOver: false;
-   // tslint:disable-next-line:member-ordering
-   public hasAnotherDropZoneOver:  false;
-
-   public fileOverBase(e: any): void {
-     this.hasBaseDropZoneOver = e;
-   }
-
-   public fileOverAnother(e: any): void {
-     this.hasAnotherDropZoneOver = e;
-   }
-   // My new way end here
   constructor(private fb: FormBuilder,
               private toastr: ToastsManager,
               private router: Router,
@@ -97,122 +80,104 @@ export class FormComponent implements OnInit, AfterViewInit {
               this.filesToUpload = [];
   }
 
+  onFileSelect(event) {
+    this.clear();
+    this.submitStarted = true;
+    let files  = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
+      if (this.validate(file)) {
+        if (this.isFile(file)) {
+          this.files.push(files[i]);
+          let xhr      = new XMLHttpRequest();
+          let formData = new FormData();
 
-// New File Upload
-// onFileChange(event) {
-//   this.usedSize = 0;
-//   if (event.target.files && event.target.files.length > 0) {
-//     for (let i = 0; i < event.target.files.length; i++) {
+          // tslint:disable-next-line:no-shadowed-variable
+          for (let i = 0; i < this.files.length; i++) {
+            formData.append('fileUp', this.files[i], this.files[i].name);
+          }
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              this.progress = 0;
+              if (xhr.status === 201) {
+                this.imagePath     = xhr.response.replace(/^"|"$/g, '');
+                this.imageReady    = true;
+                this.submitStarted = false;
+              } else if (xhr.status !== 201) {
+                this.toastr.error('There was a problem, please try again later');
+                this.submitStarted = false;
+                this.clear();
+              }
+              this.clear();
+            }
+          };
+          xhr.upload.addEventListener('progress', (e: ProgressEvent) => {
+            if (e.lengthComputable) {
+              this.progress = Math.round((e.loaded * 100) / e.total);
+            }
+          }, false);
 
-//       if (event.target.files[i].name.match(/.jpeg|.jpg|.png|.doc|.pdf|.docx|.gif/gi)) {
-//         this.files.push(event.target.files[i]);
-//         this.usedSize += event.target.files[i].size;
-//         this.filesCount += 1;
-//       }
-//     }
-//   }
-// // }
-//   onFileSelect(event) {
-//     this.clear();
-//     this.submitStarted = true;
-//     let files  = event.dataTransfer ? event.dataTransfer.files : event.target.files;
-//     for (let i = 0; i < files.length; i++) {
-//       let file = files[i];
-//       if (this.validate(file)) {
-//         if (this.isFile(file)) {
-//           this.files.push(files[i]);
-//           let xhr      = new XMLHttpRequest();
-//           let formData = new FormData();
+          xhr.open('POST', this.url, true);
+          xhr.setRequestHeader('Authorization', 'JWT ' + this.token);
+          xhr.send(formData);
 
-//           // tslint:disable-next-line:no-shadowed-variable
-//           for (let i = 0; i < this.files.length; i++) {
-//             formData.append('fileUp', this.files[i], this.files[i].name);
-//           }
-//           xhr.onreadystatechange = () => {
-//             if (xhr.readyState === 4) {
-//               this.progress = 0;
-//               if (xhr.status === 201) {
-//                 this.imagePath     = xhr.response.replace(/^"|"$/g, '');
-//                 this.imageReady    = true;
-//                 this.submitStarted = false;
-//               } else if (xhr.status !== 201) {
-//                 this.toastr.error('There was a problem, please try again later');
-//                 this.submitStarted = false;
-//                 this.clear();
-//               }
-//               this.clear();
-//             }
-//           };
-//           xhr.upload.addEventListener('progress', (e: ProgressEvent) => {
-//             if (e.lengthComputable) {
-//               this.progress = Math.round((e.loaded * 100) / e.total);
-//             }
-//           }, false);
-
-//           xhr.open('POST', this.url, true);
-//           xhr.setRequestHeader('Authorization', 'JWT ' + this.token);
-//           xhr.send(formData);
-
-//         }
-//       } else if (!this.isFile(file)) {
-//         this.toastr.error('Only pdf, doc, jpep and png`s are allowed');
-//       }
-//     }
-//   }
-
-
-
+        }
+      } else if (!this.isFile(file)) {
+        this.toastr.error('Only pdf, doc, jpep and png`s are allowed');
+      }
+    }
+  }
 
   // // check if the image is actually an image by checking the mime type
-  // isFile(file: File): boolean {
-  //   if (!file.type.match(/.jpeg|.jpg|.png|.pdf|.doc|.docx|.gif/gi)) {
-  //     this.toastr.error('Only pdf, doc, jpep and png`s are allowed');
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  isFile(file: File): boolean {
+    if (!file.type.match(/.jpeg|.jpg|.png|.pdf|.doc|.docx|.gif/gi)) {
+      this.toastr.error('Only pdf, doc, jpep and png`s are allowed');
+      return false;
+    }
+    return true;
+  }
 
   // check if the form has files ready to be uploaded
-  // hasFiles(): boolean {
-  //   return this.files && this.files.length > 0;
-  // }
+  hasFiles(): boolean {
+    return this.files && this.files.length > 0;
+  }
 
   // clears the form
-  // clear() {
-  //   this.files = [];
-  //   this.onClear.emit();
-  // }
+  clear() {
+    this.files = [];
+    this.onClear.emit();
+  }
 
   // // remove the image from the preview
-  // remove(index: number) {
-  //   this.files.splice(index, 1);
-  //   this.fileInput.nativeElement.value = '';
-  // }
+  remove(index: number) {
+    this.files.splice(index, 1);
+    this.fileInput.nativeElement.value = '';
+  }
 
   // // check the image file size
-  // validate(file: File): boolean {
-  //   if (this.maxSize && file.size > this.maxSize) {
-  //     this.toastr.error(this.invalidFileSizeMessageDetail.replace('{0}', this.formatSize(this.maxSize)),
-  //       this.invalidFileSizeMessage.replace('{0}', file.name));
-  //     this.submitStarted = false;
-  //     this.clear();
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  validate(file: File): boolean {
+    if (this.maxSize && file.size > this.maxSize) {
+      this.toastr.error(this.invalidFileSizeMessageDetail.replace('{0}', this.formatSize(this.maxSize)),
+        this.invalidFileSizeMessage.replace('{0}', file.name));
+      this.submitStarted = false;
+      this.clear();
+      return false;
+    }
+    return true;
+  }
 
 // format the size to display it in toastr in case the user uploaded a file bigger than 5MB
-  // formatSize(bytes) {
-  //   if (bytes === 0) {
-  //     return '0 B';
-  //   }
-  //   let k     = 1000,
-  //       dm    = 3,
-  //       sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-  //       i     = Math.floor(Math.log(bytes) / Math.log(k));
+  formatSize(bytes) {
+    if (bytes === 0) {
+      return '0 B';
+    }
+    let k     = 1000,
+        dm    = 3,
+        sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i     = Math.floor(Math.log(bytes) / Math.log(k));
 
-  //   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-  // }
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  }
 
   ngOnInit() {
     this.files = [];

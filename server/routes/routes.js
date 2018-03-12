@@ -55,6 +55,8 @@ module.exports = (app) => {
 
   // Upload image endpoint: http://localhost:3000/api/user/image
   userRoutes.post('/image', requireAuth, user.uploadImage);
+  
+  userRoutes.post('/upload', requireAuth, user.uploadImage);
 
   // Delete Image endpoint: http://localhost:3000/api/user/image/:id
   userRoutes.delete('/image/:id', requireAuth, user.deleteImage);
@@ -82,6 +84,8 @@ module.exports = (app) => {
 
   // Upload image endpoint: http://localhost:3000/api/forms/image
   formRoutes.post('/image', requireAuth, forms.uploadImage);
+
+  formRoutes.post('/upload', requireAuth, forms.uploadImage);
 
   // Delete Image endpoint: http://localhost:3000/api/forms/image/:id
   formRoutes.delete('/image/:id', requireAuth, forms.deleteImage);
