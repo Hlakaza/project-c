@@ -62,8 +62,8 @@ let tempStorage = multer.diskStorage({
   filename   : (req, file, cb) => {
     // if you want even more random characters prefixing the filename then change the value '2' below as you wish, right now, 4 charaters are being prefixed
     crypto.pseudoRandomBytes(4, (err, raw) => {
-      let filename = file.originalname.replace(/_/gi, '');
-      cb(null, raw.toString('hex') + '.' + filename.toLowerCase());
+      let filename = file.originalname;
+      cb(null, filename.toLowerCase());
     });
   }
 });
@@ -192,7 +192,7 @@ let functions = {
                 salesPersonEmail: req.body.salesPersonEmail,
                 salesPersonFaxNo: req.body.salesPersonFaxNo,
                 salesPersonFaxNo: req.body.salesPersonFaxNo,
-                imagePath: req.body.fileUp,
+                fileCollection: req.body.fileCollection,
                 owner: user._id
             });
 
@@ -203,8 +203,10 @@ let functions = {
                         err: err
                     });
                 }
-                copyImage(req, req.body.fileUp);
+
                 user.forms.push(result);
+                console.log(user);
+
                 user.save();
                 res.status(201).json({
                     message: 'Form Saved Successfully',

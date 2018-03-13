@@ -22,7 +22,9 @@ let form = new Schema({
     salesPersonNo: { type: String },
     salesPersonEmail: { type: String },
     salesPersonFaxNo: { type: String },
-    imagePath: { type: String },
+    fileCollection: [{
+        type: String
+    }],
     owner: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: { createdAt: 'dateSubmitted' }

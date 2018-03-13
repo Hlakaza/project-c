@@ -61,7 +61,7 @@ AdminComponent = __decorate([
 ], AdminComponent);
 exports.AdminComponent = AdminComponent;
 var _a;
-//# sourceMappingURL=E:/github/project-c/src/admin.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/admin.component.js.map
 
 /***/ }),
 
@@ -78,7 +78,7 @@ exports.ADMIN_ROUTES = [
     { path: '', component: adminPage_component_1.AdminPageComponent, canActivate: [adminGuard_1.AdminGuardService] },
     { path: 'view/:id', component: editUsersForms_component_1.EditUsersFormsComponent, canActivate: [adminGuard_1.AdminGuardService] }
 ];
-//# sourceMappingURL=E:/github/project-c/src/admin.routes.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/admin.routes.js.map
 
 /***/ }),
 
@@ -136,7 +136,7 @@ var Form = (function () {
     return Form;
 }());
 exports.Form = Form;
-//# sourceMappingURL=E:/github/project-c/src/adminForms.model.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/adminForms.model.js.map
 
 /***/ }),
 
@@ -199,7 +199,7 @@ AdminPageComponent = __decorate([
 ], AdminPageComponent);
 exports.AdminPageComponent = AdminPageComponent;
 var _a;
-//# sourceMappingURL=E:/github/project-c/src/adminPage.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/adminPage.component.js.map
 
 /***/ }),
 
@@ -432,7 +432,7 @@ EditUsersFormsComponent = __decorate([
 ], EditUsersFormsComponent);
 exports.EditUsersFormsComponent = EditUsersFormsComponent;
 var _a, _b, _c, _d, _e, _f, _g;
-//# sourceMappingURL=E:/github/project-c/src/editUsersForms.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/editUsersForms.component.js.map
 
 /***/ }),
 
@@ -552,7 +552,7 @@ AdminService = __decorate([
 ], AdminService);
 exports.AdminService = AdminService;
 var _a, _b, _c, _d;
-//# sourceMappingURL=E:/github/project-c/src/admin.service.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/admin.service.js.map
 
 /***/ }),
 
@@ -598,7 +598,7 @@ AdminGuardService = __decorate([
 ], AdminGuardService);
 exports.AdminGuardService = AdminGuardService;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/adminGuard.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/adminGuard.js.map
 
 /***/ }),
 
@@ -654,7 +654,7 @@ AppComponent = __decorate([
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var _a, _b, _c, _d;
-//# sourceMappingURL=E:/github/project-c/src/app.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/app.component.js.map
 
 /***/ }),
 
@@ -789,7 +789,7 @@ AppModule = __decorate([
     })
 ], AppModule);
 exports.AppModule = AppModule;
-//# sourceMappingURL=E:/github/project-c/src/app.module.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/app.module.js.map
 
 /***/ }),
 
@@ -894,7 +894,7 @@ AuthService = __decorate([
 ], AuthService);
 exports.AuthService = AuthService;
 var _a, _b, _c, _d;
-//# sourceMappingURL=E:/github/project-c/src/auth.service.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/auth.service.js.map
 
 /***/ }),
 
@@ -943,7 +943,7 @@ AuthGuardService = __decorate([
 ], AuthGuardService);
 exports.AuthGuardService = AuthGuardService;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/authguard.service.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/authguard.service.js.map
 
 /***/ }),
 
@@ -963,7 +963,7 @@ var Reset = (function () {
     return Reset;
 }());
 exports.Reset = Reset;
-//# sourceMappingURL=E:/github/project-c/src/password.model.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/password.model.js.map
 
 /***/ }),
 
@@ -983,7 +983,7 @@ var User = (function () {
     return User;
 }());
 exports.User = User;
-//# sourceMappingURL=E:/github/project-c/src/user.model.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user.model.js.map
 
 /***/ }),
 
@@ -1033,7 +1033,7 @@ LoaderComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], LoaderComponent);
 exports.LoaderComponent = LoaderComponent;
-//# sourceMappingURL=E:/github/project-c/src/loader.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/loader.component.js.map
 
 /***/ }),
 
@@ -1083,7 +1083,7 @@ ModalComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], ModalComponent);
 exports.ModalComponent = ModalComponent;
-//# sourceMappingURL=E:/github/project-c/src/modal.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/modal.component.js.map
 
 /***/ }),
 
@@ -1097,7 +1097,7 @@ module.exports = ""
 /***/ "./src/app/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"white-label\" data-background-color=\"charcoal\">\n    <img src=\"http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png\" alt=\"Clinix\">\n</div>\n<div id=\"sidebar-nav\">\n    <ul class=\"nav\">\n        <li><a class=\"marg-6 spacing-top\" routerLink=\"/user/forms\"><i class=\"fa fa-user \"></i> User Profile</a></li>\n        <li *ngFor=\"let form of fetchedForms\"><a class=\"marg-6\" [routerLink]=\"['user/forms/edit', form._id]\"><i class=\"fas fa-edit\"> </i> Edit Profile</a></li>\n    </ul>\n</div>"
+module.exports = "<div class=\"white-label\" data-background-color=\"charcoal\">\r\n    <img src=\"http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png\" alt=\"Clinix\">\r\n</div>\r\n<div id=\"sidebar-nav\">\r\n    <ul class=\"nav\">\r\n        <li><a class=\"marg-6 spacing-top\" routerLink=\"/user/forms\"><i class=\"fa fa-user \"></i> User Profile</a></li>\r\n        <li *ngFor=\"let form of fetchedForms\"><a class=\"marg-6\" [routerLink]=\"['user/forms/edit', form._id]\"><i class=\"fas fa-edit\"> </i> Edit Profile</a></li>\r\n    </ul>\r\n</div>"
 
 /***/ }),
 
@@ -1160,7 +1160,7 @@ SidebarComponent = __decorate([
 ], SidebarComponent);
 exports.SidebarComponent = SidebarComponent;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/sidebar.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/sidebar.component.js.map
 
 /***/ }),
 
@@ -1205,7 +1205,7 @@ TabComponent = __decorate([
     })
 ], TabComponent);
 exports.TabComponent = TabComponent;
-//# sourceMappingURL=E:/github/project-c/src/tab.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/tab.component.js.map
 
 /***/ }),
 
@@ -1282,7 +1282,7 @@ TabsComponent = __decorate([
 ], TabsComponent);
 exports.TabsComponent = TabsComponent;
 var _a;
-//# sourceMappingURL=E:/github/project-c/src/tabs.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/tabs.component.js.map
 
 /***/ }),
 
@@ -1296,7 +1296,7 @@ module.exports = ""
 /***/ "./src/app/components/user-dashboard/user-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n    user-dashboard works!\n</p>"
+module.exports = "<p>\r\n    user-dashboard works!\r\n</p>"
 
 /***/ }),
 
@@ -1332,7 +1332,7 @@ UserDashboardComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], UserDashboardComponent);
 exports.UserDashboardComponent = UserDashboardComponent;
-//# sourceMappingURL=E:/github/project-c/src/user-dashboard.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user-dashboard.component.js.map
 
 /***/ }),
 
@@ -1360,7 +1360,7 @@ exports.FORMS_API_URL = 'http://localhost:3000/api/forms';
 // export const AUTH_API_URL  = 'https://hlakaza.github.io/project-c/api/auth';
 // export const USER_API_URL  = 'https://hlakaza.github.io/project-c/api/user';
 // export const FORMS_API_URL = 'https://hlakaza.github.io/project-c/api/forms';
-//# sourceMappingURL=E:/github/project-c/src/config.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/config.js.map
 
 /***/ }),
 
@@ -1400,7 +1400,7 @@ var CustomOption = (function (_super) {
     return CustomOption;
 }(ng2_toastr_1.ToastOptions));
 exports.CustomOption = CustomOption;
-//# sourceMappingURL=E:/github/project-c/src/toastr.config.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/toastr.config.js.map
 
 /***/ }),
 
@@ -1453,7 +1453,7 @@ ErrorComponent = __decorate([
 ], ErrorComponent);
 exports.ErrorComponent = ErrorComponent;
 var _a, _b;
-//# sourceMappingURL=E:/github/project-c/src/error.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/error.component.js.map
 
 /***/ }),
 
@@ -1489,7 +1489,7 @@ ErrorService = __decorate([
     __metadata("design:paramtypes", [])
 ], ErrorService);
 exports.ErrorService = ErrorService;
-//# sourceMappingURL=E:/github/project-c/src/error.service.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/error.service.js.map
 
 /***/ }),
 
@@ -1506,7 +1506,7 @@ var Error = (function () {
     return Error;
 }());
 exports.Error = Error;
-//# sourceMappingURL=E:/github/project-c/src/error.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/error.js.map
 
 /***/ }),
 
@@ -1548,14 +1548,14 @@ ErrorPageComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], ErrorPageComponent);
 exports.ErrorPageComponent = ErrorPageComponent;
-//# sourceMappingURL=E:/github/project-c/src/errorPage.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/errorPage.component.js.map
 
 /***/ }),
 
 /***/ "./src/app/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card spacing-bottom\">\r\n    <!--Header-->\r\n    <div class=\"card-header\" data-background-color=\"charcoal\">\r\n        <h4 class=\"title\">Add Details</h4>\r\n        <p class=\"category\">Provide your details in the form below</p>\r\n    </div>\r\n    <div class=\"card-content\">\r\n\r\n        <form [formGroup]=\"myForm\" (ngSubmit)=\"submitForm()\" class=\"form-horizontal register-form clearfix\" novalidate>\r\n            <fieldset>\r\n                <app-tabs #t>\r\n                    <app-tab title=\"Company Information\">\r\n                        <div class=\"row\">\r\n                            <!--Trading Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"tradingName\" name=\"tradingName\" type=\"text\" required/>\r\n                                        <label class=\"grey-text\" for=\"tradingName\" class=\"grey-text\">Trading Name</label>\r\n                                        <span *ngIf=\"myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched\" class=\"help-block text-danger\">Trading Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--Company Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registeredCompanyName\" name=\"registeredCompanyName\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registeredCompanyName\">Registered Company Name</label>\r\n                                        <span *ngIf=\"myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched\" class=\"help-block text-danger\">Company Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registrationNumber\" name=\"registrationNumber\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registrationNumber\">Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched\" class=\"help-block text-danger\">Registration Number is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--confirm Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input type=\"text\" class=\"form-control\" formControlName=\"confirmRegNumber\" name=\"confirmRegNumber\" />\r\n                                        <label class=\"grey-text\" for=\"confirmRegNumber\">Confirm Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched\" class=\"help-block text-danger\">Registration Numbers do not match</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"vatNumber\" name=\"vatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"vatNumber\">Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched\" class=\"help-block text-danger\">VatNumber is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Confirm Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"confirmVatNumber\" name=\"confirmVatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"confirmVatNumber\">Confirm Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched\" class=\"help-block text-danger\">Vat Numbers do not match</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"physicalAddress\" name=\"physicalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"physicalAddress\">Physical Address</label>\r\n                                    <span *ngIf=\"myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched\" class=\"help-block text-danger\">Physical Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Postal Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"postalAddress\" name=\"postalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"postalAddress\">Postal Address</label>\r\n                                    <span *ngIf=\"myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched\" class=\"help-block text-danger\">Postal Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Phone Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form \">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"tel\" name=\"tel\" />\r\n                                    <label class=\"grey-text\" for=\"tel\">Telephone Number</label>\r\n                                    <span *ngIf=\"myForm.get('tel').hasError('required') && myForm.get('tel').touched\" class=\"help-block text-danger\">Your work Telephone Number is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"faxNo\" name=\"faxNo\" />\r\n                                    <label class=\"grey-text\" for=\"faxNo\">Fax Number</label>\r\n                                    <span *ngIf=\"myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched\" class=\"help-block text-danger\">Fax number is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Website-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-globe prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"website\" name=\"website\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"website\">Website</label>\r\n                                    <span *ngIf=\"myForm.get('website').hasError('required') && myForm.get('website').touched\" class=\"help-block text-danger\">Website is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(1)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Correspondence\">\r\n                        <div class=\"row \">\r\n                            <!--Acc Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonName\" name=\"accPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched\" class=\"help-block text-danger\">Accounts Person Name is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"accPersonEmail\" name=\"accPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Acc Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonNo\" name=\"accPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Acc Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"accPersonFaxNo\" name=\"accPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Sales Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonName\" name=\"salesPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched\" class=\"help-block text-danger\">Sales Person Name is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"salesPersonEmail\" name=\"salesPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Sales Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonNo\" name=\"salesPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Sales Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"salesPersonFaxNo\" name=\"salesPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Type of business-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <label class=\"text-left select-label grey-text\">Business Sector:</label>\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <select type=\"text\" formControlName=\"serviceProduct\" class=\"form-control label-text grey-text\" id=\"exampleSelect1\">\r\n                                                    <option>Pharmaceutical</option>\r\n                                                    <option>None Pharmaceutical</option>\r\n                                                    <option name=\"service\">Service and Product</option>\r\n                                        </select>\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\" for=\"tel\">Please Specify the Service &amp; Product </label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"serviceProductInfo\" name=\"service\" />\r\n                                    <span *ngIf=\"myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched\" class=\"help-block text-danger\">Service &amp; product type required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(2)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Rquired Documents\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"card red lighten-1 text-center z-depth-2 spacing-bottom spacing-top\">\r\n                                    <div class=\"card-body\">\r\n                                        <p class=\"white-text mb-0 font-8\">Please upload these documents, Customer General Terms and Conditions, BEE Certificate, Tax Certificate, Letter of Good Standing, Audited latest Financial Statements, Proof of Banking Details, Company Letterhead,\r\n                                            Declaration of possible conflict of Interest with Clinix Health Group (CHG), Product Price list, Identity documents of directors.</p>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n\r\n                            <div class=\"col-sm-2\">\r\n                                <div class=\"file-field\">\r\n                                    <div class=\"btn btn-primary btn-sm\">\r\n                                        <span>Upload Files</span>\r\n                                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple />\r\n                                        <!-- Single\r\n                                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" /> -->\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- <div class=\"col-sm-10\" style=\"margin-bottom: 40px\">\r\n                                <p>Number of files: {{ uploader?.queue?.length }}</p>\r\n                                <table class=\"table\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th width=\"50%\">Name</th>\r\n                                            <th>Size</th>\r\n                                            <th>Progress</th> \r\n                                            <th>Status</th>\r\n                                            <th>Actions</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n                                        <tr *ngFor=\"let item of uploader.queue\">\r\n                                            <td><strong>{{ item?.file?.name }}</strong></td>\r\n                                            <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                                             <td>\r\n                                                <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                                    <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                                                </div>\r\n                                            </td> -->\r\n                                          <!---  <td class=\"text-center\">\r\n                                                &nbsp;\r\n                                                <span *ngIf=\"!item.isSuccess\"><i class=\"fa fa-check\"></i></span>\r\n\r\n                                                 <span *ngIf=\"item.isError\"><i class=\"fa fa-times\"></i></span> -->\r\n                                            <!--</td>\r\n                                            <td nowrap>\r\n                                                <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                                <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                               </button>\r\n\r\n                                                <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                                <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                            </button>\r\n                                            </td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table> -->\r\n\r\n                                <!-- <div>\r\n                                    <div>\r\n                                        Upload progress:\r\n                                        <div class=\"progress\" style=\"\">\r\n                                            <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                    <button type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\r\n                                        <span class=\"glyphicon glyphicon-upload\"></span> Upload all\r\n                                    </button> -->\r\n                                    <!-- <button type=\"button\" class=\"btn btn-danger btn-sm\" (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"></span> Remove all\r\n                                    </button> -->\r\n                                <!-- </div> -->\r\n\r\n                            <!-- </div> -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\" col-md-4 col-centered box text-center top-margin slim\">\r\n                                  <div *ngIf=\"!imageReady\" class=\"addProfilePicture\">\r\n                                    <div *ngIf=\"!submitStarted\">\r\n                                      <input type=\"file\" name=\"file-1[]\" id=\"file-1\" class=\"inputfile inputfile-1\" #fileInput name=\"fileUp\" (change)=\"onFileSelect($event)\"/>\r\n                                      <label for=\"file-1\">\r\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 -120 548.176 615\" xml:space=\"preserve\">\r\n                        <g>\r\n                            <path d=\"M524.326,297.352c-15.896-19.89-36.21-32.782-60.959-38.684c7.81-11.8,11.704-24.934,11.704-39.399   c0-20.177-7.139-37.401-21.409-51.678c-14.273-14.272-31.498-21.411-51.675-21.411c-18.083,0-33.879,5.901-47.39,17.703   c-11.225-27.41-29.171-49.393-53.817-65.95c-24.646-16.562-51.818-24.842-81.514-24.842c-40.349,0-74.802,14.279-103.353,42.83   c-28.553,28.544-42.825,62.999-42.825,103.351c0,2.474,0.191,6.567,0.571,12.275c-22.459,10.469-40.349,26.171-53.676,47.106   C6.661,299.594,0,322.43,0,347.179c0,35.214,12.517,65.329,37.544,90.358c25.028,25.037,55.15,37.548,90.362,37.548h310.636   c30.259,0,56.096-10.711,77.512-32.12c21.413-21.409,32.121-47.246,32.121-77.516C548.172,339.944,540.223,317.248,524.326,297.352   z M362.729,289.648c-1.813,1.804-3.949,2.707-6.42,2.707h-63.953v100.502c0,2.471-0.903,4.613-2.711,6.42   c-1.813,1.813-3.949,2.711-6.42,2.711h-54.826c-2.474,0-4.615-0.897-6.423-2.711c-1.804-1.807-2.712-3.949-2.712-6.42V292.355   H155.31c-2.662,0-4.853-0.855-6.563-2.563c-1.713-1.714-2.568-3.904-2.568-6.566c0-2.286,0.95-4.572,2.852-6.855l100.213-100.21   c1.713-1.714,3.903-2.57,6.567-2.57c2.666,0,4.856,0.856,6.567,2.57l100.499,100.495c1.714,1.712,2.562,3.901,2.562,6.571   C365.438,285.696,364.535,287.845,362.729,289.648z\" fill=\"#FFDA44\"/>\r\n                        </g>\r\n                        </svg>\r\n                                        <span>Choose Image</span></label>\r\n                                    </div>\r\n                                  </div>\r\n                                  <button *ngIf=\"submitStarted\" class=\"disabled btn btn-default centered progress-button\"><i class=\"fa fa-circle-o-notch fa-spin fa-fw\"></i> Please wait... <span class=\"progress-percent\">{{progress}}%</span></button>\r\n                                  <div class=\"profilePictureTemp\">\r\n                                    <img *ngIf=\"imageReady\" #image class=\"img-responsive top-margin\" src=\"{{imageUrl}}{{imagePath}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\"/>\r\n                                    <div *ngIf=\"imageReady\" class=\"slim-btn-group\">\r\n                                      <button (click)=\"imageDeleteModal.open()\" data-toggle=\"modal\" id=\"delete_image\" style=\"opacity: 1;\" data-action=\"remove\" type=\"button\" title=\"Delete Image\" class=\"slim-btn slim-btn-remove\">Διαγραφή Φωτογραφίας</button>\r\n                                    </div>\r\n                                  </div>\r\n                                </div>\r\n                              </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                </app-tabs>\r\n\r\n                <!-- Button -->\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <button type=\"submit\" [disabled]=\"!myForm.valid\" id=\"submitForm\" name=\"sumbitForm\" class=\"btn btn-primary btn-sm text-center\">Submit</button>\r\n                    </div>\r\n                </div>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"card spacing-bottom\">\r\n    <!--Header-->\r\n    <div class=\"card-header\" data-background-color=\"charcoal\">\r\n        <h4 class=\"title\">Add Details</h4>\r\n        <p class=\"category\">Provide your details in the form below</p>\r\n    </div>\r\n    <div class=\"card-content\">\r\n\r\n        <form [formGroup]=\"myForm\" (ngSubmit)=\"submitForm()\" class=\"form-horizontal register-form clearfix\" novalidate>\r\n            <fieldset>\r\n                <app-tabs #t>\r\n                    <app-tab title=\"Company Information\">\r\n                        <div class=\"row\">\r\n                            <!--Trading Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"tradingName\" name=\"tradingName\" type=\"text\" required/>\r\n                                        <label class=\"grey-text\" for=\"tradingName\" class=\"grey-text\">Trading Name</label>\r\n                                        <span *ngIf=\"myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched\" class=\"help-block text-danger\">Trading Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--Company Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registeredCompanyName\" name=\"registeredCompanyName\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registeredCompanyName\">Registered Company Name</label>\r\n                                        <span *ngIf=\"myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched\" class=\"help-block text-danger\">Company Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registrationNumber\" name=\"registrationNumber\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registrationNumber\">Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched\" class=\"help-block text-danger\">Registration Number is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--confirm Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input type=\"text\" class=\"form-control\" formControlName=\"confirmRegNumber\" name=\"confirmRegNumber\" />\r\n                                        <label class=\"grey-text\" for=\"confirmRegNumber\">Confirm Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched\" class=\"help-block text-danger\">Registration Numbers do not match</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"vatNumber\" name=\"vatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"vatNumber\">Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched\" class=\"help-block text-danger\">VatNumber is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Confirm Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"confirmVatNumber\" name=\"confirmVatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"confirmVatNumber\">Confirm Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched\" class=\"help-block text-danger\">Vat Numbers do not match</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"physicalAddress\" name=\"physicalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"physicalAddress\">Physical Address</label>\r\n                                    <span *ngIf=\"myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched\" class=\"help-block text-danger\">Physical Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Postal Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"postalAddress\" name=\"postalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"postalAddress\">Postal Address</label>\r\n                                    <span *ngIf=\"myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched\" class=\"help-block text-danger\">Postal Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Phone Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form \">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"tel\" name=\"tel\" />\r\n                                    <label class=\"grey-text\" for=\"tel\">Telephone Number</label>\r\n                                    <span *ngIf=\"myForm.get('tel').hasError('required') && myForm.get('tel').touched\" class=\"help-block text-danger\">Your work Telephone Number is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"faxNo\" name=\"faxNo\" />\r\n                                    <label class=\"grey-text\" for=\"faxNo\">Fax Number</label>\r\n                                    <span *ngIf=\"myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched\" class=\"help-block text-danger\">Fax number is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Website-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-globe prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"website\" name=\"website\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"website\">Website</label>\r\n                                    <span *ngIf=\"myForm.get('website').hasError('required') && myForm.get('website').touched\" class=\"help-block text-danger\">Website is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(1)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Correspondence\">\r\n                        <div class=\"row \">\r\n                            <!--Acc Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonName\" name=\"accPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched\" class=\"help-block text-danger\">Accounts Person Name is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"accPersonEmail\" name=\"accPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Acc Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonNo\" name=\"accPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Acc Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"accPersonFaxNo\" name=\"accPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Sales Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonName\" name=\"salesPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched\" class=\"help-block text-danger\">Sales Person Name is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"salesPersonEmail\" name=\"salesPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Sales Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonNo\" name=\"salesPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Sales Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"salesPersonFaxNo\" name=\"salesPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Type of business-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <label class=\"text-left select-label grey-text\">Business Sector:</label>\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <select type=\"text\" formControlName=\"serviceProduct\" class=\"form-control label-text grey-text\" id=\"exampleSelect1\">\r\n                                                    <option>Pharmaceutical</option>\r\n                                                    <option>None Pharmaceutical</option>\r\n                                                    <option name=\"service\">Service and Product</option>\r\n                                        </select>\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\" for=\"tel\">Please Specify the Service &amp; Product </label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"serviceProductInfo\" name=\"service\" />\r\n                                    <span *ngIf=\"myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched\" class=\"help-block text-danger\">Service &amp; product type required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(2)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Rquired Documents\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"card red lighten-1 text-center z-depth-2 spacing-bottom spacing-top\">\r\n                                    <div class=\"card-body\">\r\n                                        <p class=\"white-text mb-0 font-8\">Please upload these documents, Customer General Terms and Conditions, BEE Certificate, Tax Certificate, Letter of Good Standing, Audited latest Financial Statements, Proof of Banking Details, Company Letterhead,\r\n                                            Declaration of possible conflict of Interest with Clinix Health Group (CHG), Product Price list, Identity documents of directors.</p>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n\r\n                            <div class=\"col-sm-2\">\r\n                                <div class=\"file-field\">\r\n                                    <div class=\"btn btn-primary btn-sm\">\r\n                                        <span>Upload Files</span>\r\n                                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple />\r\n                                        <!-- Single\r\n                                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" /> -->\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- <div class=\"col-sm-10\" style=\"margin-bottom: 40px\">\r\n                                <p>Number of files: {{ uploader?.queue?.length }}</p>\r\n                                <table class=\"table\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th width=\"50%\">Name</th>\r\n                                            <th>Size</th>\r\n                                            <th>Progress</th> \r\n                                            <th>Status</th>\r\n                                            <th>Actions</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n                                        <tr *ngFor=\"let item of uploader.queue\">\r\n                                            <td><strong>{{ item?.file?.name }}</strong></td>\r\n                                            <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                                             <td>\r\n                                                <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                                    <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                                                </div>\r\n                                            </td> -->\r\n                                          <!---  <td class=\"text-center\">\r\n                                                &nbsp;\r\n                                                <span *ngIf=\"!item.isSuccess\"><i class=\"fa fa-check\"></i></span>\r\n\r\n                                                 <span *ngIf=\"item.isError\"><i class=\"fa fa-times\"></i></span> -->\r\n                                            <!--</td>\r\n                                            <td nowrap>\r\n                                                <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                                <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                               </button>\r\n\r\n                                                <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                                <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                            </button>\r\n                                            </td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table> -->\r\n\r\n                                <!-- <div>\r\n                                    <div>\r\n                                        Upload progress:\r\n                                        <div class=\"progress\" style=\"\">\r\n                                            <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                    <button type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\r\n                                        <span class=\"glyphicon glyphicon-upload\"></span> Upload all\r\n                                    </button> -->\r\n                                    <!-- <button type=\"button\" class=\"btn btn-danger btn-sm\" (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"></span> Remove all\r\n                                    </button> -->\r\n                                <!-- </div> -->\r\n\r\n                            <!-- </div> -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\" col-md-4 col-centered box text-center top-margin slim\">\r\n                                  <div *ngIf=\"!imageReady\" class=\"addProfilePicture\">\r\n                                    <div *ngIf=\"!submitStarted\">\r\n                                      <input type=\"file\" name=\"file-1[]\" id=\"file-1\" class=\"inputfile inputfile-1\" #fileInput name=\"fileUp\" (change)=\"onFileSelect($event)\"/>\r\n                                      <label for=\"file-1\">\r\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 -120 548.176 615\" xml:space=\"preserve\">\r\n                        <g>\r\n                            <path d=\"M524.326,297.352c-15.896-19.89-36.21-32.782-60.959-38.684c7.81-11.8,11.704-24.934,11.704-39.399   c0-20.177-7.139-37.401-21.409-51.678c-14.273-14.272-31.498-21.411-51.675-21.411c-18.083,0-33.879,5.901-47.39,17.703   c-11.225-27.41-29.171-49.393-53.817-65.95c-24.646-16.562-51.818-24.842-81.514-24.842c-40.349,0-74.802,14.279-103.353,42.83   c-28.553,28.544-42.825,62.999-42.825,103.351c0,2.474,0.191,6.567,0.571,12.275c-22.459,10.469-40.349,26.171-53.676,47.106   C6.661,299.594,0,322.43,0,347.179c0,35.214,12.517,65.329,37.544,90.358c25.028,25.037,55.15,37.548,90.362,37.548h310.636   c30.259,0,56.096-10.711,77.512-32.12c21.413-21.409,32.121-47.246,32.121-77.516C548.172,339.944,540.223,317.248,524.326,297.352   z M362.729,289.648c-1.813,1.804-3.949,2.707-6.42,2.707h-63.953v100.502c0,2.471-0.903,4.613-2.711,6.42   c-1.813,1.813-3.949,2.711-6.42,2.711h-54.826c-2.474,0-4.615-0.897-6.423-2.711c-1.804-1.807-2.712-3.949-2.712-6.42V292.355   H155.31c-2.662,0-4.853-0.855-6.563-2.563c-1.713-1.714-2.568-3.904-2.568-6.566c0-2.286,0.95-4.572,2.852-6.855l100.213-100.21   c1.713-1.714,3.903-2.57,6.567-2.57c2.666,0,4.856,0.856,6.567,2.57l100.499,100.495c1.714,1.712,2.562,3.901,2.562,6.571   C365.438,285.696,364.535,287.845,362.729,289.648z\" fill=\"#FFDA44\"/>\r\n                        </g>\r\n                        </svg>\r\n                                        <span>Choose Image</span></label>\r\n                                    </div>\r\n                                  </div>\r\n                                  <button *ngIf=\"submitStarted\" class=\"disabled btn btn-default centered progress-button\"><i class=\"fa fa-circle-o-notch fa-spin fa-fw\"></i> Please wait... <span class=\"progress-percent\">{{progress}}%</span></button>\r\n                                  <div class=\"profilePictureTemp\">\r\n                                    <img *ngIf=\"imageReady\" #image class=\"img-responsive top-margin\" src=\"{{imageUrl}}{{fileName}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\"/>\r\n                                    <div *ngIf=\"imageReady\" class=\"slim-btn-group\">\r\n                                      <button (click)=\"imageDeleteModal.open()\" data-toggle=\"modal\" id=\"delete_image\" style=\"opacity: 1;\" data-action=\"remove\" type=\"button\" title=\"Delete Image\" class=\"slim-btn slim-btn-remove\">Διαγραφή Φωτογραφίας</button>\r\n                                    </div>\r\n                                  </div>\r\n                                </div>\r\n                              </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                </app-tabs>\r\n\r\n                <!-- Button -->\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <button type=\"submit\" [disabled]=\"!myForm.valid\" id=\"submitForm\" name=\"sumbitForm\" class=\"btn btn-primary btn-sm text-center\">Submit</button>\r\n                    </div>\r\n                </div>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1605,13 +1605,15 @@ var FormComponent = (function () {
         this.fetchedUser = [];
         // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
         this.token = localStorage.getItem('id_token');
+        this.userId = localStorage.getItem('userId');
         this.url = config_1.FORMS_API_URL + "/upload";
-        this.imageUrl = config_1.BASE_URL + "/uploads/tmp/";
+        this.imageUrl = config_1.BASE_URL + "/uploads/forms/" + this.userId + "/";
         this.maxSize = 5000000;
         this.invalidFileSizeMessage = '{0}: Invalid file size, ';
         this.invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
         this.progress = 0;
         this.imageReady = false;
+        this.fileCollection = [];
         this.onClear = new core_1.EventEmitter();
         /**
          * Upload File
@@ -1626,6 +1628,7 @@ var FormComponent = (function () {
         this.clear();
         this.submitStarted = true;
         var files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+        debugger;
         var _loop_1 = function (i) {
             var file = files[i];
             if (this_1.validate(file)) {
@@ -1636,12 +1639,14 @@ var FormComponent = (function () {
                     // tslint:disable-next-line:no-shadowed-variable
                     for (var i_1 = 0; i_1 < this_1.files.length; i_1++) {
                         formData.append('fileUp', this_1.files[i_1], this_1.files[i_1].name);
+                        this_1.fileCollection.push(config_1.BASE_URL + "/uploads/forms/" + this_1.userId + "/" + files[i_1].name);
                     }
                     xhr_1.onreadystatechange = function () {
                         if (xhr_1.readyState === 4) {
                             _this.progress = 0;
                             if (xhr_1.status === 201) {
-                                _this.imagePath = xhr_1.response.replace(/^"|"$/g, '');
+                                debugger;
+                                _this.fileName = files[0].name;
                                 _this.imageReady = true;
                                 _this.submitStarted = false;
                             }
@@ -1766,8 +1771,10 @@ var FormComponent = (function () {
     FormComponent.prototype.submitForm = function () {
         var _this = this;
         this.submitStarted = true;
-        var newForm = new form_model_1.Form(this.myForm.value.tradingName, this.myForm.value.registeredCompanyName, this.myForm.value.registrationNumber, this.myForm.value.physicalAddress, this.myForm.value.postalAddress, this.myForm.value.tel, this.myForm.value.faxNo, this.myForm.value.website, this.myForm.value.vatNumber, this.myForm.value.accPersonName, this.myForm.value.accPersonNo, this.myForm.value.accPersonFaxNo, this.myForm.value.accPersonEmail, this.myForm.value.salesPersonName, this.myForm.value.salesPersonNo, this.myForm.value.salesPersonFaxNo, this.myForm.value.salesPersonEmail, this.imagePath);
-        console.log(this.imagePath);
+        var newForm = new form_model_1.Form(this.myForm.value.tradingName, this.myForm.value.registeredCompanyName, this.myForm.value.registrationNumber, this.myForm.value.physicalAddress, this.myForm.value.postalAddress, this.myForm.value.tel, this.myForm.value.faxNo, this.myForm.value.website, this.myForm.value.vatNumber, this.myForm.value.accPersonName, this.myForm.value.accPersonNo, this.myForm.value.accPersonFaxNo, this.myForm.value.accPersonEmail, this.myForm.value.salesPersonName, this.myForm.value.salesPersonNo, this.myForm.value.salesPersonFaxNo, this.myForm.value.salesPersonEmail, this.fileCollection);
+        debugger;
+        console.log(newForm);
+        console.log(this.fileName);
         /**
          * disabling the submiting of form if files are null
          */
@@ -1815,7 +1822,7 @@ FormComponent = __decorate([
 ], FormComponent);
 exports.FormComponent = FormComponent;
 var _a, _b, _c, _d, _e, _f, _g, _h, _j;
-//# sourceMappingURL=E:/github/project-c/src/form.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/form.component.js.map
 
 /***/ }),
 
@@ -1828,7 +1835,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Form = (function () {
     function Form(// public textInputOne: string,
         //             public textInputTwo: string,
-        tradingName, registeredCompanyName, registrationNumber, physicalAddress, postalAddress, tel, faxNo, website, vatNumber, accPersonName, accPersonNo, accPersonFaxNo, accPersonEmail, salesPersonName, salesPersonNo, salesPersonEmail, salesPersonFaxNo, fileUp, userId, formId) {
+        tradingName, registeredCompanyName, registrationNumber, physicalAddress, postalAddress, tel, faxNo, website, vatNumber, accPersonName, accPersonNo, accPersonFaxNo, accPersonEmail, salesPersonName, salesPersonNo, salesPersonEmail, salesPersonFaxNo, fileCollection, fileUp, userId, formId) {
         this.tradingName = tradingName;
         this.registeredCompanyName = registeredCompanyName;
         this.registrationNumber = registrationNumber;
@@ -1846,6 +1853,7 @@ var Form = (function () {
         this.salesPersonNo = salesPersonNo;
         this.salesPersonEmail = salesPersonEmail;
         this.salesPersonFaxNo = salesPersonFaxNo;
+        this.fileCollection = fileCollection;
         this.fileUp = fileUp;
         this.userId = userId;
         this.formId = formId;
@@ -1875,7 +1883,7 @@ var Form = (function () {
     return Form;
 }());
 exports.Form = Form;
-//# sourceMappingURL=E:/github/project-c/src/form.model.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/form.model.js.map
 
 /***/ }),
 
@@ -2008,7 +2016,7 @@ FormService = __decorate([
 ], FormService);
 exports.FormService = FormService;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/form.service.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/form.service.js.map
 
 /***/ }),
 
@@ -2023,7 +2031,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__("./src/app/app.component.ts"));
 __export(__webpack_require__("./src/app/app.module.ts"));
-//# sourceMappingURL=E:/github/project-c/src/index.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/index.js.map
 
 /***/ }),
 
@@ -2078,7 +2086,7 @@ MainPageComponent = __decorate([
 ], MainPageComponent);
 exports.MainPageComponent = MainPageComponent;
 var _a;
-//# sourceMappingURL=E:/github/project-c/src/mainPage.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/mainPage.component.js.map
 
 /***/ }),
 
@@ -2163,7 +2171,7 @@ NavbarComponent = __decorate([
 ], NavbarComponent);
 exports.NavbarComponent = NavbarComponent;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/navbar.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/navbar.component.js.map
 
 /***/ }),
 
@@ -2192,7 +2200,7 @@ var APP_ROUTES = [
     { path: '**', redirectTo: '404' }
 ];
 exports.routing = router_1.RouterModule.forRoot(APP_ROUTES);
-//# sourceMappingURL=E:/github/project-c/src/routes.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/routes.component.js.map
 
 /***/ }),
 
@@ -2278,7 +2286,7 @@ ForgetPasswordComponent = __decorate([
 ], ForgetPasswordComponent);
 exports.ForgetPasswordComponent = ForgetPasswordComponent;
 var _a, _b, _c, _d, _e, _f;
-//# sourceMappingURL=E:/github/project-c/src/forgetPassword.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/forgetPassword.component.js.map
 
 /***/ }),
 
@@ -2367,7 +2375,7 @@ ResetPasswordComponent = __decorate([
 ], ResetPasswordComponent);
 exports.ResetPasswordComponent = ResetPasswordComponent;
 var _a, _b, _c, _d, _e, _f, _g;
-//# sourceMappingURL=E:/github/project-c/src/resetPassword.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/resetPassword.component.js.map
 
 /***/ }),
 
@@ -2482,7 +2490,7 @@ LoginComponent = __decorate([
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 var _a, _b, _c, _d, _e, _f, _g;
-//# sourceMappingURL=E:/github/project-c/src/login.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/login.component.js.map
 
 /***/ }),
 
@@ -2565,7 +2573,7 @@ ChangePasswordComponent = __decorate([
 ], ChangePasswordComponent);
 exports.ChangePasswordComponent = ChangePasswordComponent;
 var _a, _b, _c, _d, _e, _f;
-//# sourceMappingURL=E:/github/project-c/src/changePassword.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/changePassword.component.js.map
 
 /***/ }),
 
@@ -2640,7 +2648,7 @@ ProfileService = __decorate([
 ], ProfileService);
 exports.ProfileService = ProfileService;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/profile.service.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/profile.service.js.map
 
 /***/ }),
 
@@ -2837,7 +2845,7 @@ UserProfileComponent = __decorate([
 ], UserProfileComponent);
 exports.UserProfileComponent = UserProfileComponent;
 var _a, _b, _c, _d, _e, _f, _g;
-//# sourceMappingURL=E:/github/project-c/src/userProfile.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/userProfile.component.js.map
 
 /***/ }),
 
@@ -2868,7 +2876,7 @@ var newPassword = (function () {
     return newPassword;
 }());
 exports.newPassword = newPassword;
-//# sourceMappingURL=E:/github/project-c/src/userProfile.model.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/userProfile.model.js.map
 
 /***/ }),
 
@@ -2966,7 +2974,7 @@ RegisterComponent = __decorate([
 ], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 var _a, _b, _c, _d, _e, _f;
-//# sourceMappingURL=E:/github/project-c/src/register.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/register.component.js.map
 
 /***/ }),
 
@@ -3008,7 +3016,7 @@ UserComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], UserComponent);
 exports.UserComponent = UserComponent;
-//# sourceMappingURL=E:/github/project-c/src/user.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user.component.js.map
 
 /***/ }),
 
@@ -3039,7 +3047,7 @@ exports.USER_ROUTES = [
     { path: 'profile/password', component: changePassword_component_1.ChangePasswordComponent, canActivate: [authguard_service_1.AuthGuardService] },
     { path: 'forms/edit/:id', component: editUserForm_component_1.EditUserFormComponent, canActivate: [authguard_service_1.AuthGuardService] }
 ];
-//# sourceMappingURL=E:/github/project-c/src/user.routes.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user.routes.js.map
 
 /***/ }),
 
@@ -3287,7 +3295,7 @@ EditUserFormComponent = __decorate([
 ], EditUserFormComponent);
 exports.EditUserFormComponent = EditUserFormComponent;
 var _a, _b, _c, _d, _e, _f, _g;
-//# sourceMappingURL=E:/github/project-c/src/editUserForm.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/editUserForm.component.js.map
 
 /***/ }),
 
@@ -3373,7 +3381,7 @@ UserFormsComponent = __decorate([
 ], UserFormsComponent);
 exports.UserFormsComponent = UserFormsComponent;
 var _a, _b, _c;
-//# sourceMappingURL=E:/github/project-c/src/userForms.component.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/userForms.component.js.map
 
 /***/ }),
 
@@ -3409,7 +3417,7 @@ function emailValidator(control) {
     }
 }
 exports.emailValidator = emailValidator;
-//# sourceMappingURL=E:/github/project-c/src/input-match.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/input-match.js.map
 
 /***/ }),
 
@@ -3426,7 +3434,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false
 };
-//# sourceMappingURL=E:/github/project-c/src/environment.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/environment.js.map
 
 /***/ }),
 
@@ -3447,7 +3455,7 @@ if (environment_1.environment.production) {
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(_1.AppModule);
 // .then((success: any) => console.log('App bootstrapped'))
 // .catch((err: any) => console.error(err));
-//# sourceMappingURL=E:/github/project-c/src/main.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/main.js.map
 
 /***/ }),
 
@@ -3475,7 +3483,7 @@ __webpack_require__("./node_modules/core-js/es6/set.js");
 __webpack_require__("./node_modules/core-js/es6/reflect.js");
 __webpack_require__("./node_modules/core-js/es7/reflect.js");
 __webpack_require__("./node_modules/zone.js/dist/zone.js");
-//# sourceMappingURL=E:/github/project-c/src/polyfills.js.map
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/polyfills.js.map
 
 /***/ }),
 
