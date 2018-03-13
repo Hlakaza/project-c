@@ -44,8 +44,10 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
   token: string  = localStorage.getItem('id_token');
+  userId: string  = localStorage.getItem('userId');
+
   url  = `${FORMS_API_URL}/upload`;
-  imageUrl = `${BASE_URL}/uploads/forms/`;
+  imageUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   maxSize  = 5000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
@@ -53,7 +55,9 @@ export class FormComponent implements OnInit, AfterViewInit {
   public progress  = 0;
   public submitStarted: boolean;
   public imageReady   = false;
-  public imagePath: string;
+  public fileName: string;
+
+  public fileCollection: Array<string> = [];
 
   name: string;
   onClear: EventEmitter<any>   = new EventEmitter();
@@ -84,6 +88,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     this.clear();
     this.submitStarted = true;
     let files  = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+    debugger
     for (let i = 0; i < files.length; i++) {
       let file = files[i];
       if (this.validate(file)) {
@@ -95,12 +100,14 @@ export class FormComponent implements OnInit, AfterViewInit {
           // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
+            this.fileCollection.push(`${BASE_URL}/uploads/forms/${this.userId}/${files[i].name}`);
           }
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               this.progress = 0;
               if (xhr.status === 201) {
-                this.imagePath     = xhr.response.replace(/^"|"$/g, '');
+                debugger
+                this.fileName     = files[0].name;
                 this.imageReady    = true;
                 this.submitStarted = false;
               } else if (xhr.status !== 201) {
@@ -255,9 +262,11 @@ export class FormComponent implements OnInit, AfterViewInit {
       this.myForm.value.salesPersonNo,
       this.myForm.value.salesPersonFaxNo,
       this.myForm.value.salesPersonEmail,
-      this.imagePath
+      this.fileCollection
     );
-    console.log(this.imagePath);
+    debugger
+    console.log(newForm);
+    console.log(this.fileName);
     /**
      * disabling the submiting of form if files are null
      */

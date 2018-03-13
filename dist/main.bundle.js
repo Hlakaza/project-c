@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "./src/$$_gendir lazy recursive";
 /***/ "./src/app/admin/admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"dash-wraper\">\r\n    <section id=\"sidebar\" class=\"sidebar\">\r\n        <app-sidebar></app-sidebar>\r\n    </section>\r\n    <section id=\"content\">\r\n        <div class=\"content\">\r\n            <div class=\"pad-top-header\">\r\n                <div class=\"main-content marg-auto\">\r\n                    <div class=\"container-fluid\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-8\">\r\n                                <!-- Content -->\r\n                                <router-outlet></router-outlet>\r\n                                <app-error></app-error>\r\n                            </div>\r\n                            <div class=\"col-md-4\">\r\n                                <!-- User profile -->\r\n                                <app-userprofile></app-userprofile>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </section>\r\n</section>"
+module.exports = "<section id=\"sidebar\">\r\n    <div class=\"white-label\">\r\n        <img src=\"http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png\" alt=\"Clinix\">\r\n    </div>\r\n    <div id=\"sidebar-nav\">\r\n        <ul>\r\n            <li class=\"active\"><a class=\"marg-6 btn btn-deep-orange \" routerLink=\"/admin\">All Vendors</a></li>\r\n            <!-- <li><a class=\"marg-6 spacing-top btn btn-blue-grey\" routerLink=\"/user/forms\"> Profile</a></li> -->\r\n        </ul>\r\n    </div>\r\n</section>\r\n<section id=\"content\">\r\n    <div id=\"header\">\r\n        <div class=\"header-nav\">\r\n            <div class=\"menu-button\">\r\n                <!--<i class=\"fa fa-navicon\"></i>-->\r\n            </div>\r\n            <div class=\"widget-nav\">\r\n                <ul>\r\n                    <li class=\"widget-nav-item nav-chat\">\r\n                        <div (click)=\"logout()\" class=\"cursor-pointer font-icon\"><i class=\"fa fa-sign-out-alt\"></i> Logout</div>\r\n                    </li>\r\n                    <li class=\"widget-nav-item nav-profile\">\r\n                        <div class=\"nav-profile-image\">\r\n                            <img src=\"../../assets/images/User_Avatar.png\" alt=\"profile image\">\r\n                            <div class=\"nav-profile-name\">Admin <i class=\"fa fa-caret-down\"></i></div>\r\n                        </div>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"content\">\r\n        <router-outlet></router-outlet>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -61,7 +61,11 @@ AdminComponent = __decorate([
 ], AdminComponent);
 exports.AdminComponent = AdminComponent;
 var _a;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/admin.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/admin.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -78,7 +82,11 @@ exports.ADMIN_ROUTES = [
     { path: '', component: adminPage_component_1.AdminPageComponent, canActivate: [adminGuard_1.AdminGuardService] },
     { path: 'view/:id', component: editUsersForms_component_1.EditUsersFormsComponent, canActivate: [adminGuard_1.AdminGuardService] }
 ];
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/admin.routes.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/admin.routes.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -136,7 +144,11 @@ var Form = (function () {
     return Form;
 }());
 exports.Form = Form;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/adminForms.model.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/adminForms.model.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -150,7 +162,11 @@ module.exports = ".topPad {\r\n  padding-top: 100px !important;\r\n}\r\n\r\n.top
 /***/ "./src/app/admin/adminPage/adminPage.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = " <div class=\"card\">\r\n            <div class=\"card-header\" data-background-color=\"charcoal\">\r\n                    <h4 class=\"title\">Vendors</h4>\r\n                    <p class=\"category\">The registered vendors and their details</p>\r\n        </div>\r\n        <div class=\"card-content\">\r\n\r\n            <!--Table-->\r\n            <table class=\"table table-hover table-responsive-md table-fixed\">\r\n\r\n                <!--Table head-->\r\n                <thead>\r\n                    <tr>\r\n                        <!-- <th>#</th> -->\r\n                        <th>Company Name</th>\r\n                        <th>Work Telephone</th>\r\n                        <th>Contact Pesron</th>\r\n                        <th>Website</th>\r\n                        <th>Date Registered</th>\r\n                        <th>&nbsp;&nbsp;</th>\r\n                    </tr>\r\n                </thead>\r\n                <!--Table head-->\r\n\r\n                <!--Table body-->\r\n                <tbody>\r\n                    <tr *ngFor=\"let form of fetchedForms\">\r\n                        <!-- <th scope=\"row\">1</th> -->\r\n                        <td>{{form.tradingName}}</td>\r\n                        <td>{{form.tel}}</td>\r\n                        <td>{{form.accPersonName}}</td>\r\n                        <td>{{form.website}}</td>\r\n                        <td>{{form.dateSubmitted | date: 'medium'}}</td>\r\n                        <td> <button class=\"btn btn-tiny btn-default\" [routerLink]=\"['view', form._id]\"><i class=\"fa fa-eye\"></i></button></td>\r\n                    </tr>\r\n                </tbody>\r\n                <!--Table body-->\r\n\r\n            </table>\r\n            <!--Table-->\r\n\r\n        </div>\r\n    </div>"
+=======
+module.exports = "<div class=\"container pad-top-header\">\r\n    <div class=\"card\">\r\n        <div class=\"card-body\">\r\n\r\n            <!--Table-->\r\n            <table class=\"table table-hover table-responsive-md table-fixed\">\r\n\r\n                <!--Table head-->\r\n                <thead>\r\n                    <tr>\r\n                        <!-- <th>#</th> -->\r\n                        <th>Company Name</th>\r\n                        <th>Work Telephone</th>\r\n                        <th>Contact Pesron</th>\r\n                        <th>Website</th>\r\n                        <th>Date Registered</th>\r\n                        <th>&nbsp;&nbsp;</th>\r\n                    </tr>\r\n                </thead>\r\n                <!--Table head-->\r\n\r\n                <!--Table body-->\r\n                <tbody>\r\n                    <tr *ngFor=\"let form of fetchedForms\">\r\n                        <!-- <th scope=\"row\">1</th> -->\r\n                        <td>{{form.tradingName}}</td>\r\n                        <td>{{form.tel}}</td>\r\n                        <td>{{form.accPersonName}}</td>\r\n                        <td>{{form.website}}</td>\r\n                        <td>{{form.dateSubmitted | date: 'medium'}}</td>\r\n                        <td> <button class=\"btn btn-tiny btn-default\" [routerLink]=\"['view', form._id]\"><i class=\"fa fa-eye\"></i></button></td>\r\n                    </tr>\r\n                </tbody>\r\n                <!--Table body-->\r\n\r\n            </table>\r\n            <!--Table-->\r\n\r\n        </div>\r\n    </div>\r\n</div>"
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -199,7 +215,11 @@ AdminPageComponent = __decorate([
 ], AdminPageComponent);
 exports.AdminPageComponent = AdminPageComponent;
 var _a;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/adminPage.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/adminPage.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -213,7 +233,11 @@ module.exports = ".topPad {\r\n  padding-top: 100px !important;\r\n}\r\n\r\n.top
 /***/ "./src/app/admin/editUsersForms/editUsersForms.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"pad-top-header\">\r\n        <div class=\"main-content\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"col-sm-12\">  \r\n                    <div class=\"card spacing-bottom\" *ngFor=\"let form of fetchedForm\">\r\n                        <div class=\"card-header\" data-background-color=\"red\">\r\n                            <h4 class=\"title\">Vendor: {{form.tradingName}} </h4>\r\n                        </div>\r\n                        <div class=\"card-content table-responsive table-full-width\">\r\n                            <table class=\"table\">\r\n                                <thead class=\"text-danger\">\r\n                                    <th>Company Information</th>\r\n                                    <th>Correspondecne</th>\r\n                                    <th>Documents</th>\r\n                                    <th>Received</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr>\r\n                                        <td>Trading Name: {{form.tradingName}}</td>\r\n                                        <td>Acc PersonName: {{form.accPersonName}}</td>\r\n                                        <td>Doc: Customer General Terms and Conditions of Supply</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox1\">\r\n                                                <label for=\"inlineFormCheckbox1\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Registered Name: {{form.tradingName}}</td>\r\n                                        <td>Acc Person No: {{form.accPersonNo}}</td>\r\n                                        <td>Doc: BEE Certificate</td>\r\n\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox2\">\r\n                                                <label for=\"inlineFormCheckbox2\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Physical Address: {{form.physicalAddress}}</td>\r\n                                        <td>Acc Person Fax No: {{form.accPersonFaxNo}}</td>\r\n                                        <td>Doc: Letter of Good Standing</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox3\">\r\n                                                <label for=\"inlineFormCheckbox3\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Postal Address: {{form.postalAddress}}</td>\r\n                                        <td>Acc Person Email: {{form.accPersonEmail}}</td>\r\n                                        <td>Doc: Audited latest Financial Statements</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox4\">\r\n                                                <label for=\"inlineFormCheckbox4\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Tel: {{form.tel}}</td>\r\n                                        <td>Sales Person Name: {{form.salesPersonName}}</td>\r\n                                        <td>Doc: Proof of Banking Details</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox5\">\r\n                                                <label for=\"inlineFormCheckbox5\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Fax: {{form.faxNo}}</td>\r\n                                        <td>Sales Person No: {{form.salesPersonNo}}</td>\r\n                                        <td>Doc: Company Letterhead</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox6\">\r\n                                                <label for=\"inlineFormCheckbox6\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Website: {{form.website}}</td>\r\n                                        <td>Sales Person FaxNo: {{form.salesPersonFaxNo}}</td>\r\n                                        <td>Doc: Tax Certificate</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox7\">\r\n                                                <label for=\"inlineFormCheckbox7\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Vat Number: {{form.vatNumber}}</td>\r\n                                        <td>Sales Person Email: {{form.salesPersonEmail}}</td>\r\n                                        <td>Doc: MCC Certificate</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox8\">\r\n                                                <label for=\"inlineFormCheckbox8\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>Doc: Declaration of possible conflict of Interest with Clinix Health Group (CHG)</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox88\">\r\n                                                <label for=\"inlineFormCheckbox88\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>Doc: identity Documents</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox9\">\r\n                                                <label for=\"inlineFormCheckbox9\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>Doc: Product price lists </td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox99\">\r\n                                                <label for=\"inlineFormCheckbox99\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>\r\n                                            <button class=\"btn btn-primary\" disabled [routerLink]=\"['view', form._id]\"><i class=\"fa fa-check\"></i>Aprove</button>\r\n                                        </td>\r\n                                        <td>\r\n                                            <button class=\"btn btn-danger\" disabled (click)=\"onDelete(form._id)\"><i class=\"fa fa-trash\"></i>Disaprove</button>\r\n                                        </td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n"
+=======
+module.exports = "<div class=\"container\">\r\n    <!-- <form [formGroup]=\"myForm\" (ngSubmit)=\"submitEditedForm()\" *ngFor=\"let form of fetchedForm\" class=\"form-horizontal register-form\" novalidate>\r\n        <fieldset>\r\n            <legend class=\"text-center topPad\">Edit Form with id: {{form._id}}</legend>\r\n            <div class=\"form-group\">\r\n                <label class=\"col-md-4 control-label\" for=\"textInputOne\">Text Input One:</label>\r\n                <div class=\"col-md-4\">\r\n                    <input id=\"textInputOne\" #textOne formControlName=\"textInputOne\" name=\"textInputOne\" type=\"text\" [(ngModel)]=\"form.textInputOne\" class=\"form-control input-md\">\r\n                    <div [hidden]=\"textInputOne.valid || textInputOne.pristine\" class=\"alert alert-danger\">Please enter some text</div>\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label class=\"col-md-4 control-label\" for=\"textInputTwo\">Text Input Two:</label>\r\n                <div class=\"col-md-4\">\r\n                    <input id=\"textInputTwo\" formControlName=\"textInputTwo\" name=\"textInputTwo\" type=\"text\" [(ngModel)]=\"form.textInputTwo\" class=\"form-control input-md\">\r\n                    <div [hidden]=\"textInputTwo.valid || textInputTwo.pristine\" class=\"alert alert-danger\">Please enter some text</div>\r\n                </div>\r\n            </div>\r\n\r\n            image\r\n            <div class=\"form-group\">\r\n                <div class=\"col-md-4 col-centered\">\r\n                    <div class=\"profilePictureTempEdit\">\r\n                        <button *ngIf=\"submitStarted\" class=\"disabled btn-no-hover btn btn-default centered progress-button\">\r\n              <i class=\"fa fa-circle-o-notch fa-spin fa-fw\"></i> Please wait... <span class=\"progress-percent\">{{progress}}%</span>\r\n            </button>\r\n                        <div class=\"text-center top-margin\">\r\n                            <div class=\"profilePictureTempEdit\" *ngIf=\"oldImage\">\r\n                                <img class=\"img-responsive\" src=\"./uploads/forms/{{form.owner}}/{{form.imagePath}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\">\r\n                                <div class=\"upload-button\" *ngIf=\"!imageReady\">\r\n                                    <input type=\"file\" name=\"file-1\" id=\"file-1\" class=\"inputfile4 inputfile-4\" (change)=\"onFileSelect($event)\">\r\n                                    <label for=\"file-1\">\r\n                <span>\r\n                </span>\r\n                  </label>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"profilePictureTempEdit\">\r\n                                <img *ngIf=\"imageReady\" #image class=\"img-responsive\" src=\"{{imageUrl}}{{imagePath}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\" />\r\n                                <div class=\"upload-button\">\r\n                                    <input type=\"file\" name=\"file-2\" id=\"file-2\" class=\"inputfile4 inputfile-4\" (change)=\"onFileSelect($event)\">\r\n                                    <label for=\"file-2\">\r\n                  <span>\r\n                  </span>\r\n                  </label>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div> -->\r\n\r\n    <!-- Submit Button -->\r\n    <!-- <div class=\"form-group\">\r\n                <div class=\"col-md-4 col-centered\">\r\n                    <button type=\"submit\" [disabled]=\"!myForm.valid && myForm.untouched\" id=\"submitForm\" name=\"sumbitForm\" class=\"btn btn-primary text-center bottomMargin\">Submit</button>\r\n                    <button type=\"button\" class=\"btn btn-warning\" (click)=\"cancel()\">Cancel</button>\r\n                </div>\r\n            </div>\r\n        </fieldset>\r\n    </form> -->\r\n\r\n\r\n    <!--////////////////////////////////////////////////-->\r\n    <div class=\"pad-top-header\">\r\n        <div class=\"main-content\">\r\n            <div class=\"container-fluid\">\r\n                <div class=\"col-sm-12\">\r\n                    <!-- <h4 class=\"title\">Welcome Admin\r\n                    </h4>\r\n                    <p class=\"category\">List of Registered Users And Their Details</p> -->\r\n                    <div class=\"card spacing-bottom\" *ngFor=\"let form of fetchedForm\">\r\n                        <div class=\"card-header\" data-background-color=\"red\">\r\n                            <h4 class=\"title\">Vendor: {{form.tradingName}}\r\n                            </h4>\r\n                        </div>\r\n                        <div class=\"card-content table-responsive table-full-width\">\r\n                            <table class=\"table\">\r\n                                <thead class=\"text-danger\">\r\n                                    <th>Company Information</th>\r\n                                    <th>Correspondecne</th>\r\n                                    <th>Documents</th>\r\n                                    <th>Received</th>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr>\r\n                                        <td>Trading Name: {{form.tradingName}}</td>\r\n                                        <td>Acc PersonName: {{form.accPersonName}}</td>\r\n                                        <td>Doc: Customer General Terms and Conditions of Supply</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox1\">\r\n                                                <label for=\"inlineFormCheckbox1\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Registered Name: {{form.tradingName}}</td>\r\n                                        <td>Acc Person No: {{form.accPersonNo}}</td>\r\n                                        <td>Doc: BEE Certificate</td>\r\n\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox2\">\r\n                                                <label for=\"inlineFormCheckbox2\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Physical Address: {{form.physicalAddress}}</td>\r\n                                        <td>Acc Person Fax No: {{form.accPersonFaxNo}}</td>\r\n                                        <td>Doc: Letter of Good Standing</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox3\">\r\n                                                <label for=\"inlineFormCheckbox3\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Postal Address: {{form.postalAddress}}</td>\r\n                                        <td>Acc Person Email: {{form.accPersonEmail}}</td>\r\n                                        <td>Doc: Audited latest Financial Statements</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox4\">\r\n                                                <label for=\"inlineFormCheckbox4\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Tel: {{form.tel}}</td>\r\n                                        <td>Sales Person Name: {{form.salesPersonName}}</td>\r\n                                        <td>Doc: Proof of Banking Details</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox5\">\r\n                                                <label for=\"inlineFormCheckbox5\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Fax: {{form.faxNo}}</td>\r\n                                        <td>Sales Person No: {{form.salesPersonNo}}</td>\r\n                                        <td>Doc: Company Letterhead</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox6\">\r\n                                                <label for=\"inlineFormCheckbox6\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Website: {{form.website}}</td>\r\n                                        <td>Sales Person FaxNo: {{form.salesPersonFaxNo}}</td>\r\n                                        <td>Doc: Tax Certificate</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox7\">\r\n                                                <label for=\"inlineFormCheckbox7\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>Vat Number: {{form.vatNumber}}</td>\r\n                                        <td>Sales Person Email: {{form.salesPersonEmail}}</td>\r\n                                        <td>Doc: MCC Certificate</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox8\">\r\n                                                <label for=\"inlineFormCheckbox8\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>Doc: Declaration of possible conflict of Interest with Clinix Health Group (CHG)</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox88\">\r\n                                                <label for=\"inlineFormCheckbox88\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>Doc: identity Documents</td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox9\">\r\n                                                <label for=\"inlineFormCheckbox9\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>Doc: Product price lists </td>\r\n                                        <td width=\"30\">\r\n                                            <!-- Filled-in checkbox -->\r\n                                            <div class=\"form-group mr-3\">\r\n                                                <input type=\"checkbox\" checked id=\"inlineFormCheckbox99\">\r\n                                                <label for=\"inlineFormCheckbox99\"></label>\r\n                                            </div>\r\n                                        </td>\r\n                                    </tr>\r\n                                    <tr>\r\n                                        <td>\r\n                                            <button class=\"btn btn-primary\" disabled [routerLink]=\"['view', form._id]\"><i class=\"fa fa-check\"></i>Aprove</button>\r\n                                        </td>\r\n                                        <td>\r\n                                            <button class=\"btn btn-danger\" disabled (click)=\"onDelete(form._id)\"><i class=\"fa fa-trash\"></i>Disaprove</button>\r\n                                        </td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                        <td>&nbsp;&nbsp;&nbsp;</td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n\r\n    </div>\r\n\r\n\r\n</div>"
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -432,7 +456,11 @@ EditUsersFormsComponent = __decorate([
 ], EditUsersFormsComponent);
 exports.EditUsersFormsComponent = EditUsersFormsComponent;
 var _a, _b, _c, _d, _e, _f, _g;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/editUsersForms.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/editUsersForms.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -552,7 +580,11 @@ AdminService = __decorate([
 ], AdminService);
 exports.AdminService = AdminService;
 var _a, _b, _c, _d;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/admin.service.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/admin.service.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -598,7 +630,11 @@ AdminGuardService = __decorate([
 ], AdminGuardService);
 exports.AdminGuardService = AdminGuardService;
 var _a, _b, _c;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/adminGuard.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/adminGuard.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -654,7 +690,11 @@ AppComponent = __decorate([
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var _a, _b, _c, _d;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/app.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/app.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -789,7 +829,11 @@ AppModule = __decorate([
     })
 ], AppModule);
 exports.AppModule = AppModule;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/app.module.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/app.module.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -878,7 +922,10 @@ var AuthService = (function () {
         this.router.navigateByUrl('/');
         localStorage.clear();
         this.toastr.info('You have been logged out');
+<<<<<<< HEAD
         window.location.reload();
+=======
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
     };
     // check if the user is logged in or not, if token is expired, token is deleted from localstorage
     AuthService.prototype.isLoggedIn = function () {
@@ -895,7 +942,11 @@ AuthService = __decorate([
 ], AuthService);
 exports.AuthService = AuthService;
 var _a, _b, _c, _d;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/auth.service.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/auth.service.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -944,7 +995,11 @@ AuthGuardService = __decorate([
 ], AuthGuardService);
 exports.AuthGuardService = AuthGuardService;
 var _a, _b, _c;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/authguard.service.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/authguard.service.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -964,7 +1019,11 @@ var Reset = (function () {
     return Reset;
 }());
 exports.Reset = Reset;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/password.model.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/password.model.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -984,7 +1043,11 @@ var User = (function () {
     return User;
 }());
 exports.User = User;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/user.model.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user.model.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1034,7 +1097,11 @@ LoaderComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], LoaderComponent);
 exports.LoaderComponent = LoaderComponent;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/loader.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/loader.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1084,7 +1151,11 @@ ModalComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], ModalComponent);
 exports.ModalComponent = ModalComponent;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/modal.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/modal.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1098,7 +1169,11 @@ module.exports = ""
 /***/ "./src/app/components/sidebar/sidebar.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"white-label\" data-background-color=\"charcoal\">\n    <img src=\"http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png\" alt=\"Clinix\">\n</div>\n<div id=\"sidebar-nav\">\n    <ul class=\"nav\" *ngIf=\"!isAdmin()\">\n        <li><a class=\"marg-6 spacing-top\" routerLink=\"/user/forms\"><i class=\"fa fa-user \"></i> User Profile</a></li>\n        <li *ngFor=\"let form of fetchedForms\">\n            <a class=\"marg-6\" [routerLink]=\"['user/forms/edit', form._id]\"><i class=\"fas fa-edit\"> </i> Edit Profile</a>\n        </li>\n    </ul>\n    <ul class=\"nav\" *ngIf=\"isAdmin()\">\n        <li class=\"active\"><a class=\"marg-6 spacing-top\" routerLink=\"/admin\">All Vendors</a></li>\n    </ul>\n</div>"
+=======
+module.exports = "<div class=\"white-label\" data-background-color=\"charcoal\">\r\n    <img src=\"http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png\" alt=\"Clinix\">\r\n</div>\r\n<div id=\"sidebar-nav\">\r\n    <ul class=\"nav\">\r\n        <li><a class=\"marg-6 spacing-top\" routerLink=\"/user/forms\"><i class=\"fa fa-user \"></i> User Profile</a></li>\r\n        <li *ngFor=\"let form of fetchedForms\"><a class=\"marg-6\" [routerLink]=\"['user/forms/edit', form._id]\"><i class=\"fas fa-edit\"> </i> Edit Profile</a></li>\r\n    </ul>\r\n</div>"
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1121,12 +1196,19 @@ var core_1 = __webpack_require__("./node_modules/@angular/core/@angular/core.es5
 var form_service_1 = __webpack_require__("./src/app/form/form.service.ts");
 var auth_service_1 = __webpack_require__("./src/app/auth/auth.service.ts");
 var profile_service_1 = __webpack_require__("./src/app/user/profile/profile.service.ts");
+<<<<<<< HEAD
 var admin_service_1 = __webpack_require__("./src/app/admin/services/admin.service.ts");
 var SidebarComponent = (function () {
     function SidebarComponent(formService, authService, adminService, profileService) {
         this.formService = formService;
         this.authService = authService;
         this.adminService = adminService;
+=======
+var SidebarComponent = (function () {
+    function SidebarComponent(formService, authService, profileService) {
+        this.formService = formService;
+        this.authService = authService;
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.profileService = profileService;
         this.fetchedUser = [];
         this.fetchedForms = [];
@@ -1151,9 +1233,12 @@ var SidebarComponent = (function () {
                 .subscribe(function (forms) { return _this.fetchedForms = forms; }, function (error) { return console.log(error); });
         }, 50);
     };
+<<<<<<< HEAD
     SidebarComponent.prototype.isAdmin = function () {
         return this.adminService.isAdmin();
     };
+=======
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
     return SidebarComponent;
 }());
 SidebarComponent = __decorate([
@@ -1162,11 +1247,19 @@ SidebarComponent = __decorate([
         template: __webpack_require__("./src/app/components/sidebar/sidebar.component.html"),
         styles: [__webpack_require__("./src/app/components/sidebar/sidebar.component.css")]
     }),
+<<<<<<< HEAD
     __metadata("design:paramtypes", [typeof (_a = typeof form_service_1.FormService !== "undefined" && form_service_1.FormService) === "function" && _a || Object, typeof (_b = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _b || Object, typeof (_c = typeof admin_service_1.AdminService !== "undefined" && admin_service_1.AdminService) === "function" && _c || Object, typeof (_d = typeof profile_service_1.ProfileService !== "undefined" && profile_service_1.ProfileService) === "function" && _d || Object])
 ], SidebarComponent);
 exports.SidebarComponent = SidebarComponent;
 var _a, _b, _c, _d;
 //# sourceMappingURL=E:/github/project-c/src/sidebar.component.js.map
+=======
+    __metadata("design:paramtypes", [typeof (_a = typeof form_service_1.FormService !== "undefined" && form_service_1.FormService) === "function" && _a || Object, typeof (_b = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _b || Object, typeof (_c = typeof profile_service_1.ProfileService !== "undefined" && profile_service_1.ProfileService) === "function" && _c || Object])
+], SidebarComponent);
+exports.SidebarComponent = SidebarComponent;
+var _a, _b, _c;
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/sidebar.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1211,7 +1304,11 @@ TabComponent = __decorate([
     })
 ], TabComponent);
 exports.TabComponent = TabComponent;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/tab.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/tab.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1288,7 +1385,11 @@ TabsComponent = __decorate([
 ], TabsComponent);
 exports.TabsComponent = TabsComponent;
 var _a;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/tabs.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/tabs.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1302,7 +1403,11 @@ module.exports = ""
 /***/ "./src/app/components/user-dashboard/user-dashboard.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<p>\n    user-dashboard works!\n</p>"
+=======
+module.exports = "<p>\r\n    user-dashboard works!\r\n</p>"
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1338,7 +1443,11 @@ UserDashboardComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], UserDashboardComponent);
 exports.UserDashboardComponent = UserDashboardComponent;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/user-dashboard.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user-dashboard.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1347,6 +1456,7 @@ exports.UserDashboardComponent = UserDashboardComponent;
 
 "use strict";
 
+<<<<<<< HEAD
 Object.defineProperty(exports, "__esModule", { value: true });
 // dev
 exports.BASE_URL = 'http://localhost:3000';
@@ -1360,13 +1470,32 @@ exports.FORMS_API_URL = 'http://localhost:3000/api/forms';
 // export const AUTH_API_URL  = 'https://project-clinix.herokuapp.com/api/auth';
 // export const USER_API_URL  = 'https://project-clinix.herokuapp.com/api/user';
 // export const FORMS_API_URL = 'https://project-clinix.herokuapp.com/api/forms';
+=======
+// dev
+// export const BASE_URL      = 'http://localhost:3000';
+// export const ADMIN_API_URL = 'http://localhost:3000/api/admin';
+// export const AUTH_API_URL  = 'http://localhost:3000/api/auth';
+// export const USER_API_URL  = 'http://localhost:3000/api/user';
+// export const FORMS_API_URL = 'http://localhost:3000/api/forms';
+Object.defineProperty(exports, "__esModule", { value: true });
+// prod
+exports.BASE_URL = 'https://project-clinix.herokuapp.com/';
+exports.ADMIN_API_URL = 'https://project-clinix.herokuapp.com/api/admin';
+exports.AUTH_API_URL = 'https://project-clinix.herokuapp.com/api/auth';
+exports.USER_API_URL = 'https://project-clinix.herokuapp.com/api/user';
+exports.FORMS_API_URL = 'https://project-clinix.herokuapp.com/api/forms';
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 // prod heroku
 // export const BASE_URL      = 'https://hlakaza.github.io/project-c/';
 // export const ADMIN_API_URL = 'https://hlakaza.github.io/project-c/api/admin';
 // export const AUTH_API_URL  = 'https://hlakaza.github.io/project-c/api/auth';
 // export const USER_API_URL  = 'https://hlakaza.github.io/project-c/api/user';
 // export const FORMS_API_URL = 'https://hlakaza.github.io/project-c/api/forms';
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/config.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/config.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1406,7 +1535,11 @@ var CustomOption = (function (_super) {
     return CustomOption;
 }(ng2_toastr_1.ToastOptions));
 exports.CustomOption = CustomOption;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/toastr.config.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/toastr.config.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1459,7 +1592,11 @@ ErrorComponent = __decorate([
 ], ErrorComponent);
 exports.ErrorComponent = ErrorComponent;
 var _a, _b;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/error.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/error.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1495,7 +1632,11 @@ ErrorService = __decorate([
     __metadata("design:paramtypes", [])
 ], ErrorService);
 exports.ErrorService = ErrorService;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/error.service.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/error.service.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1512,7 +1653,11 @@ var Error = (function () {
     return Error;
 }());
 exports.Error = Error;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/error.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/error.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1554,14 +1699,22 @@ ErrorPageComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], ErrorPageComponent);
 exports.ErrorPageComponent = ErrorPageComponent;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/errorPage.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/errorPage.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
 /***/ "./src/app/form/form.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"card spacing-bottom\">\r\n    <!--Header-->\r\n    <div class=\"card-header\" data-background-color=\"charcoal\">\r\n        <h4 class=\"title\">Add Details</h4>\r\n        <p class=\"category\">Provide your details in the form below</p>\r\n    </div>\r\n    <div class=\"card-content\">\r\n\r\n        <form [formGroup]=\"myForm\" (ngSubmit)=\"submitForm()\" class=\"form-horizontal register-form clearfix\" novalidate>\r\n            <fieldset>\r\n                <app-tabs #t>\r\n                    <app-tab title=\"Company Information\">\r\n                        <div class=\"row\">\r\n                            <!--Trading Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"tradingName\" name=\"tradingName\" type=\"text\" required/>\r\n                                        <label class=\"grey-text\" for=\"tradingName\" class=\"grey-text\">Trading Name</label>\r\n                                        <span *ngIf=\"myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched\" class=\"help-block text-danger\">Trading Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--Company Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registeredCompanyName\" name=\"registeredCompanyName\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registeredCompanyName\">Registered Company Name</label>\r\n                                        <span *ngIf=\"myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched\" class=\"help-block text-danger\">Company Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registrationNumber\" name=\"registrationNumber\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registrationNumber\">Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched\" class=\"help-block text-danger\">Registration Number is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--confirm Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input type=\"text\" class=\"form-control\" formControlName=\"confirmRegNumber\" name=\"confirmRegNumber\" />\r\n                                        <label class=\"grey-text\" for=\"confirmRegNumber\">Confirm Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched\" class=\"help-block text-danger\">Registration Numbers do not match</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"vatNumber\" name=\"vatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"vatNumber\">Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched\" class=\"help-block text-danger\">VatNumber is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Confirm Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"confirmVatNumber\" name=\"confirmVatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"confirmVatNumber\">Confirm Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched\" class=\"help-block text-danger\">Vat Numbers do not match</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"physicalAddress\" name=\"physicalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"physicalAddress\">Physical Address</label>\r\n                                    <span *ngIf=\"myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched\" class=\"help-block text-danger\">Physical Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Postal Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"postalAddress\" name=\"postalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"postalAddress\">Postal Address</label>\r\n                                    <span *ngIf=\"myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched\" class=\"help-block text-danger\">Postal Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Phone Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form \">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"tel\" name=\"tel\" />\r\n                                    <label class=\"grey-text\" for=\"tel\">Telephone Number</label>\r\n                                    <span *ngIf=\"myForm.get('tel').hasError('required') && myForm.get('tel').touched\" class=\"help-block text-danger\">Your work Telephone Number is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"faxNo\" name=\"faxNo\" />\r\n                                    <label class=\"grey-text\" for=\"faxNo\">Fax Number</label>\r\n                                    <span *ngIf=\"myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched\" class=\"help-block text-danger\">Fax number is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Website-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-globe prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"website\" name=\"website\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"website\">Website</label>\r\n                                    <span *ngIf=\"myForm.get('website').hasError('required') && myForm.get('website').touched\" class=\"help-block text-danger\">Website is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(1)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Correspondence\">\r\n                        <div class=\"row \">\r\n                            <!--Acc Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonName\" name=\"accPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched\" class=\"help-block text-danger\">Accounts Person Name is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"accPersonEmail\" name=\"accPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Acc Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonNo\" name=\"accPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Acc Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"accPersonFaxNo\" name=\"accPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Sales Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonName\" name=\"salesPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched\" class=\"help-block text-danger\">Sales Person Name is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"salesPersonEmail\" name=\"salesPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Sales Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonNo\" name=\"salesPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Sales Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"salesPersonFaxNo\" name=\"salesPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Type of business-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <label class=\"text-left select-label grey-text\">Business Sector:</label>\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <select type=\"text\" formControlName=\"serviceProduct\" class=\"form-control label-text grey-text\" id=\"exampleSelect1\">\r\n                                                    <option>Pharmaceutical</option>\r\n                                                    <option>None Pharmaceutical</option>\r\n                                                    <option name=\"service\">Service and Product</option>\r\n                                        </select>\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\" for=\"tel\">Please Specify the Service &amp; Product </label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"serviceProductInfo\" name=\"service\" />\r\n                                    <span *ngIf=\"myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched\" class=\"help-block text-danger\">Service &amp; product type required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(2)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Rquired Documents\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"card red lighten-1 text-center z-depth-2 spacing-bottom spacing-top\">\r\n                                    <div class=\"card-body\">\r\n                                        <p class=\"white-text mb-0 font-8\">Please upload these documents, Customer General Terms and Conditions, BEE Certificate, Tax Certificate, Letter of Good Standing, Audited latest Financial Statements, Proof of Banking Details, Company Letterhead,\r\n                                            Declaration of possible conflict of Interest with Clinix Health Group (CHG), Product Price list, Identity documents of directors.</p>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n\r\n                            <div class=\"col-sm-2\">\r\n                                <div class=\"file-field\">\r\n                                    <div class=\"btn btn-primary btn-sm\">\r\n                                        <span>Upload Files</span>\r\n                                        <!-- <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple /> -->\r\n                                        <!-- Single\r\n                                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" /> -->\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- <div class=\"col-sm-10\" style=\"margin-bottom: 40px\">\r\n                                <p>Number of files: {{ uploader?.queue?.length }}</p>\r\n                                <table class=\"table\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th width=\"50%\">Name</th>\r\n                                            <th>Size</th>\r\n                                            <th>Progress</th> \r\n                                            <th>Status</th>\r\n                                            <th>Actions</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n                                        <tr *ngFor=\"let item of uploader.queue\">\r\n                                            <td><strong>{{ item?.file?.name }}</strong></td>\r\n                                            <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                                             <td>\r\n                                                <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                                    <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                                                </div>\r\n                                            </td> -->\r\n                            <!---  <td class=\"text-center\">\r\n                                                &nbsp;\r\n                                                <span *ngIf=\"!item.isSuccess\"><i class=\"fa fa-check\"></i></span>\r\n\r\n                                                 <span *ngIf=\"item.isError\"><i class=\"fa fa-times\"></i></span> -->\r\n                            <!--</td>\r\n                                            <td nowrap>\r\n                                                <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                                <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                               </button>\r\n\r\n                                                <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                                <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                            </button>\r\n                                            </td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table> -->\r\n\r\n                            <!-- <div>\r\n                                    <div>\r\n                                        Upload progress:\r\n                                        <div class=\"progress\" style=\"\">\r\n                                            <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                    <button type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\r\n                                        <span class=\"glyphicon glyphicon-upload\"></span> Upload all\r\n                                    </button> -->\r\n                            <!-- <button type=\"button\" class=\"btn btn-danger btn-sm\" (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"></span> Remove all\r\n                                    </button> -->\r\n                            <!-- </div> -->\r\n\r\n                            <!-- </div> -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\" col-md-4 col-centered box text-center top-margin slim\">\r\n                                    <div *ngIf=\"!imageReady\" class=\"addProfilePicture\">\r\n                                        <div *ngIf=\"!submitStarted\">\r\n                                            <input type=\"file\" name=\"file-1[]\" id=\"file-1\" class=\"inputfile inputfile-1\" #fileInput name=\"fileUp\" (change)=\"onFileSelect($event)\" multiple/>\r\n                                            <label for=\"file-1\">\r\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 -120 548.176 615\" xml:space=\"preserve\">\r\n                        <g>\r\n                            <path d=\"M524.326,297.352c-15.896-19.89-36.21-32.782-60.959-38.684c7.81-11.8,11.704-24.934,11.704-39.399   c0-20.177-7.139-37.401-21.409-51.678c-14.273-14.272-31.498-21.411-51.675-21.411c-18.083,0-33.879,5.901-47.39,17.703   c-11.225-27.41-29.171-49.393-53.817-65.95c-24.646-16.562-51.818-24.842-81.514-24.842c-40.349,0-74.802,14.279-103.353,42.83   c-28.553,28.544-42.825,62.999-42.825,103.351c0,2.474,0.191,6.567,0.571,12.275c-22.459,10.469-40.349,26.171-53.676,47.106   C6.661,299.594,0,322.43,0,347.179c0,35.214,12.517,65.329,37.544,90.358c25.028,25.037,55.15,37.548,90.362,37.548h310.636   c30.259,0,56.096-10.711,77.512-32.12c21.413-21.409,32.121-47.246,32.121-77.516C548.172,339.944,540.223,317.248,524.326,297.352   z M362.729,289.648c-1.813,1.804-3.949,2.707-6.42,2.707h-63.953v100.502c0,2.471-0.903,4.613-2.711,6.42   c-1.813,1.813-3.949,2.711-6.42,2.711h-54.826c-2.474,0-4.615-0.897-6.423-2.711c-1.804-1.807-2.712-3.949-2.712-6.42V292.355   H155.31c-2.662,0-4.853-0.855-6.563-2.563c-1.713-1.714-2.568-3.904-2.568-6.566c0-2.286,0.95-4.572,2.852-6.855l100.213-100.21   c1.713-1.714,3.903-2.57,6.567-2.57c2.666,0,4.856,0.856,6.567,2.57l100.499,100.495c1.714,1.712,2.562,3.901,2.562,6.571   C365.438,285.696,364.535,287.845,362.729,289.648z\" fill=\"#FFDA44\"/>\r\n                        </g>\r\n                        </svg>\r\n                                        <span>Choose Image</span></label>\r\n                                        </div>\r\n                                    </div>\r\n                                    <button *ngIf=\"submitStarted\" class=\"disabled btn btn-default centered progress-button\"><i class=\"fa fa-circle-o-notch fa-spin fa-fw\"></i> Please wait... <span class=\"progress-percent\">{{progress}}%</span></button>\r\n                                    <div class=\"profilePictureTemp\">\r\n                                        <img *ngIf=\"imageReady\" #image class=\"img-responsive top-margin\" src=\"{{imageUrl}}{{imagePath}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\" />\r\n                                        <div *ngIf=\"imageReady\" class=\"slim-btn-group\">\r\n                                            <button (click)=\"imageDeleteModal.open()\" data-toggle=\"modal\" id=\"delete_image\" style=\"opacity: 1;\" data-action=\"remove\" type=\"button\" title=\"Delete Image\" class=\"slim-btn slim-btn-remove\">Διαγραφή Φωτογραφίας</button>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                </app-tabs>\r\n\r\n                <!-- Button -->\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <button type=\"submit\" [disabled]=\"!myForm.valid\" id=\"submitForm\" name=\"sumbitForm\" class=\"btn btn-primary btn-sm text-center\">Submit</button>\r\n                    </div>\r\n                </div>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+=======
+module.exports = "<div class=\"card spacing-bottom\">\r\n    <!--Header-->\r\n    <div class=\"card-header\" data-background-color=\"charcoal\">\r\n        <h4 class=\"title\">Add Details</h4>\r\n        <p class=\"category\">Provide your details in the form below</p>\r\n    </div>\r\n    <div class=\"card-content\">\r\n\r\n        <form [formGroup]=\"myForm\" (ngSubmit)=\"submitForm()\" class=\"form-horizontal register-form clearfix\" novalidate>\r\n            <fieldset>\r\n                <app-tabs #t>\r\n                    <app-tab title=\"Company Information\">\r\n                        <div class=\"row\">\r\n                            <!--Trading Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"tradingName\" name=\"tradingName\" type=\"text\" required/>\r\n                                        <label class=\"grey-text\" for=\"tradingName\" class=\"grey-text\">Trading Name</label>\r\n                                        <span *ngIf=\"myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched\" class=\"help-block text-danger\">Trading Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--Company Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }\">\r\n                                        <i class=\"fa fa-building prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registeredCompanyName\" name=\"registeredCompanyName\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registeredCompanyName\">Registered Company Name</label>\r\n                                        <span *ngIf=\"myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched\" class=\"help-block text-danger\">Company Name is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input class=\"form-control\" formControlName=\"registrationNumber\" name=\"registrationNumber\" type=\"text\" />\r\n                                        <label class=\"grey-text\" for=\"registrationNumber\">Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched\" class=\"help-block text-danger\">Registration Number is required</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!--confirm Registration Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"clearfix pad-top-10\">\r\n                                    <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }\">\r\n                                        <i class=\"fa fa-edit prefix grey-text\"></i>\r\n                                        <input type=\"text\" class=\"form-control\" formControlName=\"confirmRegNumber\" name=\"confirmRegNumber\" />\r\n                                        <label class=\"grey-text\" for=\"confirmRegNumber\">Confirm Registration Number</label>\r\n                                        <span *ngIf=\"myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched\" class=\"help-block text-danger\">Registration Numbers do not match</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"vatNumber\" name=\"vatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"vatNumber\">Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched\" class=\"help-block text-danger\">VatNumber is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Confirm Vat Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-archive prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"confirmVatNumber\" name=\"confirmVatNumber\" />\r\n                                    <label class=\"grey-text\" for=\"confirmVatNumber\">Confirm Vat Number</label>\r\n                                    <span *ngIf=\"myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched\" class=\"help-block text-danger\">Vat Numbers do not match</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"physicalAddress\" name=\"physicalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"physicalAddress\">Physical Address</label>\r\n                                    <span *ngIf=\"myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched\" class=\"help-block text-danger\">Physical Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Postal Address-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-address-card prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"postalAddress\" name=\"postalAddress\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"postalAddress\">Postal Address</label>\r\n                                    <span *ngIf=\"myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched\" class=\"help-block text-danger\">Postal Address is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Phone Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form \">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"tel\" name=\"tel\" />\r\n                                    <label class=\"grey-text\" for=\"tel\">Telephone Number</label>\r\n                                    <span *ngIf=\"myForm.get('tel').hasError('required') && myForm.get('tel').touched\" class=\"help-block text-danger\">Your work Telephone Number is required</span>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!--Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"faxNo\" name=\"faxNo\" />\r\n                                    <label class=\"grey-text\" for=\"faxNo\">Fax Number</label>\r\n                                    <span *ngIf=\"myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched\" class=\"help-block text-danger\">Fax number is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Website-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-globe prefix grey-text\"></i>\r\n                                    <textarea type=\"text\" formControlName=\"website\" name=\"website\" class=\"form-control md-textarea\"></textarea>\r\n                                    <label class=\"grey-text\" for=\"website\">Website</label>\r\n                                    <span *ngIf=\"myForm.get('website').hasError('required') && myForm.get('website').touched\" class=\"help-block text-danger\">Website is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(1)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Correspondence\">\r\n                        <div class=\"row \">\r\n                            <!--Acc Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonName\" name=\"accPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched\" class=\"help-block text-danger\">Accounts Person Name is required</span>\r\n                                </div>\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"accPersonEmail\" name=\"accPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Acc Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"accPersonNo\" name=\"accPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Acc Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Accounts Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"accPersonFaxNo\" name=\"accPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <!--Sales Person  Name-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }\">\r\n                                    <i class=\"fa fa-user prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Name</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonName\" name=\"salesPersonName\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched\" class=\"help-block text-danger\">Sales Person Name is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Email-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"far fa-envelope prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Email</label>\r\n                                    <input type=\"email\" class=\"form-control\" formControlName=\"salesPersonEmail\" name=\"salesPersonEmail\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched\" class=\"help-block text-danger\">Email is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Sales Person Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }\">\r\n                                    <i class=\"fa fa-phone prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Number</label>\r\n                                    <input class=\"form-control\" formControlName=\"salesPersonNo\" name=\"salesPersonNo\" type=\"text\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched\" class=\"help-block text-danger\">Phone Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                            <!--Sales Person Fax Number-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\" [ngClass]=\"{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\">Sales Person Fax Number</label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"salesPersonFaxNo\" name=\"salesPersonFaxNo\" />\r\n                                    <span *ngIf=\"myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched\" class=\"help-block text-danger\">Fax Number is required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <!--Type of business-->\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <label class=\"text-left select-label grey-text\">Business Sector:</label>\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <select type=\"text\" formControlName=\"serviceProduct\" class=\"form-control label-text grey-text\" id=\"exampleSelect1\">\r\n                                                    <option>Pharmaceutical</option>\r\n                                                    <option>None Pharmaceutical</option>\r\n                                                    <option name=\"service\">Service and Product</option>\r\n                                        </select>\r\n\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-md-6\">\r\n\r\n                                <div class=\"md-form\">\r\n                                    <i class=\"fa fa-fax prefix grey-text\"></i>\r\n                                    <label class=\"grey-text\" for=\"tel\">Please Specify the Service &amp; Product </label>\r\n                                    <input type=\"text\" class=\"form-control\" formControlName=\"serviceProductInfo\" name=\"service\" />\r\n                                    <span *ngIf=\"myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched\" class=\"help-block text-danger\">Service &amp; product type required</span>\r\n                                </div>\r\n\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-right deep-orange-text display-block\" (click)=\"t.selectTab(2)\">Next <i class=\"fa fa-angle-right\"></i></span>\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                    <app-tab title=\"Rquired Documents\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                <div class=\"card red lighten-1 text-center z-depth-2 spacing-bottom spacing-top\">\r\n                                    <div class=\"card-body\">\r\n                                        <p class=\"white-text mb-0 font-8\">Please upload these documents, Customer General Terms and Conditions, BEE Certificate, Tax Certificate, Letter of Good Standing, Audited latest Financial Statements, Proof of Banking Details, Company Letterhead,\r\n                                            Declaration of possible conflict of Interest with Clinix Health Group (CHG), Product Price list, Identity documents of directors.</p>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n\r\n                            <div class=\"col-sm-2\">\r\n                                <div class=\"file-field\">\r\n                                    <div class=\"btn btn-primary btn-sm\">\r\n                                        <span>Upload Files</span>\r\n                                        <!-- <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" multiple /> -->\r\n                                        <!-- Single\r\n                                        <input type=\"file\" ng2FileSelect [uploader]=\"uploader\" /> -->\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <!-- <div class=\"col-sm-10\" style=\"margin-bottom: 40px\">\r\n                                <p>Number of files: {{ uploader?.queue?.length }}</p>\r\n                                <table class=\"table\">\r\n                                    <thead>\r\n                                        <tr>\r\n                                            <th width=\"50%\">Name</th>\r\n                                            <th>Size</th>\r\n                                            <th>Progress</th> \r\n                                            <th>Status</th>\r\n                                            <th>Actions</th>\r\n                                        </tr>\r\n                                    </thead>\r\n                                    <tbody>\r\n                                        <tr *ngFor=\"let item of uploader.queue\">\r\n                                            <td><strong>{{ item?.file?.name }}</strong></td>\r\n                                            <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>\r\n                                             <td>\r\n                                                <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                                                    <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                                                </div>\r\n                                            </td> -->\r\n                            <!---  <td class=\"text-center\">\r\n                                                &nbsp;\r\n                                                <span *ngIf=\"!item.isSuccess\"><i class=\"fa fa-check\"></i></span>\r\n\r\n                                                 <span *ngIf=\"item.isError\"><i class=\"fa fa-times\"></i></span> -->\r\n                            <!--</td>\r\n                                            <td nowrap>\r\n                                                <button type=\"button\" class=\"btn btn-success btn-xs\" (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                                                <span class=\"glyphicon glyphicon-upload\"></span> Upload\r\n                                               </button>\r\n\r\n                                                <button type=\"button\" class=\"btn btn-danger btn-xs\" (click)=\"item.remove()\">\r\n                                                <span class=\"glyphicon glyphicon-trash\"></span> Remove\r\n                                            </button>\r\n                                            </td>\r\n                                        </tr>\r\n                                    </tbody>\r\n                                </table> -->\r\n\r\n                            <!-- <div>\r\n                                    <div>\r\n                                        Upload progress:\r\n                                        <div class=\"progress\" style=\"\">\r\n                                            <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                                        </div>\r\n                                    </div>\r\n                                    <button type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\r\n                                        <span class=\"glyphicon glyphicon-upload\"></span> Upload all\r\n                                    </button> -->\r\n                            <!-- <button type=\"button\" class=\"btn btn-danger btn-sm\" (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\r\n                                        <span class=\"glyphicon glyphicon-trash\"></span> Remove all\r\n                                    </button> -->\r\n                            <!-- </div> -->\r\n\r\n                            <!-- </div> -->\r\n                            <div class=\"form-group\">\r\n                                <div class=\" col-md-4 col-centered box text-center top-margin slim\">\r\n                                    <div *ngIf=\"!imageReady\" class=\"addProfilePicture\">\r\n                                        <div *ngIf=\"!submitStarted\">\r\n                                            <input type=\"file\" name=\"file-1[]\" id=\"file-1\" class=\"inputfile inputfile-1\" #fileInput name=\"fileUp\" (change)=\"onFileSelect($event)\" multiple />\r\n                                            <label for=\"file-1\">\r\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Capa_1\" x=\"0px\" y=\"0px\" width=\"32px\" height=\"32px\" viewBox=\"0 -120 548.176 615\" xml:space=\"preserve\">\r\n                        <g>\r\n                            <path d=\"M524.326,297.352c-15.896-19.89-36.21-32.782-60.959-38.684c7.81-11.8,11.704-24.934,11.704-39.399   c0-20.177-7.139-37.401-21.409-51.678c-14.273-14.272-31.498-21.411-51.675-21.411c-18.083,0-33.879,5.901-47.39,17.703   c-11.225-27.41-29.171-49.393-53.817-65.95c-24.646-16.562-51.818-24.842-81.514-24.842c-40.349,0-74.802,14.279-103.353,42.83   c-28.553,28.544-42.825,62.999-42.825,103.351c0,2.474,0.191,6.567,0.571,12.275c-22.459,10.469-40.349,26.171-53.676,47.106   C6.661,299.594,0,322.43,0,347.179c0,35.214,12.517,65.329,37.544,90.358c25.028,25.037,55.15,37.548,90.362,37.548h310.636   c30.259,0,56.096-10.711,77.512-32.12c21.413-21.409,32.121-47.246,32.121-77.516C548.172,339.944,540.223,317.248,524.326,297.352   z M362.729,289.648c-1.813,1.804-3.949,2.707-6.42,2.707h-63.953v100.502c0,2.471-0.903,4.613-2.711,6.42   c-1.813,1.813-3.949,2.711-6.42,2.711h-54.826c-2.474,0-4.615-0.897-6.423-2.711c-1.804-1.807-2.712-3.949-2.712-6.42V292.355   H155.31c-2.662,0-4.853-0.855-6.563-2.563c-1.713-1.714-2.568-3.904-2.568-6.566c0-2.286,0.95-4.572,2.852-6.855l100.213-100.21   c1.713-1.714,3.903-2.57,6.567-2.57c2.666,0,4.856,0.856,6.567,2.57l100.499,100.495c1.714,1.712,2.562,3.901,2.562,6.571   C365.438,285.696,364.535,287.845,362.729,289.648z\" fill=\"#FFDA44\"/>\r\n                        </g>\r\n                        </svg>\r\n                                        <span>Choose Image</span></label>\r\n                                        </div>\r\n                                    </div>\r\n                                  </div>\r\n                                  <button *ngIf=\"submitStarted\" class=\"disabled btn btn-default centered progress-button\"><i class=\"fa fa-circle-o-notch fa-spin fa-fw\"></i> Please wait... <span class=\"progress-percent\">{{progress}}%</span></button>\r\n                                  <div class=\"profilePictureTemp\">\r\n                                    <img *ngIf=\"imageReady\" #image class=\"img-responsive top-margin\" src=\"{{imageUrl}}{{fileName}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\"/>\r\n                                    <div *ngIf=\"imageReady\" class=\"slim-btn-group\">\r\n                                      <button (click)=\"imageDeleteModal.open()\" data-toggle=\"modal\" id=\"delete_image\" style=\"opacity: 1;\" data-action=\"remove\" type=\"button\" title=\"Delete Image\" class=\"slim-btn slim-btn-remove\">Διαγραφή Φωτογραφίας</button>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <span class=\"float-left deep-orange-text display-block\" (click)=\"t.selectTab(0)\"><i class=\"fa fa-angle-left\"></i> Back</span>\r\n                            </div>\r\n                        </div>\r\n                    </app-tab>\r\n                </app-tabs>\r\n\r\n                <!-- Button -->\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-12\">\r\n                        <button type=\"submit\" [disabled]=\"!myForm.valid\" id=\"submitForm\" name=\"sumbitForm\" class=\"btn btn-primary btn-sm text-center\">Submit</button>\r\n                    </div>\r\n                </div>\r\n            </fieldset>\r\n        </form>\r\n    </div>\r\n</div>"
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1611,13 +1764,23 @@ var FormComponent = (function () {
         this.fetchedUser = [];
         // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
         this.token = localStorage.getItem('id_token');
+<<<<<<< HEAD
         this.url = config_1.FORMS_API_URL + "/upload";
         this.imageUrl = config_1.BASE_URL + "/uploads/forms/";
+=======
+        this.userId = localStorage.getItem('userId');
+        this.url = config_1.FORMS_API_URL + "/upload";
+        this.imageUrl = config_1.BASE_URL + "/uploads/forms/" + this.userId + "/";
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.maxSize = 5000000;
         this.invalidFileSizeMessage = '{0}: Invalid file size, ';
         this.invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
         this.progress = 0;
         this.imageReady = false;
+<<<<<<< HEAD
+=======
+        this.fileCollection = [];
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.onClear = new core_1.EventEmitter();
         /**
          * Upload File
@@ -1632,6 +1795,10 @@ var FormComponent = (function () {
         this.clear();
         this.submitStarted = true;
         var files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
+<<<<<<< HEAD
+=======
+        debugger;
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         var _loop_1 = function (i) {
             var file = files[i];
             if (this_1.validate(file)) {
@@ -1642,12 +1809,21 @@ var FormComponent = (function () {
                     // tslint:disable-next-line:no-shadowed-variable
                     for (var i_1 = 0; i_1 < this_1.files.length; i_1++) {
                         formData.append('fileUp', this_1.files[i_1], this_1.files[i_1].name);
+<<<<<<< HEAD
+=======
+                        this_1.fileCollection.push(config_1.BASE_URL + "/uploads/forms/" + this_1.userId + "/" + files[i_1].name);
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
                     }
                     xhr_1.onreadystatechange = function () {
                         if (xhr_1.readyState === 4) {
                             _this.progress = 0;
                             if (xhr_1.status === 201) {
+<<<<<<< HEAD
                                 _this.imagePath = xhr_1.response.replace(/^"|"$/g, '');
+=======
+                                debugger;
+                                _this.fileName = files[0].name;
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
                                 _this.imageReady = true;
                                 _this.submitStarted = false;
                             }
@@ -1772,8 +1948,15 @@ var FormComponent = (function () {
     FormComponent.prototype.submitForm = function () {
         var _this = this;
         this.submitStarted = true;
+<<<<<<< HEAD
         var newForm = new form_model_1.Form(this.myForm.value.tradingName, this.myForm.value.registeredCompanyName, this.myForm.value.registrationNumber, this.myForm.value.physicalAddress, this.myForm.value.postalAddress, this.myForm.value.tel, this.myForm.value.faxNo, this.myForm.value.website, this.myForm.value.vatNumber, this.myForm.value.accPersonName, this.myForm.value.accPersonNo, this.myForm.value.accPersonFaxNo, this.myForm.value.accPersonEmail, this.myForm.value.salesPersonName, this.myForm.value.salesPersonNo, this.myForm.value.salesPersonFaxNo, this.myForm.value.salesPersonEmail, this.imagePath);
         console.log(this.imagePath);
+=======
+        var newForm = new form_model_1.Form(this.myForm.value.tradingName, this.myForm.value.registeredCompanyName, this.myForm.value.registrationNumber, this.myForm.value.physicalAddress, this.myForm.value.postalAddress, this.myForm.value.tel, this.myForm.value.faxNo, this.myForm.value.website, this.myForm.value.vatNumber, this.myForm.value.accPersonName, this.myForm.value.accPersonNo, this.myForm.value.accPersonFaxNo, this.myForm.value.accPersonEmail, this.myForm.value.salesPersonName, this.myForm.value.salesPersonNo, this.myForm.value.salesPersonFaxNo, this.myForm.value.salesPersonEmail, this.fileCollection);
+        debugger;
+        console.log(newForm);
+        console.log(this.fileName);
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         /**
          * disabling the submiting of form if files are null
          */
@@ -1821,7 +2004,11 @@ FormComponent = __decorate([
 ], FormComponent);
 exports.FormComponent = FormComponent;
 var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/form.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/form.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -1834,7 +2021,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Form = (function () {
     function Form(// public textInputOne: string,
         //             public textInputTwo: string,
+<<<<<<< HEAD
         tradingName, registeredCompanyName, registrationNumber, physicalAddress, postalAddress, tel, faxNo, website, vatNumber, accPersonName, accPersonNo, accPersonFaxNo, accPersonEmail, salesPersonName, salesPersonNo, salesPersonEmail, salesPersonFaxNo, fileUp, userId, formId) {
+=======
+        tradingName, registeredCompanyName, registrationNumber, physicalAddress, postalAddress, tel, faxNo, website, vatNumber, accPersonName, accPersonNo, accPersonFaxNo, accPersonEmail, salesPersonName, salesPersonNo, salesPersonEmail, salesPersonFaxNo, fileCollection, fileUp, userId, formId) {
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.tradingName = tradingName;
         this.registeredCompanyName = registeredCompanyName;
         this.registrationNumber = registrationNumber;
@@ -1852,6 +2043,10 @@ var Form = (function () {
         this.salesPersonNo = salesPersonNo;
         this.salesPersonEmail = salesPersonEmail;
         this.salesPersonFaxNo = salesPersonFaxNo;
+<<<<<<< HEAD
+=======
+        this.fileCollection = fileCollection;
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.fileUp = fileUp;
         this.userId = userId;
         this.formId = formId;
@@ -1881,7 +2076,11 @@ var Form = (function () {
     return Form;
 }());
 exports.Form = Form;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/form.model.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/form.model.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2014,7 +2213,11 @@ FormService = __decorate([
 ], FormService);
 exports.FormService = FormService;
 var _a, _b, _c;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/form.service.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/form.service.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2029,7 +2232,11 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__("./src/app/app.component.ts"));
 __export(__webpack_require__("./src/app/app.module.ts"));
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/index.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/index.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2084,7 +2291,11 @@ MainPageComponent = __decorate([
 ], MainPageComponent);
 exports.MainPageComponent = MainPageComponent;
 var _a;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/mainPage.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/mainPage.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2169,7 +2380,11 @@ NavbarComponent = __decorate([
 ], NavbarComponent);
 exports.NavbarComponent = NavbarComponent;
 var _a, _b, _c;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/navbar.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/navbar.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2198,7 +2413,11 @@ var APP_ROUTES = [
     { path: '**', redirectTo: '404' }
 ];
 exports.routing = router_1.RouterModule.forRoot(APP_ROUTES);
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/routes.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/routes.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2284,7 +2503,11 @@ ForgetPasswordComponent = __decorate([
 ], ForgetPasswordComponent);
 exports.ForgetPasswordComponent = ForgetPasswordComponent;
 var _a, _b, _c, _d, _e, _f;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/forgetPassword.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/forgetPassword.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2373,7 +2596,11 @@ ResetPasswordComponent = __decorate([
 ], ResetPasswordComponent);
 exports.ResetPasswordComponent = ResetPasswordComponent;
 var _a, _b, _c, _d, _e, _f, _g;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/resetPassword.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/resetPassword.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2488,7 +2715,11 @@ LoginComponent = __decorate([
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 var _a, _b, _c, _d, _e, _f, _g;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/login.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/login.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2571,7 +2802,11 @@ ChangePasswordComponent = __decorate([
 ], ChangePasswordComponent);
 exports.ChangePasswordComponent = ChangePasswordComponent;
 var _a, _b, _c, _d, _e, _f;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/changePassword.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/changePassword.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2646,7 +2881,11 @@ ProfileService = __decorate([
 ], ProfileService);
 exports.ProfileService = ProfileService;
 var _a, _b, _c;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/profile.service.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/profile.service.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2660,7 +2899,11 @@ module.exports = ".img-resized {\r\n  width: 80%;\r\n}\r\n"
 /***/ "./src/app/user/profile/userProfile.component.html":
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"card card-profile\">\r\n    <div class=\"card-avatar\">\r\n        <a>\r\n            <img class=\"img\" src=\"../assets/images/vendor_profile.png\" alt=\"image\">\r\n        </a>\r\n    </div>\r\n    <div class=\"content\">\r\n        <h6 class=\"category text-gray\"></h6>\r\n        <div *ngIf=\"!isAdmin()\">\r\n           <h4 class=\"card-title\" *ngFor=\"let form of fetchedForms\">\r\n                {{form.tradingName}}\r\n           </h4> \r\n        </div>\r\n        <h4 class=\"card-title\" *ngIf=\"isAdmin()\">\r\n           Administrator\r\n        </h4>\r\n        <h4 class=\"card-title\"></h4>\r\n        <div class=\"card-content\">\r\n           \r\n        <div *ngFor=\"let user of fetchedUser\">\r\n                <b class=\"\">Email </b> <br/>{{user.email}}\r\n            </div>\r\n        \r\n            <div *ngIf=\"!isAdmin()\">\r\n            <div *ngFor=\"let form of fetchedForms\">\r\n                <b class=\"text-bold spacing-top display-block\">Telephone</b> {{form.tel}}\r\n            </div>\r\n   \r\n            <div *ngFor=\"let user of fetchedUser\">\r\n                <span *ngIf=\"user.forms.length > 0\"><b class=\"text-bold spacing-top display-block\">Status</b> Waiting approval</span>\r\n            </div>\r\n            </div>\r\n        </div>\r\n\r\n        <a routerLink (click)=\"logout()\" class=\"btn btn-orange btn-round btn-sm spacing-bottom\">Logout</a>\r\n    </div>\r\n</div>"
+=======
+module.exports = "<!-- <div class=\"container pad-top-header\">\r\n    <div class=\"row\">\r\n\r\n        <div class=\"col-md-4 col-sm-6 col-xs-12\">\r\n            <div *ngFor=\"let user of fetchedUser\" class=\"text-center\">\r\n    \r\n                <form>\r\n                    <div class=\"form-group\">\r\n                        <div class=\"profilePictureTempEdit\">\r\n                            <button *ngIf=\"submitStarted\" class=\"disabled btn-no-hover btn btn-default centered progress-button\">\r\n                <i class=\"fa fa-circle-o-notch fa-spin fa-fw\"></i> Please wait... <span class=\"progress-percent\">{{progress}}%</span>\r\n              </button>\r\n                            <div class=\"text-center top-margin\">\r\n                                <div class=\"profilePictureTempEdit\" *ngIf=\"oldImage && !imageReady\">\r\n                                    <img *ngIf=\"user.profilePic; else noImage\" class=\"img-resized  img-thumbnail\" src=\"./uploads/profiles/{{user._id}}/{{user.profilePic}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\">\r\n                                    <ng-template #noImage><img src=\"./assets/images/profile-placeholder.png\" class=\"img-resized  img-thumbnail\"></ng-template>\r\n                                    <div class=\"upload-button\" *ngIf=\"!imageReady\">\r\n                                        <input type=\"file\" name=\"file-1\" id=\"file-1\" class=\"inputfile4 inputfile-4\" (change)=\"onFileSelect($event)\">\r\n                                        <label for=\"file-1\">\r\n                <span>\r\n                </span>\r\n                    </label>\r\n                                    </div>\r\n                                </div>\r\n                                <div class=\"profilePictureTempEdit\">\r\n                                    <img *ngIf=\"imageReady\" #image class=\"img-responsive\" src=\"{{imageUrl}}{{imagePath}}\" alt=\"image\" onerror=\"this.src ='assets/images/no-image.jpg';\" />\r\n                                    <div class=\"upload-button\">\r\n                                        <input type=\"file\" name=\"file-2\" id=\"file-2\" class=\"inputfile4 inputfile-4\" (change)=\"onFileSelect($event)\">\r\n                                        <label for=\"file-2\">\r\n                  <span>\r\n                  </span>\r\n                    </label>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-8 col-sm-6 col-xs-12 personal-info\">\r\n            <h3>Personal info</h3>\r\n            <form *ngFor=\"let user of fetchedUser\" class=\"form-horizontal\" role=\"form\">\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">User ID:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <p class=\"form-control-static\">{{user._id}}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">Email:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <p class=\"form-control-static\">{{user.email}}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">Joined at:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <p class=\"form-control-static\">{{user.createdAt | date: 'medium'}}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-lg-3 control-label\">Your role:</label>\r\n                    <div class=\"col-lg-8\">\r\n                        <p class=\"form-control-static\">{{user.role}}</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label class=\"col-md-3 control-label\"></label>\r\n                    <div class=\"col-md-8\">\r\n                        <button class=\"btn btn-primary\" [routerLink]=\"['password']\" type=\"button\">Change Password</button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div> -->\r\n\r\n<div class=\"card card-profile\">\r\n    <div class=\"card-avatar\">\r\n        <a>\r\n            <img class=\"img\" src=\"../assets/images/vendor_profile.png\" alt=\"image\">\r\n        </a>\r\n    </div>\r\n    <div class=\"content\">\r\n        <h6 class=\"category text-gray\"></h6>\r\n        <h4 *ngFor=\"let form of fetchedForms\" class=\"card-title\">\r\n            {{form.tradingName}}\r\n        </h4>\r\n        <h4 class=\"card-title\"></h4>\r\n        <div class=\"card-content\">\r\n            <div *ngFor=\"let user of fetchedUser\">\r\n                <b class=\"\">Email </b> <br/>{{user.email}}\r\n            </div>\r\n            <div *ngFor=\"let form of fetchedForms\">\r\n                <b class=\"text-bold spacing-top display-block\">Telephone</b> {{form.tel}}\r\n            </div>\r\n            <div *ngFor=\"let user of fetchedUser\">\r\n                <span *ngIf=\"user.forms.length > 0\"><b class=\"text-bold spacing-top display-block\">Status</b> Waiting approval</span>\r\n            </div>\r\n        </div>\r\n\r\n        <a routerLink (click)=\"logout()\" class=\"btn btn-orange btn-round btn-sm spacing-bottom\">Logout</a>\r\n    </div>\r\n</div>"
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2686,14 +2929,22 @@ var ng2_toastr_1 = __webpack_require__("./node_modules/ng2-toastr/ng2-toastr.js"
 var config_1 = __webpack_require__("./src/app/config/config.ts");
 var auth_service_1 = __webpack_require__("./src/app/auth/auth.service.ts");
 var form_service_1 = __webpack_require__("./src/app/form/form.service.ts");
+<<<<<<< HEAD
 var admin_service_1 = __webpack_require__("./src/app/admin/services/admin.service.ts");
 var UserProfileComponent = (function () {
     function UserProfileComponent(profileService, router, toastr, authService, adminService, formService) {
+=======
+var UserProfileComponent = (function () {
+    function UserProfileComponent(profileService, router, toastr, authService, formService) {
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.profileService = profileService;
         this.router = router;
         this.toastr = toastr;
         this.authService = authService;
+<<<<<<< HEAD
         this.adminService = adminService;
+=======
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.formService = formService;
         this.userId = localStorage.getItem('userId');
         this.token = localStorage.getItem('id_token');
@@ -2726,6 +2977,7 @@ var UserProfileComponent = (function () {
         var _this = this;
         setTimeout(function () {
             _this.formService.getUserForms()
+<<<<<<< HEAD
                 .subscribe(function (res) {
                 console.log('Form', res);
                 // forms => this.fetchedForms = forms,
@@ -2734,6 +2986,10 @@ var UserProfileComponent = (function () {
                 console.log('--- Form Error', err);
             });
         }, 500);
+=======
+                .subscribe(function (forms) { return _this.fetchedForms = forms; }, function (error) { return console.log(error); });
+        }, 50);
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
     };
     UserProfileComponent.prototype.onFileSelect = function (event) {
         var _this = this;
@@ -2747,7 +3003,10 @@ var UserProfileComponent = (function () {
                     this_1.files.push(files[i]);
                     var xhr_1 = new XMLHttpRequest();
                     var formData = new FormData();
+<<<<<<< HEAD
                     // tslint:disable-next-line:no-shadowed-variable
+=======
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
                     for (var i_1 = 0; i_1 < this_1.files.length; i_1++) {
                         formData.append('fileUp', this_1.files[i_1], this_1.files[i_1].name);
                     }
@@ -2832,9 +3091,12 @@ var UserProfileComponent = (function () {
     UserProfileComponent.prototype.logout = function () {
         return this.authService.logout();
     };
+<<<<<<< HEAD
     UserProfileComponent.prototype.isAdmin = function () {
         return this.adminService.isAdmin();
     };
+=======
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
     return UserProfileComponent;
 }());
 __decorate([
@@ -2851,11 +3113,19 @@ UserProfileComponent = __decorate([
         template: __webpack_require__("./src/app/user/profile/userProfile.component.html"),
         styles: [__webpack_require__("./src/app/user/profile/userProfile.component.css")]
     }),
+<<<<<<< HEAD
     __metadata("design:paramtypes", [typeof (_c = typeof profile_service_1.ProfileService !== "undefined" && profile_service_1.ProfileService) === "function" && _c || Object, typeof (_d = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _d || Object, typeof (_e = typeof ng2_toastr_1.ToastsManager !== "undefined" && ng2_toastr_1.ToastsManager) === "function" && _e || Object, typeof (_f = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _f || Object, typeof (_g = typeof admin_service_1.AdminService !== "undefined" && admin_service_1.AdminService) === "function" && _g || Object, typeof (_h = typeof form_service_1.FormService !== "undefined" && form_service_1.FormService) === "function" && _h || Object])
 ], UserProfileComponent);
 exports.UserProfileComponent = UserProfileComponent;
 var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=E:/github/project-c/src/userProfile.component.js.map
+=======
+    __metadata("design:paramtypes", [typeof (_c = typeof profile_service_1.ProfileService !== "undefined" && profile_service_1.ProfileService) === "function" && _c || Object, typeof (_d = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _d || Object, typeof (_e = typeof ng2_toastr_1.ToastsManager !== "undefined" && ng2_toastr_1.ToastsManager) === "function" && _e || Object, typeof (_f = typeof auth_service_1.AuthService !== "undefined" && auth_service_1.AuthService) === "function" && _f || Object, typeof (_g = typeof form_service_1.FormService !== "undefined" && form_service_1.FormService) === "function" && _g || Object])
+], UserProfileComponent);
+exports.UserProfileComponent = UserProfileComponent;
+var _a, _b, _c, _d, _e, _f, _g;
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/userProfile.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2886,7 +3156,11 @@ var newPassword = (function () {
     return newPassword;
 }());
 exports.newPassword = newPassword;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/userProfile.model.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/userProfile.model.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -2984,7 +3258,11 @@ RegisterComponent = __decorate([
 ], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 var _a, _b, _c, _d, _e, _f;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/register.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/register.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3026,7 +3304,11 @@ UserComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], UserComponent);
 exports.UserComponent = UserComponent;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/user.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3057,7 +3339,11 @@ exports.USER_ROUTES = [
     { path: 'profile/password', component: changePassword_component_1.ChangePasswordComponent, canActivate: [authguard_service_1.AuthGuardService] },
     { path: 'forms/edit/:id', component: editUserForm_component_1.EditUserFormComponent, canActivate: [authguard_service_1.AuthGuardService] }
 ];
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/user.routes.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/user.routes.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3107,6 +3393,10 @@ var EditUserFormComponent = (function () {
         this.renderer = renderer;
         this.onClear = new core_1.EventEmitter();
         this.fetchedForm = [];
+<<<<<<< HEAD
+=======
+        this.fileCollection = [];
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.token = localStorage.getItem('id_token');
         this.url = config_1.FORMS_API_URL + "/image";
         this.imageUrl = config_1.BASE_URL + "/uploads/tmp/";
@@ -3123,6 +3413,10 @@ var EditUserFormComponent = (function () {
         this.formId = this.route.snapshot.params['id'];
         this.formService.getSingleForm(this.formId)
             .subscribe((function (data) {
+<<<<<<< HEAD
+=======
+            debugger;
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
             var formArray = [];
             // tslint:disable-next-line:forin
             for (var key in data) {
@@ -3192,9 +3486,15 @@ var EditUserFormComponent = (function () {
                     this_1.files.push(files[i]);
                     var xhr_1 = new XMLHttpRequest();
                     var formData = new FormData();
+<<<<<<< HEAD
                     // tslint:disable-next-line:no-shadowed-variable
                     for (var i_1 = 0; i_1 < this_1.files.length; i_1++) {
                         formData.append('fileUp', this_1.files[i_1], this_1.files[i_1].name);
+=======
+                    for (var i_1 = 0; i_1 < this_1.files.length; i_1++) {
+                        formData.append('fileUp', this_1.files[i_1], this_1.files[i_1].name);
+                        this_1.fileCollection.push(config_1.BASE_URL + "/uploads/forms/" + localStorage.getItem('userId') + "/" + files[i_1].name);
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
                     }
                     xhr_1.onreadystatechange = function () {
                         if (xhr_1.readyState === 4) {
@@ -3239,7 +3539,11 @@ var EditUserFormComponent = (function () {
         var editForm = new form_model_1.Form(
         // this.myForm.value.textInputOne,
         // this.myForm.value.textInputTwo,
+<<<<<<< HEAD
         this.myForm.value.tradingName, this.myForm.value.registeredCompanyName, this.myForm.value.registrationNumber, this.myForm.value.physicalAddress, this.myForm.value.postalAddress, this.myForm.value.tel, this.myForm.value.faxNo, this.myForm.value.website, this.myForm.value.vatNumber, this.myForm.value.accPersonName, this.myForm.value.accPersonNo, this.myForm.value.accPersonFaxNo, this.myForm.value.accPersonEmail, this.myForm.value.salesPersonName, this.myForm.value.salesPersonNo, this.myForm.value.salesPersonFaxNo, this.myForm.value.salesPersonEmail, this.imagePath);
+=======
+        this.myForm.value.tradingName, this.myForm.value.registeredCompanyName, this.myForm.value.registrationNumber, this.myForm.value.physicalAddress, this.myForm.value.postalAddress, this.myForm.value.tel, this.myForm.value.faxNo, this.myForm.value.website, this.myForm.value.vatNumber, this.myForm.value.accPersonName, this.myForm.value.accPersonNo, this.myForm.value.accPersonFaxNo, this.myForm.value.accPersonEmail, this.myForm.value.salesPersonName, this.myForm.value.salesPersonNo, this.myForm.value.salesPersonFaxNo, this.myForm.value.salesPersonEmail, this.fileCollection);
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
         this.formService.editForm(editForm, this.formId)
             .subscribe(function (data) {
             _this.router.navigateByUrl('/user/forms');
@@ -3306,7 +3610,11 @@ EditUserFormComponent = __decorate([
 ], EditUserFormComponent);
 exports.EditUserFormComponent = EditUserFormComponent;
 var _a, _b, _c, _d, _e, _f, _g;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/editUserForm.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/editUserForm.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3392,7 +3700,11 @@ UserFormsComponent = __decorate([
 ], UserFormsComponent);
 exports.UserFormsComponent = UserFormsComponent;
 var _a, _b, _c;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/userForms.component.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/userForms.component.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3428,7 +3740,11 @@ function emailValidator(control) {
     }
 }
 exports.emailValidator = emailValidator;
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/input-match.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/input-match.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3445,7 +3761,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false
 };
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/environment.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/environment.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3466,7 +3786,11 @@ if (environment_1.environment.production) {
 platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(_1.AppModule);
 // .then((success: any) => console.log('App bootstrapped'))
 // .catch((err: any) => console.error(err));
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/main.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/main.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 
@@ -3494,7 +3818,11 @@ __webpack_require__("./node_modules/core-js/es6/set.js");
 __webpack_require__("./node_modules/core-js/es6/reflect.js");
 __webpack_require__("./node_modules/core-js/es7/reflect.js");
 __webpack_require__("./node_modules/zone.js/dist/zone.js");
+<<<<<<< HEAD
 //# sourceMappingURL=E:/github/project-c/src/polyfills.js.map
+=======
+//# sourceMappingURL=C:/Users/User/Documents/Git/project-c/src/polyfills.js.map
+>>>>>>> 63890e626600790139aec6ae92572251b20191fe
 
 /***/ }),
 

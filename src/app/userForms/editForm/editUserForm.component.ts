@@ -35,6 +35,7 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
   salesPersonNo: FormControl;
   salesPersonEmail: FormControl;
   salesPersonFaxNo: FormControl;
+  public fileCollection: Array<string> = [];
 
   token: string  = localStorage.getItem('id_token');
   url   = `${FORMS_API_URL}/image`;
@@ -66,6 +67,7 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
     this.formService.getSingleForm(this.formId)
       .subscribe(
         (data => {
+          debugger
           const formArray = [];
           // tslint:disable-next-line:forin
           for (let key in data) {
@@ -145,6 +147,7 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
           // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
+            this.fileCollection.push(`${BASE_URL}/uploads/forms/${localStorage.getItem('userId')}/${files[i].name}`);
           }
 
           xhr.onreadystatechange = () => {
@@ -202,7 +205,7 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
       this.myForm.value.salesPersonNo,
       this.myForm.value.salesPersonFaxNo,
       this.myForm.value.salesPersonEmail,
-      this.imagePath
+      this.fileCollection
     );
     this.formService.editForm(editForm, this.formId)
       .subscribe(

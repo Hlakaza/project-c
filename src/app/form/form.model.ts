@@ -19,6 +19,7 @@ export class Form {
               public salesPersonNo: string,
               public salesPersonEmail: string,
               public salesPersonFaxNo: string,
+              public fileCollection: Array<string>,
               public fileUp?: string,
               public userId?: string,
               public formId?: string) {
