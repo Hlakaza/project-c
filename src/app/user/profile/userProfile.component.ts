@@ -6,6 +6,7 @@ import {ToastsManager} from 'ng2-toastr';
 import {BASE_URL, USER_API_URL} from '../../config/config';
 import { AuthService } from '../../auth/auth.service';
 import { FormService } from '../../form/form.service';
+import { AdminService } from '../../admin/services/admin.service';
 
 @Component({
   selector   : 'app-userprofile',
@@ -37,6 +38,7 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
               private router: Router,
               private toastr: ToastsManager,
               private authService: AuthService,
+              private adminService: AdminService,
              private formService: FormService) {
   }
 
@@ -58,9 +60,16 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.formService.getUserForms()
       .subscribe(
-        forms => this.fetchedForms = forms,
-        error => console.log(error));
-    }, 50);
+        res => {
+          console.log('Form', res);
+          // forms => this.fetchedForms = forms,
+             this.fetchedForms = res;
+        },
+        err => {
+          console.log('--- Form Error', err);
+        }
+      );
+    }, 500);
   }
   onFileSelect(event) {
     this.clear();
@@ -73,6 +82,7 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
           this.files.push(files[i]);
           let xhr      = new XMLHttpRequest();
           let formData = new FormData();
+          // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
           }
@@ -164,6 +174,9 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
   }
   logout() {
     return this.authService.logout();
+  }
+  isAdmin() {
+    return this.adminService.isAdmin();
   }
 }
 

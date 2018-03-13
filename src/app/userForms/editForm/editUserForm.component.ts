@@ -17,8 +17,6 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
 
   fetchedForm: any[] = [];
   myForm: FormGroup;
-  // textInputOne: FormControl;
-  // textInputTwo: FormControl;
   tradingName: FormControl;
   registeredCompanyName: FormControl;
   registrationNumber: FormControl;
@@ -144,6 +142,7 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
           let xhr      = new XMLHttpRequest();
           let formData = new FormData();
 
+          // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
           }

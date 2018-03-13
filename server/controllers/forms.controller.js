@@ -203,7 +203,7 @@ let functions = {
                         err: err
                     });
                 }
-                copyImage(req, req.body.fileUp);
+                // copyImage(req, req.body.fileUp);
                 user.forms.push(result);
                 user.save();
                 res.status(201).json({

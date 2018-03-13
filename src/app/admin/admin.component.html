@@ -1,36 +1,27 @@
-<section id="sidebar">
-    <div class="white-label">
-        <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix">
-    </div>
-    <div id="sidebar-nav">
-        <ul>
-            <li class="active"><a class="marg-6 btn btn-deep-orange " routerLink="/admin">All Vendors</a></li>
-            <!-- <li><a class="marg-6 spacing-top btn btn-blue-grey" routerLink="/user/forms"> Profile</a></li> -->
-        </ul>
-    </div>
-</section>
-<section id="content">
-    <div id="header">
-        <div class="header-nav">
-            <div class="menu-button">
-                <!--<i class="fa fa-navicon"></i>-->
-            </div>
-            <div class="widget-nav">
-                <ul>
-                    <li class="widget-nav-item nav-chat">
-                        <div (click)="logout()" class="cursor-pointer font-icon"><i class="fa fa-sign-out-alt"></i> Logout</div>
-                    </li>
-                    <li class="widget-nav-item nav-profile">
-                        <div class="nav-profile-image">
-                            <img src="../../assets/images/User_Avatar.png" alt="profile image">
-                            <div class="nav-profile-name">Admin <i class="fa fa-caret-down"></i></div>
+<section class="dash-wraper">
+    <section id="sidebar" class="sidebar">
+        <app-sidebar></app-sidebar>
+    </section>
+    <section id="content">
+        <div class="content">
+            <div class="pad-top-header">
+                <div class="main-content marg-auto">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- Content -->
+                                <router-outlet></router-outlet>
+                                <app-error></app-error>
+                            </div>
+                            <div class="col-md-4">
+                                <!-- User profile -->
+                                <app-userprofile></app-userprofile>
+                            </div>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-    <div class="content">
-        <router-outlet></router-outlet>
-    </div>
+    </section>
 </section>

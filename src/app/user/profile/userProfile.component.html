@@ -1,81 +1,3 @@
-<!-- <div class="container pad-top-header">
-    <div class="row">
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div *ngFor="let user of fetchedUser" class="text-center">
-    
-                <form>
-                    <div class="form-group">
-                        <div class="profilePictureTempEdit">
-                            <button *ngIf="submitStarted" class="disabled btn-no-hover btn btn-default centered progress-button">
-                <i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Please wait... <span class="progress-percent">{{progress}}%</span>
-              </button>
-                            <div class="text-center top-margin">
-                                <div class="profilePictureTempEdit" *ngIf="oldImage && !imageReady">
-                                    <img *ngIf="user.profilePic; else noImage" class="img-resized  img-thumbnail" src="./uploads/profiles/{{user._id}}/{{user.profilePic}}" alt="image" onerror="this.src ='assets/images/no-image.jpg';">
-                                    <ng-template #noImage><img src="./assets/images/profile-placeholder.png" class="img-resized  img-thumbnail"></ng-template>
-                                    <div class="upload-button" *ngIf="!imageReady">
-                                        <input type="file" name="file-1" id="file-1" class="inputfile4 inputfile-4" (change)="onFileSelect($event)">
-                                        <label for="file-1">
-                <span>
-                </span>
-                    </label>
-                                    </div>
-                                </div>
-                                <div class="profilePictureTempEdit">
-                                    <img *ngIf="imageReady" #image class="img-responsive" src="{{imageUrl}}{{imagePath}}" alt="image" onerror="this.src ='assets/images/no-image.jpg';" />
-                                    <div class="upload-button">
-                                        <input type="file" name="file-2" id="file-2" class="inputfile4 inputfile-4" (change)="onFileSelect($event)">
-                                        <label for="file-2">
-                  <span>
-                  </span>
-                    </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-            <h3>Personal info</h3>
-            <form *ngFor="let user of fetchedUser" class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">User ID:</label>
-                    <div class="col-lg-8">
-                        <p class="form-control-static">{{user._id}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Email:</label>
-                    <div class="col-lg-8">
-                        <p class="form-control-static">{{user.email}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Joined at:</label>
-                    <div class="col-lg-8">
-                        <p class="form-control-static">{{user.createdAt | date: 'medium'}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Your role:</label>
-                    <div class="col-lg-8">
-                        <p class="form-control-static">{{user.role}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                    <div class="col-md-8">
-                        <button class="btn btn-primary" [routerLink]="['password']" type="button">Change Password</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> -->
-
 <div class="card card-profile">
     <div class="card-avatar">
         <a>
@@ -84,19 +6,29 @@
     </div>
     <div class="content">
         <h6 class="category text-gray"></h6>
-        <h4 *ngFor="let form of fetchedForms" class="card-title">
-            {{form.tradingName}}
+        <div *ngIf="!isAdmin()">
+           <h4 class="card-title" *ngFor="let form of fetchedForms">
+                {{form.tradingName}}
+           </h4> 
+        </div>
+        <h4 class="card-title" *ngIf="isAdmin()">
+           Administrator
         </h4>
         <h4 class="card-title"></h4>
         <div class="card-content">
-            <div *ngFor="let user of fetchedUser">
+           
+        <div *ngFor="let user of fetchedUser">
                 <b class="">Email </b> <br/>{{user.email}}
             </div>
+        
+            <div *ngIf="!isAdmin()">
             <div *ngFor="let form of fetchedForms">
                 <b class="text-bold spacing-top display-block">Telephone</b> {{form.tel}}
             </div>
+   
             <div *ngFor="let user of fetchedUser">
                 <span *ngIf="user.forms.length > 0"><b class="text-bold spacing-top display-block">Status</b> Waiting approval</span>
+            </div>
             </div>
         </div>
 

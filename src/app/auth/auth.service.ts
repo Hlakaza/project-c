@@ -70,6 +70,7 @@ export class AuthService {
     this.router.navigateByUrl('/');
     localStorage.clear();
     this.toastr.info('You have been logged out');
+    window.location.reload();
   }
 
   // check if the user is logged in or not, if token is expired, token is deleted from localstorage

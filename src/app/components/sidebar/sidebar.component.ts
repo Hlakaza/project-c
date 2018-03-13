@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormService } from '../../form/form.service';
 import { AuthService } from '../../auth/auth.service';
 import { ProfileService } from '../../user/profile/profile.service';
+import { AdminService } from '../../admin/services/admin.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,6 +15,7 @@ export class SidebarComponent implements OnInit {
   constructor(
     private formService: FormService,
     private authService: AuthService,
+    private adminService: AdminService,
     private profileService: ProfileService) { }
 
   ngOnInit() {
@@ -38,5 +40,8 @@ export class SidebarComponent implements OnInit {
         forms => this.fetchedForms = forms,
         error => console.log(error));
     }, 50);
+  }
+  isAdmin() {
+    return this.adminService.isAdmin();
   }
 }

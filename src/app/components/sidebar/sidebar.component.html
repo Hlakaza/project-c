@@ -2,8 +2,13 @@
     <img src="http://clinixmyvoice.co.za/system/uploads/Clinix%20Health%20Academy/images/logo_white.png" alt="Clinix">
 </div>
 <div id="sidebar-nav">
-    <ul class="nav">
+    <ul class="nav" *ngIf="!isAdmin()">
         <li><a class="marg-6 spacing-top" routerLink="/user/forms"><i class="fa fa-user "></i> User Profile</a></li>
-        <li *ngFor="let form of fetchedForms"><a class="marg-6" [routerLink]="['user/forms/edit', form._id]"><i class="fas fa-edit"> </i> Edit Profile</a></li>
+        <li *ngFor="let form of fetchedForms">
+            <a class="marg-6" [routerLink]="['user/forms/edit', form._id]"><i class="fas fa-edit"> </i> Edit Profile</a>
+        </li>
+    </ul>
+    <ul class="nav" *ngIf="isAdmin()">
+        <li class="active"><a class="marg-6 spacing-top" routerLink="/admin">All Vendors</a></li>
     </ul>
 </div>
