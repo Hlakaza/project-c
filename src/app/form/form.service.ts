@@ -22,14 +22,35 @@ export class FormService {
   }
 
   // get user forms from backend in order to display them in the front end  WS
+  // getUserForms() {
+  //   let headers = new Headers({'Content-Type': 'application/json'});
+  //   headers.append('Authorization', this.token);
+  //   return this.authHttp.get(`${FORMS_API_URL}/user/` + this.userId, {headers: headers})
+  //     .timeout(1000)
+  //     .map((response: Response) => {
+  //       const forms      = response.json().forms;
+  //       let fetchedForms = [];
+  //       for (let form of forms) {
+  //         fetchedForms.push(form);
+  //       }
+  //       this.forms = fetchedForms;
+  //       return fetchedForms;
+  //     })
+  //     .catch((error: Response) => {
+  //       this.errorService.handleError(error.json());
+  //       return Observable.throw(error.json());
+  //     });
+  // }
   getUserForms() {
     let headers = new Headers({'Content-Type': 'application/json'});
     headers.append('Authorization', this.token);
     return this.authHttp.get(`${FORMS_API_URL}/user/` + this.userId, {headers: headers})
-      .timeout(1000)
       .map((response: Response) => {
         const forms      = response.json().forms;
-        let fetchedForms = [];
+        localStorage.setItem('userForm', forms);
+        const userForms = localStorage.getItem('userForm') ;
+        let userForm = [];
+        let fetchedForms = userForm;
         for (let form of forms) {
           fetchedForms.push(form);
         }
