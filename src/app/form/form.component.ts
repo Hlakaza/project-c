@@ -48,6 +48,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   url  = `${FORMS_API_URL}/upload`;
   imageUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
+  fileUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   maxSize  = 5000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
@@ -61,11 +62,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   name: string;
   onClear: EventEmitter<any>   = new EventEmitter();
-  /**
-   * Upload File
-   */
   loading = false;
-  // maxSize = 10;
   usedSize = 0;
   filesCount: number;
   validExtension: any[];
