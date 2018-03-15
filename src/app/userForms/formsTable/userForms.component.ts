@@ -13,18 +13,18 @@ export class UserFormsComponent implements OnInit, AfterViewInit {
   baseUrl   = `${BASE_URL}`;
   fetchedForms = [];
   fetchedUser = [];
-  userId = '';
+  userId = localStorage.getItem('userId');
   fileUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   constructor(
     private authService: AuthService,
     private profileService: ProfileService,
     private formService: FormService) {
-      let userId = localStorage.getItem('userId');
     }
 
   ngOnInit() {}
   ngAfterViewInit() {
     setTimeout(() => {
+      // this.userId = localStorage.getItem('userId');
       if (this.authService.isLoggedIn()) {
         this.profileService.getUserDetails(this.userId)
           .subscribe(

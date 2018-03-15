@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,UAAU,EAAE,KAAK;CACpB;;AAED,AAAA,aAAa,AAAA,MAAM,CAAC;EAChB,gBAAgB,EAAE,sBAAsB;CAC3C;;AAED,AAAA,aAAa,CAAC;EACV,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "resetPagesStyle.scss"
+    ],
+    "names": [],
+    "file": "resetPagesStyle.css"
+}

@@ -110,33 +110,6 @@ let deleteImage = (image) => {
     });
 };
 
-// let DIR = './uploads/forms/';
-
-// app.post('/api/forms/upload', function(req, res) {
-//     var storage = multer.diskStorage({
-//         filename: function(req, file, callback) {
-//             var identifier = new Date().getTime() + path.extname(file.originalname)
-//             callback(null, identifier)
-//         },
-//         destination: function(req, file, callback) {
-//             callback(null, DIR)
-//         }
-//     })
-
-//     var upload = multer({
-//         storage: storage
-//     }).array('file')
-//     upload(req, res, function(error) {
-//         if (error){
-//             console.error(error)
-//             return res.status(422).send("An Error occured")
-//         }        
-//         console.log(req.body);
-//         console.log(req.file);
-//         res.end('Upload Complete');
-//     })
-// });
-
 let functions = {
 
   // Upload Image to Server Temp Folder
@@ -172,8 +145,6 @@ let functions = {
             }
 
             let form = new Form({
-                // textInputOne: req.body.textInputOne,
-                // textInputTwo: req.body.textInputTwo,
                 tradingName: req.body.tradingName,
                 registeredCompanyName: req.body.registeredCompanyName,
                 registrationNumber: req.body.registrationNumber,
@@ -205,7 +176,6 @@ let functions = {
                 }
                 user.forms.push(result);
                 console.log(user);
-
                 user.save();
                 res.status(201).json({
                     message: 'Form Saved Successfully',

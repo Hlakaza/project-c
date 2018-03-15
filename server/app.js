@@ -45,7 +45,6 @@ app.use(function (req, res, next) {
 // setting up route
 require('./routes/routes')(app);
 
-
 // catch 404 and rsforward to error handler
 app.use(function (req, res, next) {
   let err = new Error('Not Found');
@@ -62,6 +61,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
+
 
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);

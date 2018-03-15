@@ -1,0 +1,12 @@
+.topPad {
+  margin-top: 150px;
+}
+
+.form-control:focus {
+  background-color: transparent !important;
+}
+
+.form-control {
+  color: #fff;
+}
+/*# sourceMappingURL=resetPagesStyle.css.map */

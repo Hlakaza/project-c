@@ -49,7 +49,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   url  = `${FORMS_API_URL}/upload`;
   imageUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   fileUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
-  maxSize  = 5000000;
+  maxSize  = 50000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
   public files: File[];
@@ -85,7 +85,7 @@ export class FormComponent implements OnInit, AfterViewInit {
     this.clear();
     this.submitStarted = true;
     let files  = event.dataTransfer ? event.dataTransfer.files : event.target.files;
-    debugger
+
     for (let i = 0; i < files.length; i++) {
       let file = files[i];
       if (this.validate(file)) {
@@ -97,13 +97,14 @@ export class FormComponent implements OnInit, AfterViewInit {
           // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
             formData.append('fileUp', this.files[i], this.files[i].name);
-            this.fileCollection.push(`${BASE_URL}/uploads/forms/${this.userId}/${files[i].name}`);
+            // this.fileCollection.push(`${BASE_URL}/uploads/forms/${this.userId}/${files[i].name}`);
+            this.fileCollection.push(`${files[i].name}`);
           }
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               this.progress = 0;
               if (xhr.status === 201) {
-                debugger
+
                 this.fileName     = files[0].name;
                 this.imageReady    = true;
                 this.submitStarted = false;
@@ -210,7 +211,6 @@ export class FormComponent implements OnInit, AfterViewInit {
       });
   }
 
-  // focus on first input box after the view is initialized
   ngAfterViewInit() {
     setTimeout(() => {
       if (this.authService.isLoggedIn()) {
@@ -261,7 +261,6 @@ export class FormComponent implements OnInit, AfterViewInit {
       this.myForm.value.salesPersonEmail,
       this.fileCollection
     );
-    debugger
     console.log(newForm);
     console.log(this.fileName);
     /**

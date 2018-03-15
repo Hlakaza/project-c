@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
           localStorage.setItem('id_token', data.token);
           localStorage.setItem('userId', data.user._id);
           localStorage.setItem('email', data.user.email);
+          localStorage.setItem('userForms', data.user.forms);
           localStorage.setItem('role', data.user.role[0]);
           // navigate user to index page of our app
           if (this.adminService.isAdmin()) {
