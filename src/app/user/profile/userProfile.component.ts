@@ -7,6 +7,7 @@ import {BASE_URL, USER_API_URL} from '../../config/config';
 import { AuthService } from '../../auth/auth.service';
 import { FormService } from '../../form/form.service';
 import { AdminService } from '../../admin/services/admin.service';
+import { FormArray } from '@angular/forms/src/model';
 
 @Component({
   selector   : 'app-userprofile',
@@ -16,24 +17,9 @@ import { AdminService } from '../../admin/services/admin.service';
 export class UserProfileComponent implements OnInit, AfterViewInit {
   private userId: string = localStorage.getItem('userId');
   private token: string = localStorage.getItem('id_token');
-  url   = `${USER_API_URL}/image`;
-  imageUrl   = `${BASE_URL}/uploads/tmp/`;
   user: UserProfile;
-  fetchedUser: any[]   = [];
-  fetchedForms = [];
-  maxSize  = 5000000;
-  invalidFileSizeMessage = '{0}: Invalid file size, ';
-  invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
-  onClear: EventEmitter<any> = new EventEmitter();
-  public files: File[];
-  public progress  = 0;
-  public submitStarted: boolean;
-  imagePath: string;
-  imageReady = false;
-  oldImage   = true;
-  @ViewChild('fileInput') fileInput: ElementRef;
-  @ViewChild('profileImage') profileImage: ElementRef;
-
+  fetchedUser: any[] = [];
+  fetchedForms: any[] = [];
   constructor(private profileService: ProfileService,
               private router: Router,
               private toastr: ToastsManager,
@@ -43,7 +29,6 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.files = [];
     this.profileService.getUserDetails(this.userId)
       .subscribe(
         (data => {
@@ -61,117 +46,20 @@ export class UserProfileComponent implements OnInit, AfterViewInit {
       this.formService.getUserForms()
       .subscribe(
         res => {
-          console.log('Form', res);
-          // forms => this.fetchedForms = forms,
-             this.fetchedForms = res;
+          const formArray = [];
+          // tslint:disable-next-line:forin
+          for (let key in res) {
+            formArray.push(res[key]);
+          }
+             this.fetchedForms = formArray;
         },
         err => {
-          console.log('--- Form Error', err);
+          this.fetchedForms = JSON.parse(localStorage.getItem('fetchedForms'));
         }
       );
     }, 500);
   }
-  onFileSelect(event) {
-    this.clear();
-    this.submitStarted = true;
-    let files          = event.dataTransfer ? event.dataTransfer.files : event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      let file = files[i];
-      if (this.validate(file)) {
-        if (this.isFile(file)) {
-          this.files.push(files[i]);
-          let xhr      = new XMLHttpRequest();
-          let formData = new FormData();
-          // tslint:disable-next-line:no-shadowed-variable
-          for (let i = 0; i < this.files.length; i++) {
-            formData.append('fileUp', this.files[i], this.files[i].name);
-          }
 
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              this.progress = 0;
-              if (xhr.status === 201) {
-                this.imagePath     = xhr.response.replace(/^"|"$/g, '');
-                this.imageReady    = true;
-                this.oldImage      = false;
-                this.submitStarted = false;
-              } else if (xhr.status !== 201) {
-                this.toastr.error('There was an error, please try again later');
-                this.submitStarted = false;
-                this.oldImage      = true;
-                this.clear();
-              }
-              this.clear();
-            }
-          };
-
-          xhr.upload.addEventListener('progress', (e: ProgressEvent) => {
-            if (e.lengthComputable) {
-              this.progress = Math.round((e.loaded * 100) / e.total);
-            }
-          }, false);
-
-          xhr.open('POST', this.url, true);
-          xhr.setRequestHeader('Authorization', 'JWT ' + this.token);
-          xhr.send(formData);
-          console.log(formData);
-        }
-      } else if (!this.isFile(file)) {
-        this.toastr.error('Only pdf, doc, jpep and png are allowed');
-        this.clear();
-      }
-    }
-  }
-
-  // check if the image is actually an image by checking the mime type
-  isFile(file: File): boolean {
-    if (!file.type.match(/.jpeg|.jpg|.png|.doc|.docx|.gif/gi)) {
-      this.toastr.error('Only pdf, doc, jpep and png are allowed');
-      return false;
-    }
-    return true;
-  }
-
-  // check if the form has files ready to be uploaded
-  hasFiles(): boolean {
-    return this.files && this.files.length > 0;
-  }
-
-  // clears the form
-  clear() {
-    this.files = [];
-    this.onClear.emit();
-  }
-
-  // remove the image from the preview
-  remove(index: number) {
-    this.files.splice(index, 1);
-    this.fileInput.nativeElement.value = '';
-  }
-
-  // check the image file size
-  validate(file: File): boolean {
-    if (this.maxSize && file.size > this.maxSize) {
-      this.toastr.error(this.invalidFileSizeMessageDetail.replace('{0}', this.formatSize(this.maxSize)),
-        this.invalidFileSizeMessage.replace('{0}', file.name));
-      this.submitStarted = false;
-      return false;
-    }
-    return true;
-  }
-
-// format the size to display it in toastr in case the user uploaded a file bigger than 5MB
-  formatSize(bytes) {
-    if (bytes === 0) {
-      return '0 B';
-    }
-    let k     = 1000,
-        dm    = 3,
-        sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-        i     = Math.floor(Math.log(bytes) / Math.log(k));
-
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-  }
   logout() {
     return this.authService.logout();
   }

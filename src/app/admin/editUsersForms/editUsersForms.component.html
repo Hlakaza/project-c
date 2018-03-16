@@ -1,170 +1,130 @@
-<div class="pad-top-header">
-        <div class="main-content">
-            <div class="container-fluid">
-                <div class="col-sm-12">  
-                    <div class="card spacing-bottom" *ngFor="let form of fetchedForm">
-                        <div class="card-header" data-background-color="red">
-                            <h4 class="title">Vendor: {{form.tradingName}} </h4>
-                        </div>
-                        <div class="card-content table-responsive table-full-width">
-                            <table class="table">
-                                <thead class="text-danger">
-                                    <th>Company Information</th>
-                                    <th>Correspondecne</th>
-                                    <th>Documents</th>
-                                    <th>Received</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Trading Name: {{form.tradingName}}</td>
-                                        <td>Acc PersonName: {{form.accPersonName}}</td>
-                                        <td>Doc: Customer General Terms and Conditions of Supply</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox1">
-                                                <label for="inlineFormCheckbox1"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Registered Name: {{form.tradingName}}</td>
-                                        <td>Acc Person No: {{form.accPersonNo}}</td>
-                                        <td>Doc: BEE Certificate</td>
+<div class="card spacing-bottom" *ngFor="let form of fetchedForm">
+    <!--Header-->
+    <div class="card-header" data-background-color="charcoal">
+        <h4 class="title">Vendor: {{form.tradingName}} </h4>
+        <p class="category">All details</p>
+    </div>
+    <div class="card-content">
+                <app-tabs #t>
+                    <app-tab title="Company Information">                           
+                            <div class="display-block clearfix bor-pad">
+                               <div class="display-tb">
+                                    <span class="display-block head">Trading Name:</span>
+                                    {{form.tradingName}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Registered Name:</span>
+                                    {{form.registeredCompanyName}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Registration Number</span>
+                                    {{form.registrationNumber}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Vat Number</span>
+                                    {{form.vatNumber}}
+                               </div>
+                            </div>
 
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox2">
-                                                <label for="inlineFormCheckbox2"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Physical Address: {{form.physicalAddress}}</td>
-                                        <td>Acc Person Fax No: {{form.accPersonFaxNo}}</td>
-                                        <td>Doc: Letter of Good Standing</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox3">
-                                                <label for="inlineFormCheckbox3"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Postal Address: {{form.postalAddress}}</td>
-                                        <td>Acc Person Email: {{form.accPersonEmail}}</td>
-                                        <td>Doc: Audited latest Financial Statements</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox4">
-                                                <label for="inlineFormCheckbox4"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tel: {{form.tel}}</td>
-                                        <td>Sales Person Name: {{form.salesPersonName}}</td>
-                                        <td>Doc: Proof of Banking Details</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox5">
-                                                <label for="inlineFormCheckbox5"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Fax: {{form.faxNo}}</td>
-                                        <td>Sales Person No: {{form.salesPersonNo}}</td>
-                                        <td>Doc: Company Letterhead</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox6">
-                                                <label for="inlineFormCheckbox6"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Website: {{form.website}}</td>
-                                        <td>Sales Person FaxNo: {{form.salesPersonFaxNo}}</td>
-                                        <td>Doc: Tax Certificate</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox7">
-                                                <label for="inlineFormCheckbox7"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Vat Number: {{form.vatNumber}}</td>
-                                        <td>Sales Person Email: {{form.salesPersonEmail}}</td>
-                                        <td>Doc: MCC Certificate</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox8">
-                                                <label for="inlineFormCheckbox8"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>Doc: Declaration of possible conflict of Interest with Clinix Health Group (CHG)</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox88">
-                                                <label for="inlineFormCheckbox88"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>Doc: identity Documents</td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
-                                                <input type="checkbox" checked id="inlineFormCheckbox9">
-                                                <label for="inlineFormCheckbox9"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>Doc: Product price lists </td>
-                                        <td width="30">
-                                            <!-- Filled-in checkbox -->
-                                            <div class="form-group mr-3">
+                            <div class="display-block clearfix bor-pad">
+                               <div class="display-tb">
+                                    <span class="display-block head">Physical Address:</span>
+                                    {{form.physicalAddress}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Postal Address:</span>
+                                    {{form.postalAddress}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Work Telephone</span>
+                                    {{form.tel}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Fax Number</span>
+                                    {{form.faxNo}}
+                               </div>
+                            </div>
+                            <!-- <div class="display-block clearfix bor-pad">
+                               <div class="display-tb">
+                                    <span class="display-block head">Business Sector:</span>
+                                    {{form.bSector}}
+                               </div>
+                               <div class="display-tb">
+                                    <span class="display-block head">Type of business:</span>
+                                    {{form.postalAddress}}
+                               </div>
+                            </div> -->
+                            <div class="display-block spacing-top">
+                                    <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
+                            </div>                            
+                           
+                    </app-tab>
+                    <app-tab title="Correspondence">
+                            <div class="display-block clearfix bor-pad">
+                                    <div class="display-tb">
+                                         <span class="display-block head">Accounts Person Name:</span>
+                                         {{form.accPersonName}}
+                                    </div>
+                                    <div class="display-tb">
+                                         <span class="display-block head">Accounts Person No:</span>
+                                         {{form.accPersonNo}}
+                                    </div>
+                                    <div class="display-tb">
+                                         <span class="display-block head">Accounts Person Fax:</span>
+                                         {{form.accPersonFaxNo}}
+                                    </div>
+                                    <div class="display-tb">
+                                         <span class="display-block head">Accounts Person Email:</span>
+                                         {{form.accPersonEmail}}
+                                    </div>
+                                 </div>
+                            <div class="display-block clearfix bor-pad">
+                                    <div class="display-tb">
+                                         <span class="display-block head">Sales Person Name:</span>
+                                         {{form.salesPersonName}}
+                                    </div>
+                                    <div class="display-tb">
+                                         <span class="display-block head">Sales Person No:</span>
+                                         {{form.salesPersonNo}}
+                                    </div>
+                                    <div class="display-tb">
+                                         <span class="display-block head">Sales Person Fax:</span>
+                                         {{form.salesPersonFaxNo}}
+                                    </div>
+                                    <div class="display-tb">
+                                         <span class="display-block head">Sales Person Email:</span>
+                                         {{form.salesPersonEmail}}
+                                    </div>
+                                 </div>
+                                 <div class="display-block spacing-top">
+                                        <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
+                                        <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                                </div>  
+                    </app-tab>
+                    <app-tab title="Rquired Documents">
+                            <div class="clearfix bor-pad" *ngFor="let file of form.fileCollection">
+                                    <div class="display-block border-bttom pad-lr">
+                                            <span class="file-name display-inline">{{file}}</span>
+                                            <a class="float-right btn btn-orange btn-xs" target="_blank" href="{{fileUrl}}/{{form.owner}}/{{file}}">View</a>
+                                              <!-- Filled-in checkbox -->
+                                        <div class="check-cent float-left">
                                                 <input type="checkbox" checked id="inlineFormCheckbox99">
                                                 <label for="inlineFormCheckbox99"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <button class="btn btn-primary" disabled [routerLink]="['view', form._id]"><i class="fa fa-check"></i>Aprove</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-danger" disabled (click)="onDelete(form._id)"><i class="fa fa-trash"></i>Disaprove</button>
-                                        </td>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                        <td>&nbsp;&nbsp;&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                       </div>
+                                    </div>
+                            </div>
+                                <div class="spacing-top">
+                                        <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                                </div>
+                    </app-tab>
+                </app-tabs>
+
+                <!-- Button -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" (click)="approve(form.owner)" class="btn btn-orange btn-sm text-center">Approve</button>
+                        <button type="button" (click)="disApprove(form.owner)" name="sumbitForm" class="btn btn-grey btn-sm text-center">Disaprove</button>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
     </div>
+</div>

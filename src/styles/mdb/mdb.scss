@@ -616,3 +616,22 @@ select.form-control:not([size]):not([multiple]) {
 .register-form .md-form .form-control {
     margin-bottom: 5px;
 }
+
+.check-cent {
+    margin-top: 0;
+    height: 15px;
+}
+.bor-pad{
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc
+}
+.display-tb {
+    float: left;
+    width: 25%;
+}
+.head {
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 10px 0;
+}

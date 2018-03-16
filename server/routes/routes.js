@@ -112,8 +112,15 @@ module.exports = (app) => {
   // Upload image endpoint: http://localhost:3000/api/admin/form/image
   formRoutes.post('/form/image', requireAuth, admin.uploadImage);
 
+  
   // Delete Image endpoint: http://localhost:3000/api/admin/form/image/:id
   formRoutes.delete('/form/image/:id', requireAuth, admin.deleteImage);
+  
+  // Approve  endpoint: http://localhost:3000/api/admin/form/aprove/:id
+  adminRoutes.post('/form/approve', requireAuth, admin.approve);
+
+  // Dis approve  endpoint: http://localhost:3000/api/admin/form/aprove/:id
+  adminRoutes.post('/form/disApprove', requireAuth, admin.disApprove);
 
   // Set url for API group routes, all endpoints start with /api/ eg http://localhost:3000/api/admin  || http://localhost:3000/api/auth
   app.use('/api', apiRoutes);

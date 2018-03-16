@@ -5,7 +5,7 @@
         <p class="category">These are your details</p>
     </div>
     <div class="card-content">
-        <form *ngFor="let form of fetchedForms">
+        <form *ngFor="let form of fetchedForms" class="z-ndex-2">
             <fieldset>
                 <app-tabs #t>
                     <app-tab title="Company Information">
@@ -161,5 +161,6 @@
                 </app-tabs>
             </fieldset>
         </form>
+        <a *ngIf="addDetails" class="marg-top-nag display-block marg-auto col-sm-3 btn btn-orange btn-sm" routerLink="/form">Add details</a>
     </div>
 </div>

@@ -34,6 +34,7 @@ export class FormService {
           fetchedForms.push(form);
         }
         this.forms = fetchedForms;
+        localStorage.setItem('fetchedForms', JSON.stringify(fetchedForms));
         return fetchedForms;
       })
       .catch((error: Response) => {

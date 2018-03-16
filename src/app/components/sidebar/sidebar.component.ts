@@ -37,8 +37,12 @@ export class SidebarComponent implements OnInit {
       }
       this.formService.getUserForms()
       .subscribe(
-        forms => this.fetchedForms = forms,
-        error => console.log(error));
+        forms => {
+          this.fetchedForms = forms
+        },
+        error => {
+          this.fetchedForms = JSON.parse(localStorage.getItem('fetchedForms'));
+        });
     }, 50);
   }
   isAdmin() {
