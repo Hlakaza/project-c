@@ -72,7 +72,7 @@ let tempStorage = multer.diskStorage({
 let uploadTemp = multer({
   storage   : tempStorage,
   limits    : {
-    fileSize: 5000000, // 5MB filesize limit
+    fileSize: 10000000, // 5MB filesize limit
     parts   : 1
   },
   fileFilter: (req, file, cb) => {
@@ -84,7 +84,7 @@ let uploadTemp = multer({
     }
     cb('Error: File upload only supports the following filetypes - ' + filetypes);
   }
-}).array('fileUp');
+}).array('files');
 
 // When user submits the form, the temp image is copied to /uploads/forms/user_id/photo.jpg
 let copyImage = (req, source) => {

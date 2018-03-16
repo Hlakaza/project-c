@@ -49,7 +49,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   url  = `${FORMS_API_URL}/upload`;
   imageUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   fileUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
-  maxSize  = 50000000;
+  maxSize  = 100000000;
   invalidFileSizeMessage = '{0}: Invalid file size, ';
   invalidFileSizeMessageDetail = 'Maximum upload size is {0}.';
   public files: File[];
@@ -82,7 +82,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
 
   onFileSelect(event) {
-    this.clear();
+    // this.clear();
     this.submitStarted = true;
     let files  = event.dataTransfer ? event.dataTransfer.files : event.target.files;
 
@@ -96,7 +96,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
           // tslint:disable-next-line:no-shadowed-variable
           for (let i = 0; i < this.files.length; i++) {
-            formData.append('fileUp', this.files[i], this.files[i].name);
+            formData.append('files', this.files[i], this.files[i].name);
             // this.fileCollection.push(`${BASE_URL}/uploads/forms/${this.userId}/${files[i].name}`);
             this.fileCollection.push(`${files[i].name}`);
           }
@@ -111,9 +111,9 @@ export class FormComponent implements OnInit, AfterViewInit {
               } else if (xhr.status !== 201) {
                 this.toastr.error('There was a problem, please try again later');
                 this.submitStarted = false;
-                this.clear();
+                // this.clear();
               }
-              this.clear();
+              // this.clear();
             }
           };
           xhr.upload.addEventListener('progress', (e: ProgressEvent) => {
