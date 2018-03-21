@@ -43,9 +43,9 @@ export class FormComponent implements OnInit, AfterViewInit {
   serviceProductInfo: FormControl;
 
   // get the Auth Token from localStorage in order to Authenticate to back end while submitting the form
+  uploadedfiles = [];
   token: string  = localStorage.getItem('id_token');
   userId: string  = localStorage.getItem('userId');
-
   url  = `${FORMS_API_URL}/upload`;
   imageUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   fileUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
@@ -79,6 +79,7 @@ export class FormComponent implements OnInit, AfterViewInit {
 
             ) {
               this.filesToUpload = [];
+              this.uploadedfiles = JSON.parse(localStorage.getItem('fileCollection'));
   }
 
   onFileSelect(event) {

@@ -635,3 +635,13 @@ select.form-control:not([size]):not([multiple]) {
     vertical-align: middle;
     padding: 10px 0;
 }
+.file-uploaded{
+    font-size: 14px;
+    position: absolute;
+    line-height: 1;
+    top: 11px;
+    margin-left: 5px;
+}
+.file-field {
+    padding: 7px 0;
+}
