@@ -1,160 +1,204 @@
-<div class="card reg-card-width">
-    <!--Header-->
-    <div class="card-header" data-background-color="charcoal">
-        <h4 class="title">Profile</h4>
-        <p class="category">These are your details</p>
-    </div>
-    <div class="card-content">
-        <form *ngFor="let form of fetchedForms" class="z-ndex-2">
-            <fieldset>
-                <app-tabs #t>
-                    <app-tab title="Company Information">
+<section class="dash-wraper">
+    <section id="sidebar" class="sidebar">
+        <app-sidebar></app-sidebar>
+    </section>
+    <section id="content">
+        <div class="content">
+            <div class="pad-top-header">
+                <div class="main-content marg-auto">
+                    <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Trading Name</label>
-                                    <input type="text" class="form-control" value="{{form.tradingName}}" disabled="">
-                                    <span class="material-input"></span></div>
+                            <div class="col-md-8">
+                                    <div class="card reg-card-width">
+                                            <!--Header-->
+                                            <div class="card-header" data-background-color="charcoal">
+                                                <h4 class="title">Profile</h4>
+                                                <p class="category">These are your details</p>
+                                            </div>
+                                            <div class="card-content">
+                                                <form *ngFor="let form of fetchedForms" class="z-ndex-2">
+                                                    <fieldset>
+                                                        <app-tabs #t>
+                                                            <app-tab title="Company Information">
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Trading Name</label>
+                                                                            <input type="text" class="form-control" value="{{form.tradingName}}" disabled="">
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Registered Company Name</label>
+                                                                            <input type="text" class="form-control" disabled="disabled" value="{{form.registeredCompanyName}}">
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Registration Number</label>
+                                                                            <input type="email" class="form-control" value="{{form.registrationNumber}}" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Vat Number</label>
+                                                                            <input type="text" value="{{form.vatNumber}}" class="form-control" disabled="">
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Physical Address</label>
+                                                                            <input type="text" value="{{form.physicalAddress}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Postal Address</label>
+                                                                            <input type="email" value="{{form.postalAddress}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Work Telephone Number</label>
+                                                                            <input type="text" value="{{form.tel}}" class="form-control" disabled="">
+                                                                            <span class="material-input"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Fax Number</label>
+                                                                            <input type="text" value="{{form.faxNo}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Website</label>
+                                                                            <input type="email" value="{{form.website}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Business Sector</label>
+                                                                            <input type="text" value="{{form.serviceProduct}}" class="form-control" disabled="">
+                                                                            <span class="material-input"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">BBBEE Level</label>
+                                                                            <input type="text" value="{{form.BBBEELevel}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Type of Business</label>
+                                                                            <input type="email" value="{{form.typeofBusiness}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
+                                                                    </div>
+                                                                </div>
+                                                            </app-tab>
+                                                            <app-tab title="Correspondence">
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Accounts Person Name</label>
+                                                                            <input type="text" value="{{form.accPersonName}}" class="form-control" disabled="">
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Accounts Person No</label>
+                                                                            <input type="text" value="{{form.accPersonNo}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Accounts Person Fax No</label>
+                                                                            <input type="email" value="{{form.accPersonFaxNo}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Accounts Person Email</label>
+                                                                            <input type="email" value="{{form.accPersonEmail}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Sales Person Name</label>
+                                                                            <input value="{{form.salesPersonName}}" type="text" class="form-control" disabled="">
+                                                                            <span class="material-input"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Sales Person No</label>
+                                                                            <input type="text" value="{{form.salesPersonNo}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Sales Person Email</label>
+                                                                            <input type="email" value="{{form.salesPersonEmail}}" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group label-floating is-focused">
+                                                                            <label class="control-label">Sales Person Fax No</label>
+                                                                            <input value="{{form.salesPersonFaxNo}}" type="email" class="form-control" disabled>
+                                                                            <span class="material-input"></span></div>
+                                                                    </div>
+                                                                </div>
+                                        
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
+                                                                        <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                                                                    </div>
+                                                                </div>
+                                                            </app-tab>
+                                                            <app-tab title="Rquired Documents">
+                                                                <div class="clearfix bor-pad" *ngFor="let file of form.fileCollection">
+                                                                    <div class="display-block border-bttom pad-lr">
+                                                                            <span class="file-name display-inline">{{file}}</span>
+                                                                            <a class="float-right btn btn-orange btn-xs" target="_blank" href="{{fileUrl}}{{file}}">View</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                                                                    </div>
+                                                                </div>
+                                                            </app-tab>
+                                                        </app-tabs>
+                                                    </fieldset>
+                                                </form>
+                                                <a *ngIf="addDetails" class="marg-top-nag display-block marg-auto col-sm-3 btn btn-orange btn-sm" routerLink="/form">Add details</a>
+                                            </div>
+                                        </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Registered Company Name</label>
-                                    <input type="text" class="form-control" disabled="disabled" value="{{form.registeredCompanyName}}">
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Registration Number</label>
-                                    <input type="email" class="form-control" value="{{form.registrationNumber}}" disabled>
-                                    <span class="material-input"></span></div>
+                                <app-userprofile></app-userprofile>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Vat Number</label>
-                                    <input type="text" value="{{form.vatNumber}}" class="form-control" disabled="">
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Physical Address</label>
-                                    <input type="text" value="{{form.physicalAddress}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Postal Address</label>
-                                    <input type="email" value="{{form.postalAddress}}" class="form-control" disabled>
-                                    <span class="material-input"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Work Telephone Number</label>
-                                    <input type="text" value="{{form.tel}}" class="form-control" disabled="">
-                                    <span class="material-input"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Fax Number</label>
-                                    <input type="text" value="{{form.faxNo}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Website</label>
-                                    <input type="email" value="{{form.website}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
-                            </div>
-                        </div>
-                    </app-tab>
-                    <app-tab title="Correspondence">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Accounts Person Name</label>
-                                    <input type="text" value="{{form.accPersonName}}" class="form-control" disabled="">
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Accounts Person No</label>
-                                    <input type="text" value="{{form.accPersonNo}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Accounts Person Fax No</label>
-                                    <input type="email" value="{{form.accPersonFaxNo}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Accounts Person Email</label>
-                                    <input type="email" value="{{form.accPersonEmail}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Sales Person Name</label>
-                                    <input value="{{form.salesPersonName}}" type="text" class="form-control" disabled="">
-                                    <span class="material-input"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Sales Person No</label>
-                                    <input type="text" value="{{form.salesPersonNo}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Sales Person Email</label>
-                                    <input type="email" value="{{form.salesPersonEmail}}" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group label-floating is-focused">
-                                    <label class="control-label">Sales Person Fax No</label>
-                                    <input value="{{form.salesPersonFaxNo}}" type="email" class="form-control" disabled>
-                                    <span class="material-input"></span></div>
-                            </div>
-                        </div>
+                    </div>
+                </div>
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
-                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
-                            </div>
-                        </div>
-                    </app-tab>
-                    <app-tab title="Rquired Documents">
-                        <div class="clearfix bor-pad" *ngFor="let file of form.fileCollection">
-                            <div class="display-block border-bttom pad-lr">
-                                    <span class="file-name display-inline">{{file}}</span>
-                                    <a class="float-right btn btn-orange btn-xs" target="_blank" href="{{fileUrl}}{{file}}">View</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
-                            </div>
-                        </div>
-                    </app-tab>
-                </app-tabs>
-            </fieldset>
-        </form>
-        <a *ngIf="addDetails" class="marg-top-nag display-block marg-auto col-sm-3 btn btn-orange btn-sm" routerLink="/form">Add details</a>
-    </div>
-</div>
+            </div>
+        </div>
+    </section>
+</section>

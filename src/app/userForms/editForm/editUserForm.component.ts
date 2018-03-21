@@ -186,8 +186,6 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
   submitEditedForm() {
     this.submitStarted = true;
     const editForm     = new Form(
-      // this.myForm.value.textInputOne,
-      // this.myForm.value.textInputTwo,
       this.myForm.value.tradingName,
       this.myForm.value.registeredCompanyName,
       this.myForm.value.registrationNumber,
@@ -205,6 +203,10 @@ export class EditUserFormComponent implements OnInit, AfterViewInit {
       this.myForm.value.salesPersonNo,
       this.myForm.value.salesPersonFaxNo,
       this.myForm.value.salesPersonEmail,
+      this.myForm.value.serviceProduct,
+      this.myForm.value.BBBEELevel,
+      this.myForm.value.typeofBusiness,
+      this.myForm.value.hiddenEmail,
       this.fileCollection
     );
     this.formService.editForm(editForm, this.formId)

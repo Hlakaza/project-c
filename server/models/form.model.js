@@ -22,6 +22,10 @@ let form = new Schema({
     salesPersonNo: { type: String },
     salesPersonEmail: { type: String },
     salesPersonFaxNo: { type: String },
+    serviceProduct: { type: String },
+    BBBEELevel: { type: String },
+    typeofBusiness: { type: String },
+    hiddenEmail: { type: String },
     fileCollection: [{
         type: String
     }],

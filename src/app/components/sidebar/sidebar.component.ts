@@ -29,7 +29,6 @@ export class SidebarComponent implements OnInit {
               // tslint:disable-next-line:forin
               for (let key in data) {
                 userArray.push(data[key]);
-                console.log('User', data)
               }
               this.fetchedUser = userArray;
             })

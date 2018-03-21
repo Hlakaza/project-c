@@ -19,13 +19,14 @@ export class Form {
               public salesPersonNo: string,
               public salesPersonEmail: string,
               public salesPersonFaxNo: string,
+              public serviceProduct,
+              public BBBEELevel,
+              public hiddenEmail,
+              public typeofBusiness,
               public fileCollection: Array<string>,
               public fileUp?: string,
               public userId?: string,
               public formId?: string) {
-
-    // this.textInputOne = textInputOne;
-    // this.textInputTwo = textInputTwo;
     this.tradingName = tradingName;
     this.registeredCompanyName = registeredCompanyName;
     this.registrationNumber = registrationNumber;
@@ -43,6 +44,10 @@ export class Form {
     this.salesPersonNo = salesPersonNo;
     this.salesPersonEmail = salesPersonEmail;
     this.salesPersonFaxNo = salesPersonFaxNo;
+    this.serviceProduct = serviceProduct;
+    this.BBBEELevel = BBBEELevel;
+    this.hiddenEmail = hiddenEmail;
+    this.typeofBusiness = typeofBusiness;
     this.fileUp       = fileUp;
     this.userId       = userId;
     this.formId       = formId;

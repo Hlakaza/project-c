@@ -1,405 +1,496 @@
-<div class="card spacing-bottom">
-    <!--Header-->
-    <div class="card-header" data-background-color="charcoal">
-        <h4 class="title">Add Details</h4>
-        <p class="category">Provide your details in the form below</p>
-    </div>
-    <div class="card-content">
-
-        <form [formGroup]="myForm" (ngSubmit)="submitForm()" class="form-horizontal register-form clearfix" novalidate>
-            <fieldset>
-                <app-tabs #t>
-                    <app-tab title="Company Information">
-                        <div class="row">
-                            <!--Trading Name-->
-                            <div class="col-md-6">
-                                <div class="clearfix pad-top-10">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }">
-                                        <i class="fa fa-building prefix grey-text"></i>
-                                        <input class="form-control" formControlName="tradingName" name="tradingName" type="text" required/>
-                                        <label class="grey-text" for="tradingName" class="grey-text">Trading Name</label>
-                                        <span *ngIf="myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched" class="help-block text-danger">Trading Name is required</span>
-                                    </div>
+<section class="dash-wraper">
+        <section id="sidebar" class="sidebar">
+            <app-sidebar></app-sidebar>
+        </section>
+        <section id="content">
+            <div class="content">
+                <div class="pad-top-header">
+                    <div class="main-content marg-auto">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8">
+                                        <div class="card spacing-bottom">
+                                                <!--Header-->
+                                                <div class="card-header" data-background-color="charcoal">
+                                                    <h4 class="title">Add Details</h4>
+                                                    <p class="category">Provide your details in the form below</p>
+                                                </div>
+                                                <div class="card-content">
+                                            
+                                                    <form [formGroup]="myForm" (ngSubmit)="submitForm()" class="form-horizontal register-form clearfix" novalidate>
+                                                        <fieldset>
+                                                            <app-tabs #t>
+                                                                <app-tab title="Company Information">
+                                                                    <input  class="form-control hidden" name="hiddenEmail" value="{{userEmail}}" type="text" required/>
+                                    
+                                                                    <div class="row">
+                                                                        <!--Trading Name-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="clearfix pad-top-10">
+                                                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched }">
+                                                                                    <i class="fa fa-building prefix grey-text"></i>
+                                                                                    <input class="form-control" formControlName="tradingName" name="tradingName" type="text" required/>
+                                                                                    <label class="grey-text" for="tradingName" class="grey-text">Trading Name</label>
+                                                                                    <span *ngIf="myForm.get('tradingName').hasError('required') && myForm.get('tradingName').touched" class="help-block text-danger">Trading Name is required</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--Company Name-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="clearfix pad-top-10">
+                                                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }">
+                                                                                    <i class="fa fa-building prefix grey-text"></i>
+                                                                                    <input class="form-control" formControlName="registeredCompanyName" name="registeredCompanyName" type="text" />
+                                                                                    <label class="grey-text" for="registeredCompanyName">Registered Company Name</label>
+                                                                                    <span *ngIf="myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched" class="help-block text-danger">Company Name is required</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Registration Number-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="clearfix pad-top-10">
+                                                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }">
+                                                                                    <i class="fa fa-edit prefix grey-text"></i>
+                                                                                    <input class="form-control" formControlName="registrationNumber" name="registrationNumber" type="text" />
+                                                                                    <label class="grey-text" for="registrationNumber">Registration Number</label>
+                                                                                    <span *ngIf="myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched" class="help-block text-danger">Registration Number is required</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--confirm Registration Number-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="clearfix pad-top-10">
+                                                                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }">
+                                                                                    <i class="fa fa-edit prefix grey-text"></i>
+                                                                                    <input type="text" class="form-control" formControlName="confirmRegNumber" name="confirmRegNumber" />
+                                                                                    <label class="grey-text" for="confirmRegNumber">Confirm Registration Number</label>
+                                                                                    <span *ngIf="myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched" class="help-block text-danger">Registration Numbers do not match</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Vat Number-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="fa fa-archive prefix grey-text"></i>
+                                                                                <input type="text" class="form-control" formControlName="vatNumber" name="vatNumber" />
+                                                                                <label class="grey-text" for="vatNumber">Vat Number</label>
+                                                                                <span *ngIf="myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched" class="help-block text-danger">VatNumber is required</span>
+                                                                            </div>
+                                                                        </div>
+                                            
+                                                                        <!--Confirm Vat Number-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="fa fa-archive prefix grey-text"></i>
+                                                                                <input type="text" class="form-control" formControlName="confirmVatNumber" name="confirmVatNumber" />
+                                                                                <label class="grey-text" for="confirmVatNumber">Confirm Vat Number</label>
+                                                                                <span *ngIf="myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched" class="help-block text-danger">Vat Numbers do not match</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Address-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="far fa-address-card prefix grey-text"></i>
+                                                                                <textarea type="text" formControlName="physicalAddress" name="physicalAddress" class="form-control md-textarea"></textarea>
+                                                                                <label class="grey-text" for="physicalAddress">Physical Address</label>
+                                                                                <span *ngIf="myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched" class="help-block text-danger">Physical Address is required</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--Postal Address-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="far fa-address-card prefix grey-text"></i>
+                                                                                <textarea type="text" formControlName="postalAddress" name="postalAddress" class="form-control md-textarea"></textarea>
+                                                                                <label class="grey-text" for="postalAddress">Postal Address</label>
+                                                                                <span *ngIf="myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched" class="help-block text-danger">Postal Address is required</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                            
+                                                                    <div class="row">
+                                                                        <!--Phone Number-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form ">
+                                                                                <i class="fa fa-phone prefix grey-text"></i>
+                                                                                <input type="text" class="form-control" formControlName="tel" name="tel" />
+                                                                                <label class="grey-text" for="tel">Telephone Number</label>
+                                                                                <span *ngIf="myForm.get('tel').hasError('required') && myForm.get('tel').touched" class="help-block text-danger">Your work Telephone Number is required</span>
+                                                                            </div>
+                                                                        </div>
+                                            
+                                                                        <!--Fax Number-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="fa fa-fax prefix grey-text"></i>
+                                                                                <input type="text" class="form-control" formControlName="faxNo" name="faxNo" />
+                                                                                <label class="grey-text" for="faxNo">Fax Number</label>
+                                                                                <span *ngIf="myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched" class="help-block text-danger">Fax number is required</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Website-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="fa fa-globe prefix grey-text"></i>
+                                                                                <textarea type="text" formControlName="website" name="website" class="form-control md-textarea"></textarea>
+                                                                                <label class="grey-text" for="website">Website</label>
+                                                                                <span *ngIf="myForm.get('website').hasError('required') && myForm.get('website').touched" class="help-block text-danger">Website is required</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </app-tab>
+                                                                <app-tab title="Correspondence">
+                                                                    <div class="row ">
+                                                                        <!--Acc Person  Name-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }">
+                                                                                <i class="fa fa-user prefix grey-text"></i>
+                                                                                <label class="grey-text">Accounts Person Name</label>
+                                                                                <input class="form-control" formControlName="accPersonName" name="accPersonName" type="text" />
+                                                                                <span *ngIf="myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched" class="help-block text-danger">Accounts Person Name is required</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--Email-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="far fa-envelope prefix grey-text"></i>
+                                                                                <label class="grey-text">Accounts Person Email</label>
+                                                                                <input type="email" class="form-control" formControlName="accPersonEmail" name="accPersonEmail" />
+                                                                                <span *ngIf="myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched" class="help-block text-danger">Email is required</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Acc Person Number-->
+                                                                        <div class="col-md-6">
+                                            
+                                                                            <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }">
+                                                                                <i class="fa fa-phone prefix grey-text"></i>
+                                                                                <label class="grey-text">Accounts Person Number</label>
+                                                                                <input class="form-control" formControlName="accPersonNo" name="accPersonNo" type="text" />
+                                                                                <span *ngIf="myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                        <!--Acc Person Fax Number-->
+                                                                        <div class="col-md-6">
+                                            
+                                                                            <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }">
+                                                                                <i class="fa fa-fax prefix grey-text"></i>
+                                                                                <label class="grey-text">Accounts Person Fax Number</label>
+                                                                                <input type="text" class="form-control" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
+                                                                                <span *ngIf="myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                    </div>
+                                            
+                                                                    <div class="row">
+                                                                        <!--Sales Person  Name-->
+                                                                        <div class="col-md-6">
+                                            
+                                                                            <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }">
+                                                                                <i class="fa fa-user prefix grey-text"></i>
+                                                                                <label class="grey-text">Sales Person Name</label>
+                                                                                <input class="form-control" formControlName="salesPersonName" name="salesPersonName" type="text" />
+                                                                                <span *ngIf="myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched" class="help-block text-danger">Sales Person Name is required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                        <!--Email-->
+                                                                        <div class="col-md-6">
+                                            
+                                                                            <div class="md-form">
+                                                                                <i class="far fa-envelope prefix grey-text"></i>
+                                                                                <label class="grey-text">Sales Person Email</label>
+                                                                                <input type="email" class="form-control" formControlName="salesPersonEmail" name="salesPersonEmail" />
+                                                                                <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Sales Person Number-->
+                                                                        <div class="col-md-6">
+                                            
+                                                                            <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }">
+                                                                                <i class="fa fa-phone prefix grey-text"></i>
+                                                                                <label class="grey-text">Sales Person Number</label>
+                                                                                <input class="form-control" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
+                                                                                <span *ngIf="myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                        <!--Sales Person Fax Number-->
+                                                                        <div class="col-md-6">
+                                            
+                                                                            <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }">
+                                                                                <i class="fa fa-fax prefix grey-text"></i>
+                                                                                <label class="grey-text">Sales Person Fax Number</label>
+                                                                                <input type="text" class="form-control" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
+                                                                                <span *ngIf="myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <!--Type of business-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form clearfix">
+                                                                                <label class="text-left select-label grey-text">Business Sector:</label>
+                                                                                <i class="fa fa-fax prefix grey-text"></i>
+                                                                                <select type="text" formControlName="serviceProduct" class="form-control label-text grey-text" id="exampleSelect1">
+                                                                                                <option>Pharmaceutical</option>
+                                                                                                <option>None Pharmaceutical</option>
+                                                                                                <option name="service">Service and Product</option>
+                                                                                    </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form">
+                                                                                <i class="fa fa-fax prefix grey-text"></i>
+                                                                                <label class="grey-text" for="tel">Please Specify the Service &amp; Product </label>
+                                                                                <input type="text" class="form-control" formControlName="serviceProductInfo" name="service" />
+                                                                                <span *ngIf="myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched" class="help-block text-danger">Service &amp; product type required</span>
+                                                                            </div>
+                                            
+                                                                        </div>
+                                                                    </div>
+                                                                     <div class="row">
+                                                                        <!--Type of business-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="md-form clearfix">
+                                                                                <label class="text-left select-label grey-text">BBBEE Level:</label>
+                                                                                <i class="fa fa-fax prefix grey-text"></i>
+                                                                                <select type="text" formControlName="BBBEELevel" class="form-control label-text grey-text" id="BBBEELevel">
+                                                                                                <option>1</option>
+                                                                                                <option>2</option>
+                                                                                                <option>3</option>
+                                                                                                <option>4</option>
+                                                                                                <option>5</option>
+                                                                                                <option>6</option>
+                                                                                                <option>7</option>
+                                                                                                <option>8</option>
+                                                                                    </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                                <div class="md-form clearfix">
+                                                                                        <label class="text-left select-label grey-text">Type of business:</label>
+                                                                                        <i class="fa fa-fax prefix grey-text"></i>
+                                                                                        <select type="text" formControlName="typeofBusiness" class="form-control label-text grey-text" id="typeofBusiness">
+                                                                                                        <option>SSME</option>
+                                                                                                        <option>EME</option>
+                                                                                                        <option>Generic</option>            
+                                                                                            </select>
+                                                                                    </div>
+                                            
+                                                                        </div>
+                                                                    </div>
+                                            
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
+                                                                            <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </app-tab>
+                                                                <app-tab title="Rquired Documents">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-5" style="margin-bottom: 40px">
+                                                                            <table class="table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Action</th>
+                                                                                        <th width="60%">Required Document</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>                                         
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Customer General Terms and Conditions</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">BEE Certificate</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Tax Certificate</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Letter of Good Standing</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Audited latest Financial Statements</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Proof of Banking Details</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Company Letter head</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Product Price list</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Declaration of possible conflict of Interest with Clinix Health Group (CHG)</span></td>
+                                                                                    </tr>
+                                                                                    <tr height="46">
+                                                                                        <td>
+                                                                                            <div class="file-field position-relative">
+                                                                                                        <div class="btn btn-primary btn-sm float-none">
+                                                                                                            <span>Upload</span>
+                                                                                                            <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
+                                                                                                        </div>
+                                                                                             </div>
+                                                                                        </td>
+                                                                                        <td><span class="text-sm">Identity documents of directors</span></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                            
+                                                                        <div>
+                                                                        </div>
+                                            
+                                                                         </div>
+                                                                        <div class="col-sm-7" style="margin-bottom: 40px">
+                                                                            <table class="table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th width="50%">Name</th>
+                                                                                        <th>Size</th>
+                                                                                        <th>Status</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr *ngFor="let item of fileCollection">
+                                                                                        <td><strong>{{item}}</strong></td>
+                                                                                        <td>0.5000 MB</td>
+                                                                                            <td class="text-center">
+                                                                                            &nbsp;
+                                                                                            <span *ngIf="imageReady"><i class="fa fa-check"></i></span>
+                                            
+                                                                                             <span *ngIf="!imageReady"><i class="fa fa-times"></i></span>
+                                                                                         </td>
+                                            
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                            
+                                                                        <div>
+                                                                        </div>
+                                            
+                                                                         </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </app-tab>
+                                                            </app-tabs>
+                                            
+                                                            <!-- Button -->
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <button type="submit" [disabled]="!myForm.valid" id="submitForm" name="sumbitForm" class="btn btn-primary btn-sm text-center">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                            </div>
                                 </div>
-                            </div>
-                            <!--Company Name-->
-                            <div class="col-md-6">
-                                <div class="clearfix pad-top-10">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched }">
-                                        <i class="fa fa-building prefix grey-text"></i>
-                                        <input class="form-control" formControlName="registeredCompanyName" name="registeredCompanyName" type="text" />
-                                        <label class="grey-text" for="registeredCompanyName">Registered Company Name</label>
-                                        <span *ngIf="myForm.get('registeredCompanyName').hasError('required') && myForm.get('registeredCompanyName').touched" class="help-block text-danger">Company Name is required</span>
-                                    </div>
+                                <div class="col-md-4">
+                                    <app-userprofile></app-userprofile>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <!--Registration Number-->
-                            <div class="col-md-6">
-                                <div class="clearfix pad-top-10">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched }">
-                                        <i class="fa fa-edit prefix grey-text"></i>
-                                        <input class="form-control" formControlName="registrationNumber" name="registrationNumber" type="text" />
-                                        <label class="grey-text" for="registrationNumber">Registration Number</label>
-                                        <span *ngIf="myForm.get('registrationNumber').hasError('required') && myForm.get('registrationNumber').touched" class="help-block text-danger">Registration Number is required</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--confirm Registration Number-->
-                            <div class="col-md-6">
-                                <div class="clearfix pad-top-10">
-                                    <div class="md-form" [ngClass]="{ 'has-error': myForm.get('confirmRegNumber').hasError('required') && myForm.get('confirmRegNumber').touched }">
-                                        <i class="fa fa-edit prefix grey-text"></i>
-                                        <input type="text" class="form-control" formControlName="confirmRegNumber" name="confirmRegNumber" />
-                                        <label class="grey-text" for="confirmRegNumber">Confirm Registration Number</label>
-                                        <span *ngIf="myForm.get('confirmRegNumber').hasError('regNumberMatch') && myForm.get('confirmRegNumber').touched" class="help-block text-danger">Registration Numbers do not match</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!--Vat Number-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="fa fa-archive prefix grey-text"></i>
-                                    <input type="text" class="form-control" formControlName="vatNumber" name="vatNumber" />
-                                    <label class="grey-text" for="vatNumber">Vat Number</label>
-                                    <span *ngIf="myForm.get('vatNumber').hasError('required') && myForm.get('vatNumber').touched" class="help-block text-danger">VatNumber is required</span>
-                                </div>
-                            </div>
-
-                            <!--Confirm Vat Number-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="fa fa-archive prefix grey-text"></i>
-                                    <input type="text" class="form-control" formControlName="confirmVatNumber" name="confirmVatNumber" />
-                                    <label class="grey-text" for="confirmVatNumber">Confirm Vat Number</label>
-                                    <span *ngIf="myForm.get('confirmVatNumber').hasError('vatNumberMatch') && myForm.get('confirmVatNumber').touched" class="help-block text-danger">Vat Numbers do not match</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!--Address-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="far fa-address-card prefix grey-text"></i>
-                                    <textarea type="text" formControlName="physicalAddress" name="physicalAddress" class="form-control md-textarea"></textarea>
-                                    <label class="grey-text" for="physicalAddress">Physical Address</label>
-                                    <span *ngIf="myForm.get('physicalAddress').hasError('required') && myForm.get('physicalAddress').touched" class="help-block text-danger">Physical Address is required</span>
-                                </div>
-                            </div>
-                            <!--Postal Address-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="far fa-address-card prefix grey-text"></i>
-                                    <textarea type="text" formControlName="postalAddress" name="postalAddress" class="form-control md-textarea"></textarea>
-                                    <label class="grey-text" for="postalAddress">Postal Address</label>
-                                    <span *ngIf="myForm.get('postalAddress').hasError('required') && myForm.get('postalAddress').touched" class="help-block text-danger">Postal Address is required</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!--Phone Number-->
-                            <div class="col-md-6">
-                                <div class="md-form ">
-                                    <i class="fa fa-phone prefix grey-text"></i>
-                                    <input type="text" class="form-control" formControlName="tel" name="tel" />
-                                    <label class="grey-text" for="tel">Telephone Number</label>
-                                    <span *ngIf="myForm.get('tel').hasError('required') && myForm.get('tel').touched" class="help-block text-danger">Your work Telephone Number is required</span>
-                                </div>
-                            </div>
-
-                            <!--Fax Number-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="fa fa-fax prefix grey-text"></i>
-                                    <input type="text" class="form-control" formControlName="faxNo" name="faxNo" />
-                                    <label class="grey-text" for="faxNo">Fax Number</label>
-                                    <span *ngIf="myForm.get('faxNo').hasError('required') && myForm.get('faxNo').touched" class="help-block text-danger">Fax number is required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!--Website-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="fa fa-globe prefix grey-text"></i>
-                                    <textarea type="text" formControlName="website" name="website" class="form-control md-textarea"></textarea>
-                                    <label class="grey-text" for="website">Website</label>
-                                    <span *ngIf="myForm.get('website').hasError('required') && myForm.get('website').touched" class="help-block text-danger">Website is required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(1)">Next <i class="fa fa-angle-right"></i></span>
-                            </div>
-                        </div>
-                    </app-tab>
-                    <app-tab title="Correspondence">
-                        <div class="row ">
-                            <!--Acc Person  Name-->
-                            <div class="col-md-6">
-                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched }">
-                                    <i class="fa fa-user prefix grey-text"></i>
-                                    <label class="grey-text">Accounts Person Name</label>
-                                    <input class="form-control" formControlName="accPersonName" name="accPersonName" type="text" />
-                                    <span *ngIf="myForm.get('accPersonName').hasError('required') && myForm.get('accPersonName').touched" class="help-block text-danger">Accounts Person Name is required</span>
-                                </div>
-                            </div>
-                            <!--Email-->
-                            <div class="col-md-6">
-                                <div class="md-form">
-                                    <i class="far fa-envelope prefix grey-text"></i>
-                                    <label class="grey-text">Accounts Person Email</label>
-                                    <input type="email" class="form-control" formControlName="accPersonEmail" name="accPersonEmail" />
-                                    <span *ngIf="myForm.get('accPersonEmail').hasError('required') && myForm.get('accPersonEmail').touched" class="help-block text-danger">Email is required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!--Acc Person Number-->
-                            <div class="col-md-6">
-
-                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched }">
-                                    <i class="fa fa-phone prefix grey-text"></i>
-                                    <label class="grey-text">Accounts Person Number</label>
-                                    <input class="form-control" formControlName="accPersonNo" name="accPersonNo" type="text" />
-                                    <span *ngIf="myForm.get('accPersonNo').hasError('required') && myForm.get('accPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
-                                </div>
-
-                            </div>
-                            <!--Acc Person Fax Number-->
-                            <div class="col-md-6">
-
-                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('accPersonFaxNo').hasError('required') && myForm.get('accPersonFaxNo').touched }">
-                                    <i class="fa fa-fax prefix grey-text"></i>
-                                    <label class="grey-text">Accounts Person Fax Number</label>
-                                    <input type="text" class="form-control" formControlName="accPersonFaxNo" name="accPersonFaxNo" />
-                                    <span *ngIf="myForm.get('accPersonFaxNo').hasError('accPersonFaxNo') && myForm.get('accPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <!--Sales Person  Name-->
-                            <div class="col-md-6">
-
-                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched }">
-                                    <i class="fa fa-user prefix grey-text"></i>
-                                    <label class="grey-text">Sales Person Name</label>
-                                    <input class="form-control" formControlName="salesPersonName" name="salesPersonName" type="text" />
-                                    <span *ngIf="myForm.get('salesPersonName').hasError('required') && myForm.get('salesPersonName').touched" class="help-block text-danger">Sales Person Name is required</span>
-                                </div>
-
-                            </div>
-                            <!--Email-->
-                            <div class="col-md-6">
-
-                                <div class="md-form">
-                                    <i class="far fa-envelope prefix grey-text"></i>
-                                    <label class="grey-text">Sales Person Email</label>
-                                    <input type="email" class="form-control" formControlName="salesPersonEmail" name="salesPersonEmail" />
-                                    <span *ngIf="myForm.get('salesPersonEmail').hasError('required') && myForm.get('salesPersonEmail').touched" class="help-block text-danger">Email is required</span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!--Sales Person Number-->
-                            <div class="col-md-6">
-
-                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched }">
-                                    <i class="fa fa-phone prefix grey-text"></i>
-                                    <label class="grey-text">Sales Person Number</label>
-                                    <input class="form-control" formControlName="salesPersonNo" name="salesPersonNo" type="text" />
-                                    <span *ngIf="myForm.get('salesPersonNo').hasError('required') && myForm.get('salesPersonNo').touched" class="help-block text-danger">Phone Number is required</span>
-                                </div>
-
-                            </div>
-                            <!--Sales Person Fax Number-->
-                            <div class="col-md-6">
-
-                                <div class="md-form" [ngClass]="{ 'has-error': myForm.get('salesPersonFaxNo').hasError('required') && myForm.get('salesPersonFaxNo').touched }">
-                                    <i class="fa fa-fax prefix grey-text"></i>
-                                    <label class="grey-text">Sales Person Fax Number</label>
-                                    <input type="text" class="form-control" formControlName="salesPersonFaxNo" name="salesPersonFaxNo" />
-                                    <span *ngIf="myForm.get('salesPersonFaxNo').hasError('salesPersonFaxNo') && myForm.get('salesPersonFaxNo').touched" class="help-block text-danger">Fax Number is required</span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!--Type of business-->
-                            <div class="col-md-6">
-
-                                <div class="md-form">
-                                    <label class="text-left select-label grey-text">Business Sector:</label>
-                                    <i class="fa fa-fax prefix grey-text"></i>
-                                    <select type="text" formControlName="serviceProduct" class="form-control label-text grey-text" id="exampleSelect1">
-                                                    <option>Pharmaceutical</option>
-                                                    <option>None Pharmaceutical</option>
-                                                    <option name="service">Service and Product</option>
-                                        </select>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-
-                                <div class="md-form">
-                                    <i class="fa fa-fax prefix grey-text"></i>
-                                    <label class="grey-text" for="tel">Please Specify the Service &amp; Product </label>
-                                    <input type="text" class="form-control" formControlName="serviceProductInfo" name="service" />
-                                    <span *ngIf="myForm.get('serviceProductInfo').hasError('serviceProductInfo') && myForm.get('serviceProductInfo').touched" class="help-block text-danger">Service &amp; product type required</span>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <span class="float-right deep-orange-text display-block" (click)="t.selectTab(2)">Next <i class="fa fa-angle-right"></i></span>
-                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
-                            </div>
-                        </div>
-                    </app-tab>
-                    <app-tab title="Rquired Documents">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card red lighten-1 text-center z-depth-2 spacing-bottom spacing-top">
-                                    <div class="card-body">
-                                        <p class="white-text mb-0 font-8">Please upload these documents, Customer General Terms and Conditions, BEE Certificate, Tax Certificate, Letter of Good Standing, Audited latest Financial Statements, Proof of Banking Details, Company Letterhead,
-                                            Declaration of possible conflict of Interest with Clinix Health Group (CHG), Product Price list, Identity documents of directors.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />
-                                    </div>
-                                    <span class="file-uploaded">Customer General Terms and Conditions</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />     
-                                    </div>
-                                    <span class="file-uploaded">BEE Certificate</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple />    
-                                    </div>
-                                    <span class="file-uploaded">Tax Certificate</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                    </div>
-                                    <span class="file-uploaded">Letter of Good Standing</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                    </div>
-                                    <span class="file-uploaded"> Audited latest Financial Statements</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                       
-                                    </div>
-                                    <span class="file-uploaded"> Proof of Banking Details</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                       
-                                    </div>
-                                    <span class="file-uploaded">Company Letter head</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                       
-                                    </div>
-                                    <span class="file-uploaded">Product Price list</span>
-                                </div>
-                                <div class="file-field position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                       
-                                    </div>
-                                    <span class="file-uploaded">Identity documents of directors</span>
-                                </div>
-                                <div class="file-field float-none position-relative">
-                                    <div class="btn btn-primary btn-sm float-none">
-                                        <span>Upload</span>
-                                        <input type="file" #fileInput name="files" (change)="onFileSelect($event)" multiple /> 
-                                       
-                                    </div>
-                                    <span class="file-uploaded">Declaration of possible conflict of Interest with Clinix Health Group (CHG)</span>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-7" style="margin-bottom: 40px">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th width="50%">Name</th>
-                                            <th>Size</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let item of fileCollection">
-                                            <td><strong>{{item}}</strong></td>
-                                            <td>0.5000 MB</td>
-                                                <td class="text-center">
-                                                &nbsp;
-                                                <span *ngIf="imageReady"><i class="fa fa-check"></i></span>
-
-                                                 <span *ngIf="!imageReady"><i class="fa fa-times"></i></span>
-                                             </td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            <div>
-                            </div>
-
-                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>
-                            </div>
-                        </div>
-                    </app-tab>
-                </app-tabs>
-
-                <!-- Button -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <button type="submit" [disabled]="!myForm.valid" id="submitForm" name="sumbitForm" class="btn btn-primary btn-sm text-center">Submit</button>
                     </div>
+    
                 </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
+            </div>
+        </section>
+    </section>

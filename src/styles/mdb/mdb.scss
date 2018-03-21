@@ -639,9 +639,15 @@ select.form-control:not([size]):not([multiple]) {
     font-size: 14px;
     position: absolute;
     line-height: 1;
-    top: 11px;
+    top: 13px;
     margin-left: 5px;
 }
-.file-field {
-    padding: 7px 0;
+.table > tbody > tr {
+    height: 67px;
+}
+.select-label{
+    padding-top: 5px;
+}
+.hidden{
+    display: none;
 }

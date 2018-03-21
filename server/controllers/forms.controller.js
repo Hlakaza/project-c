@@ -163,6 +163,10 @@ let functions = {
                 salesPersonEmail: req.body.salesPersonEmail,
                 salesPersonFaxNo: req.body.salesPersonFaxNo,
                 salesPersonFaxNo: req.body.salesPersonFaxNo,
+                serviceProduct: req.body.serviceProduct,
+                BBBEELevel: req.body.BBBEELevel,
+                hiddenEmail: req.body.hiddenEmail,
+                typeofBusiness: req.body.typeofBusiness,
                 fileCollection: req.body.fileCollection,
                 owner: user._id
             });
