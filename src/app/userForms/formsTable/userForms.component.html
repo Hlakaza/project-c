@@ -140,18 +140,12 @@
                         </div>
                     </app-tab>
                     <app-tab title="Rquired Documents">
-                        <div *ngFor="let file of form.fileCollection">
+                        <div class="clearfix bor-pad" *ngFor="let file of form.fileCollection">
                             <div class="display-block spacing-top border-bttom pad-lr">
                                     <span class="file-name display-inline">{{file}}</span>
                                     <a class="float-right btn btn-orange btn-xs" target="_blank" href="{{fileUrl}}{{file}}">View</a>
                             </div>
                         </div>
-                       
-                        <!-- <div class="display-block spacing-top border-bttom pad-lr">
-                            <span class="file-name display-inline">Possible Conflict with Clinix Health Group</span>
-                            <a class="float-right btn btn-orange btn-xs" target="_blank" href="{{API_URL}}assets/images/vendor_profile.png">View</a>
-                        </div> -->
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <span class="float-left deep-orange-text display-block" (click)="t.selectTab(0)"><i class="fa fa-angle-left"></i> Back</span>

@@ -82,7 +82,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   }
 
   onFileSelect(event) {
-    // this.clear();
+    this.clear();
     this.submitStarted = true;
     let files  = event.dataTransfer ? event.dataTransfer.files : event.target.files;
 
@@ -99,6 +99,7 @@ export class FormComponent implements OnInit, AfterViewInit {
             formData.append('files', this.files[i], this.files[i].name);
             // this.fileCollection.push(`${BASE_URL}/uploads/forms/${this.userId}/${files[i].name}`);
             this.fileCollection.push(`${files[i].name}`);
+            localStorage.setItem('fileCollection', JSON.stringify(this.fileCollection));
           }
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
@@ -111,7 +112,7 @@ export class FormComponent implements OnInit, AfterViewInit {
               } else if (xhr.status !== 201) {
                 this.toastr.error('There was a problem, please try again later');
                 this.submitStarted = false;
-                // this.clear();
+                this.clear();
               }
               // this.clear();
             }
