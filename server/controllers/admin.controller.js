@@ -106,7 +106,7 @@ let deleteImage = (image) => {
 
 let functions = {
     approve: (req, res) => {
-            let userEmail = req.value.toLowerCase();
+            let userEmail = req.body.userEmail;
                // send approval email to the user
                let options = {
                 viewPath: config.paths.emailPath,
@@ -137,7 +137,7 @@ let functions = {
                         to: 'nhlalucky9@gmail.com',
                         from: 'no-reply@clinix.co.za',
                         subject: 'Vendor Approval Alert',
-                        template: 'email-notify-admin',
+                        template: 'email-notify-approve',
                         context: {
                             // set this uuid because gmail truncates email message and adds 3 dots (how stupid) when footer or main content of the email is the same across all emails sent to the user. For example, if you send out emails very often to the user, footer, header and sometimes body is always the same. This unique id is injected into the email 3 times so gmail thinks footer, header and body are not the same like previous emails.
                             uid: uuidV1()
@@ -153,78 +153,48 @@ let functions = {
                 if (err) {
                     console.log('Registration email was not sent', err);
                 }
+                res.status(200).json({
+                    status: '200',
+                });
+                res.end();
             });
     },
 
     disApprove: (req, res) => {
-        let user = new User({
-            email: req.body.email.toLowerCase(),
-            password: req.body.password
-        });
-        user.save(function(err, result) {
-            if (err) {
-                return res.status(403).json({
-                    title: 'There was a problem',
-                    error: { message: 'The email you entered already exists' }
-                });
-            }
-            // send welcome email to the user
-            let options = {
-                viewPath: config.paths.emailPath,
-                extName: '.hbs'
-            };
-            let send_grid = {
-                auth: {
-                    api_user: config.api_user,
-                    api_key: config.api_key
-                }
-            };
-            let mailOptions = {
-                to: req.body.email,
-                from: 'no-reply@clinix.co.za',
-                subject: 'Welcome to Clinix Reg',
-                template: 'email-welcome',
-                context: {
-                    // set this uuid because gmail truncates email message and adds 3 dots (how stupid) when footer or main content of the email is the same across all emails sent to the user. For example, if you send out emails very often to the user, footer, header and sometimes body is always the same. This unique id is injected into the email 3 times so gmail thinks footer, header and body are not the same like previous emails.
-                    uid: uuidV1()
-                }
-            };
-            let mailer = nodemailer.createTransport(sgTransport(send_grid));
-            mailer.use('compile', hbs(options));
-            mailer.sendMail(mailOptions, (err) => {
-                console.log('Email sent to', req.body.email)
-                if (!err) {
-                    let mailOptionsAdmin = {
-                        to: 'nhlalucky9@gmail.com',
-                        from: 'no-reply@clinix.co.za',
-                        subject: 'Vendor Registration Alert',
-                        template: 'email-notify-admin',
-                        context: {
-                            // set this uuid because gmail truncates email message and adds 3 dots (how stupid) when footer or main content of the email is the same across all emails sent to the user. For example, if you send out emails very often to the user, footer, header and sometimes body is always the same. This unique id is injected into the email 3 times so gmail thinks footer, header and body are not the same like previous emails.
-                            uid: uuidV1()
-                        }
-                    };
-                    mailer.sendMail(mailOptionsAdmin, (err) => {
-                        console.log('Email sent to', 'admin')
-                        if (err) {
-                            console.log('Admin alert email was not sent', err);
-                        }
-                    });
-                }
-                if (err) {
-                    console.log('Registration email was not sent', err);
-                }
-            });
-
-
-            let userInfo = setUserInfo(user);
-            res.status(200).json({
-                status: '200',
-                message: 'Registration Successfull',
-                token: generateToken(userInfo),
-                user: setUserInfoRegister(result)
-            });
-        });
+        let userEmail = req.body.userEmail;
+        // send approval email to the user
+        let options = {
+         viewPath: config.paths.emailPath,
+         extName: '.hbs'
+     };
+     let send_grid = {
+         auth: {
+             api_user: config.api_user,
+             api_key: config.api_key
+         }
+     };
+     let mailOptions = {
+         to: userEmail,
+         from: 'no-reply@clinix.co.za',
+         subject: 'Clinix Health Group | Vendor Registration Rejected',
+         template: 'email-dis-approved',
+         context: {
+             // set this uuid because gmail truncates email message and adds 3 dots (how stupid) when footer or main content of the email is the same across all emails sent to the user. For example, if you send out emails very often to the user, footer, header and sometimes body is always the same. This unique id is injected into the email 3 times so gmail thinks footer, header and body are not the same like previous emails.
+             uid: uuidV1()
+         }
+     };
+     let mailer = nodemailer.createTransport(sgTransport(send_grid));
+     mailer.use('compile', hbs(options));
+     mailer.sendMail(mailOptions, (err) => {
+         console.log('Email sent to', userEmail)
+         if (err) {
+             console.log('Registration email was not sent', err);
+         }
+         res.status(200).json({
+             status: '200',
+         });
+         res.end();
+     });
     },
 
 

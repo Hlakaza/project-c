@@ -6,8 +6,10 @@ import {AdminService} from '../services/admin.service';
 import {BASE_URL, FORMS_API_URL, ADMIN_API_URL} from '../../config/config';
 import {Form} from '../adminForms.model';
 import { vatNumberMatch, regNumberMatch } from '../../validators/input-match';
-import { Http, Response, URLSearchParams} from '@angular/http';
+import { Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import  'rxjs/add/operator/toPromise';
+import { AuthHttp } from 'angular2-jwt';
 @Component({
   selector   : 'app-edit-users-forms',
   templateUrl: './editUsersForms.component.html',
@@ -39,6 +41,7 @@ export class EditUsersFormsComponent implements OnInit {
   salesPersonFaxNo: FormControl;
 
   token: string = localStorage.getItem('id_token');
+  userId: string = localStorage.getItem('userId');
   fileUrl = `${BASE_URL}/uploads/forms`
   formId: string;
 
@@ -48,7 +51,8 @@ export class EditUsersFormsComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private http: Http,
-              private renderer: Renderer) {
+              private renderer: Renderer,
+              private authHttp: AuthHttp) {
   }
 
   ngOnInit() {
@@ -92,43 +96,42 @@ export class EditUsersFormsComponent implements OnInit {
     this.router.navigate(['user/forms']);
   }
 
+  /**
+   *  Send Email to approve the vendor
+   * @param value
+   */
   approve(value) {
-    let url = `${ADMIN_API_URL}/form/approve`;
-    // let params: URLSearchParams = new URLSearchParams();
-    const body = {
-      userEmail: value
-    }
-    return this.http.post(url, body)
-                    .subscribe(
-                      res => {
-                        this.toastr.success('An email has been sent to notify the vendor');
-                      console.log(res)
-                    },
-                    err => {
-                      this.router.navigate(['admin']);
-                      this.toastr.success('Vendor Approved, An email has been sent to notify the vendor');
-                      console.log(err)
-                    })
-
+    let url = `${FORMS_API_URL}/form/approve`;
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', this.token);
+    const body = {userEmail: value}
+    this.authHttp.post(url, body, {headers: headers})
+    .subscribe(
+      res => {
+        this.toastr.success('You have approved this Vendor, An email has been sent to notify approval');
+        this.router.navigate(['admin']);
+    }, err => {
+        this.toastr.error('Sorry, There was an error sending email to the vendor!');
+     })
   }
-  disApprove(value) {
-    let url = `${ADMIN_API_URL}/form/disaprove`;
-    // let params: URLSearchParams = new URLSearchParams();
-    const body = {
-      userEmail: value
-    }
-    return this.http.post(url, body)
-                    .subscribe(
-                      res => {
-                        this.toastr.success('An email has been sent to notify the vendor');
-                      console.log(res)
-                    },
-                    err => {
-                      this.router.navigate(['admin']);
-                      this.toastr.warning('Vendor was not approved, An email has been sent to notify the vendor');
-                      console.log(err)
-                    })
 
+  /**
+   *  Send Email to disaprove the vendor
+   * @param value
+   */
+  disApprove(value) {
+    let url = `${FORMS_API_URL}/form/disapprove`;
+    let headers = new Headers({'Content-Type': 'application/json'});
+    headers.append('Authorization', this.token);
+    const body = {userEmail: value}
+    this.authHttp.post(url, body, {headers: headers})
+    .subscribe(
+      res => {
+        this.toastr.warning('Thr Vendor has been rejected, An email has been sent to notify the vendor');
+        this.router.navigate(['admin']);
+    }, err => {
+        this.toastr.error('Sorry, There was an error sending email to the vendor!');
+     })
   }
 
 }

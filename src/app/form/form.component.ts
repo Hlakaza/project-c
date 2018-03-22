@@ -46,7 +46,7 @@ export class FormComponent implements OnInit, AfterViewInit {
   uploadedfiles = [];
   token: string  = localStorage.getItem('id_token');
   userId: string  = localStorage.getItem('userId');
-  userEmail: string = localStorage.getItem('email');
+  hiddenEmail: string = localStorage.getItem('email');
   url  = `${FORMS_API_URL}/upload`;
   imageUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
   fileUrl = `${BASE_URL}/uploads/forms/${this.userId}/`;
@@ -213,7 +213,6 @@ export class FormComponent implements OnInit, AfterViewInit {
       serviceProductInfo: new FormControl(null, Validators.required),
       BBBEELevel: new FormControl(null, Validators.required),
       typeofBusiness: new FormControl(null, Validators.required),
-      // hiddenEmail: new FormControl(null, Validators.required),
       });
   }
 
@@ -268,11 +267,10 @@ export class FormComponent implements OnInit, AfterViewInit {
       this.myForm.value.serviceProduct,
       this.myForm.value.BBBEELevel,
       this.myForm.value.typeofBusiness,
-      this.myForm.value.hiddenEmail,
-      this.fileCollection
+      this.fileCollection,
+      this.hiddenEmail
     );
     console.log(newForm);
-    console.log(this.fileName);
     /**
      * disabling the submiting of form if files are null
      */

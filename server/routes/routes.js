@@ -109,8 +109,12 @@ module.exports = (app) => {
   // Edit Form, endpoint: http://localhost:3000/api/admin/form/:id
   adminRoutes.patch('/form/:id', requireAuth, admin.editForm);
 
-  // Upload image endpoint: http://localhost:3000/api/admin/form/image
+  // Upload file endpoint: http://localhost:3000/api/admin/form/file
   formRoutes.post('/form/image', requireAuth, admin.uploadImage);
+
+  formRoutes.post('/form/approve', requireAuth, admin.approve);
+
+  formRoutes.post('/form/disapprove', requireAuth, admin.disApprove);
 
   
   // Delete Image endpoint: http://localhost:3000/api/admin/form/image/:id
@@ -120,7 +124,7 @@ module.exports = (app) => {
   adminRoutes.post('/form/approve', requireAuth, admin.approve);
 
   // Dis approve  endpoint: http://localhost:3000/api/admin/form/aprove/:id
-  adminRoutes.post('/form/disApprove', requireAuth, admin.disApprove);
+  adminRoutes.post('/form/disapprove', requireAuth, admin.disApprove);
 
   // Set url for API group routes, all endpoints start with /api/ eg http://localhost:3000/api/admin  || http://localhost:3000/api/auth
   app.use('/api', apiRoutes);

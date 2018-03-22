@@ -1,7 +1,6 @@
 export class Form {
 
-   constructor(// public textInputOne: string,
-  //             public textInputTwo: string,
+   constructor(
               public tradingName: string,
               public registeredCompanyName: string,
               public registrationNumber: string,
@@ -21,9 +20,9 @@ export class Form {
               public salesPersonFaxNo: string,
               public serviceProduct,
               public BBBEELevel,
-              public hiddenEmail,
               public typeofBusiness,
               public fileCollection: Array<string>,
+              public hiddenEmail,
               public fileUp?: string,
               public userId?: string,
               public formId?: string) {
@@ -46,8 +45,8 @@ export class Form {
     this.salesPersonFaxNo = salesPersonFaxNo;
     this.serviceProduct = serviceProduct;
     this.BBBEELevel = BBBEELevel;
-    this.hiddenEmail = hiddenEmail;
     this.typeofBusiness = typeofBusiness;
+    this.hiddenEmail = hiddenEmail;
     this.fileUp       = fileUp;
     this.userId       = userId;
     this.formId       = formId;
